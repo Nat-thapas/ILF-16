@@ -1,5 +1,5 @@
 # ILF-16
-ILF-16 is a 16-bit cpu that runs on a Spartan-6 FPGA.
+ILF-16 is a 16-bit cpu that runs on Spartan-6 FPGA.
 ## Internals
 ### ALU
 The ALU or arithmatic logic unit have 2 16-bit input registers (A, B) and 3 16-bit non-register outputs. The 3 outputs are L, H and F. L is the lower 16 bits of the output of the operation, this is used for most operation. H is the upper 16 bits of the output of the operation, this is only used for multiplication. F is the flag output. 

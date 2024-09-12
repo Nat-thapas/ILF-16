@@ -23,19 +23,19 @@ The ALU or arithmatic logic unit have 2 16-bit input registers (A, B) and 3 16-b
     - 1111 : XNOR   (L = ~(A ^ B))
 2. Flags:
     The ALU have 1 16-bit output flag. From LSB to MSB they are the following.
-    - G    : A > B   Greater than (unsinged)
-    - GE   : A >= B  Greater than or Equal to (unsinged)
-    - L    : A < B   Less than (unsinged)
-    - LE   : A <= B  Less than or Equal to (unsinged)
-    - SG   : A > B   Signed Greater than
-    - SGE  : A >= B  Signed Greater than or Equal to
-    - SL   : A < B   Signed Less than
-    - SLE  : A <= B  Signed Less than or Equal to
-    - ZA   : A = 0   Zero(A)
-    - ZB   : B = 0   Zero(B)
-    - SA   : A < 0   Sign(A)
-    - SB   : B < 0   Sign(B)
-    - EQ   : A = B   Equal
-    - C    :         Carry
-    - OF   :         Overflow
-    - PA   :         Parity(A) Even = 1, Odd = 0
+    - 00 : GT   : A > B   Greater than (unsinged)
+    - 01 : GE   : A >= B  Greater than or Equal to (unsinged)
+    - 02 : LT   : A < B   Less than (unsinged)
+    - 03 : LE   : A <= B  Less than or Equal to (unsinged)
+    - 04 : SGT  : A > B   Signed Greater than
+    - 05 : SGE  : A >= B  Signed Greater than or Equal to
+    - 06 : SLT  : A < B   Signed Less than
+    - 07 : SLE  : A <= B  Signed Less than or Equal to
+    - 08 : ZA   : A = 0   Zero(A)
+    - 09 : ZB   : B = 0   Zero(B)
+    - 10 : SA   : A < 0   Sign(A)
+    - 11 : SB   : B < 0   Sign(B)
+    - 12 : EQ   : A = B   Equal
+    - 13 : CB   :         Carry / Borrow
+    - 14 : OF   :         Overflow
+    - 15 : PA   :         Parity(A) Even = 1, Odd = 0

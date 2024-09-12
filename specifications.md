@@ -9,10 +9,10 @@ The ALU or arithmatic logic unit have 2 16-bit input registers (A, B) and 3 16-b
     - 0001 : ADC    (L = A + B + 1) Add with Carry
     - 0010 : SUB    (L = A - B)
     - 0011 : SBB    (L = A - B - 1) Subtract with borrow
-    - 0100 : MUL    (H, L = A * B) This is an unsigned multiplication
-    - 0101 : SMUL   (H, L = A * B) This is a signed multiplication
-    - 0110 : RSHIFT (L = A >> B) This is an unsigned bitwise right shift operation, this is non-cyclic, the shifted out bit is lost
-    - 0111 : LSHIFT (L = A << B) This is an unsigned bitwise left shift operation, this is non-cyclic, the shifted out bit is lost
+    - 0100 : MUL    (H, L = A * B) Unsigned multiply
+    - 0101 : SMUL   (H, L = A * B) Signed multiply
+    - 0110 : RSHIFT (L = A >> B) Unsigned bitwise right shift, non-cyclic, the shifted out bit is lost
+    - 0111 : LSHIFT (L = A << B) Unsigned bitwise left shift, non-cyclic, the shifted out bit is lost
     - 1000 : NOT A  (L = ~A)
     - 1001 : NOT B  (L = ~B)
     - 1010 : AND    (L = A & B)

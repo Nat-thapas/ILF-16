@@ -86,8 +86,8 @@ The ILF-16 supports a total of 256 instructions. Currently, the following is ava
 | 10000001          | 81             | Reserved | 2              | 1         | -                       |
 | 10000010          | 82             | LOD      | 2              | 1         | T = RAM @ A             |
 | 10000011          | 83             | STR      | 2              | 1         | RAM @ T = A             |
-| 10000100          | 84             | IN       | 2              | 1         | T = INPUT @ A           |
-| 10000101          | 85             | OUT      | 2              | 1         | OUTPUT @ T = A          |
+| 10000100          | 84             | IN       | 2              | 1         | T = INPUT #A           |
+| 10000101          | 85             | OUT      | 2              | 1         | OUTPUT #T = A          |
 
 Notes: 
 - Reserved instructions are side effect instructions from how the CPU decode instructions, these may or may not work and have undefined behavior.

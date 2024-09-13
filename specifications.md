@@ -28,28 +28,28 @@ The instruction layout for the second 16 bits (where applicable) is dependent on
 ### Instruction Identifiers
 The ILF-16 supports a total of 256 instructions. Currently, the following is available/planned:
 (T = target/destination register/port. A, B are the first and second argument)
-| Binary Identifier | Hex Identifier | Name     | Length (words) | Arguments | Description             |
-|------------------:|---------------:|----------|----------------|-----------|-------------------------|
-| 00000000          | 00             | NOP      | 1              | -         | Do nothing (takes 2 cycles) |
-| 00000001          | 01             | STL      | 1              | -         | Stall for 4 cycles      |
-| 00000010          | 02             | LST      | 1              | -         | Stall for 6 cycles      |
-| 00000011          | 03             | XLST     | 1              | -         | Stall for 10 cycles     |
-| 00010000          | 10             | ADD      | 2              | 2         | T = A + B               |
-| 00010001          | 11             | ADC      | 2              | 2         | T = A + B + 1           |
-| 00010010          | 12             | SUB      | 2              | 2         | T = A - B               |
-| 00010011          | 13             | SBB      | 2              | 2         | T = A - B - 1           |
-| 00010100          | 14             | MUL      | 2              | 2         | T+1, T = A * B          |
-| 00010101          | 15             | SMUL     | 2              | 2         | T+1, T = A * B          |
-| 00010110          | 16             | RSHIFT   | 2              | 2         | T = A >> B              |
-| 00010111          | 17             | LSHIFT   | 2              | 2         | T = A << B              |
-| 00011000          | 18             | NOT      | 2              | 1         | T = ~A                  |
-| 00011001          | 19             | FLG      | 2              | 2         | Set ALU flags, T must be R0 |
-| 00011010          | 1A             | AND      | 2              | 2         | T = A & B               |
-| 00011011          | 1B             | OR       | 2              | 2         | T = A | B               |
-| 00011100          | 1C             | XOR      | 2              | 2         | T = A ^ B               |
-| 00011101          | 1D             | NAND     | 2              | 2         | T = ~(A & B)            |
-| 00011110          | 1E             | NOR      | 2              | 2         | T = ~(A | B)            |
-| 00011111          | 1F             | XNOR     | 2              | 2         | T = ~(A ^ B)            |
+| Binary Identifier | Hex Identifier | Name     | Length (words) | Arguments | Description                  |
+|------------------:|---------------:|----------|----------------|-----------|------------------------------|
+| 00000000          | 00             | NOP      | 1              | -         | Do nothing (takes 2 cycles)  |
+| 00000001          | 01             | STL      | 1              | -         | Stall for 4 cycles           |
+| 00000010          | 02             | LST      | 1              | -         | Stall for 6 cycles           |
+| 00000011          | 03             | XLST     | 1              | -         | Stall for 10 cycles          |
+| 00010000          | 10             | ADD      | 2              | 2         | T = A + B                    |
+| 00010001          | 11             | ADC      | 2              | 2         | T = A + B + 1                |
+| 00010010          | 12             | SUB      | 2              | 2         | T = A - B                    |
+| 00010011          | 13             | SBB      | 2              | 2         | T = A - B - 1                |
+| 00010100          | 14             | MUL      | 2              | 2         | T+1, T = A * B               |
+| 00010101          | 15             | SMUL     | 2              | 2         | T+1, T = A * B               |
+| 00010110          | 16             | RSHIFT   | 2              | 2         | T = A >> B                   |
+| 00010111          | 17             | LSHIFT   | 2              | 2         | T = A << B                   |
+| 00011000          | 18             | NOT      | 2              | 1         | T = ~A                       |
+| 00011001          | 19             | FLG      | 2              | 2         | Set ALU flags, T must be R0  |
+| 00011010          | 1A             | AND      | 2              | 2         | T = A & B                    |
+| 00011011          | 1B             | OR       | 2              | 2         | T = A | B                    |
+| 00011100          | 1C             | XOR      | 2              | 2         | T = A ^ B                    |
+| 00011101          | 1D             | NAND     | 2              | 2         | T = ~(A & B)                 |
+| 00011110          | 1E             | NOR      | 2              | 2         | T = ~(A | B)                 |
+| 00011111          | 1F             | XNOR     | 2              | 2         | T = ~(A ^ B)                 |
 | 00100000          | 20             | BGT      | 2              | 1         | Branch if greater than (unsigned) |
 | 00100001          | 21             | BGE      | 2              | 1         | Branch if greater than or equal (unsigned) |
 | 00100010          | 22             | BLT      | 2              | 1         | Branch if less than (unsigned) |
@@ -58,36 +58,36 @@ The ILF-16 supports a total of 256 instructions. Currently, the following is ava
 | 00100101          | 25             | BSGE     | 2              | 1         | Branch if greater than or equal (signed) |
 | 00100110          | 26             | BSLT     | 2              | 1         | Branch if less than (signed) |
 | 00100111          | 27             | BSLE     | 2              | 1         | Branch if less than or equal (signed) |
-| 00101000          | 28             | BEQ      | 2              | 1         | Branch if equal         |
-| 00101001          | 29             | BZ       | 2              | 1         | Branch if zero          |
-| 00101010          | 2A             | BNEG     | 2              | 1         | Branch if negative      |
-| 00101011          | 2B             | BEVN     | 2              | 1         | Branch if even          |
-| 00101100          | 2C             | BBEVN    | 2              | 1         | Branch if bitwise even  |
-| 00101101          | 2D             | BC       | 2              | 1         | Branch if carry/borrow  |
-| 00101110          | 2E             | BOF      | 2              | 1         | Branch if overflow      |
-| 00101111          | 2F             | BRN      | 2              | 1         | Branch                  |
-| 00110000          | 30             | Reserved | 2              | 1         | -                       |
-| 00110001          | 31             | Reserved | 2              | 1         | -                       |
-| 00110010          | 32             | Reserved | 2              | 1         | -                       |
-| 00110011          | 33             | Reserved | 2              | 1         | -                       |
-| 00110100          | 34             | Reserved | 2              | 1         | -                       |
-| 00110101          | 35             | Reserved | 2              | 1         | -                       |
-| 00110110          | 36             | Reserved | 2              | 1         | -                       |
-| 00110111          | 37             | Reserved | 2              | 1         | -                       |
-| 00111000          | 38             | BNEQ     | 2              | 1         | Branch if not equal     |
-| 00111001          | 39             | BNZ      | 2              | 1         | Branch if not zero      |
-| 00111010          | 4A             | BPOS     | 2              | 1         | Branch if positive      |
-| 00111011          | 4B             | BODD     | 2              | 1         | Branch if odd           |
-| 00111100          | 4C             | BBODD    | 2              | 1         | Branch if bitwise odd   |
-| 00111101          | 4D             | BNC      | 2              | 1         | Branch if not carry/borrow |
-| 00111110          | 4E             | BNOF     | 2              | 1         | Branch if not overflow  |
-| 00111111          | 4F             | Reserved | 2              | 1         | -                       |
-| 10000000          | 80             | MOV      | 2              | 1         | T = A (A can be IMM/Reg) |
-| 10000001          | 81             | Reserved | 2              | 1         | -                       |
-| 10000010          | 82             | LOD      | 2              | 1         | T = RAM @ A             |
-| 10000011          | 83             | STR      | 2              | 1         | RAM @ T = A             |
-| 10000100          | 84             | IN       | 2              | 1         | T = INPUT #A           |
-| 10000101          | 85             | OUT      | 2              | 1         | OUTPUT #T = A          |
+| 00101000          | 28             | BEQ      | 2              | 1         | Branch if equal              |
+| 00101001          | 29             | BZ       | 2              | 1         | Branch if zero               |
+| 00101010          | 2A             | BNEG     | 2              | 1         | Branch if negative           |
+| 00101011          | 2B             | BEVN     | 2              | 1         | Branch if even               |
+| 00101100          | 2C             | BBEVN    | 2              | 1         | Branch if bitwise even       |
+| 00101101          | 2D             | BC       | 2              | 1         | Branch if carry/borrow       |
+| 00101110          | 2E             | BOF      | 2              | 1         | Branch if overflow           |
+| 00101111          | 2F             | BRN      | 2              | 1         | Branch                       |
+| 00110000          | 30             | Reserved | 2              | 1         | -                            |
+| 00110001          | 31             | Reserved | 2              | 1         | -                            |
+| 00110010          | 32             | Reserved | 2              | 1         | -                            |
+| 00110011          | 33             | Reserved | 2              | 1         | -                            |
+| 00110100          | 34             | Reserved | 2              | 1         | -                            |
+| 00110101          | 35             | Reserved | 2              | 1         | -                            |
+| 00110110          | 36             | Reserved | 2              | 1         | -                            |
+| 00110111          | 37             | Reserved | 2              | 1         | -                            |
+| 00111000          | 38             | BNEQ     | 2              | 1         | Branch if not equal          |
+| 00111001          | 39             | BNZ      | 2              | 1         | Branch if not zero           |
+| 00111010          | 4A             | BPOS     | 2              | 1         | Branch if positive           |
+| 00111011          | 4B             | BODD     | 2              | 1         | Branch if odd                |
+| 00111100          | 4C             | BBODD    | 2              | 1         | Branch if bitwise odd        |
+| 00111101          | 4D             | BNC      | 2              | 1         | Branch if not carry/borrow   |
+| 00111110          | 4E             | BNOF     | 2              | 1         | Branch if not overflow       |
+| 00111111          | 4F             | Reserved | 2              | 1         | -                            |
+| 10000000          | 80             | MOV      | 2              | 1         | T = A (A can be IMM/Reg)     |
+| 10000001          | 81             | Reserved | 2              | 1         | -                            |
+| 10000010          | 82             | LOD      | 2              | 1         | T = RAM @ A                  |
+| 10000011          | 83             | STR      | 2              | 1         | RAM @ T = A                  |
+| 10000100          | 84             | IN       | 2              | 1         | T = INPUT #A                 |
+| 10000101          | 85             | OUT      | 2              | 1         | OUTPUT #T = A                |
 
 Notes: 
 - Reserved instructions are side effect instructions from how the CPU decode instructions, these may or may not work and have undefined behavior.

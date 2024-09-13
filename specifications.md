@@ -61,8 +61,8 @@ The ILF-16 supports a total of 256 instructions. Currently, the following is ava
 | 00101000          | 28             | BEQ      | 2              | 1         | Branch if equal              |
 | 00101001          | 29             | BZ       | 2              | 1         | Branch if zero               |
 | 00101010          | 2A             | BNEG     | 2              | 1         | Branch if negative           |
-| 00101011          | 2B             | BEVN     | 2              | 1         | Branch if even               |
-| 00101100          | 2C             | BBEVN    | 2              | 1         | Branch if bitwise even       |
+| 00101011          | 2B             | BEV      | 2              | 1         | Branch if even               |
+| 00101100          | 2C             | BBEV     | 2              | 1         | Branch if bitwise even       |
 | 00101101          | 2D             | BC       | 2              | 1         | Branch if carry/borrow       |
 | 00101110          | 2E             | BOF      | 2              | 1         | Branch if overflow           |
 | 00101111          | 2F             | BRN      | 2              | 1         | Branch                       |
@@ -76,9 +76,9 @@ The ILF-16 supports a total of 256 instructions. Currently, the following is ava
 | 00110111          | 37             | Reserved | 2              | 1         | -                            |
 | 00111000          | 38             | BNEQ     | 2              | 1         | Branch if not equal          |
 | 00111001          | 39             | BNZ      | 2              | 1         | Branch if not zero           |
-| 00111010          | 4A             | BPOS     | 2              | 1         | Branch if positive           |
-| 00111011          | 4B             | BODD     | 2              | 1         | Branch if odd                |
-| 00111100          | 4C             | BBODD    | 2              | 1         | Branch if bitwise odd        |
+| 00111010          | 4A             | BPOS     | 2              | 1         | Branch if positive or zero   |
+| 00111011          | 4B             | BOD      | 2              | 1         | Branch if odd                |
+| 00111100          | 4C             | BBOD     | 2              | 1         | Branch if bitwise odd        |
 | 00111101          | 4D             | BNC      | 2              | 1         | Branch if not carry/borrow   |
 | 00111110          | 4E             | BNOF     | 2              | 1         | Branch if not overflow       |
 | 00111111          | 4F             | Reserved | 2              | 1         | -                            |

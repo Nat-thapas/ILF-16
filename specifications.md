@@ -38,8 +38,8 @@ The ILF-16 supports a total of 256 instructions. Currently, the following is ava
 | 00010001          | 11             | ADC      | 2              | 2         | T = A + B + 1                |
 | 00010010          | 12             | SUB      | 2              | 2         | T = A - B                    |
 | 00010011          | 13             | SBB      | 2              | 2         | T = A - B - 1                |
-| 00010100          | 14             | MUL      | 2              | 2         | T+1, T = A * B               |
-| 00010101          | 15             | SMUL     | 2              | 2         | T+1, T = A * B               |
+| 00010100          | 14             | MUL      | 2              | 2         | T+1, T = A * B (unsigned)    |
+| 00010101          | 15             | SMUL     | 2              | 2         | T+1, T = A * B (signed)      |
 | 00010110          | 16             | RSHIFT   | 2              | 2         | T = A >> B                   |
 | 00010111          | 17             | LSHIFT   | 2              | 2         | T = A << B                   |
 | 00011000          | 18             | NOT      | 2              | 1         | T = ~A                       |

@@ -74,11 +74,8 @@
         <signal name="D1(15)" />
         <signal name="D2(15)" />
         <signal name="D3(15)" />
-        <signal name="XLXN_91" />
         <signal name="E" />
-        <signal name="XLXN_93" />
         <signal name="S1" />
-        <signal name="XLXN_95" />
         <signal name="S0" />
         <signal name="O(15:0)" />
         <signal name="O(15)" />
@@ -881,8 +878,7 @@
             <wire x2="1280" y1="2128" y2="2608" x1="1280" />
             <wire x2="1280" y1="2608" y2="3088" x1="1280" />
             <wire x2="1280" y1="3088" y2="3568" x1="1280" />
-            <wire x2="1280" y1="3568" y2="4032" x1="1280" />
-            <wire x2="1280" y1="4032" y2="4048" x1="1280" />
+            <wire x2="1280" y1="3568" y2="4048" x1="1280" />
             <wire x2="1280" y1="4048" y2="4528" x1="1280" />
             <wire x2="1280" y1="4528" y2="5008" x1="1280" />
             <wire x2="1280" y1="5008" y2="5488" x1="1280" />

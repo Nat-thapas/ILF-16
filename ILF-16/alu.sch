@@ -35,7 +35,6 @@
         <signal name="XLXN_69(15:0)" />
         <signal name="XLXN_70(15:0)" />
         <signal name="XLXN_71(15:0)" />
-        <signal name="XLXN_72" />
         <signal name="XLXN_80" />
         <signal name="XLXN_82" />
         <signal name="XLXN_86(15:0)" />
@@ -126,11 +125,9 @@
         <signal name="F(11)" />
         <signal name="F(10)" />
         <signal name="F(15)" />
-        <signal name="XLXN_272(15:0)" />
         <signal name="XLXN_259" />
         <signal name="XLXN_261" />
         <signal name="XLXN_260" />
-        <signal name="XLXN_292" />
         <port polarity="Input" name="CEA" />
         <port polarity="Input" name="A(15:0)" />
         <port polarity="Input" name="CEB" />
@@ -305,23 +302,6 @@
             <line x2="64" y1="0" y2="-32" x1="64" />
             <line x2="32" y1="-64" y2="-64" x1="96" />
         </blockdef>
-        <blockdef name="mux4x1x16e">
-            <timestamp>2024-9-12T11:15:18</timestamp>
-            <rect width="256" x="64" y="-448" height="448" />
-            <line x2="0" y1="-416" y2="-416" x1="64" />
-            <rect width="64" x="0" y="-428" height="24" />
-            <line x2="0" y1="-352" y2="-352" x1="64" />
-            <rect width="64" x="0" y="-364" height="24" />
-            <line x2="0" y1="-288" y2="-288" x1="64" />
-            <rect width="64" x="0" y="-300" height="24" />
-            <line x2="0" y1="-224" y2="-224" x1="64" />
-            <rect width="64" x="0" y="-236" height="24" />
-            <line x2="0" y1="-32" y2="-32" x1="64" />
-            <line x2="384" y1="-416" y2="-416" x1="320" />
-            <rect width="64" x="320" y="-428" height="24" />
-            <line x2="0" y1="-160" y2="-160" x1="64" />
-            <line x2="0" y1="-96" y2="-96" x1="64" />
-        </blockdef>
         <blockdef name="lut3">
             <timestamp>2007-4-25T21:45:29</timestamp>
             <line x2="320" y1="-192" y2="-192" x1="384" />
@@ -430,6 +410,22 @@
             <arc ex="48" ey="-208" sx="48" sy="-112" r="56" cx="16" cy="-160" />
             <arc ex="208" ey="-160" sx="128" sy="-112" r="88" cx="132" cy="-200" />
         </blockdef>
+        <blockdef name="mux4x1x16t">
+            <timestamp>2024-9-23T13:43:49</timestamp>
+            <rect width="256" x="64" y="-384" height="384" />
+            <line x2="0" y1="-352" y2="-352" x1="64" />
+            <rect width="64" x="0" y="-364" height="24" />
+            <line x2="0" y1="-288" y2="-288" x1="64" />
+            <rect width="64" x="0" y="-300" height="24" />
+            <line x2="0" y1="-224" y2="-224" x1="64" />
+            <rect width="64" x="0" y="-236" height="24" />
+            <line x2="0" y1="-160" y2="-160" x1="64" />
+            <rect width="64" x="0" y="-172" height="24" />
+            <line x2="384" y1="-352" y2="-352" x1="320" />
+            <rect width="64" x="320" y="-364" height="24" />
+            <line x2="0" y1="-96" y2="-96" x1="64" />
+            <line x2="0" y1="-32" y2="-32" x1="64" />
+        </blockdef>
         <block symbolname="gnd" name="XLXI_5">
             <blockpin signalname="XLXN_11" name="G" />
         </block>
@@ -527,19 +523,6 @@
         </block>
         <block symbolname="vcc" name="XLXI_38">
             <blockpin signalname="XLXN_67" name="P" />
-        </block>
-        <block symbolname="mux4x1x16e" name="XLXI_39">
-            <blockpin signalname="XLXN_68(15:0)" name="D0(15:0)" />
-            <blockpin signalname="XLXN_69(15:0)" name="D1(15:0)" />
-            <blockpin signalname="XLXN_70(15:0)" name="D2(15:0)" />
-            <blockpin signalname="XLXN_71(15:0)" name="D3(15:0)" />
-            <blockpin signalname="XLXN_72" name="E" />
-            <blockpin signalname="XLXN_86(15:0)" name="O(15:0)" />
-            <blockpin signalname="XLXN_80" name="S0" />
-            <blockpin signalname="XLXN_82" name="S1" />
-        </block>
-        <block symbolname="vcc" name="XLXI_40">
-            <blockpin signalname="XLXN_72" name="P" />
         </block>
         <block symbolname="lut3" name="XLXI_41">
             <attr value="B0" name="INIT">
@@ -789,6 +772,15 @@
         <block symbolname="vcc" name="XLXI_130">
             <blockpin signalname="F(15)" name="P" />
         </block>
+        <block symbolname="mux4x1x16t" name="XLXI_131">
+            <blockpin signalname="XLXN_68(15:0)" name="D0(15:0)" />
+            <blockpin signalname="XLXN_69(15:0)" name="D1(15:0)" />
+            <blockpin signalname="XLXN_70(15:0)" name="D2(15:0)" />
+            <blockpin signalname="XLXN_71(15:0)" name="D3(15:0)" />
+            <blockpin signalname="XLXN_86(15:0)" name="O(15:0)" />
+            <blockpin signalname="XLXN_80" name="S0" />
+            <blockpin signalname="XLXN_82" name="S1" />
+        </block>
     </netlist>
     <sheet sheetnum="1" width="5440" height="7040">
         <branch name="CEA">
@@ -962,9 +954,6 @@
             <wire x2="2896" y1="944" y2="944" x1="2640" />
             <wire x2="2640" y1="944" y2="1328" x1="2640" />
         </branch>
-        <branch name="XLXN_72">
-            <wire x2="2896" y1="1136" y2="1136" x1="2832" />
-        </branch>
         <instance x="1376" y="2384" name="XLXI_41" orien="R0">
             <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="192" y="-360" type="instance" />
         </instance>
@@ -985,8 +974,6 @@
             <wire x2="2896" y1="1072" y2="1072" x1="2704" />
             <wire x2="2704" y1="1072" y2="2592" x1="2704" />
         </branch>
-        <instance x="2896" y="1168" name="XLXI_39" orien="R0">
-        </instance>
         <branch name="XLXN_80">
             <wire x2="2672" y1="2192" y2="2192" x1="1760" />
             <wire x2="2896" y1="1008" y2="1008" x1="2672" />
@@ -994,7 +981,6 @@
         </branch>
         <instance x="1856" y="928" name="XLXI_7" orien="R0">
         </instance>
-        <instance x="2832" y="1200" name="XLXI_40" orien="R270" />
         <branch name="XLXN_86(15:0)">
             <wire x2="3440" y1="752" y2="752" x1="3280" />
             <wire x2="3440" y1="752" y2="1312" x1="3440" />
@@ -1990,5 +1976,7 @@
         <text style="fontsize:24;fontname:Arial" x="4140" y="2288">BP</text>
         <text style="fontsize:24;fontname:Arial" x="4148" y="2336">P</text>
         <text style="fontsize:24;fontname:Arial" x="4148" y="2384">S</text>
+        <instance x="2896" y="1104" name="XLXI_131" orien="R0">
+        </instance>
     </sheet>
 </drawing>

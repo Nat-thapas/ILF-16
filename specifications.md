@@ -39,13 +39,13 @@ The ILF-16 supports a total of 256 instructions. Currently, the following is ava
 | 00000000          | 00             | NOP      | -         | Do nothing (takes 2 cycles)                  |
 | 00000001          | 01             | STL      | 1         | Do nothing for A * 2 cycles                  |
 | 00010000          | 10             | ADD      | 2         | $D = A + B                                   |
-| 00010001          | 11             | ADC      | 2         | $D = A + B + 1                               |
-| 00010010          | 12             | SUB      | 2         | $D = A - B                                   |
-| 00010011          | 13             | SBB      | 2         | $D = A - B - 1                               |
-| 00010100          | 14             | MUL      | 2         | $D = A * B (unsigned, truncated to 16 bits)  |
-| 00010101          | 15             | SMUL     | 2         | $D = A * B (signed, truncated to 16 bits)    |
-| 00010110          | 16             | RSHIFT   | 2         | $D = A >> B                                  |
-| 00010111          | 17             | LSHIFT   | 2         | $D = A << B                                  |
+| 00010001          | 11             | SUB      | 2         | $D = A - B                                   |
+| 00010010          | 12             | RSHIFT   | 2         | $D = A >> B                                  |
+| 00010011          | 13             | LSHIFT   | 2         | $D = A << B                                  |
+| 00010100          | 14             | MUL      | 2         | $D = A * B (unsigned, result is lower 16 bits) |
+| 00010101          | 15             | SMUL     | 2         | $D = A * B (signed, result is lower 16 bits) |
+| 00010110          | 16             | UMUL     | 2         | $D = A * B (unsigned, result is upper 16 bits) |
+| 00010111          | 17             | SUMUL    | 2         | $D = A * B (signed, result is upper 16 bits) |
 | 00011000          | 18             | NOT      | 1         | $D = ~A                                      |
 | 00011001          | 19             | TEST     | 2         | Set the flags register, T must be R0, result is discarded |
 | 00011010          | 1A             | AND      | 2         | $D = A & B                                   |
@@ -111,21 +111,21 @@ The ALU or arithmatic logic unit is a purely combinational component with no reg
 3. Op codes:
     The ALU takes in a 4-bit op code, which tells the ALU with operation to perform.
     - 0000 : ADD    (O = A + B)
-    - 0001 : ADC    (O = A + B + 1) Add with Carry
-    - 0010 : SUB    (O = A - B)
-    - 0011 : SBB    (O = A - B - 1) Subtract with borrow
-    - 0100 : MUL    (O = A * B) Unsigned multiply, the result is truncated to 16 bits
-    - 0101 : SMUL   (O = A * B) Signed multiply, the result is truncated to 16 bits
-    - 0110 : RSHIFT (L = A >> B) Unsigned bitwise right shift, non-cyclic, the shifted out bit is lost
-    - 0111 : LSHIFT (L = A << B) Unsigned bitwise left shift, non-cyclic, the shifted out bit is lost
-    - 1000 : NOT A  (L = ~A)
-    - 1001 : NOT B  (L = ~B)
-    - 1010 : AND    (L = A & B)
-    - 1011 : OR     (L = A | B)
-    - 1100 : XOR    (L = A ^ B)
-    - 1101 : NAND   (L = ~(A & B))
-    - 1110 : NOR    (L = ~(A | B))
-    - 1111 : XNOR   (L = ~(A ^ B))
+    - 0001 : SUB    (O = A - B)
+    - 0010 : RSHIFT (O = A >> B) Unsigned bitwise right shift, non-cyclic, the shifted out bit is lost
+    - 0011 : LSHIFT (O = A << B) Unsigned bitwise left shift, non-cyclic, the shifted out bit is lost
+    - 0100 : MUL    (O = A * B) Unsigned multiply, result is the lower 16 bits
+    - 0101 : SMUL   (O = A * B) Signed multiply, result is the lower 16 bits
+    - 0110 : UMUL   (O = A * B) Unsigned multiply, result is the upper 16 bits
+    - 0111 : SUMUL  (O = A * B) Signed multiply, result is the upper 16 bits
+    - 1000 : NOT A  (O = ~A)
+    - 1001 : NOT B  (O = ~B)
+    - 1010 : AND    (O = A & B)
+    - 1011 : OR     (O = A | B)
+    - 1100 : XOR    (O = A ^ B)
+    - 1101 : NAND   (O = ~(A & B))
+    - 1110 : NOR    (O = ~(A | B))
+    - 1111 : XNOR   (O = ~(A ^ B))
 4. Flags:
     The ALU have 1 16-bit output flag. From LSB to MSB they are the following.
     - 00 : GT   : A > B   Greater than (unsinged)

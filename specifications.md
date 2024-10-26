@@ -47,7 +47,7 @@ The ILF-16 supports a total of 256 instructions. Currently, the following is ava
 | 00010110          | 16             | UMUL     | 2         | $D = A * B (unsigned, result is upper 16 bits) |
 | 00010111          | 17             | SUMUL    | 2         | $D = A * B (signed, result is upper 16 bits) |
 | 00011000          | 18             | NOT      | 1         | $D = ~A                                      |
-| 00011001          | 19             | TEST     | 2         | Set the flags register, T must be R0, result is discarded |
+| 00011001          | 19             | Reserved | -         | -                                            |
 | 00011010          | 1A             | AND      | 2         | $D = A & B                                   |
 | 00011011          | 1B             | OR       | 2         | $D = A | B                                   |
 | 00011100          | 1C             | XOR      | 2         | $D = A ^ B                                   |
@@ -86,49 +86,47 @@ The ILF-16 supports a total of 256 instructions. Currently, the following is ava
 | 00111101          | 3D             | Reserved | -         | -                                            |
 | 00111110          | 3E             | Reserved | -         | -                                            |
 | 00111111          | 3F             | Reserved | -         | -                                            |
-| 01000000          | 40             | SGT      | 1         | Set A to 1s if greater than (unsigned)       |
-| 01000001          | 41             | SLT      | 1         | Set A to 1s if less than (unsigned)          |
-| 01000010          | 44             | SSGT     | 1         | Set A to 1s if greater than (signed)         |
-| 01000011          | 46             | SSLT     | 1         | Set A to 1s if less than (signed)            |
-| 01000100          | 44             | SEQ      | 1         | Set A to 1s if equal                         |
-| 01000101          | 49             | SZ       | 1         | Set A to 1s if zero                          |
-| 01000110          | 46             | SNEG     | 1         | Set A to 1s if negative                      |
-| 01000111          | 47             | SPOS     | 1         | Set A to 1s if positive                      |
-| 01001000          | 48             | SEV      | 1         | Set A to 1s if even                          |
-| 01001001          | 49             | SBEV     | 1         | Set A to 1s if bitwise even                  |
-| 01001010          | 4A             | SC       | 1         | Set A to 1s if carry/borrow                  |
-| 01001011          | 4B             | SOF      | 1         | Set A to 1s if overflow                      |
+| 01000000          | 40             | SGT      | 1-2       | $D = A if greater than (unsigned) else B     |
+| 01000001          | 41             | SLT      | 1-2       | $D = A if less than (unsigned) else B        |
+| 01000010          | 44             | SSGT     | 1-2       | $D = A if greater than (signed) else B       |
+| 01000011          | 46             | SSLT     | 1-2       | $D = A if less than (signed) else B          |
+| 01000100          | 44             | SEQ      | 1-2       | $D = A if equal else B                       |
+| 01000101          | 49             | SZ       | 1-2       | $D = A if zero else B                        |
+| 01000110          | 46             | SNEG     | 1-2       | $D = A if negative else B                    |
+| 01000111          | 47             | SPOS     | 1-2       | $D = A if positive else B                    |
+| 01001000          | 48             | SEV      | 1-2       | $D = A if even else B                        |
+| 01001001          | 49             | SBEV     | 1-2       | $D = A if bitwise even else B                |
+| 01001010          | 4A             | SC       | 1-2       | $D = A if carry/borrow else B                |
+| 01001011          | 4B             | SOF      | 1-2       | $D = A if overflow else B                    |
 | 01001100          | 4C             | Reserved | -         | -                                            |
 | 01001101          | 4D             | Reserved | -         | -                                            |
 | 01001110          | 4E             | Reserved | -         | -                                            |
-| 01001111          | 4F             | SET      | 1         | Set A to 1s                                  |
-| 01010000          | 50             | SLE      | 1         | Set A to 1s if less than or equal (unsigned) |
-| 01010001          | 51             | SGE      | 1         | Set A to 1s if greater than or equal (unsigned) |
-| 01010010          | 52             | SSLE     | 1         | Set A to 1s if less than or equal (signed)   |
-| 01010011          | 53             | SSGE     | 1         | Set A to 1s if greater than or equal (signed) |
-| 01010100          | 54             | SNEQ     | 1         | Set A to 1s if not equal                     |
-| 01010101          | 55             | SNZ      | 1         | Set A to 1s if not zero                      |
-| 01010110          | 56             | SPOSZ    | 1         | Set A to 1s if positive or zero              |
-| 01010111          | 57             | SNEGZ    | 1         | Set A to 1s if negative or zero              |
-| 01011000          | 58             | SOD      | 1         | Set A to 1s if odd                           |
-| 01011001          | 59             | SBOD     | 1         | Set A to 1s if bitwise odd                   |
-| 01011010          | 5A             | SNC      | 1         | Set A to 1s if not carry/borrow              |
-| 01011011          | 5B             | SNOF     | 1         | Set A to 1s if not overflow                  |
+| 01001111          | 4F             | MOV      | 1         | $D = A                                       |
+| 01010000          | 50             | SLE      | 1-2       | $D = A if less than or equal (unsigned) else B |
+| 01010001          | 51             | SGE      | 1-2       | $D = A if greater than or equal (unsigned) else B |
+| 01010010          | 52             | SSLE     | 1-2       | $D = A if less than or equal (signed) else B |
+| 01010011          | 53             | SSGE     | 1-2       | $D = A if greater than or equal (signed) else B |
+| 01010100          | 54             | SNEQ     | 1-2       | $D = A if not equal else B                   |
+| 01010101          | 55             | SNZ      | 1-2       | $D = A if not zero else B                    |
+| 01010110          | 56             | SPOSZ    | 1-2       | $D = A if positive or zero else B            |
+| 01010111          | 57             | SNEGZ    | 1-2       | $D = A if negative or zero else B            |
+| 01011000          | 58             | SOD      | 1-2       | $D = A if odd else B                         |
+| 01011001          | 59             | SBOD     | 1-2       | $D = A if bitwise odd else B                 |
+| 01011010          | 5A             | SNC      | 1-2       | $D = A if not carry/borrow else B            |
+| 01011011          | 5B             | SNOF     | 1-2       | $D = A if not overflow else B                |
 | 01011100          | 5C             | Reserved | -         | -                                            |
 | 01011101          | 5D             | Reserved | -         | -                                            |
 | 01011110          | 5E             | Reserved | -         | -                                            |
 | 01011111          | 5F             | Reserved | -         | -                                            |
-| 10000000          | 80             | MOV      | 1         | $D = A                                       |
-| 10000001          | 81             | Reserved | 1         | -                                            |
-| 10000010          | 82             | LOD      | 1         | $D = #A                                      |
-| 10000011          | 83             | STR      | 1         | #A = $D                                      |
-| 10000100          | 84             | IN       | 1         | $D = %A                                      |
-| 10000101          | 85             | OUT      | 1         | %A = $D                                      |
+| 10000000          | 80             | LOD      | 1         | $D = #A                                      |
+| 10000001          | 81             | STR      | 1         | #A = $D                                      |
+| 10000010          | 82             | IN       | 1         | $D = %A                                      |
+| 10000011          | 83             | OUT      | 1         | %A = $D                                      |
 
 Notes: 
 - Reserved instructions are side effect instructions from how the CPU decode instructions, these may or may not work and have undefined behavior.
 - All instructions from 0x10 to 0x1F (ALU instructions) will set all the ALU flags according to the arguments provided, the TEST instruction simply set the ALU inputs, load the resulting flag into the flag register and do nothing with the ALU output (by sending it to R0, which is read-only).
-- Set instructions set the destination register to all 1 in binary (0xFFFF) if the condition is true, otherwise the register is set to 0
+- Set instructions set the destination register to A if the condition is true, otherwise set the register to B. If only one argument is provided B is replaced with 0.
 
 ## Internals
 

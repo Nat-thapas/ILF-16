@@ -6,14 +6,14 @@ The ILF-16 have 16 registers indexed with a 4-bit register identifier where R0 i
 ## ISA
 
 ### Instructions Layout
-ILF-16 uses fixed length instruction where an instruction is 2 words (32 bits) long. The instruction layout for the first 16 bits is IIIIIIIIAAXYDDDD where:
+ILF-16 uses fixed length instruction where an instruction is 2 words (32 bits) long. The instruction layout for the first (upper) 16 bits is IIIIIIIIAAXYDDDD where:
 - I is the 8-bit instuction identifier.
 - A is the argument count, can be 0, 1 or 2. 3 arguments is not supported.
 - X is the type of the first argument, 0 = immediate, 1 = value at that register. If this argument is not used this is ignored.
 - Y is the type of the second argument, 0 = immediate, 1 = value at that register. If this argument is not used this is ignored.
 - D is the destination identifier for the operation.
 
-The instruction layout for the second 16 bits is dependent on the type of the 2 arguments and can either be:
+The instruction layout for the second (lower) 16 bits is dependent on the type of the 2 arguments and can either be:
 - 0 argument
     - This 16 bits of the instruction is ignored
 - 1 argument

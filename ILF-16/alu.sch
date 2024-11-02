@@ -11,14 +11,7 @@
         <signal name="OP(3:0)" />
         <signal name="OP(0)" />
         <signal name="XLXN_13" />
-        <signal name="XLXN_18" />
         <signal name="XLXN_19" />
-        <signal name="XLXN_20" />
-        <signal name="XLXN_22(15:0)" />
-        <signal name="XLXN_23(15:0)" />
-        <signal name="XLXN_31(15:0)" />
-        <signal name="XLXN_32(15:0)" />
-        <signal name="XLXN_34(15:0)" />
         <signal name="XLXN_37(15:0)" />
         <signal name="XLXN_38(15:0)" />
         <signal name="XLXN_39" />
@@ -28,9 +21,6 @@
         <signal name="M(0)" />
         <signal name="M(1)" />
         <signal name="M(2)" />
-        <signal name="XLXN_49(15:0)" />
-        <signal name="XLXN_51(15:0)" />
-        <signal name="XLXN_52" />
         <signal name="XLXN_53(15:0)" />
         <signal name="XLXN_54(15:0)" />
         <signal name="XLXN_55(15:0)" />
@@ -42,8 +32,6 @@
         <signal name="O(15:0)" />
         <signal name="F(11)" />
         <signal name="F(10)" />
-        <signal name="XLXN_70(15:0)" />
-        <signal name="XLXN_71(15:0)" />
         <signal name="A(0)" />
         <signal name="A(1)" />
         <signal name="A(2)" />
@@ -77,7 +65,6 @@
         <signal name="B(14)" />
         <signal name="B(15)" />
         <signal name="SIA(15:0)" />
-        <signal name="XLXN_107" />
         <signal name="SIB(15:0)" />
         <signal name="SIA(0)" />
         <signal name="SIA(1)" />
@@ -111,10 +98,6 @@
         <signal name="SIB(13)" />
         <signal name="SIB(14)" />
         <signal name="SIB(15)" />
-        <signal name="XLXN_144(15:0)" />
-        <signal name="XLXN_145(15:0)" />
-        <signal name="XLXN_146(15:0)" />
-        <signal name="XLXN_147(15:0)" />
         <signal name="O(0)" />
         <signal name="O(1)" />
         <signal name="O(2)" />
@@ -131,12 +114,9 @@
         <signal name="O(13)" />
         <signal name="O(14)" />
         <signal name="O(15)" />
-        <signal name="XLXN_166" />
         <signal name="F(5)" />
         <signal name="XLXN_169" />
         <signal name="XLXN_170" />
-        <signal name="XLXN_189(15:0)" />
-        <signal name="XLXN_190(15:0)" />
         <signal name="F(15:0)" />
         <signal name="F(4)" />
         <signal name="F(2)" />
@@ -151,7 +131,6 @@
         <signal name="F(14)" />
         <signal name="F(15)" />
         <signal name="F(6)" />
-        <signal name="XLXN_207" />
         <port polarity="Input" name="A(15:0)" />
         <port polarity="Input" name="B(15:0)" />
         <port polarity="Input" name="OP(3:0)" />
@@ -397,7 +376,7 @@
             <line x2="64" y1="-64" y2="-80" x1="64" />
             <line x2="64" y1="-128" y2="-96" x1="64" />
         </blockdef>
-        <block symbolname="adsu16" name="XLXI_1">
+        <block symbolname="adsu16" name="Adder_Subtracter">
             <blockpin signalname="A(15:0)" name="A(15:0)" />
             <blockpin signalname="XLXN_13" name="ADD" />
             <blockpin signalname="B(15:0)" name="B(15:0)" />
@@ -415,24 +394,24 @@
             <blockpin signalname="XLXN_19" name="I1" />
             <blockpin signalname="F(10)" name="O" />
         </block>
-        <block symbolname="lshift" name="XLXI_8">
+        <block symbolname="lshift" name="Left_Shift">
             <blockpin signalname="A(15:0)" name="I(15:0)" />
             <blockpin signalname="XLXN_38(15:0)" name="O(15:0)" />
             <blockpin signalname="B(15:0)" name="S(15:0)" />
         </block>
-        <block symbolname="rshift" name="XLXI_7">
+        <block symbolname="rshift" name="Right_Shift">
             <blockpin signalname="A(15:0)" name="I(15:0)" />
             <blockpin signalname="XLXN_37(15:0)" name="O(15:0)" />
             <blockpin signalname="B(15:0)" name="S(15:0)" />
         </block>
-        <block symbolname="mult" name="XLXI_19">
+        <block symbolname="mult" name="Multiplier">
             <blockpin signalname="A(15:0)" name="A(15:0)" />
             <blockpin signalname="B(15:0)" name="B(15:0)" />
             <blockpin signalname="XLXN_58(15:0)" name="H(15:0)" />
             <blockpin signalname="XLXN_57(15:0)" name="L(15:0)" />
             <blockpin signalname="OP(0)" name="Signed" />
         </block>
-        <block symbolname="mux2x1x16e" name="XLXI_20">
+        <block symbolname="mux2x1x16e" name="Shift_Direction_Selector">
             <blockpin signalname="XLXN_37(15:0)" name="D0(15:0)" />
             <blockpin signalname="XLXN_38(15:0)" name="D1(15:0)" />
             <blockpin signalname="XLXN_39" name="E" />
@@ -442,7 +421,7 @@
         <block symbolname="vcc" name="XLXI_21">
             <blockpin signalname="XLXN_39" name="P" />
         </block>
-        <block symbolname="logic" name="XLXI_9">
+        <block symbolname="logic" name="Logic_Unit">
             <blockpin signalname="A(15:0)" name="A(15:0)" />
             <blockpin signalname="B(15:0)" name="B(15:0)" />
             <blockpin signalname="M(2:0)" name="M(2:0)" />
@@ -460,14 +439,14 @@
             <blockpin signalname="OP(0)" name="I" />
             <blockpin signalname="M(0)" name="O" />
         </block>
-        <block symbolname="mux2x1x16e" name="XLXI_26">
+        <block symbolname="mux2x1x16e" name="Arithmetic_Logic_Selector">
             <blockpin signalname="XLXN_54(15:0)" name="D0(15:0)" />
             <blockpin signalname="XLXN_53(15:0)" name="D1(15:0)" />
             <blockpin signalname="XLXN_65" name="E" />
             <blockpin signalname="O(15:0)" name="O(15:0)" />
             <blockpin signalname="OP(3)" name="S" />
         </block>
-        <block symbolname="mux4x1x16t" name="XLXI_27">
+        <block symbolname="mux4x1x16t" name="Arithmetic_Mode_Selector">
             <blockpin signalname="XLXN_55(15:0)" name="D0(15:0)" />
             <blockpin signalname="XLXN_56(15:0)" name="D1(15:0)" />
             <blockpin signalname="XLXN_57(15:0)" name="D2(15:0)" />
@@ -479,13 +458,13 @@
         <block symbolname="vcc" name="XLXI_28">
             <blockpin signalname="XLXN_65" name="P" />
         </block>
-        <block symbolname="compm16" name="XLXI_29">
+        <block symbolname="compm16" name="Unsigned_Comparator">
             <blockpin signalname="A(15:0)" name="A(15:0)" />
             <blockpin signalname="B(15:0)" name="B(15:0)" />
             <blockpin signalname="F(0)" name="GT" />
             <blockpin signalname="F(1)" name="LT" />
         </block>
-        <block symbolname="compm16" name="XLXI_30">
+        <block symbolname="compm16" name="Signed_Comparator">
             <blockpin signalname="SIA(15:0)" name="A(15:0)" />
             <blockpin signalname="SIB(15:0)" name="B(15:0)" />
             <blockpin signalname="F(2)" name="GT" />
@@ -700,7 +679,9 @@
         <iomarker fontsize="28" x="288" y="160" name="A(15:0)" orien="R180" />
         <iomarker fontsize="28" x="288" y="240" name="B(15:0)" orien="R180" />
         <iomarker fontsize="28" x="288" y="320" name="OP(3:0)" orien="R180" />
-        <instance x="1120" y="768" name="XLXI_1" orien="R0" />
+        <instance x="1120" y="768" name="Adder_Subtracter" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="192" y="-496" type="instance" />
+        </instance>
         <bustap x2="656" y1="704" y2="704" x1="560" />
         <instance x="800" y="736" name="XLXI_2" orien="R0" />
         <branch name="XLXN_13">
@@ -710,9 +691,11 @@
         <branch name="XLXN_19">
             <wire x2="1600" y1="704" y2="704" x1="1568" />
         </branch>
-        <instance x="1136" y="1248" name="XLXI_8" orien="R0">
+        <instance x="1136" y="1248" name="Left_Shift" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="144" y="-208" type="instance" />
         </instance>
-        <instance x="1136" y="1008" name="XLXI_7" orien="R0">
+        <instance x="1136" y="1008" name="Right_Shift" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="128" y="-208" type="instance" />
         </instance>
         <branch name="XLXN_37(15:0)">
             <wire x2="1856" y1="912" y2="912" x1="1520" />
@@ -793,7 +776,8 @@
             <wire x2="1696" y1="5776" y2="5776" x1="480" />
             <wire x2="1136" y1="1536" y2="1536" x1="480" />
         </branch>
-        <instance x="1136" y="1952" name="XLXI_9" orien="R0">
+        <instance x="1136" y="1952" name="Logic_Unit" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="128" y="-272" type="instance" />
         </instance>
         <branch name="M(2:0)">
             <attrtext style="alignment:SOFT-TVCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1120" y="2032" type="branch" />
@@ -841,7 +825,8 @@
         <bustap x2="656" y1="1920" y2="1920" x1="560" />
         <bustap x2="656" y1="2000" y2="2000" x1="560" />
         <bustap x2="656" y1="2080" y2="2080" x1="560" />
-        <instance x="1136" y="1632" name="XLXI_19" orien="R0">
+        <instance x="1136" y="1632" name="Multiplier" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="144" y="-272" type="instance" />
         </instance>
         <bustap x2="656" y1="1600" y2="1600" x1="560" />
         <branch name="OP(0)">
@@ -858,14 +843,16 @@
             <wire x2="1680" y1="1040" y2="1328" x1="1680" />
         </branch>
         <instance x="1824" y="1168" name="XLXI_21" orien="R270" />
-        <instance x="1856" y="1136" name="XLXI_20" orien="R0">
+        <instance x="1856" y="1136" name="Shift_Direction_Selector" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="48" y="-352" type="instance" />
         </instance>
         <branch name="XLXN_53(15:0)">
             <wire x2="3040" y1="1792" y2="1792" x1="1520" />
             <wire x2="3040" y1="336" y2="1792" x1="3040" />
             <wire x2="3296" y1="336" y2="336" x1="3040" />
         </branch>
-        <instance x="2576" y="624" name="XLXI_27" orien="R0">
+        <instance x="2576" y="624" name="Arithmetic_Mode_Selector" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="32" y="-480" type="instance" />
         </instance>
         <branch name="XLXN_54(15:0)">
             <wire x2="3296" y1="272" y2="272" x1="2960" />
@@ -905,7 +892,8 @@
         <bustap x2="2480" y1="2160" y2="2064" x1="2480" />
         <bustap x2="2560" y1="2160" y2="2064" x1="2560" />
         <bustap x2="3120" y1="2160" y2="2064" x1="3120" />
-        <instance x="3296" y="496" name="XLXI_26" orien="R0">
+        <instance x="3296" y="496" name="Arithmetic_Logic_Selector" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="32" y="-352" type="instance" />
         </instance>
         <branch name="XLXN_65">
             <wire x2="3296" y1="464" y2="464" x1="3264" />
@@ -964,8 +952,12 @@
             <wire x2="800" y1="704" y2="704" x1="688" />
         </branch>
         <bustap x2="656" y1="320" y2="320" x1="560" />
-        <instance x="1696" y="2784" name="XLXI_29" orien="R0" />
-        <instance x="1696" y="3264" name="XLXI_30" orien="R0" />
+        <instance x="1696" y="2784" name="Unsigned_Comparator" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="64" y="-464" type="instance" />
+        </instance>
+        <instance x="1696" y="3264" name="Signed_Comparator" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="80" y="-464" type="instance" />
+        </instance>
         <instance x="880" y="2912" name="XLXI_34" orien="R0" />
         <instance x="880" y="2992" name="XLXI_35" orien="R0" />
         <instance x="880" y="3072" name="XLXI_36" orien="R0" />
@@ -1803,5 +1795,22 @@
             <wire x2="2976" y1="3520" y2="3520" x1="2720" />
         </branch>
         <iomarker fontsize="28" x="3840" y="5840" name="F(15:0)" orien="R0" />
+        <text style="fontsize:24;fontname:Arial" x="2656" y="4376">Bitwise Parity</text>
+        <text style="fontsize:24;fontname:Arial" x="2696" y="3704">Parity</text>
+        <text style="fontsize:24;fontname:Arial" x="2700" y="3544">Sign</text>
+        <text style="fontsize:24;fontname:Arial" x="2684" y="3256">Positive</text>
+        <text style="fontsize:24;fontname:Arial" x="2696" y="2908">Zero</text>
+        <text style="fontsize:24;fontname:Arial" x="2676" y="2500">Overflow</text>
+        <text style="fontsize:24;fontname:Arial" x="2692" y="2420">Carry</text>
+        <text style="fontsize:24;fontname:Arial" x="2112" y="2544">Unsigned Greater Than</text>
+        <text style="fontsize:24;fontname:Arial" x="2132" y="2608">Unsigned Less Than</text>
+        <text style="fontsize:24;fontname:Arial" x="2140" y="3092">Signed Less Than</text>
+        <text style="fontsize:24;fontname:Arial" x="2128" y="3020">Signed Greater Than</text>
+        <text style="fontsize:24;fontname:Arial" x="2212" y="5696">Equal</text>
+        <text style="fontsize:24;fontname:Arial" x="2696" y="5296">True</text>
+        <text style="fontsize:24;fontname:Arial" x="2692" y="5216">False</text>
+        <text style="fontsize:24;fontname:Arial" x="2692" y="5136">False</text>
+        <text style="fontsize:24;fontname:Arial" x="2692" y="5056">False</text>
+        <text style="fontsize:24;fontname:Arial" x="544" y="2736">Invert sign bit for signed comparison</text>
     </sheet>
 </drawing>

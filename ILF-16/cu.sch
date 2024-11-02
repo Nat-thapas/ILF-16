@@ -7,6 +7,6 @@
     </attr>
     <netlist>
     </netlist>
-    <sheet sheetnum="1" width="7040" height="5440">
+    <sheet sheetnum="1" width="3520" height="2720">
     </sheet>
 </drawing>

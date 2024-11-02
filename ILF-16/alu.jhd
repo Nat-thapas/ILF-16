@@ -1,15 +1,15 @@
 MODULE alu
 	SUBMODULE mult
-		INSTANCE XLXI_19
+		INSTANCE Multiplier
 	SUBMODULE rshift
-		INSTANCE XLXI_7
+		INSTANCE Right_Shift
 	SUBMODULE lshift
-		INSTANCE XLXI_8
+		INSTANCE Left_Shift
 	SUBMODULE logic
-		INSTANCE XLXI_9
+		INSTANCE Logic_Unit
 	SUBMODULE mux2x1x16e
-		INSTANCE XLXI_20
+		INSTANCE Arithmetic_Logic_Selector
 	SUBMODULE mux2x1x16e
-		INSTANCE XLXI_26
+		INSTANCE Shift_Direction_Selector
 	SUBMODULE mux4x1x16t
-		INSTANCE XLXI_27
+		INSTANCE Arithmetic_Mode_Selector

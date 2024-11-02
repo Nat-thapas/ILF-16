@@ -63,6 +63,38 @@
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="12"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="12"/>
     </file>
+    <file xil_pn:name="cu.sch" xil_pn:type="FILE_SCHEMATIC">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="13"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="13"/>
+    </file>
+    <file xil_pn:name="mock_ram.sch" xil_pn:type="FILE_SCHEMATIC">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="14"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="14"/>
+    </file>
+    <file xil_pn:name="mock_rom.sch" xil_pn:type="FILE_SCHEMATIC">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="15"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="15"/>
+    </file>
+    <file xil_pn:name="oregs.sch" xil_pn:type="FILE_SCHEMATIC">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="18"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="18"/>
+    </file>
+    <file xil_pn:name="mux16x1x16tb.sch" xil_pn:type="FILE_SCHEMATIC">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="20"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="20"/>
+    </file>
+    <file xil_pn:name="mux2x1x4e.sch" xil_pn:type="FILE_SCHEMATIC">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="21"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="21"/>
+    </file>
+    <file xil_pn:name="flgchk.sch" xil_pn:type="FILE_SCHEMATIC">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="23"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="23"/>
+    </file>
+    <file xil_pn:name="cpu.sch" xil_pn:type="FILE_SCHEMATIC">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="21"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="21"/>
+    </file>
   </files>
 
   <properties>

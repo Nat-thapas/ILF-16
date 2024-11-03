@@ -5,3 +5,5 @@ MODULE regs
 		INSTANCE Output_1_Data_Selector
 	SUBMODULE mux16x1x16tb
 		INSTANCE Output_2_Data_Selector
+	SUBMODULE mux16x1x16tb
+		INSTANCE Output_3_Data_Selector

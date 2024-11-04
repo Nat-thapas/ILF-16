@@ -87,13 +87,6 @@
         <signal name="XLXN_684" />
         <signal name="STG(1)" />
         <signal name="STG(0)" />
-        <signal name="XLXN_686(15:0)" />
-        <signal name="XLXN_687(15:0)" />
-        <signal name="XLXN_688" />
-        <signal name="XLXN_691" />
-        <signal name="XLXN_692" />
-        <signal name="XLXN_696" />
-        <signal name="XLXN_697" />
         <signal name="O0(15:0)" />
         <signal name="O1(15:0)" />
         <signal name="O10(15:0)" />
@@ -111,6 +104,13 @@
         <signal name="O8(15:0)" />
         <signal name="O9(15:0)" />
         <signal name="OUT_REG_WE" />
+        <signal name="XLXN_686(15:0)" />
+        <signal name="XLXN_687(15:0)" />
+        <signal name="XLXN_691" />
+        <signal name="XLXN_692" />
+        <signal name="XLXN_696" />
+        <signal name="XLXN_739" />
+        <signal name="XLXN_697" />
         <port polarity="Input" name="I0(15:0)" />
         <port polarity="Input" name="I1(15:0)" />
         <port polarity="Input" name="I10(15:0)" />
@@ -685,39 +685,6 @@
         <block symbolname="gnd" name="XLXI_235">
             <blockpin signalname="XLXN_684" name="G" />
         </block>
-        <block symbolname="cb16cled" name="Stall_Counter">
-            <blockpin signalname="CLK" name="C" />
-            <blockpin signalname="XLXN_696" name="CE" />
-            <blockpin signalname="XLXN_692" name="CLR" />
-            <blockpin signalname="A(15:0)" name="D(15:0)" />
-            <blockpin signalname="STL_CNT_L" name="L" />
-            <blockpin signalname="XLXN_691" name="UP" />
-            <blockpin name="CEO" />
-            <blockpin signalname="XLXN_687(15:0)" name="Q(15:0)" />
-            <blockpin signalname="XLXN_697" name="TC" />
-        </block>
-        <block symbolname="gnd16" name="Stall_Zero_Reference">
-            <blockpin signalname="XLXN_686(15:0)" name="GND(15:0)" />
-        </block>
-        <block symbolname="gnd" name="XLXI_240">
-            <blockpin signalname="XLXN_691" name="G" />
-        </block>
-        <block symbolname="gnd" name="XLXI_241">
-            <blockpin signalname="XLXN_692" name="G" />
-        </block>
-        <block symbolname="inv" name="XLXI_242">
-            <blockpin signalname="XLXN_697" name="I" />
-            <blockpin signalname="XLXN_696" name="O" />
-        </block>
-        <block symbolname="comp16" name="STL_CNT_ZERO_CMP">
-            <blockpin signalname="XLXN_687(15:0)" name="A(15:0)" />
-            <blockpin signalname="XLXN_686(15:0)" name="B(15:0)" />
-            <blockpin signalname="XLXN_688" name="EQ" />
-        </block>
-        <block symbolname="inv" name="XLXI_239">
-            <blockpin signalname="XLXN_688" name="I" />
-            <blockpin signalname="RUN" name="O" />
-        </block>
         <block symbolname="oregs" name="Output_Registers">
             <blockpin signalname="A_L4(3:0)" name="ADDR(3:0)" />
             <blockpin signalname="CLK" name="CLK" />
@@ -759,6 +726,35 @@
             <blockpin signalname="SET_MOV_SEL" name="SET_MOV_SEL" />
             <blockpin signalname="STG(1:0)" name="STG(1:0)" />
             <blockpin signalname="STL_CNT_L" name="STL_CNT_L" />
+        </block>
+        <block symbolname="cb16cled" name="Stall_Counter">
+            <blockpin signalname="CLK" name="C" />
+            <blockpin signalname="XLXN_696" name="CE" />
+            <blockpin signalname="XLXN_692" name="CLR" />
+            <blockpin signalname="A(15:0)" name="D(15:0)" />
+            <blockpin signalname="STL_CNT_L" name="L" />
+            <blockpin signalname="XLXN_691" name="UP" />
+            <blockpin name="CEO" />
+            <blockpin signalname="XLXN_687(15:0)" name="Q(15:0)" />
+            <blockpin signalname="XLXN_697" name="TC" />
+        </block>
+        <block symbolname="gnd" name="XLXI_240">
+            <blockpin signalname="XLXN_691" name="G" />
+        </block>
+        <block symbolname="gnd" name="XLXI_241">
+            <blockpin signalname="XLXN_692" name="G" />
+        </block>
+        <block symbolname="inv" name="XLXI_242">
+            <blockpin signalname="XLXN_697" name="I" />
+            <blockpin signalname="XLXN_696" name="O" />
+        </block>
+        <block symbolname="comp16" name="STL_CNT_ZERO_CMP">
+            <blockpin signalname="XLXN_687(15:0)" name="A(15:0)" />
+            <blockpin signalname="XLXN_686(15:0)" name="B(15:0)" />
+            <blockpin signalname="RUN" name="EQ" />
+        </block>
+        <block symbolname="gnd16" name="Stall_Zero_Reference">
+            <blockpin signalname="XLXN_686(15:0)" name="GND(15:0)" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="7040" height="5440">
@@ -1310,59 +1306,6 @@
         <text style="fontsize:24;fontname:Arial" x="2048" y="1948">2 = Read From RAM (LOD Instruction Only)</text>
         <text style="fontsize:24;fontname:Arial" x="2048" y="1996">3 = Execute, Write Back, Increment PC</text>
         <text style="fontsize:24;fontname:Arial" x="2048" y="1900">1 = Wait For Signal Propagation</text>
-        <instance x="1136" y="2752" name="Stall_Counter" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="112" y="-592" type="instance" />
-        </instance>
-        <branch name="XLXN_686(15:0)">
-            <wire x2="1600" y1="2992" y2="2992" x1="1520" />
-            <wire x2="1600" y1="2496" y2="2992" x1="1600" />
-            <wire x2="1696" y1="2496" y2="2496" x1="1600" />
-        </branch>
-        <branch name="XLXN_687(15:0)">
-            <wire x2="1696" y1="2304" y2="2304" x1="1520" />
-        </branch>
-        <branch name="XLXN_688">
-            <wire x2="2112" y1="2400" y2="2400" x1="2080" />
-        </branch>
-        <branch name="A(15:0)">
-            <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="1104" y="2304" type="branch" />
-            <wire x2="1136" y1="2304" y2="2304" x1="1104" />
-        </branch>
-        <branch name="XLXN_691">
-            <wire x2="1136" y1="2432" y2="2432" x1="1104" />
-        </branch>
-        <instance x="976" y="2368" name="XLXI_240" orien="R90" />
-        <branch name="XLXN_692">
-            <wire x2="1136" y1="2720" y2="2720" x1="1104" />
-        </branch>
-        <instance x="976" y="2656" name="XLXI_241" orien="R90" />
-        <branch name="CLK">
-            <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="1104" y="2624" type="branch" />
-            <wire x2="1136" y1="2624" y2="2624" x1="1104" />
-        </branch>
-        <branch name="XLXN_696">
-            <wire x2="1136" y1="2560" y2="2560" x1="1104" />
-        </branch>
-        <branch name="STL_CNT_L">
-            <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="1104" y="2496" type="branch" />
-            <wire x2="1136" y1="2496" y2="2496" x1="1104" />
-        </branch>
-        <branch name="RUN">
-            <attrtext style="alignment:SOFT-LEFT;fontsize:28;fontname:Arial" attrname="Name" x="2368" y="2400" type="branch" />
-            <wire x2="2368" y1="2400" y2="2400" x1="2336" />
-        </branch>
-        <instance x="880" y="2592" name="XLXI_242" orien="R0" />
-        <branch name="XLXN_697">
-            <wire x2="880" y1="2560" y2="2560" x1="848" />
-            <wire x2="848" y1="2560" y2="2784" x1="848" />
-            <wire x2="1552" y1="2784" y2="2784" x1="848" />
-            <wire x2="1552" y1="2624" y2="2624" x1="1520" />
-            <wire x2="1552" y1="2624" y2="2784" x1="1552" />
-        </branch>
-        <instance x="1696" y="2624" name="STL_CNT_ZERO_CMP" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="48" y="-464" type="instance" />
-        </instance>
-        <instance x="2112" y="2432" name="XLXI_239" orien="R0" />
         <instance x="400" y="2832" name="XLXI_221" orien="R0" />
         <instance x="5856" y="2304" name="Output_Registers" orien="R0">
             <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="80" y="-1120" type="instance" />
@@ -1454,8 +1397,57 @@
             <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="5840" y="1440" type="branch" />
             <wire x2="5856" y1="1440" y2="1440" x1="5840" />
         </branch>
-        <instance x="1200" y="3024" name="Stall_Zero_Reference" orien="R0">
+        <instance x="1216" y="2752" name="Stall_Counter" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="112" y="-592" type="instance" />
+        </instance>
+        <branch name="XLXN_686(15:0)">
+            <wire x2="1680" y1="2992" y2="2992" x1="1600" />
+            <wire x2="1680" y1="2496" y2="2992" x1="1680" />
+            <wire x2="1776" y1="2496" y2="2496" x1="1680" />
+        </branch>
+        <branch name="XLXN_687(15:0)">
+            <wire x2="1776" y1="2304" y2="2304" x1="1600" />
+        </branch>
+        <branch name="A(15:0)">
+            <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="1184" y="2304" type="branch" />
+            <wire x2="1216" y1="2304" y2="2304" x1="1184" />
+        </branch>
+        <branch name="XLXN_691">
+            <wire x2="1216" y1="2432" y2="2432" x1="1184" />
+        </branch>
+        <instance x="1056" y="2368" name="XLXI_240" orien="R90" />
+        <branch name="XLXN_692">
+            <wire x2="1216" y1="2720" y2="2720" x1="1184" />
+        </branch>
+        <instance x="1056" y="2656" name="XLXI_241" orien="R90" />
+        <branch name="CLK">
+            <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="1184" y="2624" type="branch" />
+            <wire x2="1216" y1="2624" y2="2624" x1="1184" />
+        </branch>
+        <branch name="XLXN_696">
+            <wire x2="1216" y1="2560" y2="2560" x1="1184" />
+        </branch>
+        <branch name="STL_CNT_L">
+            <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="1184" y="2496" type="branch" />
+            <wire x2="1216" y1="2496" y2="2496" x1="1184" />
+        </branch>
+        <instance x="960" y="2592" name="XLXI_242" orien="R0" />
+        <branch name="XLXN_697">
+            <wire x2="960" y1="2560" y2="2560" x1="928" />
+            <wire x2="928" y1="2560" y2="2784" x1="928" />
+            <wire x2="1632" y1="2784" y2="2784" x1="928" />
+            <wire x2="1632" y1="2624" y2="2624" x1="1600" />
+            <wire x2="1632" y1="2624" y2="2784" x1="1632" />
+        </branch>
+        <instance x="1776" y="2624" name="STL_CNT_ZERO_CMP" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="48" y="-464" type="instance" />
+        </instance>
+        <instance x="1280" y="3024" name="Stall_Zero_Reference" orien="R0">
             <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="-16" y="-160" type="instance" />
         </instance>
+        <branch name="RUN">
+            <attrtext style="alignment:SOFT-LEFT;fontsize:28;fontname:Arial" attrname="Name" x="2192" y="2400" type="branch" />
+            <wire x2="2192" y1="2400" y2="2400" x1="2160" />
+        </branch>
     </sheet>
 </drawing>

@@ -10,6 +10,8 @@ MODULE cpu
 	SUBMODULE mux2x1x16e
 		INSTANCE B_IMM_REG_Selector
 	SUBMODULE mux2x1x16e
+		INSTANCE C_IMM_REG_Selector
+	SUBMODULE mux2x1x16e
 		INSTANCE SET_MOV_Data_Selector
 	SUBMODULE idu
 		INSTANCE Instruction_Decode_Unit
@@ -21,7 +23,11 @@ MODULE cpu
 		INSTANCE Input_Selector
 	SUBMODULE oregs
 		INSTANCE Output_Registers
-	SUBMODULE mux2x1x4e
-		INSTANCE REG_Read_Address_2_Selector
 	SUBMODULE flgchk
 		INSTANCE Flag_Checker
+	SUBMODULE truncate16x8x4
+		INSTANCE XLXI_125
+	SUBMODULE gnd16
+		INSTANCE XLXI_238
+	SUBMODULE cu
+		INSTANCE XLXI_296

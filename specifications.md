@@ -36,8 +36,8 @@ The ILF-16 supports a total of 256 instructions. Currently, the following is ava
 
 | Binary Identifier | Hex Identifier | Name     | Arguments | Full name                     | Description                                  |
 |------------------:|---------------:|----------|-----------|-------------------------------|----------------------------------------------|
-| 00000000          | 00             | NOP      | -         | No operation                  | Do nothing (takes 2 cycles)                  |
-| 00000001          | 01             | STL      | 1         | Stall                         | Do nothing for A * 2 cycles                  |
+| 00000000          | 00             | NOP      | -         | No operation                  | Do nothing (takes 4 cycles)                  |
+| 00000100          | 08             | STL      | 1         | Stall                         | Do nothing for A cycles                      |
 | 00010000          | 10             | ADD      | 2         | Add                           | $D = A + B                                   |
 | 00010001          | 11             | SUB      | 2         | Subtract                      | $D = A - B                                   |
 | 00010010          | 12             | RSHIFT   | 2         | Right shift                   | $D = A >> B                                  |
@@ -119,14 +119,14 @@ The ILF-16 supports a total of 256 instructions. Currently, the following is ava
 | 01011110          | 5E             | Reserved | -         | -                             | -                                            |
 | 01011111          | 5F             | Reserved | -         | -                             | -                                            |
 | 11000000          | C0             | LOD      | 1         | Load                          | $D = #A                                      |
-| 11000001          | C1             | STR      | 1         | Store                         | #A = $D                                      |
+| 11000100          | C4             | STR      | 1         | Store                         | #A = $D                                      |
 | 11001000          | C8             | IN       | 1         | Input                         | $D = %A                                      |
-| 11001001          | C9             | OUT      | 1         | Output                        | %A = $D                                      |
+| 11001100          | CC             | OUT      | 1         | Output                        | %A = $D                                      |
 | 11010000          | D0             | GFXCLR   | 0         | GFX clear                     | Set the entire current frame buffer to color 0 |
 | 11010001          | D1             | GFXSP    | 2         | GFX set pixel                 | Set pixel at (A, B) to color $D              |
 | 11010010          | D2             | GFXSC    | 2         | GFX set cursor                | GFX cursor will be set to (A, B) with draw property $D |
 | 11010011          | D3             | GFXDL    | 2         | GFX draw line                 | Draw a line from cursor to (A, B) with cursor property as width and color $D |
-| 11010100          | D4             | GFXDS    | 2         | GFX draw square               | Draw a square starting at cursor with width A and height B with cursor property as line width, if cursor property is 0xFFF then fill the square |
+| 11010100          | D4             | GFXDS    | 2         | GFX draw square               | Draw a square starting at cursor with width A and height B with cursor property as line width, if cursor property is 0xFF then fill the square |
 | 11010111          | D7             | GFXFC    | 0         | GFX flip and clear            | Flip the frame buffer and clear the one that will be drawn to |
 | 11011000          | D8             | SFXSFI   | 1         | SFX set frequency (IMM D)     | Set channel D frequency to A Hz              |
 | 11011001          | D9             | SFXSAI   | 1         | SFX set amplitude (IMM D)     | Set channel D amplitude (volume) to A / 0xFFFF |

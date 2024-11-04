@@ -6,28 +6,8 @@
         <trait edittrait="all:0" />
     </attr>
     <netlist>
-        <signal name="XLXN_347(15:0)" />
-        <signal name="XLXN_369(15:0)" />
-        <signal name="XLXN_377(3:0)" />
-        <signal name="XLXN_378(3:0)" />
-        <signal name="XLXN_379(15:0)" />
-        <signal name="XLXN_380(15:0)" />
-        <signal name="XLXN_381(15:0)" />
-        <signal name="XLXN_384(15:0)" />
-        <signal name="XLXN_393(15:0)" />
-        <signal name="XLXN_464(15:0)" />
-        <signal name="XLXN_471(3:0)" />
-        <signal name="XLXN_472(3:0)" />
-        <signal name="XLXN_473(15:0)" />
-        <signal name="XLXN_474(15:0)" />
-        <signal name="XLXN_475(15:0)" />
-        <signal name="XLXN_498(15:0)" />
-        <signal name="XLXN_506(15:0)" />
-        <signal name="XLXN_524(3:0)" />
-        <signal name="XLXN_552(15:0)" />
         <signal name="A(15:0)" />
         <signal name="B(15:0)" />
-        <signal name="XLXN_586(15:0)" />
         <signal name="RDA(15:0)" />
         <signal name="AFREG" />
         <signal name="BFREG" />
@@ -48,7 +28,6 @@
         <signal name="RDB(15:0)" />
         <signal name="XLXN_307(15:0)" />
         <signal name="XLXN_344(3:0)" />
-        <signal name="XLXN_604(3:0)" />
         <signal name="RDC(15:0)" />
         <signal name="C(15:0)" />
         <signal name="XLXN_348(15:0)" />
@@ -57,7 +36,6 @@
         <signal name="XLXN_303(3:0)" />
         <signal name="XLXN_296(3:0)" />
         <signal name="XLXN_59(15:0)" />
-        <signal name="XLXN_632(15:0)" />
         <signal name="XLXN_86(31:0)" />
         <signal name="XLXN_113(15:0)" />
         <signal name="XLXN_342" />
@@ -89,7 +67,6 @@
         <signal name="XLXN_370" />
         <signal name="XLXN_680" />
         <signal name="RUN" />
-        <signal name="XLXN_707" />
         <signal name="XLXN_709(7:0)" />
         <signal name="STG(1:0)" />
         <signal name="FLG" />
@@ -104,31 +81,18 @@
         <signal name="SET_MOV_SEL" />
         <signal name="REG_DATA_SEL_0" />
         <signal name="REG_DATA_SEL_1" />
-        <signal name="XLXN_745(15:0)" />
         <signal name="XLXN_254" />
-        <signal name="XLXN_750(15:0)" />
         <signal name="RAM_WE" />
         <signal name="STL_CNT_L" />
         <signal name="XLXN_684" />
         <signal name="STG(1)" />
         <signal name="STG(0)" />
-        <signal name="XLXN_769" />
-        <signal name="XLXN_772(15:0)" />
-        <signal name="XLXN_775(15:0)" />
-        <signal name="XLXN_783" />
-        <signal name="XLXN_788(15:0)" />
-        <signal name="XLXN_796" />
-        <signal name="XLXN_802(15:0)" />
-        <signal name="XLXN_804(15:0)" />
-        <signal name="XLXN_814" />
         <signal name="XLXN_686(15:0)" />
-        <signal name="XLXN_817(15:0)" />
         <signal name="XLXN_687(15:0)" />
         <signal name="XLXN_688" />
         <signal name="XLXN_691" />
         <signal name="XLXN_692" />
         <signal name="XLXN_696" />
-        <signal name="XLXN_827" />
         <signal name="XLXN_697" />
         <signal name="O0(15:0)" />
         <signal name="O1(15:0)" />
@@ -603,7 +567,7 @@
             <blockpin signalname="C(15:0)" name="O(15:0)" />
             <blockpin signalname="XLXN_729" name="S" />
         </block>
-        <block symbolname="truncate16x8x4" name="XLXI_125">
+        <block symbolname="truncate16x8x4" name="Argument_C_Truncator">
             <blockpin signalname="C_L8(7:0)" name="E(7:0)" />
             <blockpin signalname="C_L4(3:0)" name="F(3:0)" />
             <blockpin signalname="C(15:0)" name="I(15:0)" />
@@ -732,7 +696,7 @@
             <blockpin signalname="XLXN_687(15:0)" name="Q(15:0)" />
             <blockpin signalname="XLXN_697" name="TC" />
         </block>
-        <block symbolname="gnd16" name="XLXI_238">
+        <block symbolname="gnd16" name="Stall_Zero_Reference">
             <blockpin signalname="XLXN_686(15:0)" name="GND(15:0)" />
         </block>
         <block symbolname="gnd" name="XLXI_240">
@@ -745,7 +709,7 @@
             <blockpin signalname="XLXN_697" name="I" />
             <blockpin signalname="XLXN_696" name="O" />
         </block>
-        <block symbolname="comp16" name="XLXI_237">
+        <block symbolname="comp16" name="STL_CNT_ZERO_CMP">
             <blockpin signalname="XLXN_687(15:0)" name="A(15:0)" />
             <blockpin signalname="XLXN_686(15:0)" name="B(15:0)" />
             <blockpin signalname="XLXN_688" name="EQ" />
@@ -776,7 +740,7 @@
             <blockpin signalname="O9(15:0)" name="DO9(15:0)" />
             <blockpin signalname="OUT_REG_WE" name="WE" />
         </block>
-        <block symbolname="cu" name="XLXI_296">
+        <block symbolname="cu" name="Control_Unit">
             <blockpin signalname="OP(3:0)" name="ALU_OP(3:0)" />
             <blockpin signalname="XLXN_729" name="CFIMM" />
             <blockpin signalname="FLG" name="FLG" />
@@ -952,7 +916,8 @@
         <instance x="3536" y="1536" name="C_IMM_REG_Selector" orien="R0">
             <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="48" y="-352" type="instance" />
         </instance>
-        <instance x="4096" y="1408" name="XLXI_125" orien="R0">
+        <instance x="4096" y="1408" name="Argument_C_Truncator" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="48" y="-224" type="instance" />
         </instance>
         <branch name="C(15:0)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="4000" y="1312" type="branch" />
@@ -1348,12 +1313,10 @@
         <instance x="1136" y="2752" name="Stall_Counter" orien="R0">
             <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="112" y="-592" type="instance" />
         </instance>
-        <instance x="1200" y="2944" name="XLXI_238" orien="R0">
-        </instance>
         <branch name="XLXN_686(15:0)">
-            <wire x2="1600" y1="2912" y2="2912" x1="1520" />
+            <wire x2="1600" y1="2992" y2="2992" x1="1520" />
+            <wire x2="1600" y1="2496" y2="2992" x1="1600" />
             <wire x2="1696" y1="2496" y2="2496" x1="1600" />
-            <wire x2="1600" y1="2496" y2="2912" x1="1600" />
         </branch>
         <branch name="XLXN_687(15:0)">
             <wire x2="1696" y1="2304" y2="2304" x1="1520" />
@@ -1396,7 +1359,9 @@
             <wire x2="1552" y1="2624" y2="2624" x1="1520" />
             <wire x2="1552" y1="2624" y2="2784" x1="1552" />
         </branch>
-        <instance x="1696" y="2624" name="XLXI_237" orien="R0" />
+        <instance x="1696" y="2624" name="STL_CNT_ZERO_CMP" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="48" y="-464" type="instance" />
+        </instance>
         <instance x="2112" y="2432" name="XLXI_239" orien="R0" />
         <instance x="400" y="2832" name="XLXI_221" orien="R0" />
         <instance x="5856" y="2304" name="Output_Registers" orien="R0">
@@ -1478,7 +1443,8 @@
         <iomarker fontsize="28" x="6320" y="1760" name="O7(15:0)" orien="R0" />
         <iomarker fontsize="28" x="6320" y="1824" name="O8(15:0)" orien="R0" />
         <iomarker fontsize="28" x="6320" y="1888" name="O9(15:0)" orien="R0" />
-        <instance x="2496" y="2176" name="XLXI_296" orien="R0">
+        <instance x="2496" y="2176" name="Control_Unit" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="112" y="-976" type="instance" />
         </instance>
         <branch name="OUT_REG_WE">
             <attrtext style="alignment:SOFT-LEFT;fontsize:28;fontname:Arial" attrname="Name" x="2912" y="2144" type="branch" />
@@ -1488,5 +1454,8 @@
             <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="5840" y="1440" type="branch" />
             <wire x2="5856" y1="1440" y2="1440" x1="5840" />
         </branch>
+        <instance x="1200" y="3024" name="Stall_Zero_Reference" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="-16" y="-160" type="instance" />
+        </instance>
     </sheet>
 </drawing>

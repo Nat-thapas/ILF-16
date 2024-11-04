@@ -26,8 +26,8 @@ MODULE cpu
 	SUBMODULE flgchk
 		INSTANCE Flag_Checker
 	SUBMODULE truncate16x8x4
-		INSTANCE XLXI_125
+		INSTANCE Argument_C_Truncator
 	SUBMODULE gnd16
-		INSTANCE XLXI_238
+		INSTANCE Stall_Zero_Reference
 	SUBMODULE cu
-		INSTANCE XLXI_296
+		INSTANCE Control_Unit

@@ -47,8 +47,10 @@
         <signal name="FLG_IDX(2)" />
         <signal name="FLG_IDX(3)" />
         <signal name="XLXN_456" />
-        <signal name="XLXN_457" />
         <signal name="OUT_REG_WE" />
+        <signal name="XLXN_458" />
+        <signal name="XLXN_459" />
+        <signal name="HLT" />
         <port polarity="Input" name="ID(7:0)" />
         <port polarity="Output" name="SET_MOV_SEL" />
         <port polarity="Output" name="PC_CE" />
@@ -67,6 +69,7 @@
         <port polarity="Output" name="ALU_OP(3:0)" />
         <port polarity="Output" name="FLG_IDX(3:0)" />
         <port polarity="Output" name="OUT_REG_WE" />
+        <port polarity="Output" name="HLT" />
         <blockdef name="buf">
             <timestamp>2000-1-1T10:10:10</timestamp>
             <line x2="64" y1="-32" y2="-32" x1="0" />
@@ -165,6 +168,13 @@
             <blockpin signalname="FLG_INV" name="O" />
         </block>
         <block symbolname="lut6" name="REG_FILE_WE_LUT">
+            <attr value="0005000000FF00F0" name="INIT">
+                <trait editname="all:1 sch:0" />
+                <trait edittrait="all:1 sch:0" />
+                <trait verilog="all:0 dp:1nosynth wsynop:1 wsynth:1" />
+                <trait vhdl="all:0 gm:1nosynth wa:1 wd:1" />
+                <trait valuetype="BitVector 64 hexadecimal" />
+            </attr>
             <blockpin signalname="XLXN_81" name="O" />
             <blockpin signalname="ID(2)" name="I0" />
             <blockpin signalname="ID(3)" name="I1" />
@@ -181,6 +191,13 @@
             <blockpin signalname="REG_WE" name="O" />
         </block>
         <block symbolname="lut6" name="C_IMM_REG_LUT">
+            <attr value="0040000000000000" name="INIT">
+                <trait editname="all:1 sch:0" />
+                <trait edittrait="all:1 sch:0" />
+                <trait verilog="all:0 dp:1nosynth wsynop:1 wsynth:1" />
+                <trait vhdl="all:0 gm:1nosynth wa:1 wd:1" />
+                <trait valuetype="BitVector 64 hexadecimal" />
+            </attr>
             <blockpin signalname="CFIMM" name="O" />
             <blockpin signalname="ID(2)" name="I0" />
             <blockpin signalname="ID(3)" name="I1" />
@@ -218,6 +235,13 @@
             <blockpin signalname="XLXN_406" name="O" />
         </block>
         <block symbolname="lut6" name="REG_DATA_SEL_LUT_0">
+            <attr value="0001000000FF0000" name="INIT">
+                <trait editname="all:1 sch:0" />
+                <trait edittrait="all:1 sch:0" />
+                <trait verilog="all:0 dp:1nosynth wsynop:1 wsynth:1" />
+                <trait vhdl="all:0 gm:1nosynth wa:1 wd:1" />
+                <trait valuetype="BitVector 64 hexadecimal" />
+            </attr>
             <blockpin signalname="REG_DATA_SEL_0" name="O" />
             <blockpin signalname="ID(2)" name="I0" />
             <blockpin signalname="ID(3)" name="I1" />
@@ -227,6 +251,13 @@
             <blockpin signalname="ID(6)" name="I4" />
         </block>
         <block symbolname="lut6" name="REG_DATA_SEL_LUT_1">
+            <attr value="0004000000FF0000" name="INIT">
+                <trait editname="all:1 sch:0" />
+                <trait edittrait="all:1 sch:0" />
+                <trait verilog="all:0 dp:1nosynth wsynop:1 wsynth:1" />
+                <trait vhdl="all:0 gm:1nosynth wa:1 wd:1" />
+                <trait valuetype="BitVector 64 hexadecimal" />
+            </attr>
             <blockpin signalname="REG_DATA_SEL_1" name="O" />
             <blockpin signalname="ID(2)" name="I0" />
             <blockpin signalname="ID(3)" name="I1" />
@@ -336,6 +367,29 @@
             <blockpin signalname="XLXN_456" name="I3" />
             <blockpin signalname="OUT_REG_WE" name="O" />
         </block>
+        <block symbolname="lut6" name="HLT_INST_LUT">
+            <attr value="0000000000000004" name="INIT">
+                <trait editname="all:1 sch:0" />
+                <trait edittrait="all:1 sch:0" />
+                <trait verilog="all:0 dp:1nosynth wsynop:1 wsynth:1" />
+                <trait vhdl="all:0 gm:1nosynth wa:1 wd:1" />
+                <trait valuetype="BitVector 64 hexadecimal" />
+            </attr>
+            <blockpin signalname="XLXN_458" name="O" />
+            <blockpin signalname="ID(2)" name="I0" />
+            <blockpin signalname="ID(3)" name="I1" />
+            <blockpin signalname="ID(4)" name="I2" />
+            <blockpin signalname="ID(5)" name="I3" />
+            <blockpin signalname="ID(7)" name="I5" />
+            <blockpin signalname="ID(6)" name="I4" />
+        </block>
+        <block symbolname="and4" name="XLXI_163">
+            <blockpin signalname="STG(1)" name="I0" />
+            <blockpin signalname="STG(0)" name="I1" />
+            <blockpin signalname="RUN" name="I2" />
+            <blockpin signalname="XLXN_458" name="I3" />
+            <blockpin signalname="HLT" name="O" />
+        </block>
     </netlist>
     <sheet sheetnum="1" width="5440" height="14080">
         <branch name="ID(7:0)">
@@ -398,7 +452,15 @@
             <wire x2="480" y1="6688" y2="6736" x1="480" />
             <wire x2="480" y1="6736" y2="6800" x1="480" />
             <wire x2="480" y1="6800" y2="6848" x1="480" />
-            <wire x2="480" y1="6848" y2="13920" x1="480" />
+            <wire x2="480" y1="6848" y2="7232" x1="480" />
+            <wire x2="480" y1="7232" y2="7280" x1="480" />
+            <wire x2="480" y1="7280" y2="7312" x1="480" />
+            <wire x2="480" y1="7312" y2="7328" x1="480" />
+            <wire x2="480" y1="7328" y2="7376" x1="480" />
+            <wire x2="480" y1="7376" y2="7392" x1="480" />
+            <wire x2="480" y1="7392" y2="7440" x1="480" />
+            <wire x2="480" y1="7440" y2="7488" x1="480" />
+            <wire x2="480" y1="7488" y2="13920" x1="480" />
         </branch>
         <branch name="SET_MOV_SEL">
             <wire x2="1680" y1="3040" y2="3040" x1="944" />
@@ -430,7 +492,8 @@
         <iomarker fontsize="28" x="256" y="320" name="RUN" orien="R180" />
         <iomarker fontsize="28" x="256" y="400" name="FLG" orien="R180" />
         <instance x="736" y="1824" name="REG_FILE_WE_LUT" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="64" y="-480" type="instance" />
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="80" y="-512" type="instance" />
+            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="48" y="-476" type="instance" />
         </instance>
         <branch name="ID(7)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="640" y="1472" type="branch" />
@@ -477,7 +540,8 @@
         <bustap x2="576" y1="1680" y2="1680" x1="480" />
         <bustap x2="576" y1="1728" y2="1728" x1="480" />
         <instance x="736" y="2464" name="C_IMM_REG_LUT" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="80" y="-480" type="instance" />
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="80" y="-512" type="instance" />
+            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="48" y="-476" type="instance" />
         </instance>
         <branch name="ID(2)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="640" y="2368" type="branch" />
@@ -568,7 +632,9 @@
             <wire x2="1200" y1="5472" y2="5472" x1="368" />
             <wire x2="368" y1="5472" y2="6912" x1="368" />
             <wire x2="1200" y1="6912" y2="6912" x1="368" />
-            <wire x2="368" y1="6912" y2="13920" x1="368" />
+            <wire x2="368" y1="6912" y2="7552" x1="368" />
+            <wire x2="368" y1="7552" y2="13920" x1="368" />
+            <wire x2="1200" y1="7552" y2="7552" x1="368" />
             <wire x2="1072" y1="944" y2="944" x1="368" />
             <wire x2="1040" y1="2720" y2="2832" x1="1040" />
             <wire x2="1120" y1="2720" y2="2720" x1="1040" />
@@ -582,6 +648,8 @@
             <wire x2="1200" y1="5376" y2="5472" x1="1200" />
             <wire x2="1280" y1="6816" y2="6816" x1="1200" />
             <wire x2="1200" y1="6816" y2="6912" x1="1200" />
+            <wire x2="1280" y1="7456" y2="7456" x1="1200" />
+            <wire x2="1200" y1="7456" y2="7552" x1="1200" />
         </branch>
         <branch name="PC_L">
             <wire x2="1680" y1="912" y2="912" x1="1376" />
@@ -621,7 +689,8 @@
         <instance x="720" y="3072" name="XLXI_69" orien="R0" />
         <iomarker fontsize="28" x="1680" y="3040" name="SET_MOV_SEL" orien="R0" />
         <instance x="736" y="3744" name="REG_DATA_SEL_LUT_0" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="48" y="-480" type="instance" />
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="48" y="-528" type="instance" />
+            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="48" y="-476" type="instance" />
         </instance>
         <branch name="ID(7)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="640" y="3392" type="branch" />
@@ -654,11 +723,13 @@
             <wire x2="736" y1="3648" y2="3648" x1="640" />
         </branch>
         <branch name="REG_DATA_SEL_0">
-            <wire x2="1680" y1="3552" y2="3552" x1="1120" />
+            <wire x2="1664" y1="3552" y2="3552" x1="1120" />
+            <wire x2="1680" y1="3552" y2="3552" x1="1664" />
         </branch>
         <iomarker fontsize="28" x="1680" y="3552" name="REG_DATA_SEL_0" orien="R0" />
         <instance x="736" y="4304" name="REG_DATA_SEL_LUT_1" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="48" y="-480" type="instance" />
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="48" y="-528" type="instance" />
+            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="48" y="-476" type="instance" />
         </instance>
         <branch name="ID(7)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="640" y="3952" type="branch" />
@@ -770,7 +841,9 @@
             <wire x2="1232" y1="5504" y2="5504" x1="400" />
             <wire x2="400" y1="5504" y2="6944" x1="400" />
             <wire x2="1232" y1="6944" y2="6944" x1="400" />
-            <wire x2="400" y1="6944" y2="13920" x1="400" />
+            <wire x2="400" y1="6944" y2="7584" x1="400" />
+            <wire x2="400" y1="7584" y2="13920" x1="400" />
+            <wire x2="1232" y1="7584" y2="7584" x1="400" />
             <wire x2="1120" y1="2784" y2="2784" x1="1072" />
             <wire x2="1072" y1="2784" y2="2864" x1="1072" />
             <wire x2="1280" y1="1760" y2="1760" x1="1152" />
@@ -781,6 +854,8 @@
             <wire x2="1232" y1="5440" y2="5504" x1="1232" />
             <wire x2="1280" y1="6880" y2="6880" x1="1232" />
             <wire x2="1232" y1="6880" y2="6944" x1="1232" />
+            <wire x2="1280" y1="7520" y2="7520" x1="1232" />
+            <wire x2="1232" y1="7520" y2="7584" x1="1232" />
         </branch>
         <branch name="STG(1)">
             <attrtext style="alignment:SOFT-TVCENTER;fontsize:28;fontname:Arial" attrname="Name" x="432" y="400" type="branch" />
@@ -799,7 +874,9 @@
             <wire x2="1264" y1="5536" y2="5536" x1="432" />
             <wire x2="432" y1="5536" y2="6976" x1="432" />
             <wire x2="1264" y1="6976" y2="6976" x1="432" />
-            <wire x2="432" y1="6976" y2="13920" x1="432" />
+            <wire x2="432" y1="6976" y2="7616" x1="432" />
+            <wire x2="432" y1="7616" y2="13920" x1="432" />
+            <wire x2="1264" y1="7616" y2="7616" x1="432" />
             <wire x2="1120" y1="2848" y2="2848" x1="1104" />
             <wire x2="1104" y1="2848" y2="2896" x1="1104" />
             <wire x2="1280" y1="1824" y2="1824" x1="1184" />
@@ -810,6 +887,8 @@
             <wire x2="1280" y1="5504" y2="5504" x1="1264" />
             <wire x2="1264" y1="6944" y2="6976" x1="1264" />
             <wire x2="1280" y1="6944" y2="6944" x1="1264" />
+            <wire x2="1264" y1="7584" y2="7616" x1="1264" />
+            <wire x2="1280" y1="7584" y2="7584" x1="1264" />
         </branch>
         <instance x="1280" y="4928" name="XLXI_146" orien="R0" />
         <instance x="736" y="5504" name="STL_INST_LUT" orien="R0">
@@ -1031,5 +1110,54 @@
             <wire x2="1680" y1="6848" y2="6848" x1="1552" />
         </branch>
         <iomarker fontsize="28" x="1680" y="6848" name="OUT_REG_WE" orien="R0" />
+        <instance x="736" y="7584" name="HLT_INST_LUT" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="112" y="-512" type="instance" />
+            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="64" y="-476" type="instance" />
+        </instance>
+        <instance x="1280" y="7648" name="XLXI_163" orien="R0" />
+        <branch name="XLXN_458">
+            <wire x2="1280" y1="7392" y2="7392" x1="1120" />
+        </branch>
+        <branch name="HLT">
+            <wire x2="1552" y1="7488" y2="7488" x1="1536" />
+            <wire x2="1680" y1="7488" y2="7488" x1="1552" />
+        </branch>
+        <iomarker fontsize="28" x="1680" y="7488" name="HLT" orien="R0" />
+        <bustap x2="576" y1="7232" y2="7232" x1="480" />
+        <branch name="ID(7)">
+            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="640" y="7232" type="branch" />
+            <wire x2="640" y1="7232" y2="7232" x1="576" />
+            <wire x2="736" y1="7232" y2="7232" x1="640" />
+        </branch>
+        <bustap x2="576" y1="7280" y2="7280" x1="480" />
+        <branch name="ID(6)">
+            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="640" y="7280" type="branch" />
+            <wire x2="640" y1="7280" y2="7280" x1="576" />
+            <wire x2="736" y1="7280" y2="7280" x1="640" />
+        </branch>
+        <bustap x2="576" y1="7328" y2="7328" x1="480" />
+        <branch name="ID(5)">
+            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="640" y="7328" type="branch" />
+            <wire x2="640" y1="7328" y2="7328" x1="576" />
+            <wire x2="736" y1="7328" y2="7328" x1="640" />
+        </branch>
+        <bustap x2="576" y1="7376" y2="7376" x1="480" />
+        <branch name="ID(4)">
+            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="640" y="7376" type="branch" />
+            <wire x2="640" y1="7376" y2="7376" x1="576" />
+            <wire x2="736" y1="7376" y2="7376" x1="640" />
+        </branch>
+        <bustap x2="576" y1="7440" y2="7440" x1="480" />
+        <branch name="ID(3)">
+            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="640" y="7440" type="branch" />
+            <wire x2="640" y1="7440" y2="7440" x1="576" />
+            <wire x2="736" y1="7440" y2="7440" x1="640" />
+        </branch>
+        <bustap x2="576" y1="7488" y2="7488" x1="480" />
+        <branch name="ID(2)">
+            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="640" y="7488" type="branch" />
+            <wire x2="640" y1="7488" y2="7488" x1="576" />
+            <wire x2="736" y1="7488" y2="7488" x1="640" />
+        </branch>
     </sheet>
 </drawing>

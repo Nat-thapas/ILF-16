@@ -25,9 +25,9 @@ MODULE cpu
 		INSTANCE Output_Registers
 	SUBMODULE flgchk
 		INSTANCE Flag_Checker
-	SUBMODULE truncate16x8x4
-		INSTANCE Argument_C_Truncator
 	SUBMODULE gnd16
 		INSTANCE Stall_Zero_Reference
 	SUBMODULE cu
 		INSTANCE Control_Unit
+	SUBMODULE truncate16x12x8x4
+		INSTANCE Argument_C_Truncator

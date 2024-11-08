@@ -34,109 +34,110 @@ The ILF-16 supports a total of 256 instructions. Currently, the following is ava
 - #X : Value of the memory at address X
 - %X : Value of the I/O port number X
 
-| Binary Identifier | Hex Identifier | Name     | Arguments | Full name                     | Description                                  |
-|------------------:|---------------:|----------|-----------|-------------------------------|----------------------------------------------|
-| 00000000          | 00             | NOP      | 0         | No operation                  | Do nothing (takes 4 cycles)                  |
-| 00000100          | 04             | STL      | 1         | Stall                         | Do nothing for A cycles                      |
-| 00001000          | 08             | HLT      | 0         | Halt                          | Stop the CPU                                 |
-| 00010000          | 10             | ADD      | 2         | Add                           | $D = A + B                                   |
-| 00010001          | 11             | SUB      | 2         | Subtract                      | $D = A - B                                   |
-| 00010010          | 12             | RSHIFT   | 2         | Right shift                   | $D = A >> B                                  |
-| 00010011          | 13             | LSHIFT   | 2         | Left shift                    | $D = A << B                                  |
-| 00010100          | 14             | MUL      | 2         | Multiply                      | $D = A * B (unsigned, result is lower 16 bits) |
-| 00010101          | 15             | SMUL     | 2         | Signed multiply               | $D = A * B (signed, result is lower 16 bits) |
-| 00010110          | 16             | UMUL     | 2         | Upper multiply                | $D = A * B (unsigned, result is upper 16 bits) |
-| 00010111          | 17             | SUMUL    | 2         | Signed Upper multiply         | $D = A * B (signed, result is upper 16 bits) |
-| 00011000          | 18             | NOT      | 1         | Not                           | $D = ~A                                      |
-| 00011001          | 19             | Reserved | -         | -                             | -                                            |
-| 00011010          | 1A             | AND      | 2         | And                           | $D = A & B                                   |
-| 00011011          | 1B             | OR       | 2         | Or                            | $D = A | B                                   |
-| 00011100          | 1C             | XOR      | 2         | Xor                           | $D = A ^ B                                   |
-| 00011101          | 1D             | NAND     | 2         | Nand                          | $D = ~(A & B)                                |
-| 00011110          | 1E             | NOR      | 2         | Nor                           | $D = ~(A | B)                                |
-| 00011111          | 1F             | XNOR     | 2         | Xnor                          | $D = ~(A ^ B)                                |
-| 00100000          | 20             | BGT      | 1         | Branch if greater than        | Branch to A if greater than (unsigned)       |
-| 00100001          | 21             | BLT      | 1         | Branch if less than           | Branch to A if less than (unsigned)          |
-| 00100010          | 24             | BSGT     | 1         | Branch if signed greater than | Branch to A if greater than (signed)         |
-| 00100011          | 26             | BSLT     | 1         | Branch if signed less than    | Branch to A if less than (signed)            |
-| 00100100          | 24             | BEQ      | 1         | Branch if equal               | Branch to A if equal                         |
-| 00100101          | 29             | BZ       | 1         | Branch if zero                | Branch to A if zero                          |
-| 00100110          | 26             | BNEG     | 1         | Branch if negative            | Branch to A if negative                      |
-| 00100111          | 27             | BPOS     | 1         | Branch if positive            | Branch to A if positive                      |
-| 00101000          | 28             | BEV      | 1         | Branch if even                | Branch to A if even                          |
-| 00101001          | 29             | BBEV     | 1         | Branch if bitwise even        | Branch to A if bitwise even                  |
-| 00101010          | 2A             | BC       | 1         | Branch if carry               | Branch to A if carry/borrow                  |
-| 00101011          | 2B             | BOF      | 1         | Branch if overflow            | Branch to A if overflow                      |
-| 00101100          | 2C             | Reserved | -         | -                             | -                                            |
-| 00101101          | 2D             | Reserved | -         | -                             | -                                            |
-| 00101110          | 2E             | Reserved | -         | -                             | -                                            |
-| 00101111          | 2F             | BRN      | 1         | Branch                        | Branch to A                                  |
-| 00110000          | 30             | BLE      | 1         | Branch if less than or equal  | Branch to A if less than or equal (unsigned) |
-| 00110001          | 31             | BGE      | 1         | Branch if greater than or equal | Branch to A if greater than or equal (unsigned) |
-| 00110010          | 32             | BSLE     | 1         | Branch if signed less than or equal | Branch to A if less than or equal (signed) |
-| 00110011          | 33             | BSGE     | 1         | Branch if signed greater than or equal | Branch to A if greater than or equal (signed) |
-| 00110100          | 34             | BNEQ     | 1         | Branch if not equal           | Branch to A if not equal                     |
-| 00110101          | 35             | BNZ      | 1         | Branch if not zero            | Branch to A if not zero                      |
-| 00110110          | 36             | BPOSZ    | 1         | Branch if positive or zero    | Branch to A if positive or zero              |
-| 00110111          | 37             | BNEGZ    | 1         | Branch if negative or zero    | Branch to A if negative or zero              |
-| 00111000          | 38             | BOD      | 1         | Branch if odd                 | Branch to A if odd                           |
-| 00111001          | 39             | BBOD     | 1         | Branch if bitwise odd         | Branch to A if bitwise odd                   |
-| 00111010          | 3A             | BNC      | 1         | Branch if not carry           | Branch to A if not carry/borrow              |
-| 00111011          | 3B             | BNOF     | 1         | Branch if not overflow        | Branch to A if not overflow                  |
-| 00111100          | 3C             | Reserved | -         | -                             | -                                            |
-| 00111101          | 3D             | Reserved | -         | -                             | -                                            |
-| 00111110          | 3E             | Reserved | -         | -                             | -                                            |
-| 00111111          | 3F             | Reserved | -         | -                             | -                                            |
-| 01000000          | 40             | SGT      | 1-2       | Set if greater than           | $D = A if greater than (unsigned) else B     |
-| 01000001          | 41             | SLT      | 1-2       | Set if less than              | $D = A if less than (unsigned) else B        |
-| 01000010          | 44             | SSGT     | 1-2       | Set if signed greater than    | $D = A if greater than (signed) else B       |
-| 01000011          | 46             | SSLT     | 1-2       | Set if signed less than       | $D = A if less than (signed) else B          |
-| 01000100          | 44             | SEQ      | 1-2       | Set if equal                  | $D = A if equal else B                       |
-| 01000101          | 49             | SZ       | 1-2       | Set if zero                   | $D = A if zero else B                        |
-| 01000110          | 46             | SNEG     | 1-2       | Set if negative               | $D = A if negative else B                    |
-| 01000111          | 47             | SPOS     | 1-2       | Set if positive               | $D = A if positive else B                    |
-| 01001000          | 48             | SEV      | 1-2       | Set if even                   | $D = A if even else B                        |
-| 01001001          | 49             | SBEV     | 1-2       | Set if bitwise even           | $D = A if bitwise even else B                |
-| 01001010          | 4A             | SC       | 1-2       | Set if carry                  | $D = A if carry/borrow else B                |
-| 01001011          | 4B             | SOF      | 1-2       | Set if overflow               | $D = A if overflow else B                    |
-| 01001100          | 4C             | Reserved | -         | -                             | -                                            |
-| 01001101          | 4D             | Reserved | -         | -                             | -                                            |
-| 01001110          | 4E             | Reserved | -         | -                             | -                                            |
-| 01001111          | 4F             | MOV, LDI | 1         | Move, Load immediate          | $D = A                                       |
-| 01010000          | 50             | SLE      | 1-2       | Set if less than or equal     | $D = A if less than or equal (unsigned) else B |
-| 01010001          | 51             | SGE      | 1-2       | Set if greater than or equal  | $D = A if greater than or equal (unsigned) else B |
-| 01010010          | 52             | SSLE     | 1-2       | Set if signed less than or equal | $D = A if less than or equal (signed) else B |
-| 01010011          | 53             | SSGE     | 1-2       | Set if signed greater than or equal | $D = A if greater than or equal (signed) else B |
-| 01010100          | 54             | SNEQ     | 1-2       | Set if not equal              | $D = A if not equal else B                   |
-| 01010101          | 55             | SNZ      | 1-2       | Set if not zero               | $D = A if not zero else B                    |
-| 01010110          | 56             | SPOSZ    | 1-2       | Set if positive or zero       | $D = A if positive or zero else B            |
-| 01010111          | 57             | SNEGZ    | 1-2       | Set if negative or zero       | $D = A if negative or zero else B            |
-| 01011000          | 58             | SOD      | 1-2       | Set if odd                    | $D = A if odd else B                         |
-| 01011001          | 59             | SBOD     | 1-2       | Set if bitwise odd            | $D = A if bitwise odd else B                 |
-| 01011010          | 5A             | SNC      | 1-2       | Set if not carry              | $D = A if not carry/borrow else B            |
-| 01011011          | 5B             | SNOF     | 1-2       | Set if not overflow           | $D = A if not overflow else B                |
-| 01011100          | 5C             | Reserved | -         | -                             | -                                            |
-| 01011101          | 5D             | Reserved | -         | -                             | -                                            |
-| 01011110          | 5E             | Reserved | -         | -                             | -                                            |
-| 01011111          | 5F             | Reserved | -         | -                             | -                                            |
-| 11000000          | C0             | LOD      | 1         | Load                          | $D = #A                                      |
-| 11000100          | C4             | STR      | 1         | Store                         | #A = $D                                      |
-| 11001000          | C8             | IN       | 1         | Input                         | $D = %A                                      |
-| 11001100          | CC             | OUT      | 1         | Output                        | %A = $D                                      |
-| 11010000          | D0             | GFXCLR   | 0         | GFX clear                     | Set the entire current frame buffer to color 0 |
-| 11010001          | D1             | GFXSP    | 2         | GFX set pixel                 | Set pixel at (A, B) to color $D              |
-| 11010010          | D2             | GFXSC    | 2         | GFX set cursor                | GFX cursor will be set to (A, B) with draw property $D |
-| 11010011          | D3             | GFXDL    | 2         | GFX draw line                 | Draw a line from cursor to (A, B) with cursor property as width and color $D |
-| 11010100          | D4             | GFXDS    | 2         | GFX draw square               | Draw a square starting at cursor with width A and height B with cursor property as line width, if cursor property is 0xFF then fill the square |
-| 11010111          | D7             | GFXFC    | 0         | GFX flip and clear            | Flip the frame buffer and clear the one that will be drawn to |
-| 11011000          | D8             | SFXSFI   | 1         | SFX set frequency (IMM D)     | Set channel D frequency to A Hz              |
-| 11011001          | D9             | SFXSAI   | 1         | SFX set amplitude (IMM D)     | Set channel D amplitude (volume) to A / 0xFFFF |
-| 11011010          | DA             | SFXSDI   | 1         | SFX set duration (IMM D)      | Set channel D play duration to A ms.         |
-| 11011011          | DB             | SFXPI    | 0         | SFX play/pause (IMM D)        | Toggle play/pause status of channel D        |
-| 11011100          | DC             | SFXSF    | 1         | SFX set frequency             | Set channel $D frequency to A Hz              |
-| 11011101          | DD             | SFXSA    | 1         | SFX set amplitude             | Set channel $D amplitude (volume) to A / 0xFFFF |
-| 11011110          | DE             | SFXSD    | 1         | SFX set duration              | Set channel $D play duration to A ms.         |
-| 11011111          | DF             | SFXP     | 0         | SFX play/pause                | Toggle play/pause status of channel $D        |
+| Binary Identifier | Hex Identifier | Name     | Have Dest | Arguments | Full name                     | Description                                  |
+|------------------:|---------------:|----------|-----------|-----------|-------------------------------|----------------------------------------------|
+| 00000000          | 00             | NOP      | False     | 0         | No operation                  | Do nothing (takes 4 cycles)                  |
+| 00000100          | 04             | STL      | False     | 1         | Stall                         | Do nothing for A cycles                      |
+| 00001000          | 08             | HLT      | False     | 0         | Halt                          | Stop the CPU until restart                   |
+| 00010000          | 10             | ADD      | True      | 2         | Add                           | $D = A + B                                   |
+| 00010001          | 11             | SUB      | True      | 2         | Subtract                      | $D = A - B                                   |
+| 00010010          | 12             | RSHIFT   | True      | 2         | Right shift                   | $D = A >> B                                  |
+| 00010011          | 13             | LSHIFT   | True      | 2         | Left shift                    | $D = A << B                                  |
+| 00010100          | 14             | MUL      | True      | 2         | Multiply                      | $D = A * B (unsigned, result is lower 16 bits) |
+| 00010101          | 15             | SMUL     | True      | 2         | Signed multiply               | $D = A * B (signed, result is lower 16 bits) |
+| 00010110          | 16             | UMUL     | True      | 2         | Upper multiply                | $D = A * B (unsigned, result is upper 16 bits) |
+| 00010111          | 17             | SUMUL    | True      | 2         | Signed Upper multiply         | $D = A * B (signed, result is upper 16 bits) |
+| 00011000          | 18             | PASS     | True      | 1         | Passthrough                   | $D = A                                       |
+| 00011001          | 19             | NOT      | True      | 1         | Not                           | $D = ~A                                      |
+| 00011010          | 1A             | AND      | True      | 2         | And                           | $D = A & B                                   |
+| 00011011          | 1B             | OR       | True      | 2         | Or                            | $D = A | B                                   |
+| 00011100          | 1C             | XOR      | True      | 2         | Xor                           | $D = A ^ B                                   |
+| 00011101          | 1D             | NAND     | True      | 2         | Nand                          | $D = ~(A & B)                                |
+| 00011110          | 1E             | NOR      | True      | 2         | Nor                           | $D = ~(A | B)                                |
+| 00011111          | 1F             | XNOR     | True      | 2         | Xnor                          | $D = ~(A ^ B)                                |
+| 00100000          | 20             | BGT      | False     | 1         | Branch if greater than        | Branch to A if greater than (unsigned)       |
+| 00100001          | 21             | BLT      | False     | 1         | Branch if less than           | Branch to A if less than (unsigned)          |
+| 00100010          | 22             | BSGT     | False     | 1         | Branch if signed greater than | Branch to A if greater than (signed)         |
+| 00100011          | 23             | BSLT     | False     | 1         | Branch if signed less than    | Branch to A if less than (signed)            |
+| 00100100          | 24             | BEQ      | False     | 1         | Branch if equal               | Branch to A if equal                         |
+| 00100101          | 25             | BZ       | False     | 1         | Branch if zero                | Branch to A if zero                          |
+| 00100110          | 26             | BNEG     | False     | 1         | Branch if negative            | Branch to A if negative                      |
+| 00100111          | 27             | BPOS     | False     | 1         | Branch if positive            | Branch to A if positive                      |
+| 00101000          | 28             | BEV      | False     | 1         | Branch if even                | Branch to A if even                          |
+| 00101001          | 29             | BBEV     | False     | 1         | Branch if bitwise even        | Branch to A if bitwise even                  |
+| 00101010          | 2A             | BC       | False     | 1         | Branch if carry               | Branch to A if carry/borrow                  |
+| 00101011          | 2B             | BOF      | False     | 1         | Branch if overflow            | Branch to A if overflow                      |
+| 00101100          | 2C             | Reserved | -         | -         | -                             | -                                            |
+| 00101101          | 2D             | Reserved | -         | -         | -                             | -                                            |
+| 00101110          | 2E             | Reserved | -         | -         | -                             | -                                            |
+| 00101111          | 2F             | BRN      | False     | 1         | Branch                        | Branch to A                                  |
+| 00110000          | 30             | BLE      | False     | 1         | Branch if less than or equal  | Branch to A if less than or equal (unsigned) |
+| 00110001          | 31             | BGE      | False     | 1         | Branch if greater than or equal | Branch to A if greater than or equal (unsigned) |
+| 00110010          | 32             | BSLE     | False     | 1         | Branch if signed less than or equal | Branch to A if less than or equal (signed) |
+| 00110011          | 33             | BSGE     | False     | 1         | Branch if signed greater than or equal | Branch to A if greater than or equal (signed) |
+| 00110100          | 34             | BNEQ     | False     | 1         | Branch if not equal           | Branch to A if not equal                     |
+| 00110101          | 35             | BNZ      | False     | 1         | Branch if not zero            | Branch to A if not zero                      |
+| 00110110          | 36             | BPOSZ    | False     | 1         | Branch if positive or zero    | Branch to A if positive or zero              |
+| 00110111          | 37             | BNEGZ    | False     | 1         | Branch if negative or zero    | Branch to A if negative or zero              |
+| 00111000          | 38             | BOD      | False     | 1         | Branch if odd                 | Branch to A if odd                           |
+| 00111001          | 39             | BBOD     | False     | 1         | Branch if bitwise odd         | Branch to A if bitwise odd                   |
+| 00111010          | 3A             | BNC      | False     | 1         | Branch if not carry           | Branch to A if not carry/borrow              |
+| 00111011          | 3B             | BNOF     | False     | 1         | Branch if not overflow        | Branch to A if not overflow                  |
+| 00111100          | 3C             | Reserved | -         | -         | -                             | -                                            |
+| 00111101          | 3D             | Reserved | -         | -         | -                             | -                                            |
+| 00111110          | 3E             | Reserved | -         | -         | -                             | -                                            |
+| 00111111          | 3F             | Reserved | -         | -         | -                             | -                                            |
+| 01000000          | 40             | SGT      | True      | 1-2       | Set if greater than           | $D = A if greater than (unsigned) else B     |
+| 01000001          | 41             | SLT      | True      | 1-2       | Set if less than              | $D = A if less than (unsigned) else B        |
+| 01000010          | 42             | SSGT     | True      | 1-2       | Set if signed greater than    | $D = A if greater than (signed) else B       |
+| 01000011          | 43             | SSLT     | True      | 1-2       | Set if signed less than       | $D = A if less than (signed) else B          |
+| 01000100          | 44             | SEQ      | True      | 1-2       | Set if equal                  | $D = A if equal else B                       |
+| 01000101          | 45             | SZ       | True      | 1-2       | Set if zero                   | $D = A if zero else B                        |
+| 01000110          | 46             | SNEG     | True      | 1-2       | Set if negative               | $D = A if negative else B                    |
+| 01000111          | 47             | SPOS     | True      | 1-2       | Set if positive               | $D = A if positive else B                    |
+| 01001000          | 48             | SEV      | True      | 1-2       | Set if even                   | $D = A if even else B                        |
+| 01001001          | 49             | SBEV     | True      | 1-2       | Set if bitwise even           | $D = A if bitwise even else B                |
+| 01001010          | 4A             | SC       | True      | 1-2       | Set if carry                  | $D = A if carry/borrow else B                |
+| 01001011          | 4B             | SOF      | True      | 1-2       | Set if overflow               | $D = A if overflow else B                    |
+| 01001100          | 4C             | Reserved | -         | -         | -                             | -                                            |
+| 01001101          | 4D             | Reserved | -         | -         | -                             | -                                            |
+| 01001110          | 4E             | Reserved | -         | -         | -                             | -                                            |
+| 01001111          | 4F             | MOV      | True      | 1         | Move                          | $D = A (this instruction is the same as LDI) |
+| 01001111          | 4F             | LDI      | True      | 1         | Load immediate                | $D = A (this instruction is the same as MOV) |
+| 01010000          | 50             | SLE      | True      | 1-2       | Set if less than or equal     | $D = A if less than or equal (unsigned) else B |
+| 01010001          | 51             | SGE      | True      | 1-2       | Set if greater than or equal  | $D = A if greater than or equal (unsigned) else B |
+| 01010010          | 52             | SSLE     | True      | 1-2       | Set if signed less than or equal | $D = A if less than or equal (signed) else B |
+| 01010011          | 53             | SSGE     | True      | 1-2       | Set if signed greater than or equal | $D = A if greater than or equal (signed) else B |
+| 01010100          | 54             | SNEQ     | True      | 1-2       | Set if not equal              | $D = A if not equal else B                   |
+| 01010101          | 55             | SNZ      | True      | 1-2       | Set if not zero               | $D = A if not zero else B                    |
+| 01010110          | 56             | SPOSZ    | True      | 1-2       | Set if positive or zero       | $D = A if positive or zero else B            |
+| 01010111          | 57             | SNEGZ    | True      | 1-2       | Set if negative or zero       | $D = A if negative or zero else B            |
+| 01011000          | 58             | SOD      | True      | 1-2       | Set if odd                    | $D = A if odd else B                         |
+| 01011001          | 59             | SBOD     | True      | 1-2       | Set if bitwise odd            | $D = A if bitwise odd else B                 |
+| 01011010          | 5A             | SNC      | True      | 1-2       | Set if not carry              | $D = A if not carry/borrow else B            |
+| 01011011          | 5B             | SNOF     | True      | 1-2       | Set if not overflow           | $D = A if not overflow else B                |
+| 01011100          | 5C             | Reserved | -         | -         | -                             | -                                            |
+| 01011101          | 5D             | Reserved | -         | -         | -                             | -                                            |
+| 01011110          | 5E             | Reserved | -         | -         | -                             | -                                            |
+| 01011111          | 5F             | Reserved | -         | -         | -                             | -                                            |
+| 11000000          | C0             | LOD      | True      | 1         | Load                          | $D = #A                                      |
+| 11000100          | C4             | STR      | True      | 1         | Store                         | #A = $D                                      |
+| 11001000          | C8             | IN       | True      | 1         | Input                         | $D = %A                                      |
+| 11001100          | CC             | OUT      | True      | 1         | Output                        | %A = $D                                      |
+| 11010000          | D0             | GFXCLR   | False     | 0         | GFX clear                     | Set the entire current frame buffer to color 0 |
+| 11010001          | D1             | GFXSP    | True      | 2         | GFX set pixel                 | Set pixel at (A, B) to color $D              |
+| 11010010          | D2             | GFXSC    | True      | 2         | GFX set cursor                | GFX cursor will be set to (A, B) with draw property $D |
+| 11010011          | D3             | GFXDL    | True      | 2         | GFX draw line                 | Draw a line from cursor to (A, B) with cursor property as width and color $D |
+| 11010100          | D4             | GFXDS    | True      | 2         | GFX draw square               | Draw a square starting at cursor with width A and height B with cursor property as line width, if cursor property is 0xFF then fill the square |
+| 11010111          | D7             | GFXFC    | False     | 0         | GFX flip and clear            | Flip the frame buffer and clear the one that will be drawn to |
+| 11011000          | D8             | SFXSFI   | True      | 1         | SFX set frequency (IMM D)     | Set channel D frequency to A Hz              |
+| 11011001          | D9             | SFXSAI   | True      | 1         | SFX set amplitude (IMM D)     | Set channel D amplitude (volume) to A / 0xFFFF |
+| 11011010          | DA             | SFXPI    | True      | 1         | SFX play (IMM D)              | Set channel D to play for A ms. If A = 0xFFFF, play until stop |
+| 11011011          | DB             | SFXSTI   | True      | 0         | SFX stop (IMM D)              | Stop playing sound on channel D              |
+| 11011100          | DC             | SFXSF    | True      | 1         | SFX set frequency             | Set channel $D frequency to A Hz             |
+| 11011101          | DD             | SFXSA    | True      | 1         | SFX set amplitude             | Set channel $D amplitude (volume) to A / 0xFFFF |
+| 11011110          | DE             | SFXP     | True      | 1         | SFX play                      | Set channel $D to play for A ms. If A = 0xFFFF, play until stop |
+| 11011111          | DF             | SFXST    | True      | 0         | SFX stop                      | Stop playing sound on channel $D             |
 
 Notes: 
 - Reserved instructions are side effect instructions from how the CPU decode instructions, these may or may not work and have undefined behavior.

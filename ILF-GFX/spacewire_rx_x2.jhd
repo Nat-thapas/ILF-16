@@ -1,0 +1,9 @@
+MODULE spacewire_rx_x2
+	SUBMODULE bus_reverser
+		INSTANCE XLXI_17
+	SUBMODULE bus_reverser
+		INSTANCE XLXI_18
+	SUBMODULE rx_buffer_wrapper
+		INSTANCE XLXI_45
+	SUBMODULE bus_splicer
+		INSTANCE XLXI_46

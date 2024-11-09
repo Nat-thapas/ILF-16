@@ -1,0 +1,16 @@
+# Output products list for <h_counter>
+core_resources.txt
+gui_latency.txt
+h_counter.asy
+h_counter.gise
+h_counter.ngc
+h_counter.sym
+h_counter.vhd
+h_counter.vho
+h_counter.xco
+h_counter.xise
+h_counter\doc\c_counter_binary_v11_0_readme.txt
+h_counter\doc\c_counter_binary_v11_0_vinfo.html
+h_counter\doc\ds215_counter.pdf
+h_counter_flist.txt
+h_counter_xmdf.tcl

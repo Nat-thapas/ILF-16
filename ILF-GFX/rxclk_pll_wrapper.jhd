@@ -1,0 +1,3 @@
+MODULE rxclk_pll_wrapper
+	SUBMODULE rxclk_pll
+		INSTANCE XLXI_1

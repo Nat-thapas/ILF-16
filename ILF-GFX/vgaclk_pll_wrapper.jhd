@@ -1,0 +1,3 @@
+MODULE vgaclk_pll_wrapper
+	SUBMODULE vgaclk_pll
+		INSTANCE XLXI_1

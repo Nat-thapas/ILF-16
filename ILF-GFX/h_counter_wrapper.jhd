@@ -1,0 +1,3 @@
+MODULE h_counter_wrapper
+	SUBMODULE h_counter
+		INSTANCE XLXI_1

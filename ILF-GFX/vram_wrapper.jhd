@@ -1,0 +1,3 @@
+MODULE vram_wrapper
+	SUBMODULE vram
+		INSTANCE XLXI_1

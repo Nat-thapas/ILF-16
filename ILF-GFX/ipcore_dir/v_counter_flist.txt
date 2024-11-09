@@ -1,0 +1,17 @@
+# Output products list for <v_counter>
+_xmsgs\pn_parser.xmsgs
+core_resources.txt
+gui_latency.txt
+v_counter.asy
+v_counter.gise
+v_counter.ngc
+v_counter.sym
+v_counter.vhd
+v_counter.vho
+v_counter.xco
+v_counter.xise
+v_counter\doc\c_counter_binary_v11_0_readme.txt
+v_counter\doc\c_counter_binary_v11_0_vinfo.html
+v_counter\doc\ds215_counter.pdf
+v_counter_flist.txt
+v_counter_xmdf.tcl

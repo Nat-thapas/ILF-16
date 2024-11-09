@@ -1,0 +1,3 @@
+MODULE rx_buffer_wrapper
+	SUBMODULE rx_buffer_fifo
+		INSTANCE XLXI_1

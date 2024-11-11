@@ -198,33 +198,33 @@ def operation_to_bin(
                 raise ValueError(
                     f"Argument values {first_argument_int} and {second_argument_int} are too large for 8-bit binary"
                 )
-            arguments = (
-                (first_argument_int & 0xFF) << 8
-            ) | (second_argument_int & 0xFF)
+            arguments = ((first_argument_int & 0xFF) << 8) | (
+                second_argument_int & 0xFF
+            )
         elif first_argument_reg:
             if first_argument_int > 0xF or second_argument_int > 0xFFF:
                 raise ValueError(
                     f"Argument values {first_argument_int} and {second_argument_int} are too large for 4-bit and 12-bit binary"
                 )
-            arguments = (
-                (first_argument_int & 0xF) << 12
-            ) | (second_argument_int & 0xFFF)
+            arguments = ((first_argument_int & 0xF) << 12) | (
+                second_argument_int & 0xFFF
+            )
         elif second_argument_reg:
             if first_argument_int > 0xFFF or second_argument_int > 0xF:
                 raise ValueError(
                     f"Argument values {first_argument_int} and {second_argument_int} are too large for 12-bit and 4-bit binary"
                 )
-            arguments = (
-                (first_argument_int & 0xFFF) << 8
-            ) | (second_argument_int & 0xF)
+            arguments = ((first_argument_int & 0xFFF) << 8) | (
+                second_argument_int & 0xF
+            )
         else:
             if first_argument_int > 0xFF or second_argument_int > 0xFF:
                 raise ValueError(
                     f"Argument values {first_argument_int} and {second_argument_int} are too large for 8-bit binary"
                 )
-            arguments = (
-                (first_argument_int & 0xFF) << 8
-            ) | (second_argument_int & 0xFF)
+            arguments = ((first_argument_int & 0xFF) << 8) | (
+                second_argument_int & 0xFF
+            )
     else:
         raise ValueError(f"Invalid number of arguments: {argument_count}")
     return (
@@ -347,7 +347,7 @@ def main() -> None:
         print(raw_assembly)
         print("-" * 80)
     assembly, defines = parse_assembly(raw_assembly)
-    defines['sp'] = '$15'
+    defines["sp"] = "$15"
     define_word_instructions = extract_define_word_instructions(assembly)
     relative_to_absolute(assembly)
     expand_cal_ret(assembly)
@@ -376,7 +376,7 @@ def main() -> None:
         ram_file.write("memory_initialization_radix=16;\n")
         ram_file.write("memory_initialization_vector=\n")
         for index, data in enumerate(ram_data):
-            ram_file.write(hex(data)[2:].zfill(8))
+            ram_file.write(hex(data)[2:].zfill(4))
             if index < len(ram_data) - 1:
                 ram_file.write(",\n")
             else:

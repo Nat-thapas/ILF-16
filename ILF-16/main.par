@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-LAPBOTTOM::  Mon Nov 11 23:15:22 2024
+LAPBOTTOM::  Mon Nov 11 23:36:52 2024
 
 par -w -intstyle ise -ol high -xe c -mt 4 main_map.ncd main.ncd main.pcf 
 
@@ -149,25 +149,25 @@ Phase  2  : 5205 unrouted;      REAL time: 2 secs
 
 Phase  3  : 2810 unrouted;      REAL time: 3 secs 
 
-Phase  4  : 2810 unrouted; (Setup:355, Hold:1164, Component Switching Limit:0)     REAL time: 4 secs 
+Phase  4  : 2810 unrouted; (Setup:355, Hold:1164, Component Switching Limit:0)     REAL time: 3 secs 
 
 Updating file: main.ncd with current fully routed design.
 
-Phase  5  : 0 unrouted; (Setup:355, Hold:1182, Component Switching Limit:0)     REAL time: 5 secs 
+Phase  5  : 0 unrouted; (Setup:355, Hold:1182, Component Switching Limit:0)     REAL time: 4 secs 
 
-Phase  6  : 0 unrouted; (Setup:264, Hold:1182, Component Switching Limit:0)     REAL time: 5 secs 
+Phase  6  : 0 unrouted; (Setup:264, Hold:1182, Component Switching Limit:0)     REAL time: 4 secs 
 
-Phase  7  : 0 unrouted; (Setup:0, Hold:1182, Component Switching Limit:0)     REAL time: 5 secs 
+Phase  7  : 0 unrouted; (Setup:0, Hold:1182, Component Switching Limit:0)     REAL time: 4 secs 
 
-Phase  8  : 0 unrouted; (Setup:0, Hold:1182, Component Switching Limit:0)     REAL time: 5 secs 
+Phase  8  : 0 unrouted; (Setup:0, Hold:1182, Component Switching Limit:0)     REAL time: 4 secs 
 
-Phase  9  : 0 unrouted; (Setup:0, Hold:1182, Component Switching Limit:0)     REAL time: 5 secs 
+Phase  9  : 0 unrouted; (Setup:0, Hold:1182, Component Switching Limit:0)     REAL time: 4 secs 
 
-Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 5 secs 
+Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 4 secs 
 
-Phase 11  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
-Total REAL time to Router completion: 6 secs 
-Total CPU time to Router completion (all processors): 4 secs 
+Phase 11  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 5 secs 
+Total REAL time to Router completion: 5 secs 
+Total CPU time to Router completion (all processors): 5 secs 
 
 Generating "PAR" statistics.
 
@@ -255,8 +255,8 @@ All signals are completely routed.
 
 WARNING:Par:283 - There are 21 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
-Total REAL time to PAR completion: 6 secs 
-Total CPU time to PAR completion (all processors): 4 secs 
+Total REAL time to PAR completion: 5 secs 
+Total CPU time to PAR completion (all processors): 5 secs 
 
 Peak Memory Usage:  4501 MB
 

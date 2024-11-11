@@ -390,3 +390,9 @@ map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -xe c -t 1 -xt 
 par -w -intstyle ise -ol high -xe c -mt 4 main_map.ncd main.ncd main.pcf 
 trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml main.twx main.ncd -o main.twr main.pcf -ucf main.ucf 
 bitgen -intstyle ise -f main.ut main.ncd 
+xst -intstyle ise -ifn "D:/Personal/Projects/ILF-16/ILF-16/main.xst" -ofn "D:/Personal/Projects/ILF-16/ILF-16/main.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc main.ucf -p xc6slx9-tqg144-2 main.ngc main.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -xe c -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt 2 -ir off -pr off -u -lc off -power off -o main_map.ncd main.ngd main.pcf 
+par -w -intstyle ise -ol high -xe c -mt 4 main_map.ncd main.ncd main.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml main.twx main.ncd -o main.twr main.pcf -ucf main.ucf 
+bitgen -intstyle ise -f main.ut main.ncd 

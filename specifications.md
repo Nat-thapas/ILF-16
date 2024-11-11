@@ -191,3 +191,39 @@ The ALU or arithmatic logic unit is a purely combinational component with no reg
     - 13 : N/A  :         Not Available (always 0)
     - 14 : N/A  :         Not Available (always 0)
     - 15 : TR   : 1       True
+
+
+# ILF-GFX
+ILF-GFX is a "graphic processor" that is designed to be used with ILF-16, in its current state, it's basically an external dual port RAM with vga driver attached to it, no other function is supported except set pixel.
+
+## Communication
+The ILF-16 and ILF-GFX communicate with each other via 2 lanes of 240 Mbps Spacewire link (totaling 480 Mbps). The communication does not use the full Spacewire protocol but only the physical layer of it, since the ILF-GFX is connected on a dedicated port and will be the only device to connect to that port, any higher layer of the protocol is unnecessary.
+
+## Output
+The ILF-GFX have 2 bits per color output. External DAC must be connected to this. The sync output can be used directly if the monitor supports 3.3v sync signals.
+
+## Color palette
+The default palette of ILF-GFX is the palette used on the [PICO-8](https://pico-8.fandom.com/wiki/Palette) mapped to RGB222 on a best-effort basis:
+
+| Color Index | Color Name  | R  | G  | B  | Equivalent RGB888 |
+|-------------|-------------|----|----|----|-------------------|
+| 0000  (0x0) | Black       | 00 | 00 | 00 | #000000           |
+| 0001  (0x1) | Dark Blue   | 00 | 00 | 01 | #000062           |
+| 0010  (0x2) | Dark Purple | 01 | 00 | 01 | #620062           |
+| 0011  (0x3) | Dark Green  | 00 | 01 | 00 | #006200           |
+| 0100  (0x4) | Brown       | 10 | 01 | 00 | #ba6200           |
+| 0101  (0x5) | Dark Gray   | 01 | 01 | 01 | #626262           |
+| 0110  (0x6) | Light Gray  | 10 | 10 | 10 | #bababa           |
+| 0111  (0x7) | White       | 11 | 11 | 11 | #ffffff           |
+| 1000  (0x8) | Red         | 11 | 00 | 01 | #ff0062           |
+| 1001  (0x9) | Orange      | 11 | 01 | 00 | #ff6200           |
+| 1010  (0xA) | Yellow      | 11 | 11 | 01 | #ffff62           |
+| 1011  (0xB) | Green       | 00 | 11 | 01 | #00ff62           |
+| 1100  (0xC) | Blue        | 00 | 10 | 11 | #00baff           |
+| 1101  (0xD) | Purple      | 10 | 01 | 10 | #ba62ba           |
+| 1110  (0xE) | Pink        | 11 | 01 | 10 | #ff62ba           |
+| 1111  (0xF) | Light Pink  | 11 | 10 | 10 | #ffbaba           |
+
+
+# ILF-EXTIO
+ILF-EXTIO is an IO extension for the ILF-16. In its current state, only the on-board buttons are used.

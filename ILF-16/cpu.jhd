@@ -15,12 +15,6 @@ MODULE cpu
 		INSTANCE SET_MOV_Data_Selector
 	SUBMODULE idu
 		INSTANCE Instruction_Decode_Unit
-	SUBMODULE mock_rom
-		INSTANCE Instructions_ROM
-	SUBMODULE mock_ram
-		INSTANCE General_Purpose_RAM
-	SUBMODULE mux16x1x16tb
-		INSTANCE Input_Selector
 	SUBMODULE oregs
 		INSTANCE Output_Registers
 	SUBMODULE flgchk
@@ -29,5 +23,15 @@ MODULE cpu
 		INSTANCE Stall_Zero_Reference
 	SUBMODULE cu
 		INSTANCE Control_Unit
-	SUBMODULE truncate16x12x8x4
-		INSTANCE Argument_C_Truncator
+	SUBMODULE spacewire_tx_x2
+		INSTANCE GFX_Instruction_Transmitter
+	SUBMODULE gfx_inst_encoder
+		INSTANCE GFX_Instruction_Encoder
+	SUBMODULE inp_stab
+		INSTANCE Input_Stablilizer_Selector
+	SUBMODULE rom_wrapper
+		INSTANCE Instruction_ROM
+	SUBMODULE ram_wrapper
+		INSTANCE General_Purpose_RAM
+	SUBMODULE fd32ce
+		INSTANCE GFX_Instruction_Buffer

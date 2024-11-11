@@ -1,0 +1,2 @@
+vhdl work ../../sys_tx_clk_pll.vhd
+vhdl work ../example_design/sys_tx_clk_pll_exdes.vhd

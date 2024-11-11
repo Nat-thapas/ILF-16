@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version 14.7
-# Date: Sat Nov 09 14:56:33 2024
+# Date: Mon Nov 11 09:27:29 2024
 #
 ##############################################################
 #
@@ -45,7 +45,7 @@ CSET component_name=h_counter
 CSET count_mode=UP
 CSET fb_latency=0
 CSET fb_latency_configuration=Manual
-CSET final_count_value=700
+CSET final_count_value=6FF
 CSET implementation=Fabric
 CSET increment_value=1
 CSET latency=1
@@ -61,10 +61,10 @@ CSET sset=false
 CSET sync_ce_priority=Sync_Overrides_CE
 CSET sync_threshold_output=true
 CSET syncctrlpriority=Reset_Overrides_Set
-CSET threshold_value=700
+CSET threshold_value=6FF
 # END Parameters
 # BEGIN Extra information
 MISC pkg_timestamp=2013-07-22T10:37:35Z
 # END Extra information
 GENERATE
-# CRC: a01f8806
+# CRC: 45ce4003

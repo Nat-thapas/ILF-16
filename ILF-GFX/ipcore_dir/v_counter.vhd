@@ -65,7 +65,7 @@ END COMPONENT;
       c_ce_overrides_sync => 0,
       c_count_by => "1",
       c_count_mode => 0,
-      c_count_to => "1100011110",
+      c_count_to => "1100011101",
       c_fb_latency => 0,
       c_has_ce => 1,
       c_has_load => 0,

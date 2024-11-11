@@ -1,0 +1,3 @@
+MODULE rom_wrapper
+	SUBMODULE rom
+		INSTANCE XLXI_1

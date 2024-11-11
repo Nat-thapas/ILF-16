@@ -1,0 +1,5 @@
+MODULE big
+	SUBMODULE receiver
+		INSTANCE SW_RX
+	SUBMODULE rxclk_pll
+		INSTANCE XLXI_7

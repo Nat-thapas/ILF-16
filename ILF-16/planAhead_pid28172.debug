@@ -1,0 +1,44 @@
+#-------------------------------------------------------------------------------
+# PlanAhead v14.7
+# Build 321239 by xbuild on Fri Sep 27 19:31:35 MDT 2013
+# Current time: 11/11/24 1:38:54 AM
+# Process ID: 28172
+# Platform: Windows
+#
+# This file is an indication that an internal application error occurred.
+# This information is useful for debugging. Please open a case with Xilinx
+# Technical Support with this file and a testcase attached.
+#-------------------------------------------------------------------------------
+11/11/24 1:38:54 AM
+ui.h.b: Error: Wrapper with null DB pointer
+	at ui.h.e.CF(SourceFile:217)
+	at ui.h.I.CF(SourceFile:702)
+	at ui.data.common.Z.<init>(SourceFile:35)
+	at ui.data.design.h.<init>(SourceFile:19)
+	at ui.data.design.i.bwu(SourceFile:32)
+	at ui.data.design.C.bya(SourceFile:502)
+	at ui.data.design.C.createModel(SourceFile:450)
+	at ui.data.design.C.bxW(SourceFile:188)
+	at ui.data.design.j.c(SourceFile:1214)
+	at ui.data.design.j.a(SourceFile:308)
+	at ui.frmwork.a.i.c(SourceFile:35)
+	at ui.frmwork.HTclEventBroker.a(SourceFile:240)
+	at ui.frmwork.HTclEventBroker.fireTclEvent(SourceFile:325)
+	at ui.frmwork.designcmds.HTCDesignCommands_findAndSetTop(Native Method)
+	at ui.data.design.n.run(SourceFile:572)
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:251)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:727)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:688)
+	at java.awt.EventQueue$3.run(EventQueue.java:686)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:697)
+	at ui.frmwork.a.e.dispatchEvent(SourceFile:73)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+

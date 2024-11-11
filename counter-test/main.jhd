@@ -1,0 +1,3 @@
+MODULE main
+	SUBMODULE counter10
+		INSTANCE XLXI_1

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Interface Version="1" Minor="1">
+	<Ifc Id="ROOT" Top="1">
+		<Port Id="BTN1" Dir="IN"/>
+		<Port Id="BTN2" Dir="IN"/>
+		<Port Id="K5_1" Dir="IN"/>
+		<Port Id="K5_3" Dir="IN"/>
+		<Port Id="K5_5" Dir="IN"/>
+		<Port Id="K5_7" Dir="IN"/>
+		<Port Id="K5_9" Dir="IN"/>
+		<Port Id="K5_11" Dir="IN"/>
+		<Port Id="K5_13" Dir="IN"/>
+		<Port Id="K5_15" Dir="IN"/>
+		<Port Id="OSC" Dir="IN"/>
+		<Port Id="K1_1" Dir="OUT"/>
+		<Port Id="K1_3" Dir="OUT"/>
+		<Port Id="K1_5" Dir="OUT"/>
+		<Port Id="K1_7" Dir="OUT"/>
+		<Port Id="K1_9" Dir="OUT"/>
+		<Port Id="K1_11" Dir="OUT"/>
+		<Port Id="K1_13" Dir="OUT"/>
+		<Port Id="K1_15" Dir="OUT"/>
+		<DiffPair Pos="K5_1" Neg="K5_3"/>
+		<DiffPair Pos="K5_5" Neg="K5_7"/>
+		<DiffPair Pos="K5_9" Neg="K5_11"/>
+		<DiffPair Pos="K5_13" Neg="K5_15"/>
+	</Ifc>
+</Interface>
+

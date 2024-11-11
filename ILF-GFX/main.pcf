@@ -1,0 +1,417 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Mon Nov 11 17:44:03 2024
+//! **************************************************************************
+
+SCHEMATIC START;
+CONFIG VCCAUX = "3.3";
+COMP "K1_13" LOCATE = SITE "P7" LEVEL 1;
+COMP "K1_15" LOCATE = SITE "P5" LEVEL 1;
+COMP "K1_1" LOCATE = SITE "P23" LEVEL 1;
+COMP "K1_3" LOCATE = SITE "P21" LEVEL 1;
+COMP "K1_5" LOCATE = SITE "P16" LEVEL 1;
+COMP "K1_7" LOCATE = SITE "P14" LEVEL 1;
+COMP "K5_13" LOCATE = SITE "P115" LEVEL 1;
+COMP "K1_9" LOCATE = SITE "P11" LEVEL 1;
+COMP "K5_1" LOCATE = SITE "P121" LEVEL 1;
+COMP "OSC" LOCATE = SITE "P123" LEVEL 1;
+COMP "K5_5" LOCATE = SITE "P119" LEVEL 1;
+COMP "K5_9" LOCATE = SITE "P117" LEVEL 1;
+COMP "BTN1" LOCATE = SITE "P45" LEVEL 1;
+COMP "BTN2" LOCATE = SITE "P46" LEVEL 1;
+COMP "K1_11" LOCATE = SITE "P9" LEVEL 1;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[15].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[15].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKB;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKB;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKB;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKB;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKB;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKB;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKB;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKB;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKB;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKB;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKB;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKB;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKB;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKB;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKB;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKB;
+TIMEGRP XLXI_48_XLXI_1_clkout0 = BEL "XLXI_480" BEL "XLXI_481" BEL "XLXI_546"
+        BEL "XLXI_547" BEL "XLXI_595" BEL "XLXI_596" BEL "XLXI_1248" BEL
+        "XLXI_1249" BEL "XLXI_1250" BEL "XLXI_1251" BEL "XLXI_1252" BEL
+        "XLXI_1253" BEL "XLXI_1269" BEL "XLXI_1286" BEL
+        "XLXI_48/XLXI_1/clkout1_buf" BEL "SYNC_V/q_tmp" BEL "SYNC_H/q_tmp" BEL
+        "DISP_Y/q_tmp" BEL "DISP_X/q_tmp" BEL "DISP_Y_REG/COUNT_0" BEL
+        "DISP_Y_REG/COUNT_1" BEL "DISP_Y_REG/COUNT_2" BEL "DISP_Y_REG/COUNT_3"
+        BEL "DISP_Y_REG/COUNT_4" BEL "DISP_Y_REG/COUNT_5" BEL
+        "DISP_Y_REG/COUNT_6" BEL "DISP_Y_REG/COUNT_7" BEL "DISP_X_REG/COUNT_0"
+        BEL "DISP_X_REG/COUNT_1" BEL "DISP_X_REG/COUNT_2" BEL
+        "DISP_X_REG/COUNT_3" BEL "DISP_X_REG/COUNT_4" BEL "DISP_X_REG/COUNT_5"
+        BEL "DISP_X_REG/COUNT_6" BEL "DISP_X_REG/COUNT_7" BEL
+        "XLXI_49/XLXI_1/blk00000001/blk00000004" BEL
+        "XLXI_49/XLXI_1/blk00000001/blk00000029" BEL
+        "XLXI_49/XLXI_1/blk00000001/blk0000002b" BEL
+        "XLXI_49/XLXI_1/blk00000001/blk0000002d" BEL
+        "XLXI_49/XLXI_1/blk00000001/blk0000002f" BEL
+        "XLXI_49/XLXI_1/blk00000001/blk00000031" BEL
+        "XLXI_49/XLXI_1/blk00000001/blk00000033" BEL
+        "XLXI_49/XLXI_1/blk00000001/blk00000035" BEL
+        "XLXI_49/XLXI_1/blk00000001/blk00000037" BEL
+        "XLXI_49/XLXI_1/blk00000001/blk00000039" BEL
+        "XLXI_49/XLXI_1/blk00000001/blk0000003b" BEL
+        "XLXI_49/XLXI_1/blk00000001/blk0000003d" BEL
+        "XLXI_50/XLXI_1/blk00000001/blk00000023" BEL
+        "XLXI_50/XLXI_1/blk00000001/blk00000025" BEL
+        "XLXI_50/XLXI_1/blk00000001/blk00000027" BEL
+        "XLXI_50/XLXI_1/blk00000001/blk00000029" BEL
+        "XLXI_50/XLXI_1/blk00000001/blk0000002b" BEL
+        "XLXI_50/XLXI_1/blk00000001/blk0000002d" BEL
+        "XLXI_50/XLXI_1/blk00000001/blk0000002f" BEL
+        "XLXI_50/XLXI_1/blk00000001/blk00000031" BEL
+        "XLXI_50/XLXI_1/blk00000001/blk00000033" BEL
+        "XLXI_50/XLXI_1/blk00000001/blk00000035" BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/sel_pipe_1"
+        BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/sel_pipe_2"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[15].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<29>";
+PIN XLXI_48/XLXI_1/pll_base_inst/PLL_ADV_pins<2> = BEL
+        "XLXI_48/XLXI_1/pll_base_inst/PLL_ADV" PINNAME CLKIN1;
+PIN XLXI_662/XLXI_1/pll_base_inst/PLL_ADV_pins<2> = BEL
+        "XLXI_662/XLXI_1/pll_base_inst/PLL_ADV" PINNAME CLKIN1;
+TIMEGRP OSC = BEL "XLXI_658" PIN
+        "XLXI_48/XLXI_1/pll_base_inst/PLL_ADV_pins<2>" PIN
+        "XLXI_662/XLXI_1/pll_base_inst/PLL_ADV_pins<2>";
+TIMEGRP XLXI_662_XLXI_1_clkout1 = BEL "XLXI_662/XLXI_1/clkout2_buf" BEL
+        "Receiver/XLXI_64" BEL "Receiver/XLXI_63" BEL "Receiver/XLXI_61" BEL
+        "Receiver/XLXI_58" BEL "Receiver/XLXI_31" BEL "Receiver/XLXI_29" BEL
+        "Receiver/XLXI_12" BEL "Receiver/XLXI_11" BEL "Receiver/XLXI_10" BEL
+        "Receiver/XLXI_9" BEL "Receiver/XLXI_8" BEL "Receiver/XLXI_7" BEL
+        "Receiver/XLXI_6" BEL "Receiver/XLXI_5" BEL "Receiver/XLXI_4" BEL
+        "Receiver/XLXI_2" BEL "Receiver/XLXI_3" BEL "Receiver/XLXI_1" BEL
+        "Receiver/XLXI_16/q_tmp_0" BEL "Receiver/XLXI_16/q_tmp_1" BEL
+        "Receiver/XLXI_16/q_tmp_2" BEL "Receiver/XLXI_16/q_tmp_3" BEL
+        "Receiver/XLXI_16/q_tmp_4" BEL "Receiver/XLXI_16/q_tmp_5" BEL
+        "Receiver/XLXI_16/q_tmp_6" BEL "Receiver/XLXI_16/q_tmp_7" BEL
+        "Receiver/XLXI_16/q_tmp_8" BEL "Receiver/XLXI_16/q_tmp_9" BEL
+        "Receiver/XLXI_16/q_tmp_10" BEL "Receiver/XLXI_16/q_tmp_11" BEL
+        "Receiver/XLXI_16/q_tmp_12" BEL "Receiver/XLXI_16/q_tmp_13" BEL
+        "Receiver/XLXI_16/q_tmp_14" BEL "Receiver/XLXI_16/q_tmp_15" BEL
+        "Receiver/XLXI_15/q_tmp_0" BEL "Receiver/XLXI_15/q_tmp_1" BEL
+        "Receiver/XLXI_15/q_tmp_2" BEL "Receiver/XLXI_15/q_tmp_3" BEL
+        "Receiver/XLXI_15/q_tmp_4" BEL "Receiver/XLXI_15/q_tmp_5" BEL
+        "Receiver/XLXI_15/q_tmp_6" BEL "Receiver/XLXI_15/q_tmp_7" BEL
+        "Receiver/XLXI_15/q_tmp_8" BEL "Receiver/XLXI_15/q_tmp_9" BEL
+        "Receiver/XLXI_15/q_tmp_10" BEL "Receiver/XLXI_15/q_tmp_11" BEL
+        "Receiver/XLXI_15/q_tmp_12" BEL "Receiver/XLXI_15/q_tmp_13" BEL
+        "Receiver/XLXI_15/q_tmp_14" BEL "Receiver/XLXI_15/q_tmp_15" BEL
+        "Receiver/XLXI_22/COUNT_0" BEL "Receiver/XLXI_22/COUNT_1" BEL
+        "Receiver/XLXI_22/COUNT_2" BEL "Receiver/XLXI_22/COUNT_3" BEL
+        "Receiver/XLXI_21/COUNT_0" BEL "Receiver/XLXI_21/COUNT_1" BEL
+        "Receiver/XLXI_21/COUNT_2" BEL "Receiver/XLXI_21/COUNT_3" BEL
+        "Receiver/XLXI_20/Q_0" BEL "Receiver/XLXI_20/Q_1" BEL
+        "Receiver/XLXI_20/Q_2" BEL "Receiver/XLXI_20/Q_3" BEL
+        "Receiver/XLXI_19/Q_0" BEL "Receiver/XLXI_19/Q_1" BEL
+        "Receiver/XLXI_19/Q_2" BEL "Receiver/XLXI_19/Q_3" BEL
+        "Receiver/XLXI_19/Q_4" BEL "Receiver/XLXI_19/Q_5" BEL
+        "Receiver/XLXI_19/Q_6" BEL "Receiver/XLXI_19/Q_7" BEL
+        "Receiver/XLXI_19/Q_8" BEL "Receiver/XLXI_19/Q_9" BEL
+        "Receiver/XLXI_19/Q_10" BEL "Receiver/XLXI_19/Q_11" BEL
+        "Receiver/XLXI_19/Q_12" BEL "Receiver/XLXI_19/Q_13" BEL
+        "Receiver/XLXI_19/Q_14" BEL "Receiver/XLXI_19/Q_15" BEL
+        "Receiver/XLXI_47/XLXI_1/Q_0" BEL "Receiver/XLXI_47/XLXI_1/Q_1" BEL
+        "Receiver/XLXI_47/XLXI_1/Q_2" BEL "Receiver/XLXI_47/XLXI_1/Q_3" BEL
+        "Receiver/XLXI_47/XLXI_1/Q_4" BEL "Receiver/XLXI_47/XLXI_1/Q_5" BEL
+        "Receiver/XLXI_47/XLXI_1/Q_6" BEL "Receiver/XLXI_47/XLXI_1/Q_7" BEL
+        "Receiver/XLXI_47/XLXI_1/Q_8" BEL "Receiver/XLXI_47/XLXI_1/Q_9" BEL
+        "Receiver/XLXI_47/XLXI_1/Q_10" BEL "Receiver/XLXI_47/XLXI_1/Q_11" BEL
+        "Receiver/XLXI_47/XLXI_1/Q_12" BEL "Receiver/XLXI_47/XLXI_1/Q_13" BEL
+        "Receiver/XLXI_47/XLXI_1/Q_14" BEL "Receiver/XLXI_47/XLXI_1/Q_15" BEL
+        "Receiver/XLXI_47/XLXI_2/Q_0" BEL "Receiver/XLXI_47/XLXI_2/Q_1" BEL
+        "Receiver/XLXI_47/XLXI_2/Q_2" BEL "Receiver/XLXI_47/XLXI_2/Q_3";
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[15].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[15].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+TIMEGRP XLXI_662_XLXI_1_clkout0 = BEL "XLXI_662/XLXI_1/clkout1_buf" BEL
+        "XLXI_976/XLXI_1/Q_0" BEL "XLXI_976/XLXI_1/Q_1" BEL
+        "XLXI_976/XLXI_1/Q_2" BEL "XLXI_976/XLXI_1/Q_3" BEL
+        "XLXI_976/XLXI_1/Q_4" BEL "XLXI_976/XLXI_1/Q_5" BEL
+        "XLXI_976/XLXI_1/Q_6" BEL "XLXI_976/XLXI_1/Q_7" BEL
+        "XLXI_976/XLXI_1/Q_8" BEL "XLXI_976/XLXI_1/Q_9" BEL
+        "XLXI_976/XLXI_1/Q_10" BEL "XLXI_976/XLXI_1/Q_11" BEL
+        "XLXI_976/XLXI_1/Q_12" BEL "XLXI_976/XLXI_1/Q_13" BEL
+        "XLXI_976/XLXI_1/Q_14" BEL "XLXI_976/XLXI_1/Q_15" BEL
+        "XLXI_976/XLXI_2/Q_0" BEL "XLXI_976/XLXI_2/Q_1" BEL
+        "XLXI_976/XLXI_2/Q_2" BEL "XLXI_976/XLXI_2/Q_3" BEL
+        "XLXI_874/XLXI_1/Q_0" BEL "XLXI_874/XLXI_1/Q_1" BEL
+        "XLXI_874/XLXI_1/Q_2" BEL "XLXI_874/XLXI_1/Q_3" BEL
+        "XLXI_874/XLXI_1/Q_4" BEL "XLXI_874/XLXI_1/Q_5" BEL
+        "XLXI_874/XLXI_1/Q_6" BEL "XLXI_874/XLXI_1/Q_7" BEL
+        "XLXI_874/XLXI_1/Q_8" BEL "XLXI_874/XLXI_1/Q_9" BEL
+        "XLXI_874/XLXI_1/Q_10" BEL "XLXI_874/XLXI_1/Q_11" BEL
+        "XLXI_874/XLXI_1/Q_12" BEL "XLXI_874/XLXI_1/Q_13" BEL
+        "XLXI_874/XLXI_1/Q_14" BEL "XLXI_874/XLXI_1/Q_15" BEL
+        "XLXI_874/XLXI_2/Q_0" BEL "XLXI_874/XLXI_2/Q_1" BEL
+        "XLXI_874/XLXI_2/Q_2" BEL "XLXI_874/XLXI_2/Q_3" BEL "XLXI_1287" PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[15].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_659/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM18.ram_pins<28>";
+NET "S2" MAXDELAY = 3 ns;
+NET "S1" MAXDELAY = 3 ns;
+NET "D2" MAXDELAY = 3 ns;
+NET "D1" MAXDELAY = 3 ns;
+TS_OSC = PERIOD TIMEGRP "OSC" 50 ns HIGH 50%;
+TS_XLXI_48_XLXI_1_clkout0 = PERIOD TIMEGRP "XLXI_48_XLXI_1_clkout0" TS_OSC /
+        4.27272727 HIGH 50%;
+TS_XLXI_662_XLXI_1_clkout0 = PERIOD TIMEGRP "XLXI_662_XLXI_1_clkout0" TS_OSC /
+        2 HIGH 50%;
+TS_XLXI_662_XLXI_1_clkout1 = PERIOD TIMEGRP "XLXI_662_XLXI_1_clkout1" TS_OSC /
+        18 HIGH 50%;
+PIN XLXI_874/XLXI_1/Q_0_pins<2> = BEL "XLXI_874/XLXI_1/Q_0" PINNAME D;
+PIN XLXI_874/XLXI_1/Q_1_pins<2> = BEL "XLXI_874/XLXI_1/Q_1" PINNAME D;
+PIN XLXI_874/XLXI_1/Q_2_pins<2> = BEL "XLXI_874/XLXI_1/Q_2" PINNAME D;
+PIN XLXI_874/XLXI_1/Q_3_pins<2> = BEL "XLXI_874/XLXI_1/Q_3" PINNAME D;
+PIN XLXI_874/XLXI_1/Q_4_pins<2> = BEL "XLXI_874/XLXI_1/Q_4" PINNAME D;
+PIN XLXI_874/XLXI_1/Q_5_pins<2> = BEL "XLXI_874/XLXI_1/Q_5" PINNAME D;
+PIN XLXI_874/XLXI_1/Q_6_pins<2> = BEL "XLXI_874/XLXI_1/Q_6" PINNAME D;
+PIN XLXI_874/XLXI_1/Q_7_pins<2> = BEL "XLXI_874/XLXI_1/Q_7" PINNAME D;
+PIN XLXI_874/XLXI_1/Q_8_pins<2> = BEL "XLXI_874/XLXI_1/Q_8" PINNAME D;
+PIN XLXI_874/XLXI_1/Q_9_pins<2> = BEL "XLXI_874/XLXI_1/Q_9" PINNAME D;
+PIN XLXI_874/XLXI_1/Q_10_pins<2> = BEL "XLXI_874/XLXI_1/Q_10" PINNAME D;
+PIN XLXI_874/XLXI_1/Q_11_pins<2> = BEL "XLXI_874/XLXI_1/Q_11" PINNAME D;
+PIN XLXI_874/XLXI_1/Q_12_pins<2> = BEL "XLXI_874/XLXI_1/Q_12" PINNAME D;
+PIN XLXI_874/XLXI_1/Q_13_pins<2> = BEL "XLXI_874/XLXI_1/Q_13" PINNAME D;
+PIN XLXI_874/XLXI_1/Q_14_pins<2> = BEL "XLXI_874/XLXI_1/Q_14" PINNAME D;
+PIN XLXI_874/XLXI_1/Q_15_pins<2> = BEL "XLXI_874/XLXI_1/Q_15" PINNAME D;
+PIN XLXI_874/XLXI_2/Q_0_pins<2> = BEL "XLXI_874/XLXI_2/Q_0" PINNAME D;
+PIN XLXI_874/XLXI_2/Q_1_pins<2> = BEL "XLXI_874/XLXI_2/Q_1" PINNAME D;
+PIN XLXI_874/XLXI_2/Q_2_pins<2> = BEL "XLXI_874/XLXI_2/Q_2" PINNAME D;
+PIN XLXI_874/XLXI_2/Q_3_pins<2> = BEL "XLXI_874/XLXI_2/Q_3" PINNAME D;
+PIN "XLXI_874/XLXI_1/Q_0_pins<2>" TIG;
+PIN "XLXI_874/XLXI_1/Q_1_pins<2>" TIG;
+PIN "XLXI_874/XLXI_1/Q_2_pins<2>" TIG;
+PIN "XLXI_874/XLXI_1/Q_3_pins<2>" TIG;
+PIN "XLXI_874/XLXI_1/Q_4_pins<2>" TIG;
+PIN "XLXI_874/XLXI_1/Q_5_pins<2>" TIG;
+PIN "XLXI_874/XLXI_1/Q_6_pins<2>" TIG;
+PIN "XLXI_874/XLXI_1/Q_7_pins<2>" TIG;
+PIN "XLXI_874/XLXI_1/Q_8_pins<2>" TIG;
+PIN "XLXI_874/XLXI_1/Q_9_pins<2>" TIG;
+PIN "XLXI_874/XLXI_1/Q_10_pins<2>" TIG;
+PIN "XLXI_874/XLXI_1/Q_11_pins<2>" TIG;
+PIN "XLXI_874/XLXI_1/Q_12_pins<2>" TIG;
+PIN "XLXI_874/XLXI_1/Q_13_pins<2>" TIG;
+PIN "XLXI_874/XLXI_1/Q_14_pins<2>" TIG;
+PIN "XLXI_874/XLXI_1/Q_15_pins<2>" TIG;
+PIN "XLXI_874/XLXI_2/Q_0_pins<2>" TIG;
+PIN "XLXI_874/XLXI_2/Q_1_pins<2>" TIG;
+PIN "XLXI_874/XLXI_2/Q_2_pins<2>" TIG;
+PIN "XLXI_874/XLXI_2/Q_3_pins<2>" TIG;
+COMP "K1_1" OFFSET = OUT 12 ns AFTER COMP "OSC" "RISING";
+COMP "K1_3" OFFSET = OUT 12 ns AFTER COMP "OSC" "RISING";
+COMP "K1_5" OFFSET = OUT 12 ns AFTER COMP "OSC" "RISING";
+COMP "K1_7" OFFSET = OUT 12 ns AFTER COMP "OSC" "RISING";
+COMP "K1_9" OFFSET = OUT 12 ns AFTER COMP "OSC" "RISING";
+COMP "K1_11" OFFSET = OUT 12 ns AFTER COMP "OSC" "RISING";
+COMP "K1_13" OFFSET = OUT 12 ns AFTER COMP "OSC" "RISING";
+COMP "K1_15" OFFSET = OUT 12 ns AFTER COMP "OSC" "RISING";
+SCHEMATIC END;
+

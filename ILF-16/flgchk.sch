@@ -8,10 +8,10 @@
     <netlist>
         <signal name="XLXN_42" />
         <signal name="IDX(3:0)" />
-        <signal name="FIDX(3)" />
-        <signal name="FIDX(2)" />
-        <signal name="FIDX(1)" />
-        <signal name="FIDX(0)" />
+        <signal name="IDX(3)" />
+        <signal name="IDX(2)" />
+        <signal name="IDX(1)" />
+        <signal name="IDX(0)" />
         <signal name="FLG(15:0)" />
         <signal name="XLXN_26" />
         <signal name="XLXN_27" />
@@ -28,22 +28,21 @@
         <signal name="XLXN_39" />
         <signal name="XLXN_40" />
         <signal name="XLXN_41" />
-        <signal name="FLAGS(0)" />
-        <signal name="FLAGS(1)" />
-        <signal name="FLAGS(2)" />
-        <signal name="FLAGS(3)" />
-        <signal name="FLAGS(4)" />
-        <signal name="FLAGS(5)" />
-        <signal name="FLAGS(6)" />
-        <signal name="FLAGS(7)" />
-        <signal name="FLAGS(8)" />
-        <signal name="FLAGS(9)" />
-        <signal name="FLAGS(10)" />
-        <signal name="FLAGS(11)" />
-        <signal name="FLAGS(12)" />
-        <signal name="FLAGS(13)" />
-        <signal name="FLAGS(14)" />
-        <signal name="FLAGS(15)" />
+        <signal name="FLG(0)" />
+        <signal name="FLG(1)" />
+        <signal name="FLG(2)" />
+        <signal name="FLG(3)" />
+        <signal name="FLG(4)" />
+        <signal name="FLG(5)" />
+        <signal name="FLG(6)" />
+        <signal name="FLG(7)" />
+        <signal name="FLG(8)" />
+        <signal name="FLG(9)" />
+        <signal name="FLG(10)" />
+        <signal name="FLG(11)" />
+        <signal name="FLG(12)" />
+        <signal name="FLG(13)" />
+        <signal name="FLG(14)" />
         <signal name="XLXN_64" />
         <signal name="XLXN_65" />
         <signal name="XLXN_66" />
@@ -62,6 +61,7 @@
         <signal name="XLXN_81" />
         <signal name="E" />
         <signal name="FSTATE" />
+        <signal name="FLG(15)" />
         <port polarity="Input" name="IDX(3:0)" />
         <port polarity="Input" name="FLG(15:0)" />
         <port polarity="Input" name="E" />
@@ -129,10 +129,10 @@
             <line x2="48" y1="-64" y2="-64" x1="0" />
         </blockdef>
         <block symbolname="d4_16e" name="XLXI_1">
-            <blockpin signalname="FIDX(0)" name="A0" />
-            <blockpin signalname="FIDX(1)" name="A1" />
-            <blockpin signalname="FIDX(2)" name="A2" />
-            <blockpin signalname="FIDX(3)" name="A3" />
+            <blockpin signalname="IDX(0)" name="A0" />
+            <blockpin signalname="IDX(1)" name="A1" />
+            <blockpin signalname="IDX(2)" name="A2" />
+            <blockpin signalname="IDX(3)" name="A3" />
             <blockpin signalname="E" name="E" />
             <blockpin signalname="XLXN_26" name="D0" />
             <blockpin signalname="XLXN_27" name="D1" />
@@ -152,82 +152,82 @@
             <blockpin signalname="XLXN_36" name="D9" />
         </block>
         <block symbolname="and2" name="XLXI_5">
-            <blockpin signalname="FLAGS(0)" name="I0" />
+            <blockpin signalname="FLG(0)" name="I0" />
             <blockpin signalname="XLXN_26" name="I1" />
             <blockpin signalname="XLXN_64" name="O" />
         </block>
         <block symbolname="and2" name="XLXI_6">
-            <blockpin signalname="FLAGS(1)" name="I0" />
+            <blockpin signalname="FLG(1)" name="I0" />
             <blockpin signalname="XLXN_27" name="I1" />
             <blockpin signalname="XLXN_65" name="O" />
         </block>
         <block symbolname="and2" name="XLXI_9">
-            <blockpin signalname="FLAGS(2)" name="I0" />
+            <blockpin signalname="FLG(2)" name="I0" />
             <blockpin signalname="XLXN_28" name="I1" />
             <blockpin signalname="XLXN_66" name="O" />
         </block>
         <block symbolname="and2" name="XLXI_10">
-            <blockpin signalname="FLAGS(3)" name="I0" />
+            <blockpin signalname="FLG(3)" name="I0" />
             <blockpin signalname="XLXN_30" name="I1" />
             <blockpin signalname="XLXN_67" name="O" />
         </block>
         <block symbolname="and2" name="XLXI_11">
-            <blockpin signalname="FLAGS(4)" name="I0" />
+            <blockpin signalname="FLG(4)" name="I0" />
             <blockpin signalname="XLXN_31" name="I1" />
             <blockpin signalname="XLXN_68" name="O" />
         </block>
         <block symbolname="and2" name="XLXI_12">
-            <blockpin signalname="FLAGS(5)" name="I0" />
+            <blockpin signalname="FLG(5)" name="I0" />
             <blockpin signalname="XLXN_32" name="I1" />
             <blockpin signalname="XLXN_69" name="O" />
         </block>
         <block symbolname="and2" name="XLXI_13">
-            <blockpin signalname="FLAGS(6)" name="I0" />
+            <blockpin signalname="FLG(6)" name="I0" />
             <blockpin signalname="XLXN_33" name="I1" />
             <blockpin signalname="XLXN_70" name="O" />
         </block>
         <block symbolname="and2" name="XLXI_14">
-            <blockpin signalname="FLAGS(7)" name="I0" />
+            <blockpin signalname="FLG(7)" name="I0" />
             <blockpin signalname="XLXN_34" name="I1" />
             <blockpin signalname="XLXN_71" name="O" />
         </block>
         <block symbolname="and2" name="XLXI_15">
-            <blockpin signalname="FLAGS(8)" name="I0" />
+            <blockpin signalname="FLG(8)" name="I0" />
             <blockpin signalname="XLXN_35" name="I1" />
             <blockpin signalname="XLXN_72" name="O" />
         </block>
         <block symbolname="and2" name="XLXI_16">
-            <blockpin signalname="FLAGS(9)" name="I0" />
+            <blockpin signalname="FLG(9)" name="I0" />
             <blockpin signalname="XLXN_36" name="I1" />
             <blockpin signalname="XLXN_73" name="O" />
         </block>
         <block symbolname="and2" name="XLXI_17">
-            <blockpin signalname="FLAGS(10)" name="I0" />
+            <blockpin signalname="FLG(10)" name="I0" />
             <blockpin signalname="XLXN_37" name="I1" />
             <blockpin signalname="XLXN_75" name="O" />
         </block>
         <block symbolname="and2" name="XLXI_18">
-            <blockpin signalname="FLAGS(11)" name="I0" />
+            <blockpin signalname="FLG(11)" name="I0" />
             <blockpin signalname="XLXN_38" name="I1" />
             <blockpin signalname="XLXN_77" name="O" />
         </block>
         <block symbolname="and2" name="XLXI_19">
-            <blockpin signalname="FLAGS(12)" name="I0" />
+            <blockpin signalname="FLG(12)" name="I0" />
             <blockpin signalname="XLXN_39" name="I1" />
             <blockpin signalname="XLXN_78" name="O" />
         </block>
         <block symbolname="and2" name="XLXI_20">
-            <blockpin signalname="FLAGS(13)" name="I0" />
+            <blockpin signalname="FLG(13)" name="I0" />
             <blockpin signalname="XLXN_40" name="I1" />
             <blockpin signalname="XLXN_79" name="O" />
         </block>
         <block symbolname="and2" name="XLXI_21">
-            <blockpin signalname="FLAGS(14)" name="I0" />
+            <blockpin signalname="FLG(14)" name="I0" />
             <blockpin signalname="XLXN_41" name="I1" />
             <blockpin signalname="XLXN_80" name="O" />
         </block>
         <block symbolname="and2" name="XLXI_22">
-            <blockpin signalname="FLAGS(15)" name="I0" />
+            <blockpin signalname="FLG(15)" name="I0" />
             <blockpin signalname="XLXN_42" name="I1" />
             <blockpin signalname="XLXN_81" name="O" />
         </block>
@@ -263,25 +263,25 @@
             <wire x2="496" y1="240" y2="240" x1="448" />
             <wire x2="544" y1="240" y2="240" x1="496" />
         </branch>
-        <branch name="FIDX(3)">
+        <branch name="IDX(3)">
             <attrtext style="alignment:SOFT-TVCENTER;fontsize:28;fontname:Arial" attrname="Name" x="400" y="368" type="branch" />
             <wire x2="400" y1="336" y2="368" x1="400" />
             <wire x2="400" y1="368" y2="656" x1="400" />
             <wire x2="656" y1="656" y2="656" x1="400" />
         </branch>
-        <branch name="FIDX(2)">
+        <branch name="IDX(2)">
             <attrtext style="alignment:SOFT-TVCENTER;fontsize:28;fontname:Arial" attrname="Name" x="448" y="368" type="branch" />
             <wire x2="448" y1="336" y2="368" x1="448" />
             <wire x2="448" y1="368" y2="592" x1="448" />
             <wire x2="656" y1="592" y2="592" x1="448" />
         </branch>
-        <branch name="FIDX(1)">
+        <branch name="IDX(1)">
             <attrtext style="alignment:SOFT-TVCENTER;fontsize:28;fontname:Arial" attrname="Name" x="496" y="368" type="branch" />
             <wire x2="496" y1="336" y2="368" x1="496" />
             <wire x2="496" y1="368" y2="528" x1="496" />
             <wire x2="656" y1="528" y2="528" x1="496" />
         </branch>
-        <branch name="FIDX(0)">
+        <branch name="IDX(0)">
             <attrtext style="alignment:SOFT-TVCENTER;fontsize:28;fontname:Arial" attrname="Name" x="544" y="368" type="branch" />
             <wire x2="544" y1="336" y2="368" x1="544" />
             <wire x2="544" y1="368" y2="464" x1="544" />
@@ -403,100 +403,93 @@
             <wire x2="1840" y1="2848" y2="2848" x1="1072" />
         </branch>
         <bustap x2="1696" y1="528" y2="528" x1="1600" />
-        <branch name="FLAGS(0)">
+        <branch name="FLG(0)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1760" y="528" type="branch" />
             <wire x2="1760" y1="528" y2="528" x1="1696" />
             <wire x2="1840" y1="528" y2="528" x1="1760" />
         </branch>
         <bustap x2="1696" y1="672" y2="672" x1="1600" />
-        <branch name="FLAGS(1)">
+        <branch name="FLG(1)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1760" y="672" type="branch" />
             <wire x2="1760" y1="672" y2="672" x1="1696" />
             <wire x2="1840" y1="672" y2="672" x1="1760" />
         </branch>
         <bustap x2="1696" y1="832" y2="832" x1="1600" />
-        <branch name="FLAGS(2)">
+        <branch name="FLG(2)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1760" y="832" type="branch" />
             <wire x2="1760" y1="832" y2="832" x1="1696" />
             <wire x2="1840" y1="832" y2="832" x1="1760" />
         </branch>
         <bustap x2="1696" y1="992" y2="992" x1="1600" />
-        <branch name="FLAGS(3)">
+        <branch name="FLG(3)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1760" y="992" type="branch" />
             <wire x2="1760" y1="992" y2="992" x1="1696" />
             <wire x2="1840" y1="992" y2="992" x1="1760" />
         </branch>
         <bustap x2="1696" y1="1152" y2="1152" x1="1600" />
-        <branch name="FLAGS(4)">
+        <branch name="FLG(4)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1760" y="1152" type="branch" />
             <wire x2="1760" y1="1152" y2="1152" x1="1696" />
             <wire x2="1840" y1="1152" y2="1152" x1="1760" />
         </branch>
         <bustap x2="1696" y1="1312" y2="1312" x1="1600" />
-        <branch name="FLAGS(5)">
+        <branch name="FLG(5)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1760" y="1312" type="branch" />
             <wire x2="1760" y1="1312" y2="1312" x1="1696" />
             <wire x2="1840" y1="1312" y2="1312" x1="1760" />
         </branch>
         <bustap x2="1696" y1="1472" y2="1472" x1="1600" />
-        <branch name="FLAGS(6)">
+        <branch name="FLG(6)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1760" y="1472" type="branch" />
             <wire x2="1760" y1="1472" y2="1472" x1="1696" />
             <wire x2="1840" y1="1472" y2="1472" x1="1760" />
         </branch>
         <bustap x2="1696" y1="1632" y2="1632" x1="1600" />
-        <branch name="FLAGS(7)">
+        <branch name="FLG(7)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1760" y="1632" type="branch" />
             <wire x2="1760" y1="1632" y2="1632" x1="1696" />
             <wire x2="1840" y1="1632" y2="1632" x1="1760" />
         </branch>
         <bustap x2="1696" y1="1792" y2="1792" x1="1600" />
-        <branch name="FLAGS(8)">
+        <branch name="FLG(8)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1760" y="1792" type="branch" />
             <wire x2="1760" y1="1792" y2="1792" x1="1696" />
             <wire x2="1840" y1="1792" y2="1792" x1="1760" />
         </branch>
         <bustap x2="1696" y1="1952" y2="1952" x1="1600" />
-        <branch name="FLAGS(9)">
+        <branch name="FLG(9)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1760" y="1952" type="branch" />
             <wire x2="1760" y1="1952" y2="1952" x1="1696" />
             <wire x2="1840" y1="1952" y2="1952" x1="1760" />
         </branch>
         <bustap x2="1696" y1="2112" y2="2112" x1="1600" />
-        <branch name="FLAGS(10)">
+        <branch name="FLG(10)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1760" y="2112" type="branch" />
             <wire x2="1760" y1="2112" y2="2112" x1="1696" />
             <wire x2="1840" y1="2112" y2="2112" x1="1760" />
         </branch>
         <bustap x2="1696" y1="2272" y2="2272" x1="1600" />
-        <branch name="FLAGS(11)">
+        <branch name="FLG(11)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1760" y="2272" type="branch" />
             <wire x2="1760" y1="2272" y2="2272" x1="1696" />
             <wire x2="1840" y1="2272" y2="2272" x1="1760" />
         </branch>
         <bustap x2="1696" y1="2432" y2="2432" x1="1600" />
-        <branch name="FLAGS(12)">
+        <branch name="FLG(12)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1760" y="2432" type="branch" />
             <wire x2="1760" y1="2432" y2="2432" x1="1696" />
             <wire x2="1840" y1="2432" y2="2432" x1="1760" />
         </branch>
         <bustap x2="1696" y1="2592" y2="2592" x1="1600" />
-        <branch name="FLAGS(13)">
+        <branch name="FLG(13)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1760" y="2592" type="branch" />
             <wire x2="1760" y1="2592" y2="2592" x1="1696" />
             <wire x2="1840" y1="2592" y2="2592" x1="1760" />
         </branch>
-        <bustap x2="1696" y1="2752" y2="2752" x1="1600" />
-        <branch name="FLAGS(14)">
+        <branch name="FLG(14)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1760" y="2752" type="branch" />
             <wire x2="1760" y1="2752" y2="2752" x1="1696" />
             <wire x2="1840" y1="2752" y2="2752" x1="1760" />
-        </branch>
-        <bustap x2="1696" y1="2912" y2="2912" x1="1600" />
-        <branch name="FLAGS(15)">
-            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1760" y="2912" type="branch" />
-            <wire x2="1760" y1="2912" y2="2912" x1="1696" />
-            <wire x2="1840" y1="2912" y2="2912" x1="1760" />
         </branch>
         <instance x="2640" y="1520" name="XLXI_38" orien="R0" />
         <branch name="XLXN_64">
@@ -589,5 +582,12 @@
         <iomarker fontsize="28" x="2960" y="976" name="FSTATE" orien="R0" />
         <iomarker fontsize="28" x="320" y="160" name="FLG(15:0)" orien="R180" />
         <iomarker fontsize="28" x="304" y="240" name="IDX(3:0)" orien="R180" />
+        <bustap x2="1696" y1="2752" y2="2752" x1="1600" />
+        <bustap x2="1696" y1="2912" y2="2912" x1="1600" />
+        <branch name="FLG(15)">
+            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1760" y="2912" type="branch" />
+            <wire x2="1760" y1="2912" y2="2912" x1="1696" />
+            <wire x2="1840" y1="2912" y2="2912" x1="1760" />
+        </branch>
     </sheet>
 </drawing>

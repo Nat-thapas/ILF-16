@@ -1,0 +1,910 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Mon Nov 11 23:15:20 2024
+//! **************************************************************************
+
+SCHEMATIC START;
+CONFIG VCCAUX = "3.3";
+COMP "SSD_Segment<0>" LOCATE = SITE "P41" LEVEL 1;
+COMP "SSD_Segment<1>" LOCATE = SITE "P40" LEVEL 1;
+COMP "SSD_Segment<2>" LOCATE = SITE "P35" LEVEL 1;
+COMP "SSD_Segment<3>" LOCATE = SITE "P34" LEVEL 1;
+COMP "SSD_Segment<4>" LOCATE = SITE "P32" LEVEL 1;
+COMP "SSD_Segment<5>" LOCATE = SITE "P29" LEVEL 1;
+COMP "SSD_Segment<6>" LOCATE = SITE "P27" LEVEL 1;
+COMP "SSD_Segment<7>" LOCATE = SITE "P26" LEVEL 1;
+COMP "OSC" LOCATE = SITE "P123" LEVEL 1;
+COMP "K1_1" LOCATE = SITE "P23" LEVEL 1;
+COMP "K1_3" LOCATE = SITE "P21" LEVEL 1;
+COMP "K5_1" LOCATE = SITE "P121" LEVEL 1;
+COMP "K5_5" LOCATE = SITE "P119" LEVEL 1;
+COMP "K5_9" LOCATE = SITE "P117" LEVEL 1;
+COMP "BTN1" LOCATE = SITE "P45" LEVEL 1;
+COMP "BTN2" LOCATE = SITE "P46" LEVEL 1;
+COMP "BTN3" LOCATE = SITE "P47" LEVEL 1;
+COMP "K2<0>" LOCATE = SITE "P6" LEVEL 1;
+COMP "K2<1>" LOCATE = SITE "P8" LEVEL 1;
+COMP "K2<2>" LOCATE = SITE "P10" LEVEL 1;
+COMP "K2<3>" LOCATE = SITE "P12" LEVEL 1;
+COMP "K3<0>" LOCATE = SITE "P124" LEVEL 1;
+COMP "K2<4>" LOCATE = SITE "P15" LEVEL 1;
+COMP "K3<1>" LOCATE = SITE "P127" LEVEL 1;
+COMP "K2<5>" LOCATE = SITE "P17" LEVEL 1;
+COMP "K3<2>" LOCATE = SITE "P132" LEVEL 1;
+COMP "K2<6>" LOCATE = SITE "P22" LEVEL 1;
+COMP "K3<3>" LOCATE = SITE "P134" LEVEL 1;
+COMP "K2<7>" LOCATE = SITE "P24" LEVEL 1;
+COMP "K4<0>" LOCATE = SITE "P126" LEVEL 1;
+COMP "K3<4>" LOCATE = SITE "P138" LEVEL 1;
+COMP "K4<1>" LOCATE = SITE "P131" LEVEL 1;
+COMP "K3<5>" LOCATE = SITE "P140" LEVEL 1;
+COMP "K4<2>" LOCATE = SITE "P133" LEVEL 1;
+COMP "K3<6>" LOCATE = SITE "P142" LEVEL 1;
+COMP "K4<3>" LOCATE = SITE "P137" LEVEL 1;
+COMP "K3<7>" LOCATE = SITE "P1" LEVEL 1;
+COMP "K4<4>" LOCATE = SITE "P139" LEVEL 1;
+COMP "K4<5>" LOCATE = SITE "P141" LEVEL 1;
+COMP "K4<6>" LOCATE = SITE "P143" LEVEL 1;
+COMP "K4<7>" LOCATE = SITE "P2" LEVEL 1;
+COMP "K5_13" LOCATE = SITE "P115" LEVEL 1;
+COMP "MN<0>" LOCATE = SITE "P95" LEVEL 1;
+COMP "MN<1>" LOCATE = SITE "P94" LEVEL 1;
+COMP "MN<2>" LOCATE = SITE "P93" LEVEL 1;
+COMP "MN<3>" LOCATE = SITE "P92" LEVEL 1;
+COMP "MN<4>" LOCATE = SITE "P88" LEVEL 1;
+COMP "MN<5>" LOCATE = SITE "P87" LEVEL 1;
+COMP "MN<6>" LOCATE = SITE "P85" LEVEL 1;
+COMP "MN<7>" LOCATE = SITE "P84" LEVEL 1;
+COMP "SW<0>" LOCATE = SITE "P66" LEVEL 1;
+COMP "SW<1>" LOCATE = SITE "P62" LEVEL 1;
+COMP "SW<2>" LOCATE = SITE "P61" LEVEL 1;
+COMP "SW<3>" LOCATE = SITE "P59" LEVEL 1;
+COMP "SW<4>" LOCATE = SITE "P58" LEVEL 1;
+COMP "SW<5>" LOCATE = SITE "P57" LEVEL 1;
+COMP "SW<6>" LOCATE = SITE "P56" LEVEL 1;
+COMP "SW<7>" LOCATE = SITE "P55" LEVEL 1;
+COMP "SSD_COM<0>" LOCATE = SITE "P44" LEVEL 1;
+COMP "SSD_COM<1>" LOCATE = SITE "P43" LEVEL 1;
+COMP "SSD_COM<2>" LOCATE = SITE "P33" LEVEL 1;
+COMP "SSD_COM<3>" LOCATE = SITE "P30" LEVEL 1;
+COMP "DIP<0>" LOCATE = SITE "P99" LEVEL 1;
+COMP "DIP<1>" LOCATE = SITE "P100" LEVEL 1;
+COMP "DIP<2>" LOCATE = SITE "P101" LEVEL 1;
+COMP "DIP<3>" LOCATE = SITE "P102" LEVEL 1;
+COMP "DIP<4>" LOCATE = SITE "P104" LEVEL 1;
+COMP "DIP<5>" LOCATE = SITE "P105" LEVEL 1;
+COMP "DIP<6>" LOCATE = SITE "P111" LEVEL 1;
+COMP "DIP<7>" LOCATE = SITE "P112" LEVEL 1;
+COMP "LED<0>" LOCATE = SITE "P82" LEVEL 1;
+COMP "LED<1>" LOCATE = SITE "P81" LEVEL 1;
+COMP "LED<2>" LOCATE = SITE "P80" LEVEL 1;
+COMP "LED<3>" LOCATE = SITE "P79" LEVEL 1;
+COMP "LED<4>" LOCATE = SITE "P78" LEVEL 1;
+COMP "LED<5>" LOCATE = SITE "P75" LEVEL 1;
+COMP "LED<6>" LOCATE = SITE "P74" LEVEL 1;
+COMP "LED<7>" LOCATE = SITE "P67" LEVEL 1;
+TIMEGRP XLXI_2_XLXI_1_clkout1 = BEL "XLXI_2/XLXI_1/clkout2_buf" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_259" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_258" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_257" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_254" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_106" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_105" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_100" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_99" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_97/q_tmp" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_107/COUNT_0" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_107/COUNT_1" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_107/COUNT_2" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_107/COUNT_3" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_96" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_94" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_92" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_90" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_88" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_86" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_84" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_82" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_80" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_78" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_76" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_74" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_72" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_70" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_68" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_66" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_33" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_29" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_27" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_25" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_23" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_21" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_19" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_17" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_15" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_13" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_11" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_9" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_7" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_5" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_3" BEL
+        "XLXI_108/GFX_Instruction_Transmitter/XLXI_1";
+PIN
+        XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram_pins<26>
+        = BEL
+        "XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram"
+        PINNAME CLKAWRCLK;
+PIN
+        XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram_pins<26>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram"
+        PINNAME CLKAWRCLK;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram_pins<26>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram"
+        PINNAME CLKAWRCLK;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram_pins<26>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram"
+        PINNAME CLKAWRCLK;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram_pins<26>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram"
+        PINNAME CLKAWRCLK;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[27].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[27].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[26].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[26].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[25].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[25].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[24].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[24].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[23].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[23].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[22].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[22].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[21].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[21].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[20].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[20].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[19].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[19].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[18].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[18].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[17].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[17].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[16].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[16].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[15].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[15].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram_pins<26>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram"
+        PINNAME CLKAWRCLK;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram_pins<26>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram"
+        PINNAME CLKAWRCLK;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram_pins<26>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram"
+        PINNAME CLKAWRCLK;
+PIN
+        XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram_pins<26>
+        = BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram"
+        PINNAME CLKAWRCLK;
+TIMEGRP XLXI_2_XLXI_1_clkout0 = BEL "XLXI_2/XLXI_1/clkout1_buf" BEL
+        "XLXI_88/XLXI_148" BEL "XLXI_88/XLXI_126" BEL "XLXI_88/XLXI_125" BEL
+        "XLXI_88/XLXI_124" BEL "XLXI_88/XLXI_92" BEL "XLXI_88/XLXI_91" BEL
+        "XLXI_88/XLXI_90" BEL "XLXI_88/XLXI_89" BEL "XLXI_88/S_Stabilizer" BEL
+        "XLXI_88/D_Stabilizer" BEL "XLXI_88/XLXI_104/q_tmp_0" BEL
+        "XLXI_88/XLXI_104/q_tmp_1" BEL "XLXI_88/XLXI_104/q_tmp_2" BEL
+        "XLXI_88/XLXI_104/q_tmp_3" BEL "XLXI_88/XLXI_104/q_tmp_4" BEL
+        "XLXI_88/XLXI_104/q_tmp_5" BEL "XLXI_88/XLXI_104/q_tmp_6" BEL
+        "XLXI_88/XLXI_104/q_tmp_7" BEL "XLXI_88/XLXI_114/Q_0" BEL
+        "XLXI_88/XLXI_114/Q_1" BEL "XLXI_88/XLXI_114/Q_2" BEL
+        "XLXI_88/XLXI_114/Q_3" BEL "XLXI_88/XLXI_114/Q_4" BEL
+        "XLXI_88/XLXI_114/Q_5" BEL "XLXI_88/XLXI_114/Q_6" BEL
+        "XLXI_88/XLXI_114/Q_7" BEL "XLXI_108/XLXI_292" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_108/Q_0" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_108/Q_1" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_108/Q_2" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_108/Q_3" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_108/Q_4" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_108/Q_5" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_108/Q_6" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_108/Q_7" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_108/Q_8" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_108/Q_9" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_108/Q_10" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_108/Q_11" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_108/Q_12" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_108/Q_13" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_108/Q_14" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_108/Q_15" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_75/Q_0" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_75/Q_1" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_75/Q_2" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_75/Q_3" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_75/Q_4" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_75/Q_5" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_75/Q_6" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_75/Q_7" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_72/Q_0" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_72/Q_1" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_72/Q_2" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_72/Q_3" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_72/Q_4" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_72/Q_5" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_72/Q_6" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_72/Q_7" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_69/Q_0" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_69/Q_1" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_69/Q_2" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_69/Q_3" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_69/Q_4" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_69/Q_5" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_69/Q_6" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_69/Q_7" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_66/Q_0" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_66/Q_1" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_66/Q_2" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_66/Q_3" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_66/Q_4" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_66/Q_5" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_66/Q_6" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_66/Q_7" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_61/Q_0" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_61/Q_1" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_61/Q_2" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_61/Q_3" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_61/Q_4" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_61/Q_5" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_61/Q_6" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_61/Q_7" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_58/Q_0" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_58/Q_1" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_58/Q_2" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_58/Q_3" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_58/Q_4" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_58/Q_5" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_58/Q_6" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_58/Q_7" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_53/Q_0" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_53/Q_1" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_53/Q_2" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_53/Q_3" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_53/Q_4" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_53/Q_5" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_53/Q_6" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_53/Q_7" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_53/Q_8" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_53/Q_9" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_53/Q_10" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_53/Q_11" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_53/Q_12" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_53/Q_13" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_53/Q_14" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_53/Q_15" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_23/Q_0" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_23/Q_1" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_23/Q_2" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_23/Q_3" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_23/Q_4" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_23/Q_5" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_23/Q_6" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_23/Q_7" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_20/Q_0" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_20/Q_1" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_20/Q_2" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_20/Q_3" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_20/Q_4" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_20/Q_5" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_20/Q_6" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_20/Q_7" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_17/Q_0" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_17/Q_1" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_17/Q_2" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_17/Q_3" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_17/Q_4" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_17/Q_5" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_17/Q_6" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_17/Q_7" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_14/Q_0" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_14/Q_1" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_14/Q_2" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_14/Q_3" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_14/Q_4" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_14/Q_5" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_14/Q_6" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_14/Q_7" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_5/Q_0" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_5/Q_1" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_5/Q_2" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_5/Q_3" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_5/Q_4" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_5/Q_5" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_5/Q_6" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_5/Q_7" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_2/Q_0" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_2/Q_1" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_2/Q_2" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_2/Q_3" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_2/Q_4" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_2/Q_5" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_2/Q_6" BEL
+        "XLXI_108/Input_Stablilizer_Selector/XLXI_2/Q_7" BEL
+        "XLXI_108/XLXI_283/Q_0" BEL "XLXI_108/XLXI_283/Q_1" BEL
+        "XLXI_108/XLXI_283/Q_2" BEL "XLXI_108/XLXI_283/Q_3" BEL
+        "XLXI_108/XLXI_283/Q_4" BEL "XLXI_108/XLXI_283/Q_5" BEL
+        "XLXI_108/XLXI_283/Q_6" BEL "XLXI_108/XLXI_283/Q_7" BEL
+        "XLXI_108/XLXI_283/Q_8" BEL "XLXI_108/XLXI_283/Q_9" BEL
+        "XLXI_108/XLXI_283/Q_10" BEL "XLXI_108/XLXI_283/Q_11" BEL
+        "XLXI_108/XLXI_283/Q_12" BEL "XLXI_108/XLXI_283/Q_13" BEL
+        "XLXI_108/XLXI_283/Q_14" BEL "XLXI_108/XLXI_283/Q_15" BEL
+        "XLXI_108/XLXI_282/Q_0" BEL "XLXI_108/XLXI_282/Q_1" BEL
+        "XLXI_108/XLXI_282/Q_2" BEL "XLXI_108/XLXI_282/Q_3" BEL
+        "XLXI_108/XLXI_282/Q_4" BEL "XLXI_108/XLXI_282/Q_5" BEL
+        "XLXI_108/XLXI_282/Q_6" BEL "XLXI_108/XLXI_282/Q_7" BEL
+        "XLXI_108/XLXI_282/Q_8" BEL "XLXI_108/XLXI_282/Q_9" BEL
+        "XLXI_108/XLXI_282/Q_10" BEL "XLXI_108/XLXI_282/Q_11" BEL
+        "XLXI_108/XLXI_282/Q_12" BEL "XLXI_108/XLXI_282/Q_13" BEL
+        "XLXI_108/XLXI_282/Q_14" BEL "XLXI_108/XLXI_282/Q_15" BEL
+        "XLXI_108/XLXI_281/Q_0" BEL "XLXI_108/XLXI_281/Q_1" BEL
+        "XLXI_108/XLXI_281/Q_2" BEL "XLXI_108/XLXI_281/Q_3" BEL
+        "XLXI_108/XLXI_281/Q_4" BEL "XLXI_108/XLXI_281/Q_5" BEL
+        "XLXI_108/XLXI_281/Q_6" BEL "XLXI_108/XLXI_281/Q_7" BEL
+        "XLXI_108/XLXI_281/Q_8" BEL "XLXI_108/XLXI_281/Q_9" BEL
+        "XLXI_108/XLXI_281/Q_10" BEL "XLXI_108/XLXI_281/Q_11" BEL
+        "XLXI_108/XLXI_281/Q_12" BEL "XLXI_108/XLXI_281/Q_13" BEL
+        "XLXI_108/XLXI_281/Q_14" BEL "XLXI_108/XLXI_281/Q_15" BEL
+        "XLXI_108/Flag_Register/Q_0" BEL "XLXI_108/Flag_Register/Q_1" BEL
+        "XLXI_108/Flag_Register/Q_2" BEL "XLXI_108/Flag_Register/Q_3" BEL
+        "XLXI_108/Flag_Register/Q_4" BEL "XLXI_108/Flag_Register/Q_5" BEL
+        "XLXI_108/Flag_Register/Q_6" BEL "XLXI_108/Flag_Register/Q_7" BEL
+        "XLXI_108/Flag_Register/Q_8" BEL "XLXI_108/Flag_Register/Q_9" BEL
+        "XLXI_108/Flag_Register/Q_10" BEL "XLXI_108/Flag_Register/Q_11" BEL
+        "XLXI_108/Flag_Register/Q_15" BEL
+        "XLXI_108/GFX_Instruction_Buffer/XLXI_1/Q_0" BEL
+        "XLXI_108/GFX_Instruction_Buffer/XLXI_1/Q_1" BEL
+        "XLXI_108/GFX_Instruction_Buffer/XLXI_1/Q_2" BEL
+        "XLXI_108/GFX_Instruction_Buffer/XLXI_1/Q_3" BEL
+        "XLXI_108/GFX_Instruction_Buffer/XLXI_1/Q_4" BEL
+        "XLXI_108/GFX_Instruction_Buffer/XLXI_1/Q_5" BEL
+        "XLXI_108/GFX_Instruction_Buffer/XLXI_1/Q_6" BEL
+        "XLXI_108/GFX_Instruction_Buffer/XLXI_1/Q_7" BEL
+        "XLXI_108/GFX_Instruction_Buffer/XLXI_1/Q_8" BEL
+        "XLXI_108/GFX_Instruction_Buffer/XLXI_1/Q_9" BEL
+        "XLXI_108/GFX_Instruction_Buffer/XLXI_1/Q_10" BEL
+        "XLXI_108/GFX_Instruction_Buffer/XLXI_1/Q_11" BEL
+        "XLXI_108/GFX_Instruction_Buffer/XLXI_1/Q_12" BEL
+        "XLXI_108/GFX_Instruction_Buffer/XLXI_1/Q_13" BEL
+        "XLXI_108/GFX_Instruction_Buffer/XLXI_1/Q_14" BEL
+        "XLXI_108/GFX_Instruction_Buffer/XLXI_1/Q_15" BEL
+        "XLXI_108/GFX_Instruction_Buffer/XLXI_2/Q_0" BEL
+        "XLXI_108/GFX_Instruction_Buffer/XLXI_2/Q_1" BEL
+        "XLXI_108/GFX_Instruction_Buffer/XLXI_2/Q_2" BEL
+        "XLXI_108/GFX_Instruction_Buffer/XLXI_2/Q_3" BEL
+        "XLXI_108/GFX_Instruction_Buffer/XLXI_2/Q_12" BEL
+        "XLXI_108/GFX_Instruction_Buffer/XLXI_2/Q_13" BEL
+        "XLXI_108/GFX_Instruction_Buffer/XLXI_2/Q_14" BEL
+        "XLXI_108/GFX_Instruction_Buffer/XLXI_2/Q_15" BEL
+        "XLXI_108/Output_Registers/XLXI_4/Q_0" BEL
+        "XLXI_108/Output_Registers/XLXI_4/Q_1" BEL
+        "XLXI_108/Output_Registers/XLXI_4/Q_2" BEL
+        "XLXI_108/Output_Registers/XLXI_4/Q_3" BEL
+        "XLXI_108/Output_Registers/XLXI_4/Q_4" BEL
+        "XLXI_108/Output_Registers/XLXI_4/Q_5" BEL
+        "XLXI_108/Output_Registers/XLXI_4/Q_6" BEL
+        "XLXI_108/Output_Registers/XLXI_4/Q_7" BEL
+        "XLXI_108/Output_Registers/XLXI_6/Q_0" BEL
+        "XLXI_108/Output_Registers/XLXI_6/Q_1" BEL
+        "XLXI_108/Output_Registers/XLXI_6/Q_2" BEL
+        "XLXI_108/Output_Registers/XLXI_6/Q_3" BEL
+        "XLXI_108/Output_Registers/XLXI_6/Q_4" BEL
+        "XLXI_108/Output_Registers/XLXI_6/Q_5" BEL
+        "XLXI_108/Output_Registers/XLXI_6/Q_6" BEL
+        "XLXI_108/Output_Registers/XLXI_6/Q_7" BEL
+        "XLXI_108/Output_Registers/XLXI_8/Q_0" BEL
+        "XLXI_108/Output_Registers/XLXI_8/Q_1" BEL
+        "XLXI_108/Output_Registers/XLXI_8/Q_2" BEL
+        "XLXI_108/Output_Registers/XLXI_8/Q_3" BEL
+        "XLXI_108/Output_Registers/XLXI_322/Q_0" BEL
+        "XLXI_108/Output_Registers/XLXI_322/Q_1" BEL
+        "XLXI_108/Output_Registers/XLXI_322/Q_2" BEL
+        "XLXI_108/Output_Registers/XLXI_322/Q_3" BEL
+        "XLXI_108/Output_Registers/XLXI_322/Q_4" BEL
+        "XLXI_108/Output_Registers/XLXI_322/Q_5" BEL
+        "XLXI_108/Output_Registers/XLXI_322/Q_6" BEL
+        "XLXI_108/Output_Registers/XLXI_322/Q_7" BEL
+        "XLXI_108/Stall_Counter/COUNT_0" BEL "XLXI_108/Stall_Counter/COUNT_1"
+        BEL "XLXI_108/Stall_Counter/COUNT_2" BEL
+        "XLXI_108/Stall_Counter/COUNT_3" BEL "XLXI_108/Stall_Counter/COUNT_4"
+        BEL "XLXI_108/Stall_Counter/COUNT_5" BEL
+        "XLXI_108/Stall_Counter/COUNT_6" BEL "XLXI_108/Stall_Counter/COUNT_7"
+        BEL "XLXI_108/Stall_Counter/COUNT_8" BEL
+        "XLXI_108/Stall_Counter/COUNT_9" BEL "XLXI_108/Stall_Counter/COUNT_10"
+        BEL "XLXI_108/Stall_Counter/COUNT_11" BEL
+        "XLXI_108/Stall_Counter/COUNT_12" BEL
+        "XLXI_108/Stall_Counter/COUNT_13" BEL
+        "XLXI_108/Stall_Counter/COUNT_14" BEL
+        "XLXI_108/Stall_Counter/COUNT_15" BEL
+        "XLXI_108/Program_Counter/COUNT_0" BEL
+        "XLXI_108/Program_Counter/COUNT_1" BEL
+        "XLXI_108/Program_Counter/COUNT_2" BEL
+        "XLXI_108/Program_Counter/COUNT_3" BEL
+        "XLXI_108/Program_Counter/COUNT_4" BEL
+        "XLXI_108/Program_Counter/COUNT_5" BEL
+        "XLXI_108/Program_Counter/COUNT_6" BEL
+        "XLXI_108/Program_Counter/COUNT_7" BEL
+        "XLXI_108/Program_Counter/COUNT_8" BEL
+        "XLXI_108/Program_Counter/COUNT_9" BEL
+        "XLXI_108/Program_Counter/COUNT_10" BEL
+        "XLXI_108/Program_Counter/COUNT_11" BEL
+        "XLXI_108/Program_Counter/COUNT_12" BEL
+        "XLXI_108/Program_Counter/COUNT_13" BEL
+        "XLXI_108/Register_File/XLXI_4/Q_0" BEL
+        "XLXI_108/Register_File/XLXI_4/Q_1" BEL
+        "XLXI_108/Register_File/XLXI_4/Q_2" BEL
+        "XLXI_108/Register_File/XLXI_4/Q_3" BEL
+        "XLXI_108/Register_File/XLXI_4/Q_4" BEL
+        "XLXI_108/Register_File/XLXI_4/Q_5" BEL
+        "XLXI_108/Register_File/XLXI_4/Q_6" BEL
+        "XLXI_108/Register_File/XLXI_4/Q_7" BEL
+        "XLXI_108/Register_File/XLXI_4/Q_8" BEL
+        "XLXI_108/Register_File/XLXI_4/Q_9" BEL
+        "XLXI_108/Register_File/XLXI_4/Q_10" BEL
+        "XLXI_108/Register_File/XLXI_4/Q_11" BEL
+        "XLXI_108/Register_File/XLXI_4/Q_12" BEL
+        "XLXI_108/Register_File/XLXI_4/Q_13" BEL
+        "XLXI_108/Register_File/XLXI_4/Q_14" BEL
+        "XLXI_108/Register_File/XLXI_4/Q_15" BEL
+        "XLXI_108/Register_File/XLXI_6/Q_0" BEL
+        "XLXI_108/Register_File/XLXI_6/Q_1" BEL
+        "XLXI_108/Register_File/XLXI_6/Q_2" BEL
+        "XLXI_108/Register_File/XLXI_6/Q_3" BEL
+        "XLXI_108/Register_File/XLXI_6/Q_4" BEL
+        "XLXI_108/Register_File/XLXI_6/Q_5" BEL
+        "XLXI_108/Register_File/XLXI_6/Q_6" BEL
+        "XLXI_108/Register_File/XLXI_6/Q_7" BEL
+        "XLXI_108/Register_File/XLXI_6/Q_8" BEL
+        "XLXI_108/Register_File/XLXI_6/Q_9" BEL
+        "XLXI_108/Register_File/XLXI_6/Q_10" BEL
+        "XLXI_108/Register_File/XLXI_6/Q_11" BEL
+        "XLXI_108/Register_File/XLXI_6/Q_12" BEL
+        "XLXI_108/Register_File/XLXI_6/Q_13" BEL
+        "XLXI_108/Register_File/XLXI_6/Q_14" BEL
+        "XLXI_108/Register_File/XLXI_6/Q_15" BEL
+        "XLXI_108/Register_File/XLXI_8/Q_0" BEL
+        "XLXI_108/Register_File/XLXI_8/Q_1" BEL
+        "XLXI_108/Register_File/XLXI_8/Q_2" BEL
+        "XLXI_108/Register_File/XLXI_8/Q_3" BEL
+        "XLXI_108/Register_File/XLXI_8/Q_4" BEL
+        "XLXI_108/Register_File/XLXI_8/Q_5" BEL
+        "XLXI_108/Register_File/XLXI_8/Q_6" BEL
+        "XLXI_108/Register_File/XLXI_8/Q_7" BEL
+        "XLXI_108/Register_File/XLXI_8/Q_8" BEL
+        "XLXI_108/Register_File/XLXI_8/Q_9" BEL
+        "XLXI_108/Register_File/XLXI_8/Q_10" BEL
+        "XLXI_108/Register_File/XLXI_8/Q_11" BEL
+        "XLXI_108/Register_File/XLXI_8/Q_12" BEL
+        "XLXI_108/Register_File/XLXI_8/Q_13" BEL
+        "XLXI_108/Register_File/XLXI_8/Q_14" BEL
+        "XLXI_108/Register_File/XLXI_8/Q_15" BEL
+        "XLXI_108/Register_File/XLXI_10/Q_0" BEL
+        "XLXI_108/Register_File/XLXI_10/Q_1" BEL
+        "XLXI_108/Register_File/XLXI_10/Q_2" BEL
+        "XLXI_108/Register_File/XLXI_10/Q_3" BEL
+        "XLXI_108/Register_File/XLXI_10/Q_4" BEL
+        "XLXI_108/Register_File/XLXI_10/Q_5" BEL
+        "XLXI_108/Register_File/XLXI_10/Q_6" BEL
+        "XLXI_108/Register_File/XLXI_10/Q_7" BEL
+        "XLXI_108/Register_File/XLXI_10/Q_8" BEL
+        "XLXI_108/Register_File/XLXI_10/Q_9" BEL
+        "XLXI_108/Register_File/XLXI_10/Q_10" BEL
+        "XLXI_108/Register_File/XLXI_10/Q_11" BEL
+        "XLXI_108/Register_File/XLXI_10/Q_12" BEL
+        "XLXI_108/Register_File/XLXI_10/Q_13" BEL
+        "XLXI_108/Register_File/XLXI_10/Q_14" BEL
+        "XLXI_108/Register_File/XLXI_10/Q_15" BEL
+        "XLXI_108/Register_File/XLXI_12/Q_0" BEL
+        "XLXI_108/Register_File/XLXI_12/Q_1" BEL
+        "XLXI_108/Register_File/XLXI_12/Q_2" BEL
+        "XLXI_108/Register_File/XLXI_12/Q_3" BEL
+        "XLXI_108/Register_File/XLXI_12/Q_4" BEL
+        "XLXI_108/Register_File/XLXI_12/Q_5" BEL
+        "XLXI_108/Register_File/XLXI_12/Q_6" BEL
+        "XLXI_108/Register_File/XLXI_12/Q_7" BEL
+        "XLXI_108/Register_File/XLXI_12/Q_8" BEL
+        "XLXI_108/Register_File/XLXI_12/Q_9" BEL
+        "XLXI_108/Register_File/XLXI_12/Q_10" BEL
+        "XLXI_108/Register_File/XLXI_12/Q_11" BEL
+        "XLXI_108/Register_File/XLXI_12/Q_12" BEL
+        "XLXI_108/Register_File/XLXI_12/Q_13" BEL
+        "XLXI_108/Register_File/XLXI_12/Q_14" BEL
+        "XLXI_108/Register_File/XLXI_12/Q_15" BEL
+        "XLXI_108/Register_File/XLXI_14/Q_0" BEL
+        "XLXI_108/Register_File/XLXI_14/Q_1" BEL
+        "XLXI_108/Register_File/XLXI_14/Q_2" BEL
+        "XLXI_108/Register_File/XLXI_14/Q_3" BEL
+        "XLXI_108/Register_File/XLXI_14/Q_4" BEL
+        "XLXI_108/Register_File/XLXI_14/Q_5" BEL
+        "XLXI_108/Register_File/XLXI_14/Q_6" BEL
+        "XLXI_108/Register_File/XLXI_14/Q_7" BEL
+        "XLXI_108/Register_File/XLXI_14/Q_8" BEL
+        "XLXI_108/Register_File/XLXI_14/Q_9" BEL
+        "XLXI_108/Register_File/XLXI_14/Q_10" BEL
+        "XLXI_108/Register_File/XLXI_14/Q_11" BEL
+        "XLXI_108/Register_File/XLXI_14/Q_12" BEL
+        "XLXI_108/Register_File/XLXI_14/Q_13" BEL
+        "XLXI_108/Register_File/XLXI_14/Q_14" BEL
+        "XLXI_108/Register_File/XLXI_14/Q_15" BEL
+        "XLXI_108/Register_File/XLXI_16/Q_0" BEL
+        "XLXI_108/Register_File/XLXI_16/Q_1" BEL
+        "XLXI_108/Register_File/XLXI_16/Q_2" BEL
+        "XLXI_108/Register_File/XLXI_16/Q_3" BEL
+        "XLXI_108/Register_File/XLXI_16/Q_4" BEL
+        "XLXI_108/Register_File/XLXI_16/Q_5" BEL
+        "XLXI_108/Register_File/XLXI_16/Q_6" BEL
+        "XLXI_108/Register_File/XLXI_16/Q_7" BEL
+        "XLXI_108/Register_File/XLXI_16/Q_8" BEL
+        "XLXI_108/Register_File/XLXI_16/Q_9" BEL
+        "XLXI_108/Register_File/XLXI_16/Q_10" BEL
+        "XLXI_108/Register_File/XLXI_16/Q_11" BEL
+        "XLXI_108/Register_File/XLXI_16/Q_12" BEL
+        "XLXI_108/Register_File/XLXI_16/Q_13" BEL
+        "XLXI_108/Register_File/XLXI_16/Q_14" BEL
+        "XLXI_108/Register_File/XLXI_16/Q_15" BEL
+        "XLXI_108/Register_File/XLXI_18/Q_0" BEL
+        "XLXI_108/Register_File/XLXI_18/Q_1" BEL
+        "XLXI_108/Register_File/XLXI_18/Q_2" BEL
+        "XLXI_108/Register_File/XLXI_18/Q_3" BEL
+        "XLXI_108/Register_File/XLXI_18/Q_4" BEL
+        "XLXI_108/Register_File/XLXI_18/Q_5" BEL
+        "XLXI_108/Register_File/XLXI_18/Q_6" BEL
+        "XLXI_108/Register_File/XLXI_18/Q_7" BEL
+        "XLXI_108/Register_File/XLXI_18/Q_8" BEL
+        "XLXI_108/Register_File/XLXI_18/Q_9" BEL
+        "XLXI_108/Register_File/XLXI_18/Q_10" BEL
+        "XLXI_108/Register_File/XLXI_18/Q_11" BEL
+        "XLXI_108/Register_File/XLXI_18/Q_12" BEL
+        "XLXI_108/Register_File/XLXI_18/Q_13" BEL
+        "XLXI_108/Register_File/XLXI_18/Q_14" BEL
+        "XLXI_108/Register_File/XLXI_18/Q_15" BEL
+        "XLXI_108/Register_File/XLXI_20/Q_0" BEL
+        "XLXI_108/Register_File/XLXI_20/Q_1" BEL
+        "XLXI_108/Register_File/XLXI_20/Q_2" BEL
+        "XLXI_108/Register_File/XLXI_20/Q_3" BEL
+        "XLXI_108/Register_File/XLXI_20/Q_4" BEL
+        "XLXI_108/Register_File/XLXI_20/Q_5" BEL
+        "XLXI_108/Register_File/XLXI_20/Q_6" BEL
+        "XLXI_108/Register_File/XLXI_20/Q_7" BEL
+        "XLXI_108/Register_File/XLXI_20/Q_8" BEL
+        "XLXI_108/Register_File/XLXI_20/Q_9" BEL
+        "XLXI_108/Register_File/XLXI_20/Q_10" BEL
+        "XLXI_108/Register_File/XLXI_20/Q_11" BEL
+        "XLXI_108/Register_File/XLXI_20/Q_12" BEL
+        "XLXI_108/Register_File/XLXI_20/Q_13" BEL
+        "XLXI_108/Register_File/XLXI_20/Q_14" BEL
+        "XLXI_108/Register_File/XLXI_20/Q_15" BEL
+        "XLXI_108/Register_File/XLXI_22/Q_0" BEL
+        "XLXI_108/Register_File/XLXI_22/Q_1" BEL
+        "XLXI_108/Register_File/XLXI_22/Q_2" BEL
+        "XLXI_108/Register_File/XLXI_22/Q_3" BEL
+        "XLXI_108/Register_File/XLXI_22/Q_4" BEL
+        "XLXI_108/Register_File/XLXI_22/Q_5" BEL
+        "XLXI_108/Register_File/XLXI_22/Q_6" BEL
+        "XLXI_108/Register_File/XLXI_22/Q_7" BEL
+        "XLXI_108/Register_File/XLXI_22/Q_8" BEL
+        "XLXI_108/Register_File/XLXI_22/Q_9" BEL
+        "XLXI_108/Register_File/XLXI_22/Q_10" BEL
+        "XLXI_108/Register_File/XLXI_22/Q_11" BEL
+        "XLXI_108/Register_File/XLXI_22/Q_12" BEL
+        "XLXI_108/Register_File/XLXI_22/Q_13" BEL
+        "XLXI_108/Register_File/XLXI_22/Q_14" BEL
+        "XLXI_108/Register_File/XLXI_22/Q_15" BEL
+        "XLXI_108/Register_File/XLXI_24/Q_0" BEL
+        "XLXI_108/Register_File/XLXI_24/Q_1" BEL
+        "XLXI_108/Register_File/XLXI_24/Q_2" BEL
+        "XLXI_108/Register_File/XLXI_24/Q_3" BEL
+        "XLXI_108/Register_File/XLXI_24/Q_4" BEL
+        "XLXI_108/Register_File/XLXI_24/Q_5" BEL
+        "XLXI_108/Register_File/XLXI_24/Q_6" BEL
+        "XLXI_108/Register_File/XLXI_24/Q_7" BEL
+        "XLXI_108/Register_File/XLXI_24/Q_8" BEL
+        "XLXI_108/Register_File/XLXI_24/Q_9" BEL
+        "XLXI_108/Register_File/XLXI_24/Q_10" BEL
+        "XLXI_108/Register_File/XLXI_24/Q_11" BEL
+        "XLXI_108/Register_File/XLXI_24/Q_12" BEL
+        "XLXI_108/Register_File/XLXI_24/Q_13" BEL
+        "XLXI_108/Register_File/XLXI_24/Q_14" BEL
+        "XLXI_108/Register_File/XLXI_24/Q_15" BEL
+        "XLXI_108/Register_File/XLXI_26/Q_0" BEL
+        "XLXI_108/Register_File/XLXI_26/Q_1" BEL
+        "XLXI_108/Register_File/XLXI_26/Q_2" BEL
+        "XLXI_108/Register_File/XLXI_26/Q_3" BEL
+        "XLXI_108/Register_File/XLXI_26/Q_4" BEL
+        "XLXI_108/Register_File/XLXI_26/Q_5" BEL
+        "XLXI_108/Register_File/XLXI_26/Q_6" BEL
+        "XLXI_108/Register_File/XLXI_26/Q_7" BEL
+        "XLXI_108/Register_File/XLXI_26/Q_8" BEL
+        "XLXI_108/Register_File/XLXI_26/Q_9" BEL
+        "XLXI_108/Register_File/XLXI_26/Q_10" BEL
+        "XLXI_108/Register_File/XLXI_26/Q_11" BEL
+        "XLXI_108/Register_File/XLXI_26/Q_12" BEL
+        "XLXI_108/Register_File/XLXI_26/Q_13" BEL
+        "XLXI_108/Register_File/XLXI_26/Q_14" BEL
+        "XLXI_108/Register_File/XLXI_26/Q_15" BEL
+        "XLXI_108/Register_File/XLXI_28/Q_0" BEL
+        "XLXI_108/Register_File/XLXI_28/Q_1" BEL
+        "XLXI_108/Register_File/XLXI_28/Q_2" BEL
+        "XLXI_108/Register_File/XLXI_28/Q_3" BEL
+        "XLXI_108/Register_File/XLXI_28/Q_4" BEL
+        "XLXI_108/Register_File/XLXI_28/Q_5" BEL
+        "XLXI_108/Register_File/XLXI_28/Q_6" BEL
+        "XLXI_108/Register_File/XLXI_28/Q_7" BEL
+        "XLXI_108/Register_File/XLXI_28/Q_8" BEL
+        "XLXI_108/Register_File/XLXI_28/Q_9" BEL
+        "XLXI_108/Register_File/XLXI_28/Q_10" BEL
+        "XLXI_108/Register_File/XLXI_28/Q_11" BEL
+        "XLXI_108/Register_File/XLXI_28/Q_12" BEL
+        "XLXI_108/Register_File/XLXI_28/Q_13" BEL
+        "XLXI_108/Register_File/XLXI_28/Q_14" BEL
+        "XLXI_108/Register_File/XLXI_28/Q_15" BEL
+        "XLXI_108/Register_File/XLXI_30/Q_0" BEL
+        "XLXI_108/Register_File/XLXI_30/Q_1" BEL
+        "XLXI_108/Register_File/XLXI_30/Q_2" BEL
+        "XLXI_108/Register_File/XLXI_30/Q_3" BEL
+        "XLXI_108/Register_File/XLXI_30/Q_4" BEL
+        "XLXI_108/Register_File/XLXI_30/Q_5" BEL
+        "XLXI_108/Register_File/XLXI_30/Q_6" BEL
+        "XLXI_108/Register_File/XLXI_30/Q_7" BEL
+        "XLXI_108/Register_File/XLXI_30/Q_8" BEL
+        "XLXI_108/Register_File/XLXI_30/Q_9" BEL
+        "XLXI_108/Register_File/XLXI_30/Q_10" BEL
+        "XLXI_108/Register_File/XLXI_30/Q_11" BEL
+        "XLXI_108/Register_File/XLXI_30/Q_12" BEL
+        "XLXI_108/Register_File/XLXI_30/Q_13" BEL
+        "XLXI_108/Register_File/XLXI_30/Q_14" BEL
+        "XLXI_108/Register_File/XLXI_30/Q_15" BEL
+        "XLXI_108/Register_File/XLXI_32/Q_0" BEL
+        "XLXI_108/Register_File/XLXI_32/Q_1" BEL
+        "XLXI_108/Register_File/XLXI_32/Q_2" BEL
+        "XLXI_108/Register_File/XLXI_32/Q_3" BEL
+        "XLXI_108/Register_File/XLXI_32/Q_4" BEL
+        "XLXI_108/Register_File/XLXI_32/Q_5" BEL
+        "XLXI_108/Register_File/XLXI_32/Q_6" BEL
+        "XLXI_108/Register_File/XLXI_32/Q_7" BEL
+        "XLXI_108/Register_File/XLXI_32/Q_8" BEL
+        "XLXI_108/Register_File/XLXI_32/Q_9" BEL
+        "XLXI_108/Register_File/XLXI_32/Q_10" BEL
+        "XLXI_108/Register_File/XLXI_32/Q_11" BEL
+        "XLXI_108/Register_File/XLXI_32/Q_12" BEL
+        "XLXI_108/Register_File/XLXI_32/Q_13" BEL
+        "XLXI_108/Register_File/XLXI_32/Q_14" BEL
+        "XLXI_108/Register_File/XLXI_32/Q_15" BEL
+        "XLXI_108/Stage_Counter/COUNT_0" BEL "XLXI_108/Stage_Counter/COUNT_1"
+        BEL "XLXI_110/COUNT_0" BEL "XLXI_110/COUNT_1" BEL "XLXI_110/COUNT_2"
+        BEL "XLXI_110/COUNT_3" BEL "XLXI_110/COUNT_4" BEL "XLXI_110/COUNT_5"
+        BEL "XLXI_110/COUNT_6" BEL "XLXI_110/COUNT_7" BEL "XLXI_110/COUNT_8"
+        BEL "XLXI_110/COUNT_9" BEL "XLXI_110/COUNT_10" BEL "XLXI_110/COUNT_11"
+        BEL "XLXI_110/COUNT_12" BEL "XLXI_110/COUNT_13" BEL
+        "XLXI_110/COUNT_14" BEL "XLXI_110/COUNT_15" BEL "XLXI_108/XLXI_295"
+        BEL "XLXI_108/XLXI_260" PIN
+        "XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram_pins<26>"
+        BEL
+        "XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe_0"
+        BEL
+        "XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe_1"
+        PIN
+        "XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe_0"
+        BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe_1"
+        BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe_2"
+        BEL
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe_3"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram_pins<26>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram_pins<26>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram_pins<26>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram_pins<26>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[27].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[26].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[25].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[24].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[23].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[22].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[21].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[20].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[19].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[18].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[17].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[16].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[15].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram_pins<26>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram_pins<26>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram_pins<26>"
+        PIN
+        "XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram_pins<26>";
+PIN SP6_BUFIO2_INSERT_PLL1_ML_BUFIO2_0_pins<0> = BEL
+        "SP6_BUFIO2_INSERT_PLL1_ML_BUFIO2_0" PINNAME DIVCLK;
+PIN XLXI_2/XLXI_1/pll_base_inst/PLL_ADV_pins<2> = BEL
+        "XLXI_2/XLXI_1/pll_base_inst/PLL_ADV" PINNAME CLKIN1;
+TIMEGRP OSC = PIN "SP6_BUFIO2_INSERT_PLL1_ML_BUFIO2_0_pins<0>" PIN
+        "XLXI_2/XLXI_1/pll_base_inst/PLL_ADV_pins<2>";
+NET "K1_3_IBUF" MAXDELAY = 3 ns;
+NET "K1_1_IBUF" MAXDELAY = 3 ns;
+TS_OSC = PERIOD TIMEGRP "OSC" 50 ns HIGH 50%;
+TS_XLXI_2_XLXI_1_clkout1 = PERIOD TIMEGRP "XLXI_2_XLXI_1_clkout1" TS_OSC / 12
+        HIGH 50%;
+TS_XLXI_2_XLXI_1_clkout0 = PERIOD TIMEGRP "XLXI_2_XLXI_1_clkout0" TS_OSC / 2.4
+        HIGH 50%;
+COMP "K5_1" OFFSET = OUT 7.55 ns AFTER COMP "OSC" "RISING";
+COMP "K5_9" OFFSET = OUT 7.55 ns AFTER COMP "OSC" "RISING";
+COMP "K5_5" OFFSET = OUT 7.55 ns AFTER COMP "OSC" "RISING";
+COMP "K5_13" OFFSET = OUT 7.55 ns AFTER COMP "OSC" "RISING";
+SCHEMATIC END;
+

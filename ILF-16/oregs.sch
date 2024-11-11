@@ -8,10 +8,10 @@
     <netlist>
         <signal name="DIN(15:0)" />
         <signal name="ADDR(3:0)" />
-        <signal name="W(0)" />
-        <signal name="W(1)" />
-        <signal name="W(2)" />
-        <signal name="W(3)" />
+        <signal name="ADDR(0)" />
+        <signal name="ADDR(1)" />
+        <signal name="ADDR(2)" />
+        <signal name="ADDR(3)" />
         <signal name="XLXN_3" />
         <signal name="XLXN_4" />
         <signal name="XLXN_5" />
@@ -79,7 +79,6 @@
         <signal name="DO14(15:0)" />
         <signal name="DO15(15:0)" />
         <signal name="DO0(15:0)" />
-        <signal name="XLXN_558" />
         <port polarity="Input" name="DIN(15:0)" />
         <port polarity="Input" name="ADDR(3:0)" />
         <port polarity="Input" name="CLK" />
@@ -166,10 +165,10 @@
             <line x2="32" y1="-64" y2="-64" x1="96" />
         </blockdef>
         <block symbolname="d4_16e" name="XLXI_3">
-            <blockpin signalname="W(0)" name="A0" />
-            <blockpin signalname="W(1)" name="A1" />
-            <blockpin signalname="W(2)" name="A2" />
-            <blockpin signalname="W(3)" name="A3" />
+            <blockpin signalname="ADDR(0)" name="A0" />
+            <blockpin signalname="ADDR(1)" name="A1" />
+            <blockpin signalname="ADDR(2)" name="A2" />
+            <blockpin signalname="ADDR(3)" name="A3" />
             <blockpin signalname="XLXN_213" name="E" />
             <blockpin signalname="XLXN_422" name="D0" />
             <blockpin signalname="XLXN_230" name="D1" />
@@ -476,25 +475,25 @@
             <wire x2="432" y1="672" y2="736" x1="432" />
         </branch>
         <bustap x2="528" y1="544" y2="544" x1="432" />
-        <branch name="W(0)">
+        <branch name="ADDR(0)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="544" y="544" type="branch" />
             <wire x2="544" y1="544" y2="544" x1="528" />
             <wire x2="576" y1="544" y2="544" x1="544" />
         </branch>
         <bustap x2="528" y1="608" y2="608" x1="432" />
-        <branch name="W(1)">
+        <branch name="ADDR(1)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="544" y="608" type="branch" />
             <wire x2="544" y1="608" y2="608" x1="528" />
             <wire x2="576" y1="608" y2="608" x1="544" />
         </branch>
         <bustap x2="528" y1="672" y2="672" x1="432" />
-        <branch name="W(2)">
+        <branch name="ADDR(2)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="544" y="672" type="branch" />
             <wire x2="544" y1="672" y2="672" x1="528" />
             <wire x2="576" y1="672" y2="672" x1="544" />
         </branch>
         <bustap x2="528" y1="736" y2="736" x1="432" />
-        <branch name="W(3)">
+        <branch name="ADDR(3)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="544" y="736" type="branch" />
             <wire x2="544" y1="736" y2="736" x1="528" />
             <wire x2="576" y1="736" y2="736" x1="544" />

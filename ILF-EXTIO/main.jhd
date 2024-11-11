@@ -1,0 +1,5 @@
+MODULE main
+	SUBMODULE transmitter
+		INSTANCE XLXI_114
+	SUBMODULE BTN_inputs
+		INSTANCE BTN_inputs_map

@@ -57,11 +57,8 @@
         <signal name="O(14)" />
         <signal name="O(15)" />
         <signal name="A(15:0)" />
-        <signal name="XLXN_40" />
         <signal name="M(0)" />
-        <signal name="XLXN_42" />
         <signal name="M(1)" />
-        <signal name="XLXN_44" />
         <signal name="M(2)" />
         <signal name="M(2:0)" />
         <port polarity="Input" name="B(15:0)" />
@@ -79,7 +76,7 @@
             <line x2="64" y1="-368" y2="-368" x1="0" />
         </blockdef>
         <block symbolname="lut5" name="XLXI_1">
-            <attr value="9E731865" name="INIT">
+            <attr value="9176E85A" name="INIT">
                 <trait editname="all:1 sch:0" />
                 <trait edittrait="all:1 sch:0" />
                 <trait verilog="all:0 dp:1nosynth wsynop:1 wsynth:1" />
@@ -93,8 +90,8 @@
             <blockpin signalname="O(0)" name="O" />
             <blockpin signalname="M(2)" name="I4" />
         </block>
-        <block symbolname="lut5" name="XLXI_2">
-            <attr value="9E731865" name="INIT">
+        <block symbolname="lut5" name="XLXI_19">
+            <attr value="9176E85A" name="INIT">
                 <trait editname="all:1 sch:0" />
                 <trait edittrait="all:1 sch:0" />
                 <trait verilog="all:0 dp:1nosynth wsynop:1 wsynth:1" />
@@ -108,8 +105,8 @@
             <blockpin signalname="O(1)" name="O" />
             <blockpin signalname="M(2)" name="I4" />
         </block>
-        <block symbolname="lut5" name="XLXI_3">
-            <attr value="9E731865" name="INIT">
+        <block symbolname="lut5" name="XLXI_20">
+            <attr value="9176E85A" name="INIT">
                 <trait editname="all:1 sch:0" />
                 <trait edittrait="all:1 sch:0" />
                 <trait verilog="all:0 dp:1nosynth wsynop:1 wsynth:1" />
@@ -123,8 +120,8 @@
             <blockpin signalname="O(2)" name="O" />
             <blockpin signalname="M(2)" name="I4" />
         </block>
-        <block symbolname="lut5" name="XLXI_4">
-            <attr value="9E731865" name="INIT">
+        <block symbolname="lut5" name="XLXI_21">
+            <attr value="9176E85A" name="INIT">
                 <trait editname="all:1 sch:0" />
                 <trait edittrait="all:1 sch:0" />
                 <trait verilog="all:0 dp:1nosynth wsynop:1 wsynth:1" />
@@ -138,8 +135,8 @@
             <blockpin signalname="O(3)" name="O" />
             <blockpin signalname="M(2)" name="I4" />
         </block>
-        <block symbolname="lut5" name="XLXI_7">
-            <attr value="9E731865" name="INIT">
+        <block symbolname="lut5" name="XLXI_22">
+            <attr value="9176E85A" name="INIT">
                 <trait editname="all:1 sch:0" />
                 <trait edittrait="all:1 sch:0" />
                 <trait verilog="all:0 dp:1nosynth wsynop:1 wsynth:1" />
@@ -153,8 +150,8 @@
             <blockpin signalname="O(4)" name="O" />
             <blockpin signalname="M(2)" name="I4" />
         </block>
-        <block symbolname="lut5" name="XLXI_8">
-            <attr value="9E731865" name="INIT">
+        <block symbolname="lut5" name="XLXI_23">
+            <attr value="9176E85A" name="INIT">
                 <trait editname="all:1 sch:0" />
                 <trait edittrait="all:1 sch:0" />
                 <trait verilog="all:0 dp:1nosynth wsynop:1 wsynth:1" />
@@ -168,8 +165,8 @@
             <blockpin signalname="O(5)" name="O" />
             <blockpin signalname="M(2)" name="I4" />
         </block>
-        <block symbolname="lut5" name="XLXI_9">
-            <attr value="9E731865" name="INIT">
+        <block symbolname="lut5" name="XLXI_24">
+            <attr value="9176E85A" name="INIT">
                 <trait editname="all:1 sch:0" />
                 <trait edittrait="all:1 sch:0" />
                 <trait verilog="all:0 dp:1nosynth wsynop:1 wsynth:1" />
@@ -183,8 +180,8 @@
             <blockpin signalname="O(6)" name="O" />
             <blockpin signalname="M(2)" name="I4" />
         </block>
-        <block symbolname="lut5" name="XLXI_10">
-            <attr value="9E731865" name="INIT">
+        <block symbolname="lut5" name="XLXI_25">
+            <attr value="9176E85A" name="INIT">
                 <trait editname="all:1 sch:0" />
                 <trait edittrait="all:1 sch:0" />
                 <trait verilog="all:0 dp:1nosynth wsynop:1 wsynth:1" />
@@ -198,8 +195,8 @@
             <blockpin signalname="O(7)" name="O" />
             <blockpin signalname="M(2)" name="I4" />
         </block>
-        <block symbolname="lut5" name="XLXI_11">
-            <attr value="9E731865" name="INIT">
+        <block symbolname="lut5" name="XLXI_26">
+            <attr value="9176E85A" name="INIT">
                 <trait editname="all:1 sch:0" />
                 <trait edittrait="all:1 sch:0" />
                 <trait verilog="all:0 dp:1nosynth wsynop:1 wsynth:1" />
@@ -213,8 +210,8 @@
             <blockpin signalname="O(8)" name="O" />
             <blockpin signalname="M(2)" name="I4" />
         </block>
-        <block symbolname="lut5" name="XLXI_12">
-            <attr value="9E731865" name="INIT">
+        <block symbolname="lut5" name="XLXI_27">
+            <attr value="9176E85A" name="INIT">
                 <trait editname="all:1 sch:0" />
                 <trait edittrait="all:1 sch:0" />
                 <trait verilog="all:0 dp:1nosynth wsynop:1 wsynth:1" />
@@ -228,8 +225,8 @@
             <blockpin signalname="O(9)" name="O" />
             <blockpin signalname="M(2)" name="I4" />
         </block>
-        <block symbolname="lut5" name="XLXI_13">
-            <attr value="9E731865" name="INIT">
+        <block symbolname="lut5" name="XLXI_28">
+            <attr value="9176E85A" name="INIT">
                 <trait editname="all:1 sch:0" />
                 <trait edittrait="all:1 sch:0" />
                 <trait verilog="all:0 dp:1nosynth wsynop:1 wsynth:1" />
@@ -243,8 +240,8 @@
             <blockpin signalname="O(10)" name="O" />
             <blockpin signalname="M(2)" name="I4" />
         </block>
-        <block symbolname="lut5" name="XLXI_14">
-            <attr value="9E731865" name="INIT">
+        <block symbolname="lut5" name="XLXI_29">
+            <attr value="9176E85A" name="INIT">
                 <trait editname="all:1 sch:0" />
                 <trait edittrait="all:1 sch:0" />
                 <trait verilog="all:0 dp:1nosynth wsynop:1 wsynth:1" />
@@ -258,8 +255,8 @@
             <blockpin signalname="O(11)" name="O" />
             <blockpin signalname="M(2)" name="I4" />
         </block>
-        <block symbolname="lut5" name="XLXI_15">
-            <attr value="9E731865" name="INIT">
+        <block symbolname="lut5" name="XLXI_30">
+            <attr value="9176E85A" name="INIT">
                 <trait editname="all:1 sch:0" />
                 <trait edittrait="all:1 sch:0" />
                 <trait verilog="all:0 dp:1nosynth wsynop:1 wsynth:1" />
@@ -273,8 +270,8 @@
             <blockpin signalname="O(12)" name="O" />
             <blockpin signalname="M(2)" name="I4" />
         </block>
-        <block symbolname="lut5" name="XLXI_16">
-            <attr value="9E731865" name="INIT">
+        <block symbolname="lut5" name="XLXI_31">
+            <attr value="9176E85A" name="INIT">
                 <trait editname="all:1 sch:0" />
                 <trait edittrait="all:1 sch:0" />
                 <trait verilog="all:0 dp:1nosynth wsynop:1 wsynth:1" />
@@ -288,8 +285,8 @@
             <blockpin signalname="O(13)" name="O" />
             <blockpin signalname="M(2)" name="I4" />
         </block>
-        <block symbolname="lut5" name="XLXI_17">
-            <attr value="9E731865" name="INIT">
+        <block symbolname="lut5" name="XLXI_33">
+            <attr value="9176E85A" name="INIT">
                 <trait editname="all:1 sch:0" />
                 <trait edittrait="all:1 sch:0" />
                 <trait verilog="all:0 dp:1nosynth wsynop:1 wsynth:1" />
@@ -303,8 +300,8 @@
             <blockpin signalname="O(14)" name="O" />
             <blockpin signalname="M(2)" name="I4" />
         </block>
-        <block symbolname="lut5" name="XLXI_18">
-            <attr value="9E731865" name="INIT">
+        <block symbolname="lut5" name="XLXI_34">
+            <attr value="9176E85A" name="INIT">
                 <trait editname="all:1 sch:0" />
                 <trait edittrait="all:1 sch:0" />
                 <trait verilog="all:0 dp:1nosynth wsynop:1 wsynth:1" />
@@ -353,51 +350,6 @@
         <bustap x2="896" y1="240" y2="336" x1="896" />
         <bustap x2="944" y1="240" y2="336" x1="944" />
         <instance x="2096" y="704" name="XLXI_1" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
-        </instance>
-        <instance x="2096" y="1104" name="XLXI_2" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
-        </instance>
-        <instance x="2096" y="1504" name="XLXI_3" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
-        </instance>
-        <instance x="2096" y="1904" name="XLXI_4" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
-        </instance>
-        <instance x="2096" y="2304" name="XLXI_7" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
-        </instance>
-        <instance x="2096" y="2704" name="XLXI_8" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
-        </instance>
-        <instance x="2096" y="3104" name="XLXI_9" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
-        </instance>
-        <instance x="2096" y="3504" name="XLXI_10" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
-        </instance>
-        <instance x="2096" y="3904" name="XLXI_11" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
-        </instance>
-        <instance x="2096" y="4304" name="XLXI_12" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
-        </instance>
-        <instance x="2096" y="4704" name="XLXI_13" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
-        </instance>
-        <instance x="2096" y="5104" name="XLXI_14" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
-        </instance>
-        <instance x="2096" y="5504" name="XLXI_15" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
-        </instance>
-        <instance x="2096" y="5904" name="XLXI_16" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
-        </instance>
-        <instance x="2096" y="6304" name="XLXI_17" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
-        </instance>
-        <instance x="2096" y="6704" name="XLXI_18" orien="R0">
             <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
         </instance>
         <bustap x2="992" y1="240" y2="336" x1="992" />
@@ -716,7 +668,8 @@
         <bustap x2="2624" y1="6112" y2="6112" x1="2720" />
         <branch name="O(14)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="2560" y="6112" type="branch" />
-            <wire x2="2560" y1="6112" y2="6112" x1="2480" />
+            <wire x2="2496" y1="6112" y2="6112" x1="2480" />
+            <wire x2="2560" y1="6112" y2="6112" x1="2496" />
             <wire x2="2624" y1="6112" y2="6112" x1="2560" />
         </branch>
         <bustap x2="2624" y1="6512" y2="6512" x1="2720" />
@@ -864,5 +817,50 @@
         <iomarker fontsize="28" x="288" y="240" name="B(15:0)" orien="R180" />
         <iomarker fontsize="28" x="1088" y="160" name="A(15:0)" orien="R180" />
         <iomarker fontsize="28" x="272" y="6240" name="M(2:0)" orien="R180" />
+        <instance x="2096" y="1104" name="XLXI_19" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
+        </instance>
+        <instance x="2096" y="1504" name="XLXI_20" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
+        </instance>
+        <instance x="2096" y="1904" name="XLXI_21" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
+        </instance>
+        <instance x="2096" y="2304" name="XLXI_22" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
+        </instance>
+        <instance x="2096" y="2704" name="XLXI_23" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
+        </instance>
+        <instance x="2096" y="3104" name="XLXI_24" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
+        </instance>
+        <instance x="2096" y="3504" name="XLXI_25" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
+        </instance>
+        <instance x="2096" y="3904" name="XLXI_26" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
+        </instance>
+        <instance x="2096" y="4304" name="XLXI_27" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
+        </instance>
+        <instance x="2096" y="4704" name="XLXI_28" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
+        </instance>
+        <instance x="2096" y="5104" name="XLXI_29" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
+        </instance>
+        <instance x="2096" y="5504" name="XLXI_30" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
+        </instance>
+        <instance x="2096" y="5904" name="XLXI_31" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
+        </instance>
+        <instance x="2096" y="6304" name="XLXI_33" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
+        </instance>
+        <instance x="2096" y="6704" name="XLXI_34" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="INIT" x="112" y="-364" type="instance" />
+        </instance>
     </sheet>
 </drawing>

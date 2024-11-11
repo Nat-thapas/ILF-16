@@ -1,0 +1,33 @@
+Release 14.7 - par P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Mon Nov 11 23:15:29 2024
+
+All signals are completely routed.
+
+WARNING:ParHelpers:361 - There are 21 loadless signals in this design. This design will cause Bitgen to issue DRC
+   warnings.
+
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<0>
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<10>
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<11>
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<12>
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<13>
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<14>
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<15>
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<16>
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<17>
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<1>
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<2>
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<3>
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<4>
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<5>
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<6>
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<7>
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<8>
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<9>
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/P<32>
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/P<33>
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/P<34>
+
+

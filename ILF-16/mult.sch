@@ -6,14 +6,6 @@
         <trait edittrait="all:0" />
     </attr>
     <netlist>
-        <signal name="XLXN_8(17:0)" />
-        <signal name="XLXN_30" />
-        <signal name="XLXN_32" />
-        <signal name="XLXN_33" />
-        <signal name="XLXN_34" />
-        <signal name="XLXN_35" />
-        <signal name="XLXN_36" />
-        <signal name="XLXN_59" />
         <signal name="BE(17:0)" />
         <signal name="AE(17:0)" />
         <signal name="BCIN(17:0)" />
@@ -35,7 +27,6 @@
         <signal name="BCIN(15)" />
         <signal name="BCIN(16)" />
         <signal name="BCIN(17)" />
-        <signal name="XLXN_120" />
         <signal name="XLXN_37" />
         <signal name="BE(17)" />
         <signal name="BE(16)" />
@@ -88,10 +79,8 @@
         <signal name="A(12)" />
         <signal name="A(13)" />
         <signal name="A(14)" />
-        <signal name="XLXN_181" />
         <signal name="A(15:0)" />
         <signal name="A(15)" />
-        <signal name="XLXN_187" />
         <signal name="XLXN_188" />
         <signal name="XLXN_189" />
         <signal name="B(15:0)" />
@@ -110,14 +99,10 @@
         <signal name="B(12)" />
         <signal name="B(13)" />
         <signal name="B(14)" />
-        <signal name="XLXN_207" />
-        <signal name="XLXN_209" />
         <signal name="XLXN_210" />
         <signal name="B(15)" />
         <signal name="XLXN_212" />
         <signal name="Signed" />
-        <signal name="XLXN_214" />
-        <signal name="XLXN_215" />
         <signal name="P(35:0)" />
         <signal name="P(0)" />
         <signal name="P(1)" />
@@ -153,7 +138,6 @@
         <signal name="XLXN_253" />
         <signal name="P(31)" />
         <signal name="P(35)" />
-        <signal name="XLXN_256" />
         <signal name="L(15:0)" />
         <signal name="L(0)" />
         <signal name="L(1)" />

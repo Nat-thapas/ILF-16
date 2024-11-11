@@ -1,0 +1,3 @@
+MODULE sdp_vram_wrapper
+	SUBMODULE sdp_vram
+		INSTANCE XLXI_1

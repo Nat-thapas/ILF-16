@@ -1,0 +1,517 @@
+Release 14.7 Map P.20131013 (nt64)
+Xilinx Mapping Report File for Design 'main'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt on -ol high
+-xe c -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt 2 -ir off
+-pr off -lc off -power off -o main_map.ncd main.ngd main.pcf 
+Target Device  : xc6slx9
+Target Package : tqg144
+Target Speed   : -2
+Mapper Version : spartan6 -- $Revision: 1.55 $
+Mapped Date    : Mon Nov 11 17:43:58 2024
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:    0
+Slice Logic Utilization:
+  Number of Slice Registers:                   197 out of  11,440    1%
+    Number used as Flip Flops:                 197
+    Number used as Latches:                      0
+    Number used as Latch-thrus:                  0
+    Number used as AND/OR logics:                0
+  Number of Slice LUTs:                        160 out of   5,720    2%
+    Number used as logic:                      124 out of   5,720    2%
+      Number using O6 output only:              83
+      Number using O5 output only:              29
+      Number using O5 and O6:                   12
+      Number used as ROM:                        0
+    Number used as Memory:                       0 out of   1,440    0%
+    Number used exclusively as route-thrus:     36
+      Number with same-slice register load:     32
+      Number with same-slice carry load:         4
+      Number with other load:                    0
+
+Slice Logic Distribution:
+  Number of occupied Slices:                    77 out of   1,430    5%
+  Number of MUXCYs used:                        40 out of   2,860    1%
+  Number of LUT Flip Flop pairs used:          227
+    Number with an unused Flip Flop:            65 out of     227   28%
+    Number with an unused LUT:                  67 out of     227   29%
+    Number of fully used LUT-FF pairs:          95 out of     227   41%
+    Number of unique control sets:              21
+    Number of slice register sites lost
+      to control set restrictions:              99 out of  11,440    1%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                        19 out of     102   18%
+    Number of LOCed IOBs:                       15 out of      19   78%
+
+Specific Feature Utilization:
+  Number of RAMB16BWERs:                        16 out of      32   50%
+  Number of RAMB8BWERs:                          0 out of      64    0%
+  Number of BUFIO2/BUFIO2_2CLKs:                 0 out of      32    0%
+  Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
+  Number of BUFG/BUFGMUXs:                       6 out of      16   37%
+    Number used as BUFGs:                        6
+    Number used as BUFGMUX:                      0
+  Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
+  Number of ILOGIC2/ISERDES2s:                   0 out of     200    0%
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     200    0%
+  Number of OLOGIC2/OSERDES2s:                   0 out of     200    0%
+  Number of BSCANs:                              0 out of       4    0%
+  Number of BUFHs:                               0 out of     128    0%
+  Number of BUFPLLs:                             0 out of       8    0%
+  Number of BUFPLL_MCBs:                         0 out of       4    0%
+  Number of DSP48A1s:                            0 out of      16    0%
+  Number of ICAPs:                               0 out of       1    0%
+  Number of MCBs:                                0 out of       2    0%
+  Number of PCILOGICSEs:                         0 out of       2    0%
+  Number of PLL_ADVs:                            2 out of       2  100%
+  Number of PMVs:                                0 out of       1    0%
+  Number of STARTUPs:                            0 out of       1    0%
+  Number of SUSPEND_SYNCs:                       0 out of       1    0%
+
+Average Fanout of Non-Clock Nets:                3.80
+
+Peak Memory Usage:  4544 MB
+Total REAL time to MAP completion:  4 secs 
+Total CPU time to MAP completion (all processors):   3 secs 
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+
+Section 3 - Informational
+-------------------------
+INFO:Map:284 - Map is running with the multi-threading option on. Map currently
+   supports the use of up to 2 processors. Based on the the user options and
+   machine load, Map will use 2 processors during this run.
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
+INFO:Pack:1716 - Initializing temperature to 85.000 Celsius. (default - Range:
+   0.000 to 85.000 Celsius)
+INFO:Pack:1720 - Initializing voltage to 1.140 Volts. (default - Range: 1.140 to
+   1.260 Volts)
+INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
+   (.mrp).
+INFO:Pack:1650 - Map created a placed design.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+ 144 block(s) removed
+  12 block(s) optimized away
+ 133 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+Loadless block "XLXI_976/XLXI_56" (BUF) removed.
+ The signal "XLXI_976/QH<4>" is loadless and has been removed.
+  Loadless block "XLXI_976/XLXI_2/Q_4" (FF) removed.
+   The signal "XLXI_976/DH<4>" is loadless and has been removed.
+    Loadless block "XLXI_976/XLXI_24" (BUF) removed.
+     The signal "XLXN_2204<20>" is loadless and has been removed.
+      Loadless block "XLXI_874/XLXI_56" (BUF) removed.
+       The signal "XLXI_874/QH<4>" is loadless and has been removed.
+        Loadless block "XLXI_874/XLXI_2/Q_4" (FF) removed.
+         The signal "XLXI_874/DH<4>" is loadless and has been removed.
+          Loadless block "XLXI_874/XLXI_24" (BUF) removed.
+           The signal "CRS_DOM<20>" is loadless and has been removed.
+            Loadless block "Receiver/XLXI_47/XLXI_56" (BUF) removed.
+             The signal "Receiver/XLXI_47/QH<4>" is loadless and has been removed.
+              Loadless block "Receiver/XLXI_47/XLXI_2/Q_4" (FF) removed.
+               The signal "Receiver/XLXI_47/DH<4>" is loadless and has been removed.
+                Loadless block "Receiver/XLXI_47/XLXI_24" (BUF) removed.
+                 The signal "Receiver/XLXN_182<20>" is loadless and has been removed.
+                  Loadless block "Receiver/XLXI_46/XLXI_23" (BUF) removed.
+                   The signal "Receiver/XLXN_98<4>" is loadless and has been removed.
+                    Loadless block "Receiver/XLXI_20/Q_4" (FF) removed.
+                     The signal "Receiver/XLXN_42<4>" is loadless and has been removed.
+                      Loadless block "Receiver/XLXI_18/XLXI_5" (BUF) removed.
+Loadless block "XLXI_976/XLXI_57" (BUF) removed.
+ The signal "XLXI_976/QH<5>" is loadless and has been removed.
+  Loadless block "XLXI_976/XLXI_2/Q_5" (FF) removed.
+   The signal "XLXI_976/DH<5>" is loadless and has been removed.
+    Loadless block "XLXI_976/XLXI_25" (BUF) removed.
+     The signal "XLXN_2204<21>" is loadless and has been removed.
+      Loadless block "XLXI_874/XLXI_57" (BUF) removed.
+       The signal "XLXI_874/QH<5>" is loadless and has been removed.
+        Loadless block "XLXI_874/XLXI_2/Q_5" (FF) removed.
+         The signal "XLXI_874/DH<5>" is loadless and has been removed.
+          Loadless block "XLXI_874/XLXI_25" (BUF) removed.
+           The signal "CRS_DOM<21>" is loadless and has been removed.
+            Loadless block "Receiver/XLXI_47/XLXI_57" (BUF) removed.
+             The signal "Receiver/XLXI_47/QH<5>" is loadless and has been removed.
+              Loadless block "Receiver/XLXI_47/XLXI_2/Q_5" (FF) removed.
+               The signal "Receiver/XLXI_47/DH<5>" is loadless and has been removed.
+                Loadless block "Receiver/XLXI_47/XLXI_25" (BUF) removed.
+                 The signal "Receiver/XLXN_182<21>" is loadless and has been removed.
+                  Loadless block "Receiver/XLXI_46/XLXI_24" (BUF) removed.
+                   The signal "Receiver/XLXN_98<5>" is loadless and has been removed.
+                    Loadless block "Receiver/XLXI_20/Q_5" (FF) removed.
+                     The signal "Receiver/XLXN_42<5>" is loadless and has been removed.
+                      Loadless block "Receiver/XLXI_18/XLXI_6" (BUF) removed.
+Loadless block "XLXI_976/XLXI_58" (BUF) removed.
+ The signal "XLXI_976/QH<6>" is loadless and has been removed.
+  Loadless block "XLXI_976/XLXI_2/Q_6" (FF) removed.
+   The signal "XLXI_976/DH<6>" is loadless and has been removed.
+    Loadless block "XLXI_976/XLXI_26" (BUF) removed.
+     The signal "XLXN_2204<22>" is loadless and has been removed.
+      Loadless block "XLXI_874/XLXI_58" (BUF) removed.
+       The signal "XLXI_874/QH<6>" is loadless and has been removed.
+        Loadless block "XLXI_874/XLXI_2/Q_6" (FF) removed.
+         The signal "XLXI_874/DH<6>" is loadless and has been removed.
+          Loadless block "XLXI_874/XLXI_26" (BUF) removed.
+           The signal "CRS_DOM<22>" is loadless and has been removed.
+            Loadless block "Receiver/XLXI_47/XLXI_58" (BUF) removed.
+             The signal "Receiver/XLXI_47/QH<6>" is loadless and has been removed.
+              Loadless block "Receiver/XLXI_47/XLXI_2/Q_6" (FF) removed.
+               The signal "Receiver/XLXI_47/DH<6>" is loadless and has been removed.
+                Loadless block "Receiver/XLXI_47/XLXI_26" (BUF) removed.
+                 The signal "Receiver/XLXN_182<22>" is loadless and has been removed.
+                  Loadless block "Receiver/XLXI_46/XLXI_25" (BUF) removed.
+                   The signal "Receiver/XLXN_98<6>" is loadless and has been removed.
+                    Loadless block "Receiver/XLXI_20/Q_6" (FF) removed.
+                     The signal "Receiver/XLXN_42<6>" is loadless and has been removed.
+                      Loadless block "Receiver/XLXI_18/XLXI_7" (BUF) removed.
+Loadless block "XLXI_976/XLXI_59" (BUF) removed.
+ The signal "XLXI_976/QH<7>" is loadless and has been removed.
+  Loadless block "XLXI_976/XLXI_2/Q_7" (FF) removed.
+   The signal "XLXI_976/DH<7>" is loadless and has been removed.
+    Loadless block "XLXI_976/XLXI_27" (BUF) removed.
+     The signal "XLXN_2204<23>" is loadless and has been removed.
+      Loadless block "XLXI_874/XLXI_59" (BUF) removed.
+       The signal "XLXI_874/QH<7>" is loadless and has been removed.
+        Loadless block "XLXI_874/XLXI_2/Q_7" (FF) removed.
+         The signal "XLXI_874/DH<7>" is loadless and has been removed.
+          Loadless block "XLXI_874/XLXI_27" (BUF) removed.
+           The signal "CRS_DOM<23>" is loadless and has been removed.
+            Loadless block "Receiver/XLXI_47/XLXI_59" (BUF) removed.
+             The signal "Receiver/XLXI_47/QH<7>" is loadless and has been removed.
+              Loadless block "Receiver/XLXI_47/XLXI_2/Q_7" (FF) removed.
+               The signal "Receiver/XLXI_47/DH<7>" is loadless and has been removed.
+                Loadless block "Receiver/XLXI_47/XLXI_27" (BUF) removed.
+                 The signal "Receiver/XLXN_182<23>" is loadless and has been removed.
+                  Loadless block "Receiver/XLXI_46/XLXI_26" (BUF) removed.
+                   The signal "Receiver/XLXN_98<7>" is loadless and has been removed.
+                    Loadless block "Receiver/XLXI_20/Q_7" (FF) removed.
+                     The signal "Receiver/XLXN_42<7>" is loadless and has been removed.
+                      Loadless block "Receiver/XLXI_18/XLXI_8" (BUF) removed.
+Loadless block "XLXI_976/XLXI_60" (BUF) removed.
+ The signal "XLXI_976/QH<8>" is loadless and has been removed.
+  Loadless block "XLXI_976/XLXI_2/Q_8" (FF) removed.
+   The signal "XLXI_976/DH<8>" is loadless and has been removed.
+    Loadless block "XLXI_976/XLXI_28" (BUF) removed.
+     The signal "XLXN_2204<24>" is loadless and has been removed.
+      Loadless block "XLXI_874/XLXI_60" (BUF) removed.
+       The signal "XLXI_874/QH<8>" is loadless and has been removed.
+        Loadless block "XLXI_874/XLXI_2/Q_8" (FF) removed.
+         The signal "XLXI_874/DH<8>" is loadless and has been removed.
+          Loadless block "XLXI_874/XLXI_28" (BUF) removed.
+           The signal "CRS_DOM<24>" is loadless and has been removed.
+            Loadless block "Receiver/XLXI_47/XLXI_60" (BUF) removed.
+             The signal "Receiver/XLXI_47/QH<8>" is loadless and has been removed.
+              Loadless block "Receiver/XLXI_47/XLXI_2/Q_8" (FF) removed.
+               The signal "Receiver/XLXI_47/DH<8>" is loadless and has been removed.
+                Loadless block "Receiver/XLXI_47/XLXI_28" (BUF) removed.
+                 The signal "Receiver/XLXN_182<24>" is loadless and has been removed.
+                  Loadless block "Receiver/XLXI_46/XLXI_27" (BUF) removed.
+                   The signal "Receiver/XLXN_98<8>" is loadless and has been removed.
+                    Loadless block "Receiver/XLXI_20/Q_8" (FF) removed.
+                     The signal "Receiver/XLXN_42<8>" is loadless and has been removed.
+                      Loadless block "Receiver/XLXI_18/XLXI_9" (BUF) removed.
+Loadless block "XLXI_976/XLXI_61" (BUF) removed.
+ The signal "XLXI_976/QH<9>" is loadless and has been removed.
+  Loadless block "XLXI_976/XLXI_2/Q_9" (FF) removed.
+   The signal "XLXI_976/DH<9>" is loadless and has been removed.
+    Loadless block "XLXI_976/XLXI_29" (BUF) removed.
+     The signal "XLXN_2204<25>" is loadless and has been removed.
+      Loadless block "XLXI_874/XLXI_61" (BUF) removed.
+       The signal "XLXI_874/QH<9>" is loadless and has been removed.
+        Loadless block "XLXI_874/XLXI_2/Q_9" (FF) removed.
+         The signal "XLXI_874/DH<9>" is loadless and has been removed.
+          Loadless block "XLXI_874/XLXI_29" (BUF) removed.
+           The signal "CRS_DOM<25>" is loadless and has been removed.
+            Loadless block "Receiver/XLXI_47/XLXI_61" (BUF) removed.
+             The signal "Receiver/XLXI_47/QH<9>" is loadless and has been removed.
+              Loadless block "Receiver/XLXI_47/XLXI_2/Q_9" (FF) removed.
+               The signal "Receiver/XLXI_47/DH<9>" is loadless and has been removed.
+                Loadless block "Receiver/XLXI_47/XLXI_29" (BUF) removed.
+                 The signal "Receiver/XLXN_182<25>" is loadless and has been removed.
+                  Loadless block "Receiver/XLXI_46/XLXI_28" (BUF) removed.
+                   The signal "Receiver/XLXN_98<9>" is loadless and has been removed.
+                    Loadless block "Receiver/XLXI_20/Q_9" (FF) removed.
+                     The signal "Receiver/XLXN_42<9>" is loadless and has been removed.
+                      Loadless block "Receiver/XLXI_18/XLXI_10" (BUF) removed.
+Loadless block "XLXI_976/XLXI_62" (BUF) removed.
+ The signal "XLXI_976/QH<10>" is loadless and has been removed.
+  Loadless block "XLXI_976/XLXI_2/Q_10" (FF) removed.
+   The signal "XLXI_976/DH<10>" is loadless and has been removed.
+    Loadless block "XLXI_976/XLXI_30" (BUF) removed.
+     The signal "XLXN_2204<26>" is loadless and has been removed.
+      Loadless block "XLXI_874/XLXI_62" (BUF) removed.
+       The signal "XLXI_874/QH<10>" is loadless and has been removed.
+        Loadless block "XLXI_874/XLXI_2/Q_10" (FF) removed.
+         The signal "XLXI_874/DH<10>" is loadless and has been removed.
+          Loadless block "XLXI_874/XLXI_30" (BUF) removed.
+           The signal "CRS_DOM<26>" is loadless and has been removed.
+            Loadless block "Receiver/XLXI_47/XLXI_62" (BUF) removed.
+             The signal "Receiver/XLXI_47/QH<10>" is loadless and has been removed.
+              Loadless block "Receiver/XLXI_47/XLXI_2/Q_10" (FF) removed.
+               The signal "Receiver/XLXI_47/DH<10>" is loadless and has been removed.
+                Loadless block "Receiver/XLXI_47/XLXI_30" (BUF) removed.
+                 The signal "Receiver/XLXN_182<26>" is loadless and has been removed.
+                  Loadless block "Receiver/XLXI_46/XLXI_29" (BUF) removed.
+                   The signal "Receiver/XLXN_98<10>" is loadless and has been removed.
+                    Loadless block "Receiver/XLXI_20/Q_10" (FF) removed.
+                     The signal "Receiver/XLXN_42<10>" is loadless and has been removed.
+                      Loadless block "Receiver/XLXI_18/XLXI_11" (BUF) removed.
+Loadless block "XLXI_976/XLXI_63" (BUF) removed.
+ The signal "XLXI_976/QH<11>" is loadless and has been removed.
+  Loadless block "XLXI_976/XLXI_2/Q_11" (FF) removed.
+   The signal "XLXI_976/DH<11>" is loadless and has been removed.
+    Loadless block "XLXI_976/XLXI_31" (BUF) removed.
+     The signal "XLXN_2204<27>" is loadless and has been removed.
+      Loadless block "XLXI_874/XLXI_63" (BUF) removed.
+       The signal "XLXI_874/QH<11>" is loadless and has been removed.
+        Loadless block "XLXI_874/XLXI_2/Q_11" (FF) removed.
+         The signal "XLXI_874/DH<11>" is loadless and has been removed.
+          Loadless block "XLXI_874/XLXI_31" (BUF) removed.
+           The signal "CRS_DOM<27>" is loadless and has been removed.
+            Loadless block "Receiver/XLXI_47/XLXI_63" (BUF) removed.
+             The signal "Receiver/XLXI_47/QH<11>" is loadless and has been removed.
+              Loadless block "Receiver/XLXI_47/XLXI_2/Q_11" (FF) removed.
+               The signal "Receiver/XLXI_47/DH<11>" is loadless and has been removed.
+                Loadless block "Receiver/XLXI_47/XLXI_31" (BUF) removed.
+                 The signal "Receiver/XLXN_182<27>" is loadless and has been removed.
+                  Loadless block "Receiver/XLXI_46/XLXI_30" (BUF) removed.
+                   The signal "Receiver/XLXN_98<11>" is loadless and has been removed.
+                    Loadless block "Receiver/XLXI_20/Q_11" (FF) removed.
+                     The signal "Receiver/XLXN_42<11>" is loadless and has been removed.
+                      Loadless block "Receiver/XLXI_18/XLXI_12" (BUF) removed.
+Loadless block "XLXI_976/XLXI_64" (BUF) removed.
+ The signal "XLXI_976/QH<12>" is loadless and has been removed.
+  Loadless block "XLXI_976/XLXI_2/Q_12" (FF) removed.
+   The signal "XLXI_976/DH<12>" is loadless and has been removed.
+    Loadless block "XLXI_976/XLXI_32" (BUF) removed.
+     The signal "XLXN_2204<28>" is loadless and has been removed.
+      Loadless block "XLXI_874/XLXI_64" (BUF) removed.
+       The signal "XLXI_874/QH<12>" is loadless and has been removed.
+        Loadless block "XLXI_874/XLXI_2/Q_12" (FF) removed.
+         The signal "XLXI_874/DH<12>" is loadless and has been removed.
+          Loadless block "XLXI_874/XLXI_32" (BUF) removed.
+           The signal "CRS_DOM<28>" is loadless and has been removed.
+            Loadless block "Receiver/XLXI_47/XLXI_64" (BUF) removed.
+             The signal "Receiver/XLXI_47/QH<12>" is loadless and has been removed.
+              Loadless block "Receiver/XLXI_47/XLXI_2/Q_12" (FF) removed.
+               The signal "Receiver/XLXI_47/DH<12>" is loadless and has been removed.
+                Loadless block "Receiver/XLXI_47/XLXI_32" (BUF) removed.
+                 The signal "Receiver/XLXN_182<28>" is loadless and has been removed.
+                  Loadless block "Receiver/XLXI_46/XLXI_31" (BUF) removed.
+                   The signal "Receiver/XLXN_98<12>" is loadless and has been removed.
+                    Loadless block "Receiver/XLXI_20/Q_12" (FF) removed.
+                     The signal "Receiver/XLXN_42<12>" is loadless and has been removed.
+                      Loadless block "Receiver/XLXI_18/XLXI_13" (BUF) removed.
+Loadless block "XLXI_976/XLXI_65" (BUF) removed.
+ The signal "XLXI_976/QH<13>" is loadless and has been removed.
+  Loadless block "XLXI_976/XLXI_2/Q_13" (FF) removed.
+   The signal "XLXI_976/DH<13>" is loadless and has been removed.
+    Loadless block "XLXI_976/XLXI_33" (BUF) removed.
+     The signal "XLXN_2204<29>" is loadless and has been removed.
+      Loadless block "XLXI_874/XLXI_65" (BUF) removed.
+       The signal "XLXI_874/QH<13>" is loadless and has been removed.
+        Loadless block "XLXI_874/XLXI_2/Q_13" (FF) removed.
+         The signal "XLXI_874/DH<13>" is loadless and has been removed.
+          Loadless block "XLXI_874/XLXI_33" (BUF) removed.
+           The signal "CRS_DOM<29>" is loadless and has been removed.
+            Loadless block "Receiver/XLXI_47/XLXI_65" (BUF) removed.
+             The signal "Receiver/XLXI_47/QH<13>" is loadless and has been removed.
+              Loadless block "Receiver/XLXI_47/XLXI_2/Q_13" (FF) removed.
+               The signal "Receiver/XLXI_47/DH<13>" is loadless and has been removed.
+                Loadless block "Receiver/XLXI_47/XLXI_33" (BUF) removed.
+                 The signal "Receiver/XLXN_182<29>" is loadless and has been removed.
+                  Loadless block "Receiver/XLXI_46/XLXI_32" (BUF) removed.
+                   The signal "Receiver/XLXN_98<13>" is loadless and has been removed.
+                    Loadless block "Receiver/XLXI_20/Q_13" (FF) removed.
+                     The signal "Receiver/XLXN_42<13>" is loadless and has been removed.
+                      Loadless block "Receiver/XLXI_18/XLXI_14" (BUF) removed.
+Loadless block "XLXI_976/XLXI_66" (BUF) removed.
+ The signal "XLXI_976/QH<14>" is loadless and has been removed.
+  Loadless block "XLXI_976/XLXI_2/Q_14" (FF) removed.
+   The signal "XLXI_976/DH<14>" is loadless and has been removed.
+    Loadless block "XLXI_976/XLXI_34" (BUF) removed.
+     The signal "XLXN_2204<30>" is loadless and has been removed.
+      Loadless block "XLXI_874/XLXI_66" (BUF) removed.
+       The signal "XLXI_874/QH<14>" is loadless and has been removed.
+        Loadless block "XLXI_874/XLXI_2/Q_14" (FF) removed.
+         The signal "XLXI_874/DH<14>" is loadless and has been removed.
+          Loadless block "XLXI_874/XLXI_34" (BUF) removed.
+           The signal "CRS_DOM<30>" is loadless and has been removed.
+            Loadless block "Receiver/XLXI_47/XLXI_66" (BUF) removed.
+             The signal "Receiver/XLXI_47/QH<14>" is loadless and has been removed.
+              Loadless block "Receiver/XLXI_47/XLXI_2/Q_14" (FF) removed.
+               The signal "Receiver/XLXI_47/DH<14>" is loadless and has been removed.
+                Loadless block "Receiver/XLXI_47/XLXI_34" (BUF) removed.
+                 The signal "Receiver/XLXN_182<30>" is loadless and has been removed.
+                  Loadless block "Receiver/XLXI_46/XLXI_33" (BUF) removed.
+                   The signal "Receiver/XLXN_98<14>" is loadless and has been removed.
+                    Loadless block "Receiver/XLXI_20/Q_14" (FF) removed.
+                     The signal "Receiver/XLXN_42<14>" is loadless and has been removed.
+                      Loadless block "Receiver/XLXI_18/XLXI_15" (BUF) removed.
+Loadless block "XLXI_976/XLXI_67" (BUF) removed.
+ The signal "XLXI_976/QH<15>" is loadless and has been removed.
+  Loadless block "XLXI_976/XLXI_2/Q_15" (FF) removed.
+   The signal "XLXI_976/DH<15>" is loadless and has been removed.
+    Loadless block "XLXI_976/XLXI_35" (BUF) removed.
+     The signal "XLXN_2204<31>" is loadless and has been removed.
+      Loadless block "XLXI_874/XLXI_67" (BUF) removed.
+       The signal "XLXI_874/QH<15>" is loadless and has been removed.
+        Loadless block "XLXI_874/XLXI_2/Q_15" (FF) removed.
+         The signal "XLXI_874/DH<15>" is loadless and has been removed.
+          Loadless block "XLXI_874/XLXI_35" (BUF) removed.
+           The signal "CRS_DOM<31>" is loadless and has been removed.
+            Loadless block "Receiver/XLXI_47/XLXI_67" (BUF) removed.
+             The signal "Receiver/XLXI_47/QH<15>" is loadless and has been removed.
+              Loadless block "Receiver/XLXI_47/XLXI_2/Q_15" (FF) removed.
+               The signal "Receiver/XLXI_47/DH<15>" is loadless and has been removed.
+                Loadless block "Receiver/XLXI_47/XLXI_35" (BUF) removed.
+                 The signal "Receiver/XLXN_182<31>" is loadless and has been removed.
+                  Loadless block "Receiver/XLXI_46/XLXI_34" (BUF) removed.
+                   The signal "Receiver/XLXN_98<15>" is loadless and has been removed.
+                    Loadless block "Receiver/XLXI_20/Q_15" (FF) removed.
+                     The signal "Receiver/XLXN_42<15>" is loadless and has been removed.
+                      Loadless block "Receiver/XLXI_18/XLXI_16" (BUF) removed.
+The signal "XLXI_659/XLXI_1/N0" is sourceless and has been removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		DISP_X_REG/XST_GND
+VCC 		DISP_X_REG/XST_VCC
+GND 		DISP_Y_REG/XST_GND
+VCC 		DISP_Y_REG/XST_VCC
+VCC 		XLXI_1288
+GND 		XLXI_1289
+VCC 		XLXI_49/XLXI_1/blk00000001/blk00000002
+GND 		XLXI_49/XLXI_1/blk00000001/blk00000003
+VCC 		XLXI_50/XLXI_1/blk00000001/blk00000002
+GND 		XLXI_50/XLXI_1/blk00000001/blk00000003
+GND 		XLXI_659/XLXI_1/XST_GND
+VCC 		XLXI_659/XLXI_1/XST_VCC
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 6 - IOB Properties
+--------------------------
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| BTN1                               | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| BTN2                               | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K1_1                               | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| K1_3                               | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| K1_5                               | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| K1_7                               | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| K1_9                               | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| K1_11                              | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| K1_13                              | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| K1_15                              | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| K5_1                               | IOB              | INPUT     | LVDS_33              | TRUE  |          |      |              |          |          |
+| K5_3                               | IOB              | INPUT     | LVDS_33              | TRUE  |          |      |              |          |          |
+| K5_5                               | IOB              | INPUT     | LVDS_33              | TRUE  |          |      |              |          |          |
+| K5_7                               | IOB              | INPUT     | LVDS_33              | TRUE  |          |      |              |          |          |
+| K5_9                               | IOB              | INPUT     | LVDS_33              | TRUE  |          |      |              |          |          |
+| K5_11                              | IOB              | INPUT     | LVDS_33              | TRUE  |          |      |              |          |          |
+| K5_13                              | IOB              | INPUT     | LVDS_33              | TRUE  |          |      |              |          |          |
+| K5_15                              | IOB              | INPUT     | LVDS_33              | TRUE  |          |      |              |          |          |
+| OSC                                | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+A logic-level (pre-route) timing report can be generated by using Xilinx static
+timing analysis tools, Timing Analyzer (GUI) or TRCE (command line), with the
+mapped NCD and PCF files. Please note that this timing report will be generated
+using estimated delay information. For accurate numbers, please generate a
+timing report with the post Place and Route NCD file.
+
+For more information about the Timing Analyzer, consult the Xilinx Timing
+Analyzer Reference Manual; for more information about TRCE, consult the Xilinx
+Command Line Tools User Guide "TRACE" chapter.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+Use the "-detail" map option to print out Configuration Strings
+
+Section 12 - Control Set Information
+------------------------------------
+Use the "-detail" map option to print out Control Set Information.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
+Use the "-detail" map option to print out the Utilization by Hierarchy section.

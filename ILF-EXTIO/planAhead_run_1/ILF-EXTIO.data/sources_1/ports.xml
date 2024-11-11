@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<Interface Version="1" Minor="1">
+	<Ifc Id="ROOT" Top="1">
+		<Port Id="BTN1" Dir="IN"/>
+		<Port Id="BTN2" Dir="IN"/>
+		<Port Id="BTN3" Dir="IN"/>
+		<Port Id="BTN4" Dir="IN"/>
+		<Port Id="BTN5" Dir="IN"/>
+		<Port Id="BTN6" Dir="IN"/>
+		<Port Id="OSC" Dir="IN"/>
+		<Port Id="K1_1" Dir="OUT"/>
+		<Port Id="K1_3" Dir="OUT"/>
+	</Ifc>
+</Interface>
+

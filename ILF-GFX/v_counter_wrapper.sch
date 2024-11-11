@@ -9,13 +9,11 @@
         <signal name="CLK" />
         <signal name="CE" />
         <signal name="Q(9:0)" />
-        <signal name="XLXN_4" />
-        <signal name="XLXN_5" />
         <port polarity="Input" name="CLK" />
         <port polarity="Input" name="CE" />
         <port polarity="Output" name="Q(9:0)" />
         <blockdef name="v_counter">
-            <timestamp>2024-11-9T14:59:22</timestamp>
+            <timestamp>2024-11-11T9:29:28</timestamp>
             <rect width="512" x="32" y="32" height="384" />
             <line x2="32" y1="208" y2="208" x1="0" />
             <line x2="32" y1="240" y2="240" x1="0" />

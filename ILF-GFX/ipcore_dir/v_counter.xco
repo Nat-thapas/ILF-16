@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version 14.7
-# Date: Sat Nov 09 14:58:55 2024
+# Date: Mon Nov 11 09:28:57 2024
 #
 ##############################################################
 #
@@ -45,7 +45,7 @@ CSET component_name=v_counter
 CSET count_mode=UP
 CSET fb_latency=0
 CSET fb_latency_configuration=Manual
-CSET final_count_value=31E
+CSET final_count_value=31D
 CSET implementation=Fabric
 CSET increment_value=1
 CSET latency=1
@@ -67,4 +67,4 @@ CSET threshold_value=1
 MISC pkg_timestamp=2013-07-22T10:37:35Z
 # END Extra information
 GENERATE
-# CRC: 1daf40c5
+# CRC: c567966f

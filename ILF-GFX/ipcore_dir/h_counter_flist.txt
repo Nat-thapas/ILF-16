@@ -1,4 +1,5 @@
 # Output products list for <h_counter>
+_xmsgs\pn_parser.xmsgs
 core_resources.txt
 gui_latency.txt
 h_counter.asy

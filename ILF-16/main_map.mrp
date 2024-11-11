@@ -1,0 +1,599 @@
+Release 14.7 Map P.20131013 (nt64)
+Xilinx Mapping Report File for Design 'main'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol
+high -xe c -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt 2 -ir
+off -pr off -u -lc off -power off -o main_map.ncd main.ngd main.pcf 
+Target Device  : xc6slx9
+Target Package : tqg144
+Target Speed   : -2
+Mapper Version : spartan6 -- $Revision: 1.55 $
+Mapped Date    : Mon Nov 11 23:15:10 2024
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:   22
+Slice Logic Utilization:
+  Number of Slice Registers:                   609 out of  11,440    5%
+    Number used as Flip Flops:                 609
+    Number used as Latches:                      0
+    Number used as Latch-thrus:                  0
+    Number used as AND/OR logics:                0
+  Number of Slice LUTs:                        887 out of   5,720   15%
+    Number used as logic:                      878 out of   5,720   15%
+      Number using O6 output only:             775
+      Number using O5 output only:              14
+      Number using O5 and O6:                   89
+      Number used as ROM:                        0
+    Number used as Memory:                       0 out of   1,440    0%
+    Number used exclusively as route-thrus:      9
+      Number with same-slice register load:      8
+      Number with same-slice carry load:         1
+      Number with other load:                    0
+
+Slice Logic Distribution:
+  Number of occupied Slices:                   373 out of   1,430   26%
+  Number of MUXCYs used:                       136 out of   2,860    4%
+  Number of LUT Flip Flop pairs used:        1,109
+    Number with an unused Flip Flop:           511 out of   1,109   46%
+    Number with an unused LUT:                 222 out of   1,109   20%
+    Number of fully used LUT-FF pairs:         376 out of   1,109   33%
+    Number of unique control sets:              36
+    Number of slice register sites lost
+      to control set restrictions:              71 out of  11,440    1%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                        82 out of     102   80%
+    Number of LOCed IOBs:                       78 out of      82   95%
+    IOB Master Pads:                             4
+    IOB Slave Pads:                              4
+
+Specific Feature Utilization:
+  Number of RAMB16BWERs:                        27 out of      32   84%
+  Number of RAMB8BWERs:                          9 out of      64   14%
+  Number of BUFIO2/BUFIO2_2CLKs:                 1 out of      32    3%
+    Number used as BUFIO2s:                      1
+    Number used as BUFIO2_2CLKs:                 0
+  Number of BUFIO2FB/BUFIO2FB_2CLKs:             1 out of      32    3%
+    Number used as BUFIO2FBs:                    1
+    Number used as BUFIO2FB_2CLKs:               0
+  Number of BUFG/BUFGMUXs:                       3 out of      16   18%
+    Number used as BUFGs:                        3
+    Number used as BUFGMUX:                      0
+  Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
+  Number of ILOGIC2/ISERDES2s:                   0 out of     200    0%
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     200    0%
+  Number of OLOGIC2/OSERDES2s:                   0 out of     200    0%
+  Number of BSCANs:                              0 out of       4    0%
+  Number of BUFHs:                               0 out of     128    0%
+  Number of BUFPLLs:                             0 out of       8    0%
+  Number of BUFPLL_MCBs:                         0 out of       4    0%
+  Number of DSP48A1s:                            1 out of      16    6%
+  Number of ICAPs:                               0 out of       1    0%
+  Number of MCBs:                                0 out of       2    0%
+  Number of PCILOGICSEs:                         0 out of       2    0%
+  Number of PLL_ADVs:                            1 out of       2   50%
+  Number of PMVs:                                0 out of       1    0%
+  Number of STARTUPs:                            0 out of       1    0%
+  Number of SUSPEND_SYNCs:                       0 out of       1    0%
+
+Average Fanout of Non-Clock Nets:                3.22
+
+Peak Memory Usage:  4546 MB
+Total REAL time to MAP completion:  10 secs 
+Total CPU time to MAP completion (all processors):   7 secs 
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:PhysDesignRules:367 - The signal
+   <XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<17>> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<16>> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<15>> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<14>> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<13>> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<12>> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<11>> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<10>> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<9>> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<8>> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<7>> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<6>> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<5>> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<4>> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<3>> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<2>> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<1>> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<0>> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/P<32>> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/P<33>> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/P<34>> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:2410 - This design is using one or more 9K Block RAMs
+   (RAMB8BWER).  9K Block RAM initialization data, both user defined and
+   default, may be incorrect and should not be used.  For more information,
+   please reference Xilinx Answer Record 39999.
+
+Section 3 - Informational
+-------------------------
+INFO:Map:284 - Map is running with the multi-threading option on. Map currently
+   supports the use of up to 2 processors. Based on the the user options and
+   machine load, Map will use 2 processors during this run.
+INFO:LIT:243 - Logical network
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<17> has no load.
+INFO:LIT:395 - The above info message is repeated 20 more times for the
+   following (max. 5 shown):
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<16>,
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<15>,
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<14>,
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<13>,
+   XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/BCOUT<12>
+   To see the details of these info messages, please use the -detail switch.
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:MapLib:159 - Net Timing constraints on signal K1_1 are pushed forward
+   through input buffer.
+INFO:MapLib:159 - Net Timing constraints on signal K1_3 are pushed forward
+   through input buffer.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
+INFO:Pack:1716 - Initializing temperature to 85.000 Celsius. (default - Range:
+   0.000 to 85.000 Celsius)
+INFO:Pack:1720 - Initializing voltage to 1.140 Volts. (default - Range: 1.140 to
+   1.260 Volts)
+INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
+   (.mrp).
+INFO:Pack:1650 - Map created a placed design.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+  35 block(s) removed
+  93 block(s) optimized away
+  28 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+Loadless block "XLXI_108/Output_Registers/XLXI_194" (AND) removed.
+ The signal "XLXI_108/Output_Registers/XLXN_233" is loadless and has been
+removed.
+  Loadless block "XLXI_108/Output_Registers/XLXI_3/Mmux_d_tmp111" (ROM) removed.
+Loadless block "XLXI_108/Output_Registers/XLXI_195" (AND) removed.
+ The signal "XLXI_108/Output_Registers/XLXN_234" is loadless and has been
+removed.
+  Loadless block "XLXI_108/Output_Registers/XLXI_3/Mmux_d_tmp121" (ROM) removed.
+Loadless block "XLXI_108/Output_Registers/XLXI_196" (AND) removed.
+ The signal "XLXI_108/Output_Registers/XLXN_235" is loadless and has been
+removed.
+  Loadless block "XLXI_108/Output_Registers/XLXI_3/Mmux_d_tmp131" (ROM) removed.
+Loadless block "XLXI_108/Output_Registers/XLXI_197" (AND) removed.
+ The signal "XLXI_108/Output_Registers/XLXN_236" is loadless and has been
+removed.
+  Loadless block "XLXI_108/Output_Registers/XLXI_3/Mmux_d_tmp141" (ROM) removed.
+Loadless block "XLXI_108/Output_Registers/XLXI_198" (AND) removed.
+ The signal "XLXI_108/Output_Registers/XLXN_237" is loadless and has been
+removed.
+  Loadless block "XLXI_108/Output_Registers/XLXI_3/Mmux_d_tmp151" (ROM) removed.
+Loadless block "XLXI_108/Output_Registers/XLXI_199" (AND) removed.
+ The signal "XLXI_108/Output_Registers/XLXN_238" is loadless and has been
+removed.
+  Loadless block "XLXI_108/Output_Registers/XLXI_3/Mmux_d_tmp161" (ROM) removed.
+Loadless block "XLXI_108/Output_Registers/XLXI_200" (AND) removed.
+ The signal "XLXI_108/Output_Registers/XLXN_239" is loadless and has been
+removed.
+  Loadless block "XLXI_108/Output_Registers/XLXI_3/Mmux_d_tmp21" (ROM) removed.
+Loadless block "XLXI_108/Output_Registers/XLXI_201" (AND) removed.
+ The signal "XLXI_108/Output_Registers/XLXN_240" is loadless and has been
+removed.
+  Loadless block "XLXI_108/Output_Registers/XLXI_3/Mmux_d_tmp31" (ROM) removed.
+Loadless block "XLXI_108/Output_Registers/XLXI_202" (AND) removed.
+ The signal "XLXI_108/Output_Registers/XLXN_241" is loadless and has been
+removed.
+  Loadless block "XLXI_108/Output_Registers/XLXI_3/Mmux_d_tmp41" (ROM) removed.
+Loadless block "XLXI_108/Output_Registers/XLXI_203" (AND) removed.
+ The signal "XLXI_108/Output_Registers/XLXN_242" is loadless and has been
+removed.
+  Loadless block "XLXI_108/Output_Registers/XLXI_3/Mmux_d_tmp51" (ROM) removed.
+Loadless block "XLXI_108/Output_Registers/XLXI_204" (AND) removed.
+ The signal "XLXI_108/Output_Registers/XLXN_243" is loadless and has been
+removed.
+  Loadless block "XLXI_108/Output_Registers/XLXI_3/Mmux_d_tmp61" (ROM) removed.
+Loadless block "XLXI_108/Output_Registers/XLXI_205" (AND) removed.
+ The signal "XLXI_108/Output_Registers/XLXN_244" is loadless and has been
+removed.
+  Loadless block "XLXI_108/Output_Registers/XLXI_3/Mmux_d_tmp71" (ROM) removed.
+Loadless block "XLXI_44/XLXI_5" (BUF) removed.
+ The signal "XLXN_86<4>" is loadless and has been removed.
+  Loadless block "XLXI_108/Output_Registers/XLXI_8/Q_4" (FF) removed.
+Loadless block "XLXI_44/XLXI_6" (BUF) removed.
+ The signal "XLXN_86<5>" is loadless and has been removed.
+  Loadless block "XLXI_108/Output_Registers/XLXI_8/Q_5" (FF) removed.
+Loadless block "XLXI_44/XLXI_7" (BUF) removed.
+ The signal "XLXN_86<6>" is loadless and has been removed.
+  Loadless block "XLXI_108/Output_Registers/XLXI_8/Q_6" (FF) removed.
+Loadless block "XLXI_44/XLXI_8" (BUF) removed.
+ The signal "XLXN_86<7>" is loadless and has been removed.
+  Loadless block "XLXI_108/Output_Registers/XLXI_8/Q_7" (FF) removed.
+
+The trimmed logic reported below is either:
+   1. part of a cycle
+   2. part of disabled logic
+   3. a side-effect of other trimmed logic
+
+The signal "XLXI_108/GFX_Instruction_Buffer/DH<11>" is unused and has been
+removed.
+The signal "XLXI_108/GFX_Instruction_Buffer/DH<10>" is unused and has been
+removed.
+The signal "XLXI_108/GFX_Instruction_Buffer/DH<9>" is unused and has been
+removed.
+The signal "XLXI_108/GFX_Instruction_Buffer/DH<8>" is unused and has been
+removed.
+The signal "XLXI_108/GFX_Instruction_Buffer/DH<7>" is unused and has been
+removed.
+The signal "XLXI_108/GFX_Instruction_Buffer/DH<6>" is unused and has been
+removed.
+The signal "XLXI_108/GFX_Instruction_Buffer/DH<5>" is unused and has been
+removed.
+The signal "XLXI_108/GFX_Instruction_Buffer/DH<4>" is unused and has been
+removed.
+The signal "XLXI_108/GFX_Instruction_Transmitter/CLRNTXE" is unused and has been
+removed.
+The signal "XLXI_108/Flag_Checker/XLXN_41" is unused and has been removed.
+ Unused block "XLXI_108/Flag_Checker/XLXI_1/Mmux_d_tmp61" (ROM) removed.
+The signal "XLXI_108/Flag_Checker/XLXN_40" is unused and has been removed.
+ Unused block "XLXI_108/Flag_Checker/XLXI_1/Mmux_d_tmp51" (ROM) removed.
+The signal "XLXI_108/Flag_Checker/XLXN_39" is unused and has been removed.
+ Unused block "XLXI_108/Flag_Checker/XLXI_1/Mmux_d_tmp41" (ROM) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+VCC 		XLXI_108/Arithmetic_Logic_Unit/Signed_Comparator/XST_VCC
+VCC 		XLXI_108/Arithmetic_Logic_Unit/Unsigned_Comparator/XST_VCC
+GND 		XLXI_108/Arithmetic_Logic_Unit/XLXI_67/XST_GND
+VCC 		XLXI_108/Arithmetic_Logic_Unit/XLXI_67/XST_VCC
+AND2 		XLXI_108/Flag_Checker/XLXI_19
+AND2 		XLXI_108/Flag_Checker/XLXI_20
+AND2 		XLXI_108/Flag_Checker/XLXI_21
+GND 		XLXI_108/Flag_Register/XST_GND
+FDCE 		XLXI_108/GFX_Instruction_Buffer/XLXI_2/Q_10
+   optimized to 0
+FDCE 		XLXI_108/GFX_Instruction_Buffer/XLXI_2/Q_11
+   optimized to 0
+FDCE 		XLXI_108/GFX_Instruction_Buffer/XLXI_2/Q_4
+   optimized to 0
+FDCE 		XLXI_108/GFX_Instruction_Buffer/XLXI_2/Q_5
+   optimized to 0
+FDCE 		XLXI_108/GFX_Instruction_Buffer/XLXI_2/Q_6
+   optimized to 0
+FDCE 		XLXI_108/GFX_Instruction_Buffer/XLXI_2/Q_7
+   optimized to 0
+FDCE 		XLXI_108/GFX_Instruction_Buffer/XLXI_2/Q_8
+   optimized to 0
+FDCE 		XLXI_108/GFX_Instruction_Buffer/XLXI_2/Q_9
+   optimized to 0
+BUF 		XLXI_108/GFX_Instruction_Buffer/XLXI_24
+BUF 		XLXI_108/GFX_Instruction_Buffer/XLXI_25
+BUF 		XLXI_108/GFX_Instruction_Buffer/XLXI_26
+BUF 		XLXI_108/GFX_Instruction_Buffer/XLXI_27
+BUF 		XLXI_108/GFX_Instruction_Buffer/XLXI_28
+BUF 		XLXI_108/GFX_Instruction_Buffer/XLXI_29
+BUF 		XLXI_108/GFX_Instruction_Buffer/XLXI_30
+BUF 		XLXI_108/GFX_Instruction_Buffer/XLXI_31
+BUF 		XLXI_108/GFX_Instruction_Buffer/XLXI_56
+BUF 		XLXI_108/GFX_Instruction_Buffer/XLXI_57
+BUF 		XLXI_108/GFX_Instruction_Buffer/XLXI_58
+BUF 		XLXI_108/GFX_Instruction_Buffer/XLXI_59
+BUF 		XLXI_108/GFX_Instruction_Buffer/XLXI_60
+BUF 		XLXI_108/GFX_Instruction_Buffer/XLXI_61
+BUF 		XLXI_108/GFX_Instruction_Buffer/XLXI_62
+BUF 		XLXI_108/GFX_Instruction_Buffer/XLXI_63
+AND2B1 		XLXI_108/GFX_Instruction_Transmitter/XLXI_119
+GND 		XLXI_108/General_Purpose_RAM/XLXI_1/XST_GND
+VCC 		XLXI_108/General_Purpose_RAM/XLXI_1/XST_VCC
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML1/XLXI_40
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML1/XLXI_41
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML1/XLXI_42
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML1/XLXI_43
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML1/XLXI_44
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML1/XLXI_45
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML1/XLXI_46
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML1/XLXI_47
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML2/XLXI_40
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML2/XLXI_41
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML2/XLXI_42
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML2/XLXI_43
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML2/XLXI_44
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML2/XLXI_45
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML2/XLXI_46
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML2/XLXI_47
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML3/XLXI_1
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML3/XLXI_33
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML3/XLXI_34
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML3/XLXI_35
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML3/XLXI_36
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML3/XLXI_37
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML3/XLXI_38
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML3/XLXI_39
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML3/XLXI_40
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML3/XLXI_41
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML3/XLXI_42
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML3/XLXI_43
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML3/XLXI_44
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML3/XLXI_45
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML3/XLXI_46
+   optimized to 0
+LUT6 		XLXI_108/Input_Stablilizer_Selector/XLXI_1/ML3/XLXI_47
+   optimized to 0
+GND 		XLXI_108/Input_Stablilizer_Selector/XLXI_102/XST_GND
+GND 		XLXI_108/Input_Stablilizer_Selector/XLXI_105/XST_GND
+GND 		XLXI_108/Input_Stablilizer_Selector/XLXI_58/XST_GND
+GND 		XLXI_108/Input_Stablilizer_Selector/XLXI_61/XST_GND
+GND 		XLXI_108/Input_Stablilizer_Selector/XLXI_66/XST_GND
+GND 		XLXI_108/Input_Stablilizer_Selector/XLXI_69/XST_GND
+GND 		XLXI_108/Input_Stablilizer_Selector/XLXI_72/XST_GND
+GND 		XLXI_108/Input_Stablilizer_Selector/XLXI_75/XST_GND
+GND 		XLXI_108/Input_Stablilizer_Selector/XLXI_78/XST_GND
+GND 		XLXI_108/Input_Stablilizer_Selector/XLXI_81/XST_GND
+GND 		XLXI_108/Input_Stablilizer_Selector/XLXI_84/XST_GND
+GND 		XLXI_108/Input_Stablilizer_Selector/XLXI_90/XST_GND
+GND 		XLXI_108/Input_Stablilizer_Selector/XLXI_93/XST_GND
+GND 		XLXI_108/Input_Stablilizer_Selector/XLXI_96/XST_GND
+GND 		XLXI_108/Input_Stablilizer_Selector/XLXI_99/XST_GND
+GND 		XLXI_108/Instruction_ROM/XLXI_1/XST_GND
+VCC 		XLXI_108/Instruction_ROM/XLXI_1/XST_VCC
+GND 		XLXI_108/Program_Counter/XST_GND
+GND 		XLXI_108/STL_CNT_ZERO_CMP/XST_GND
+VCC 		XLXI_108/STL_CNT_ZERO_CMP/XST_VCC
+GND 		XLXI_110/XST_GND
+VCC 		XLXI_110/XST_VCC
+GND 		XLXI_112
+VCC 		XLXI_113
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 6 - IOB Properties
+--------------------------
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| BTN1                               | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| BTN2                               | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| BTN3                               | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| DIP<0>                             | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| DIP<1>                             | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| DIP<2>                             | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| DIP<3>                             | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| DIP<4>                             | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| DIP<5>                             | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| DIP<6>                             | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| DIP<7>                             | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K1_1                               | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K1_3                               | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K2<0>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K2<1>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K2<2>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K2<3>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K2<4>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K2<5>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K2<6>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K2<7>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K3<0>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K3<1>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K3<2>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K3<3>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K3<4>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K3<5>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K3<6>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K3<7>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K4<0>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K4<1>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K4<2>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K4<3>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K4<4>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K4<5>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K4<6>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K4<7>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| K5_1                               | IOBM             | OUTPUT    | LVDS_33              |       |          |      |              |          |          |
+| K5_3                               | IOBS             | OUTPUT    | LVDS_33              |       |          |      |              |          |          |
+| K5_5                               | IOBM             | OUTPUT    | LVDS_33              |       |          |      |              |          |          |
+| K5_7                               | IOBS             | OUTPUT    | LVDS_33              |       |          |      |              |          |          |
+| K5_9                               | IOBM             | OUTPUT    | LVDS_33              |       |          |      |              |          |          |
+| K5_11                              | IOBS             | OUTPUT    | LVDS_33              |       |          |      |              |          |          |
+| K5_13                              | IOBM             | OUTPUT    | LVDS_33              |       |          |      |              |          |          |
+| K5_15                              | IOBS             | OUTPUT    | LVDS_33              |       |          |      |              |          |          |
+| LED<0>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| LED<1>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| LED<2>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| LED<3>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| LED<4>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| LED<5>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| LED<6>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| LED<7>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| MN<0>                              | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| MN<1>                              | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| MN<2>                              | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| MN<3>                              | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| MN<4>                              | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| MN<5>                              | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| MN<6>                              | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| MN<7>                              | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| OSC                                | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| SSD_COM<0>                         | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| SSD_COM<1>                         | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| SSD_COM<2>                         | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| SSD_COM<3>                         | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| SSD_Segment<0>                     | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| SSD_Segment<1>                     | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| SSD_Segment<2>                     | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| SSD_Segment<3>                     | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| SSD_Segment<4>                     | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| SSD_Segment<5>                     | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| SSD_Segment<6>                     | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| SSD_Segment<7>                     | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| SW<0>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| SW<1>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| SW<2>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| SW<3>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| SW<4>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| SW<5>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| SW<6>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| SW<7>                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+A logic-level (pre-route) timing report can be generated by using Xilinx static
+timing analysis tools, Timing Analyzer (GUI) or TRCE (command line), with the
+mapped NCD and PCF files. Please note that this timing report will be generated
+using estimated delay information. For accurate numbers, please generate a
+timing report with the post Place and Route NCD file.
+
+For more information about the Timing Analyzer, consult the Xilinx Timing
+Analyzer Reference Manual; for more information about TRCE, consult the Xilinx
+Command Line Tools User Guide "TRACE" chapter.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+Use the "-detail" map option to print out Configuration Strings
+
+Section 12 - Control Set Information
+------------------------------------
+Use the "-detail" map option to print out Control Set Information.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
+Use the "-detail" map option to print out the Utilization by Hierarchy section.

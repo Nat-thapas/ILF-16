@@ -1,0 +1,3 @@
+vhdl work "transmitter.vhf"
+vhdl work "BTN_inputs.vhf"
+vhdl work "main.vhf"

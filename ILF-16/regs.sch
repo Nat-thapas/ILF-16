@@ -6,22 +6,6 @@
         <trait edittrait="all:0" />
     </attr>
     <netlist>
-        <signal name="XLXN_496(15:0)" />
-        <signal name="XLXN_497(15:0)" />
-        <signal name="XLXN_498(15:0)" />
-        <signal name="XLXN_499(15:0)" />
-        <signal name="XLXN_500(15:0)" />
-        <signal name="XLXN_501(15:0)" />
-        <signal name="XLXN_502(15:0)" />
-        <signal name="XLXN_503(15:0)" />
-        <signal name="XLXN_504(15:0)" />
-        <signal name="XLXN_505(15:0)" />
-        <signal name="XLXN_506(15:0)" />
-        <signal name="XLXN_507(15:0)" />
-        <signal name="XLXN_508(15:0)" />
-        <signal name="XLXN_509(15:0)" />
-        <signal name="XLXN_510(15:0)" />
-        <signal name="XLXN_512(15:0)" />
         <signal name="DIN(15:0)" />
         <signal name="WAD(3:0)" />
         <signal name="WAD(0)" />
@@ -76,42 +60,20 @@
         <signal name="XLXN_244" />
         <signal name="WE" />
         <signal name="CLK" />
-        <signal name="XLXN_463(15:0)" />
-        <signal name="XLXN_468(15:0)" />
-        <signal name="XLXN_569(15:0)" />
-        <signal name="XLXN_469(15:0)" />
-        <signal name="XLXN_571(15:0)" />
-        <signal name="XLXN_470(15:0)" />
-        <signal name="XLXN_573(15:0)" />
-        <signal name="XLXN_489(15:0)" />
-        <signal name="XLXN_575(15:0)" />
         <signal name="XLXN_471(15:0)" />
-        <signal name="XLXN_577(15:0)" />
         <signal name="XLXN_472(15:0)" />
-        <signal name="XLXN_579(15:0)" />
         <signal name="XLXN_473(15:0)" />
-        <signal name="XLXN_581(15:0)" />
         <signal name="XLXN_475(15:0)" />
-        <signal name="XLXN_583(15:0)" />
         <signal name="XLXN_476(15:0)" />
-        <signal name="XLXN_585(15:0)" />
         <signal name="XLXN_494(15:0)" />
-        <signal name="XLXN_587(15:0)" />
         <signal name="XLXN_478(15:0)" />
-        <signal name="XLXN_589(15:0)" />
         <signal name="XLXN_479(15:0)" />
-        <signal name="XLXN_591(15:0)" />
         <signal name="RAD2(3:0)" />
         <signal name="RAD1(3:0)" />
         <signal name="DO1(15:0)" />
         <signal name="DO2(15:0)" />
-        <signal name="XLXN_597(15:0)" />
-        <signal name="XLXN_599(15:0)" />
-        <signal name="XLXN_601(15:0)" />
         <signal name="DO3(15:0)" />
-        <signal name="XLXN_603" />
         <signal name="RAD3(3:0)" />
-        <signal name="XLXN_605(3:0)" />
         <signal name="XLXN_606(15:0)" />
         <signal name="XLXN_607(15:0)" />
         <signal name="XLXN_608(15:0)" />
@@ -196,7 +158,7 @@
             <line x2="32" y1="-64" y2="-64" x1="96" />
         </blockdef>
         <blockdef name="gnd16">
-            <timestamp>2024-9-23T14:4:40</timestamp>
+            <timestamp>2024-11-10T17:10:53</timestamp>
             <rect width="256" x="0" y="-64" height="64" />
             <line x2="320" y1="-32" y2="-32" x1="256" />
             <rect width="64" x="256" y="-44" height="24" />
@@ -493,7 +455,7 @@
             <blockpin signalname="XLXN_213" name="P" />
         </block>
         <block symbolname="gnd16" name="R0_Data">
-            <blockpin signalname="XLXN_606(15:0)" name="GND(15:0)" />
+            <blockpin signalname="XLXN_606(15:0)" name="GNDO(15:0)" />
         </block>
         <block symbolname="mux16x1x16tb" name="Output_1_Data_Selector">
             <blockpin signalname="XLXN_606(15:0)" name="D0(15:0)" />
@@ -599,35 +561,30 @@
         </branch>
         <bustap x2="528" y1="864" y2="864" x1="432" />
         <branch name="WAD(0)">
-            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name"
-                x="544" y="864" type="branch" />
+            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="544" y="864" type="branch" />
             <wire x2="544" y1="864" y2="864" x1="528" />
             <wire x2="576" y1="864" y2="864" x1="544" />
         </branch>
         <bustap x2="528" y1="928" y2="928" x1="432" />
         <branch name="WAD(1)">
-            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name"
-                x="544" y="928" type="branch" />
+            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="544" y="928" type="branch" />
             <wire x2="544" y1="928" y2="928" x1="528" />
             <wire x2="576" y1="928" y2="928" x1="544" />
         </branch>
         <bustap x2="528" y1="992" y2="992" x1="432" />
         <branch name="WAD(2)">
-            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name"
-                x="544" y="992" type="branch" />
+            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="544" y="992" type="branch" />
             <wire x2="544" y1="992" y2="992" x1="528" />
             <wire x2="576" y1="992" y2="992" x1="544" />
         </branch>
         <bustap x2="528" y1="1056" y2="1056" x1="432" />
         <branch name="WAD(3)">
-            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name"
-                x="544" y="1056" type="branch" />
+            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="544" y="1056" type="branch" />
             <wire x2="544" y1="1056" y2="1056" x1="528" />
             <wire x2="576" y1="1056" y2="1056" x1="544" />
         </branch>
         <instance x="576" y="1952" name="Write_Address_Decoder" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="48" y="-1248"
-                type="instance" />
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="48" y="-1248" type="instance" />
         </instance>
         <branch name="XLXN_3">
             <wire x2="1776" y1="1168" y2="1168" x1="1744" />
@@ -843,12 +800,8 @@
             <wire x2="1136" y1="1824" y2="6576" x1="1136" />
             <wire x2="1488" y1="6576" y2="6576" x1="1136" />
         </branch>
-        <text style="fontsize:24;fontname:Arial" x="984" y="864">R0 is a zero register, it is not
+        <text style="fontsize:24;fontname:Arial" x="984" y="864">R0 is a zero register, it is not  
             writable</text>
-        <instance x="1840" y="704" name="R0_Data" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="80" y="-160"
-                type="instance" />
-        </instance>
         <branch name="WE">
             <wire x2="1424" y1="560" y2="560" x1="240" />
             <wire x2="1424" y1="560" y2="1040" x1="1424" />
@@ -999,15 +952,13 @@
         </branch>
         <text style="fontsize:24;fontname:Arial" x="2048" y="544">(All Zeros)</text>
         <instance x="2976" y="1728" name="Output_1_Data_Selector" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="48" y="-1184"
-                type="instance" />
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="48" y="-1184" type="instance" />
         </instance>
         <branch name="DO1(15:0)">
             <wire x2="3440" y1="672" y2="672" x1="3360" />
         </branch>
         <instance x="2976" y="2944" name="Output_2_Data_Selector" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="32" y="-1184"
-                type="instance" />
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="32" y="-1184" type="instance" />
         </instance>
         <branch name="DO2(15:0)">
             <wire x2="3440" y1="1888" y2="1888" x1="3360" />
@@ -1030,8 +981,7 @@
         </branch>
         <iomarker fontsize="28" x="336" y="320" name="RAD3(3:0)" orien="R180" />
         <instance x="2976" y="4176" name="Output_3_Data_Selector" orien="R0">
-            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="32" y="-1184"
-                type="instance" />
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="32" y="-1184" type="instance" />
         </instance>
         <branch name="XLXN_606(15:0)">
             <wire x2="2192" y1="672" y2="672" x1="2160" />
@@ -1104,5 +1054,8 @@
             <wire x2="2416" y1="2336" y2="3344" x1="2416" />
             <wire x2="2976" y1="2336" y2="2336" x1="2416" />
         </branch>
+        <instance x="1840" y="704" name="R0_Data" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="80" y="-160" type="instance" />
+        </instance>
     </sheet>
 </drawing>

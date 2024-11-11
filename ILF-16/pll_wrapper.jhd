@@ -1,0 +1,3 @@
+MODULE pll_wrapper
+	SUBMODULE sys_tx_clk_pll
+		INSTANCE XLXI_1

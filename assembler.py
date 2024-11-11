@@ -89,7 +89,7 @@ def iasm_to_asm(iasm: str) -> str:
 def parse_assembly(
     raw_assembly: str,
 ) -> tuple[list[tuple[list[str], list[str]]], dict[str, str]]:
-    assembly: list[tuple[list[str], list[str]]] = []
+    assembly: list[tuple[list[str], list[str]]] = [(["ldi", "$15", "8192"], [])]
     defines: dict[str, str] = {}
     unapplied_labels: list[str] = []
     for raw_assembly_line in raw_assembly.split("\n"):
@@ -140,7 +140,10 @@ def argument_to_int(argument: str, label_locations: dict[str, int]) -> int:
 
 
 def int_to_bin(value: int, length: int) -> str:
-    return bin(value)[2:].zfill(length)
+    binary: str = bin(value)[2:]
+    if len(binary) > length:
+        raise ValueError(f"Value {value} is too large for {length}-bit binary")
+    return binary.zfill(length)
 
 
 def operation_to_bin(
@@ -188,22 +191,40 @@ def operation_to_bin(
     elif argument_count == 1:
         arguments = argument_to_int(raw_arguments[0], label_locations)
     elif argument_count == 2:
+        first_argument_int = argument_to_int(raw_arguments[0], label_locations)
+        second_argument_int = argument_to_int(raw_arguments[1], label_locations)
         if first_argument_reg and second_argument_reg:
+            if first_argument_int > 0xFF or second_argument_int > 0xFF:
+                raise ValueError(
+                    f"Argument values {first_argument_int} and {second_argument_int} are too large for 8-bit binary"
+                )
             arguments = (
-                (argument_to_int(raw_arguments[0], label_locations) & 0xFF) << 8
-            ) | (argument_to_int(raw_arguments[1], label_locations) & 0xFF)
+                (first_argument_int & 0xFF) << 8
+            ) | (second_argument_int & 0xFF)
         elif first_argument_reg:
+            if first_argument_int > 0xF or second_argument_int > 0xFFF:
+                raise ValueError(
+                    f"Argument values {first_argument_int} and {second_argument_int} are too large for 4-bit and 12-bit binary"
+                )
             arguments = (
-                (argument_to_int(raw_arguments[0], label_locations) & 0xF) << 12
-            ) | (argument_to_int(raw_arguments[1], label_locations) & 0xFFF)
+                (first_argument_int & 0xF) << 12
+            ) | (second_argument_int & 0xFFF)
         elif second_argument_reg:
+            if first_argument_int > 0xFFF or second_argument_int > 0xF:
+                raise ValueError(
+                    f"Argument values {first_argument_int} and {second_argument_int} are too large for 12-bit and 4-bit binary"
+                )
             arguments = (
-                (argument_to_int(raw_arguments[0], label_locations) & 0xFFF) << 8
-            ) | (argument_to_int(raw_arguments[1], label_locations) & 0xF)
+                (first_argument_int & 0xFFF) << 8
+            ) | (second_argument_int & 0xF)
         else:
+            if first_argument_int > 0xFF or second_argument_int > 0xFF:
+                raise ValueError(
+                    f"Argument values {first_argument_int} and {second_argument_int} are too large for 8-bit binary"
+                )
             arguments = (
-                (argument_to_int(raw_arguments[0], label_locations) & 0xFF) << 8
-            ) | (argument_to_int(raw_arguments[1], label_locations) & 0xFF)
+                (first_argument_int & 0xFF) << 8
+            ) | (second_argument_int & 0xFF)
     else:
         raise ValueError(f"Invalid number of arguments: {argument_count}")
     return (
@@ -244,6 +265,35 @@ def relative_to_absolute(assembly: list[tuple[list[str], list[str]]]) -> None:
             genrated_label_name = f".__generated_label_{labels_generated}_N4T7hAP4$"
             assembly[inst_index][0][arg_index] = genrated_label_name
             assembly[target][1].append(genrated_label_name)
+
+
+def expand_cal_ret(assembly: list[tuple[list[str], list[str]]]) -> None:
+    for inst_index, (operation, labels) in enumerate(assembly):
+        if operation[0] == "cal":
+            if len(operation) != 2:
+                raise ValueError("cal instruction expects one argument")
+            assembly[inst_index] = (["psh", "~+2"], labels)
+            assembly.insert(inst_index + 1, (["brn", operation[1]], []))
+        elif operation[0] == "ret":
+            if len(operation) != 1:
+                raise ValueError("ret instruction expects no arguments")
+            assembly[inst_index] = (["pop", "$14"], labels)
+            assembly.insert(inst_index + 1, (["brn", "$14"], []))
+
+
+def expand_push_pop(assembly: list[tuple[list[str], list[str]]]) -> None:
+    for inst_index, (operation, labels) in enumerate(assembly):
+        if operation[0] == "psh":
+            if len(operation) != 2:
+                raise ValueError("psh instruction expects one argument")
+            assembly[inst_index] = (["sub", "$15", "$15", "1"], labels)
+            assembly.insert(inst_index + 1, (["ldi", "$14", operation[1]], []))
+            assembly.insert(inst_index + 2, (["str", "$14", "$15"], []))
+        elif operation[0] == "pop":
+            if len(operation) != 2:
+                raise ValueError("pop instruction expects one argument")
+            assembly[inst_index] = (["lod", operation[1], "$15"], labels)
+            assembly.insert(inst_index + 1, (["add", "$15", "$15", "1"], []))
 
 
 def parse_define_words(
@@ -297,8 +347,15 @@ def main() -> None:
         print(raw_assembly)
         print("-" * 80)
     assembly, defines = parse_assembly(raw_assembly)
+    defines['sp'] = '$15'
     define_word_instructions = extract_define_word_instructions(assembly)
     relative_to_absolute(assembly)
+    expand_cal_ret(assembly)
+    relative_to_absolute(assembly)
+    expand_push_pop(assembly)
+    relative_to_absolute(assembly)
+    for index, (operation, labels) in enumerate(assembly):
+        print(f"{index}: {operation} {labels}")
     label_locations = get_label_locations(assembly)
     ram_data = parse_define_words(define_word_instructions, label_locations, defines)
     machine_code_bin: list[str] = []

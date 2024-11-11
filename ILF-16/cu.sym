@@ -1,70 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="cu">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2024-11-5T13:27:12</timestamp>
-    <pin polarity="Output" x="384" y="-224" name="ALU_OP(3:0)" />
-    <pin polarity="Output" x="384" y="-672" name="CFIMM" />
-    <pin polarity="Input" x="0" y="-736" name="FLG" />
-    <pin polarity="Output" x="384" y="-160" name="FLG_IDX(3:0)" />
-    <pin polarity="Output" x="384" y="-800" name="FLG_INV" />
-    <pin polarity="Output" x="384" y="-608" name="FLG_REG_CE" />
-    <pin polarity="Output" x="384" y="-32" name="HLT" />
-    <pin polarity="Input" x="0" y="-928" name="ID(7:0)" />
-    <pin polarity="Output" x="384" y="-96" name="OUT_REG_WE" />
-    <pin polarity="Output" x="384" y="-928" name="PC_CE" />
-    <pin polarity="Output" x="384" y="-864" name="PC_L" />
-    <pin polarity="Output" x="384" y="-352" name="RAM_WE" />
-    <pin polarity="Output" x="384" y="-480" name="REG_DATA_SEL_0" />
-    <pin polarity="Output" x="384" y="-416" name="REG_DATA_SEL_1" />
-    <pin polarity="Output" x="384" y="-736" name="REG_WE" />
-    <pin polarity="Input" x="0" y="-800" name="RUN" />
-    <pin polarity="Output" x="384" y="-544" name="SET_MOV_SEL" />
-    <pin polarity="Input" x="0" y="-864" name="STG(1:0)" />
-    <pin polarity="Output" x="384" y="-288" name="STL_CNT_L" />
+    <timestamp>2024-11-10T17:54:45</timestamp>
+    <pin polarity="Output" x="384" y="-352" name="ALU_OP(3:0)" />
+    <pin polarity="Output" x="384" y="-32" name="ARG_BUF_CE" />
+    <pin polarity="Output" x="384" y="-800" name="CFIMM" />
+    <pin polarity="Input" x="0" y="-864" name="FLG" />
+    <pin polarity="Output" x="384" y="-288" name="FLG_IDX(3:0)" />
+    <pin polarity="Output" x="384" y="-928" name="FLG_INV" />
+    <pin polarity="Output" x="384" y="-736" name="FLG_REG_CE" />
+    <pin polarity="Output" x="384" y="-96" name="GFX_TX_E" />
+    <pin polarity="Output" x="384" y="-160" name="HLT" />
+    <pin polarity="Input" x="0" y="-1056" name="ID(7:0)" />
+    <pin polarity="Output" x="384" y="-224" name="OUT_REG_WE" />
+    <pin polarity="Output" x="384" y="-1056" name="PC_CE" />
+    <pin polarity="Output" x="384" y="-992" name="PC_L" />
+    <pin polarity="Output" x="384" y="-480" name="RAM_WE" />
+    <pin polarity="Output" x="384" y="-608" name="REG_DATA_SEL_0" />
+    <pin polarity="Output" x="384" y="-544" name="REG_DATA_SEL_1" />
+    <pin polarity="Output" x="384" y="-864" name="REG_WE" />
+    <pin polarity="Input" x="0" y="-928" name="RUN" />
+    <pin polarity="Output" x="384" y="-672" name="SET_MOV_SEL" />
+    <pin polarity="Input" x="0" y="-992" name="STG(1:0)" />
+    <pin polarity="Output" x="384" y="-416" name="STL_CNT_L" />
     <graph>
-        <rect width="256" x="64" y="-960" height="960" />
-        <attrtext style="alignment:BCENTER;fontsize:56;fontname:Arial" attrname="SymbolName" x="192" y="-968" type="symbol" />
-        <line x2="384" y1="-224" y2="-224" x1="320" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-224" type="pin ALU_OP(3:0)" />
-        <rect width="64" x="320" y="-236" height="24" />
-        <line x2="384" y1="-672" y2="-672" x1="320" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-672" type="pin CFIMM" />
-        <line x2="0" y1="-736" y2="-736" x1="64" />
-        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-736" type="pin FLG" />
-        <line x2="384" y1="-160" y2="-160" x1="320" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-160" type="pin FLG_IDX(3:0)" />
-        <rect width="64" x="320" y="-172" height="24" />
-        <line x2="384" y1="-800" y2="-800" x1="320" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-800" type="pin FLG_INV" />
-        <line x2="384" y1="-608" y2="-608" x1="320" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-608" type="pin FLG_REG_CE" />
-        <line x2="384" y1="-32" y2="-32" x1="320" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-32" type="pin HLT" />
-        <line x2="0" y1="-928" y2="-928" x1="64" />
-        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-928" type="pin ID(7:0)" />
-        <rect width="64" x="0" y="-940" height="24" />
-        <line x2="384" y1="-96" y2="-96" x1="320" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-96" type="pin OUT_REG_WE" />
-        <line x2="384" y1="-928" y2="-928" x1="320" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-928" type="pin PC_CE" />
-        <line x2="384" y1="-864" y2="-864" x1="320" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-864" type="pin PC_L" />
+        <rect width="256" x="64" y="-1088" height="1088" />
+        <attrtext style="alignment:BCENTER;fontsize:56;fontname:Arial" attrname="SymbolName" x="192" y="-1096" type="symbol" />
         <line x2="384" y1="-352" y2="-352" x1="320" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-352" type="pin RAM_WE" />
-        <line x2="384" y1="-480" y2="-480" x1="320" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-480" type="pin REG_DATA_SEL_0" />
-        <line x2="384" y1="-416" y2="-416" x1="320" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-416" type="pin REG_DATA_SEL_1" />
-        <line x2="384" y1="-736" y2="-736" x1="320" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-736" type="pin REG_WE" />
-        <line x2="0" y1="-800" y2="-800" x1="64" />
-        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-800" type="pin RUN" />
-        <line x2="384" y1="-544" y2="-544" x1="320" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-544" type="pin SET_MOV_SEL" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-352" type="pin ALU_OP(3:0)" />
+        <rect width="64" x="320" y="-364" height="24" />
+        <line x2="384" y1="-32" y2="-32" x1="320" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-32" type="pin ARG_BUF_CE" />
+        <line x2="384" y1="-800" y2="-800" x1="320" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-800" type="pin CFIMM" />
         <line x2="0" y1="-864" y2="-864" x1="64" />
-        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-864" type="pin STG(1:0)" />
-        <rect width="64" x="0" y="-876" height="24" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-864" type="pin FLG" />
         <line x2="384" y1="-288" y2="-288" x1="320" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-288" type="pin STL_CNT_L" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-288" type="pin FLG_IDX(3:0)" />
+        <rect width="64" x="320" y="-300" height="24" />
+        <line x2="384" y1="-928" y2="-928" x1="320" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-928" type="pin FLG_INV" />
+        <line x2="384" y1="-736" y2="-736" x1="320" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-736" type="pin FLG_REG_CE" />
+        <line x2="384" y1="-96" y2="-96" x1="320" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-96" type="pin GFX_TX_E" />
+        <line x2="384" y1="-160" y2="-160" x1="320" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-160" type="pin HLT" />
+        <line x2="0" y1="-1056" y2="-1056" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-1056" type="pin ID(7:0)" />
+        <rect width="64" x="0" y="-1068" height="24" />
+        <line x2="384" y1="-224" y2="-224" x1="320" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-224" type="pin OUT_REG_WE" />
+        <line x2="384" y1="-1056" y2="-1056" x1="320" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-1056" type="pin PC_CE" />
+        <line x2="384" y1="-992" y2="-992" x1="320" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-992" type="pin PC_L" />
+        <line x2="384" y1="-480" y2="-480" x1="320" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-480" type="pin RAM_WE" />
+        <line x2="384" y1="-608" y2="-608" x1="320" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-608" type="pin REG_DATA_SEL_0" />
+        <line x2="384" y1="-544" y2="-544" x1="320" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-544" type="pin REG_DATA_SEL_1" />
+        <line x2="384" y1="-864" y2="-864" x1="320" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-864" type="pin REG_WE" />
+        <line x2="0" y1="-928" y2="-928" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-928" type="pin RUN" />
+        <line x2="384" y1="-672" y2="-672" x1="320" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-672" type="pin SET_MOV_SEL" />
+        <line x2="0" y1="-992" y2="-992" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-992" type="pin STG(1:0)" />
+        <rect width="64" x="0" y="-1004" height="24" />
+        <line x2="384" y1="-416" y2="-416" x1="320" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-416" type="pin STL_CNT_L" />
     </graph>
 </symbol>

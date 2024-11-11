@@ -6,24 +6,24 @@
         <trait edittrait="all:0" />
     </attr>
     <netlist>
-        <signal name="GND(15:0)" />
-        <signal name="GND(0)" />
-        <signal name="GND(1)" />
-        <signal name="GND(2)" />
-        <signal name="GND(3)" />
-        <signal name="GND(4)" />
-        <signal name="GND(5)" />
-        <signal name="GND(6)" />
-        <signal name="GND(7)" />
-        <signal name="GND(8)" />
-        <signal name="GND(9)" />
-        <signal name="GND(10)" />
-        <signal name="GND(11)" />
-        <signal name="GND(12)" />
-        <signal name="GND(13)" />
-        <signal name="GND(14)" />
-        <signal name="GND(15)" />
-        <port polarity="Output" name="GND(15:0)" />
+        <signal name="GNDO(15:0)" />
+        <signal name="GNDO(0)" />
+        <signal name="GNDO(1)" />
+        <signal name="GNDO(2)" />
+        <signal name="GNDO(3)" />
+        <signal name="GNDO(4)" />
+        <signal name="GNDO(5)" />
+        <signal name="GNDO(6)" />
+        <signal name="GNDO(7)" />
+        <signal name="GNDO(8)" />
+        <signal name="GNDO(9)" />
+        <signal name="GNDO(10)" />
+        <signal name="GNDO(11)" />
+        <signal name="GNDO(12)" />
+        <signal name="GNDO(13)" />
+        <signal name="GNDO(14)" />
+        <signal name="GNDO(15)" />
+        <port polarity="Output" name="GNDO(15:0)" />
         <blockdef name="gnd">
             <timestamp>2000-1-1T10:10:10</timestamp>
             <line x2="64" y1="-64" y2="-96" x1="64" />
@@ -34,56 +34,56 @@
             <line x2="64" y1="-128" y2="-96" x1="64" />
         </blockdef>
         <block symbolname="gnd" name="XLXI_1">
-            <blockpin signalname="GND(0)" name="G" />
+            <blockpin signalname="GNDO(0)" name="G" />
         </block>
         <block symbolname="gnd" name="XLXI_2">
-            <blockpin signalname="GND(1)" name="G" />
+            <blockpin signalname="GNDO(1)" name="G" />
         </block>
         <block symbolname="gnd" name="XLXI_3">
-            <blockpin signalname="GND(2)" name="G" />
+            <blockpin signalname="GNDO(2)" name="G" />
         </block>
         <block symbolname="gnd" name="XLXI_4">
-            <blockpin signalname="GND(3)" name="G" />
+            <blockpin signalname="GNDO(3)" name="G" />
         </block>
         <block symbolname="gnd" name="XLXI_5">
-            <blockpin signalname="GND(4)" name="G" />
+            <blockpin signalname="GNDO(4)" name="G" />
         </block>
         <block symbolname="gnd" name="XLXI_6">
-            <blockpin signalname="GND(5)" name="G" />
+            <blockpin signalname="GNDO(5)" name="G" />
         </block>
         <block symbolname="gnd" name="XLXI_7">
-            <blockpin signalname="GND(6)" name="G" />
+            <blockpin signalname="GNDO(6)" name="G" />
         </block>
         <block symbolname="gnd" name="XLXI_8">
-            <blockpin signalname="GND(7)" name="G" />
+            <blockpin signalname="GNDO(7)" name="G" />
         </block>
         <block symbolname="gnd" name="XLXI_9">
-            <blockpin signalname="GND(8)" name="G" />
+            <blockpin signalname="GNDO(8)" name="G" />
         </block>
         <block symbolname="gnd" name="XLXI_10">
-            <blockpin signalname="GND(9)" name="G" />
+            <blockpin signalname="GNDO(9)" name="G" />
         </block>
         <block symbolname="gnd" name="XLXI_11">
-            <blockpin signalname="GND(10)" name="G" />
+            <blockpin signalname="GNDO(10)" name="G" />
         </block>
         <block symbolname="gnd" name="XLXI_12">
-            <blockpin signalname="GND(11)" name="G" />
+            <blockpin signalname="GNDO(11)" name="G" />
         </block>
         <block symbolname="gnd" name="XLXI_13">
-            <blockpin signalname="GND(12)" name="G" />
+            <blockpin signalname="GNDO(12)" name="G" />
         </block>
         <block symbolname="gnd" name="XLXI_14">
-            <blockpin signalname="GND(13)" name="G" />
+            <blockpin signalname="GNDO(13)" name="G" />
         </block>
         <block symbolname="gnd" name="XLXI_15">
-            <blockpin signalname="GND(14)" name="G" />
+            <blockpin signalname="GNDO(14)" name="G" />
         </block>
         <block symbolname="gnd" name="XLXI_16">
-            <blockpin signalname="GND(15)" name="G" />
+            <blockpin signalname="GNDO(15)" name="G" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="3520" height="2720">
-        <branch name="GND(15:0)">
+        <branch name="GNDO(15:0)">
             <wire x2="720" y1="160" y2="160" x1="560" />
             <wire x2="560" y1="160" y2="240" x1="560" />
             <wire x2="560" y1="240" y2="320" x1="560" />
@@ -102,85 +102,85 @@
             <wire x2="560" y1="1200" y2="1280" x1="560" />
             <wire x2="560" y1="1280" y2="1360" x1="560" />
         </branch>
-        <branch name="GND(0)">
+        <branch name="GNDO(0)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="400" y="160" type="branch" />
             <wire x2="400" y1="160" y2="160" x1="336" />
             <wire x2="464" y1="160" y2="160" x1="400" />
         </branch>
-        <branch name="GND(1)">
+        <branch name="GNDO(1)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="400" y="240" type="branch" />
             <wire x2="384" y1="240" y2="240" x1="336" />
             <wire x2="400" y1="240" y2="240" x1="384" />
             <wire x2="464" y1="240" y2="240" x1="400" />
         </branch>
-        <branch name="GND(2)">
+        <branch name="GNDO(2)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="400" y="320" type="branch" />
             <wire x2="400" y1="320" y2="320" x1="336" />
             <wire x2="464" y1="320" y2="320" x1="400" />
         </branch>
-        <branch name="GND(3)">
+        <branch name="GNDO(3)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="400" y="400" type="branch" />
             <wire x2="400" y1="400" y2="400" x1="336" />
             <wire x2="464" y1="400" y2="400" x1="400" />
         </branch>
-        <branch name="GND(4)">
+        <branch name="GNDO(4)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="400" y="480" type="branch" />
             <wire x2="384" y1="480" y2="480" x1="336" />
             <wire x2="400" y1="480" y2="480" x1="384" />
             <wire x2="464" y1="480" y2="480" x1="400" />
         </branch>
-        <branch name="GND(5)">
+        <branch name="GNDO(5)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="400" y="560" type="branch" />
             <wire x2="400" y1="560" y2="560" x1="336" />
             <wire x2="464" y1="560" y2="560" x1="400" />
         </branch>
-        <branch name="GND(6)">
+        <branch name="GNDO(6)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="400" y="640" type="branch" />
             <wire x2="400" y1="640" y2="640" x1="336" />
             <wire x2="464" y1="640" y2="640" x1="400" />
         </branch>
-        <branch name="GND(7)">
+        <branch name="GNDO(7)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="400" y="720" type="branch" />
             <wire x2="400" y1="720" y2="720" x1="336" />
             <wire x2="464" y1="720" y2="720" x1="400" />
         </branch>
-        <branch name="GND(8)">
+        <branch name="GNDO(8)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="400" y="800" type="branch" />
             <wire x2="400" y1="800" y2="800" x1="336" />
             <wire x2="464" y1="800" y2="800" x1="400" />
         </branch>
-        <branch name="GND(9)">
+        <branch name="GNDO(9)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="400" y="880" type="branch" />
             <wire x2="400" y1="880" y2="880" x1="336" />
             <wire x2="464" y1="880" y2="880" x1="400" />
         </branch>
-        <branch name="GND(10)">
+        <branch name="GNDO(10)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="400" y="960" type="branch" />
             <wire x2="400" y1="960" y2="960" x1="336" />
             <wire x2="464" y1="960" y2="960" x1="400" />
         </branch>
-        <branch name="GND(11)">
+        <branch name="GNDO(11)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="400" y="1040" type="branch" />
             <wire x2="400" y1="1040" y2="1040" x1="336" />
             <wire x2="464" y1="1040" y2="1040" x1="400" />
         </branch>
-        <branch name="GND(12)">
+        <branch name="GNDO(12)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="400" y="1120" type="branch" />
             <wire x2="400" y1="1120" y2="1120" x1="336" />
             <wire x2="464" y1="1120" y2="1120" x1="400" />
         </branch>
-        <branch name="GND(13)">
+        <branch name="GNDO(13)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="400" y="1200" type="branch" />
             <wire x2="400" y1="1200" y2="1200" x1="336" />
             <wire x2="464" y1="1200" y2="1200" x1="400" />
         </branch>
-        <branch name="GND(14)">
+        <branch name="GNDO(14)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="400" y="1280" type="branch" />
             <wire x2="400" y1="1280" y2="1280" x1="336" />
             <wire x2="416" y1="1280" y2="1280" x1="400" />
             <wire x2="464" y1="1280" y2="1280" x1="416" />
         </branch>
-        <branch name="GND(15)">
+        <branch name="GNDO(15)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="400" y="1360" type="branch" />
             <wire x2="400" y1="1360" y2="1360" x1="336" />
             <wire x2="464" y1="1360" y2="1360" x1="400" />
@@ -201,7 +201,7 @@
         <instance x="208" y="1136" name="XLXI_14" orien="R90" />
         <instance x="208" y="1216" name="XLXI_15" orien="R90" />
         <instance x="208" y="1296" name="XLXI_16" orien="R90" />
-        <iomarker fontsize="28" x="720" y="160" name="GND(15:0)" orien="R0" />
+        <iomarker fontsize="28" x="720" y="160" name="GNDO(15:0)" orien="R0" />
         <bustap x2="464" y1="160" y2="160" x1="560" />
         <bustap x2="464" y1="240" y2="240" x1="560" />
         <bustap x2="464" y1="320" y2="320" x1="560" />

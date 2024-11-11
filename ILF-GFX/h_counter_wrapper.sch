@@ -6,8 +6,6 @@
         <trait edittrait="all:0" />
     </attr>
     <netlist>
-        <signal name="XLXN_5" />
-        <signal name="XLXN_6" />
         <signal name="CE" />
         <signal name="TC" />
         <signal name="Q(10:0)" />
@@ -17,7 +15,7 @@
         <port polarity="Output" name="Q(10:0)" />
         <port polarity="Input" name="CLK" />
         <blockdef name="h_counter">
-            <timestamp>2024-11-9T14:57:1</timestamp>
+            <timestamp>2024-11-11T9:28:3</timestamp>
             <rect width="512" x="32" y="32" height="384" />
             <line x2="32" y1="208" y2="208" x1="0" />
             <line x2="32" y1="240" y2="240" x1="0" />

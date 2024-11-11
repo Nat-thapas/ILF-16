@@ -1,0 +1,2309 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> Reading design: main.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "main.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "main"
+Output Format                      : NGC
+Target Device                      : xc6slx9-2-tqg144
+
+---- Source Options
+Top Module Name                    : main
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 2
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\ipcore_dir\sys_tx_clk_pll.vhd" into library work
+Parsing entity <sys_tx_clk_pll>.
+Parsing architecture <xilinx> of entity <sys_tx_clk_pll>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\ipcore_dir\ram.vhd" into library work
+Parsing entity <ram>.
+Parsing architecture <ram_a> of entity <ram>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\ipcore_dir\rom.vhd" into library work
+Parsing entity <rom>.
+Parsing architecture <rom_a> of entity <rom>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\mux4x1x16t.vhf" into library work
+Parsing entity <mux4x1x16t>.
+Parsing architecture <BEHAVIORAL> of entity <mux4x1x16t>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\rshift.vhf" into library work
+Parsing entity <NOR12_HXILINX_rshift>.
+Parsing architecture <NOR12_HXILINX_rshift_V> of entity <nor12_hxilinx_rshift>.
+Parsing entity <M2_1E_HXILINX_rshift>.
+Parsing architecture <M2_1E_HXILINX_rshift_V> of entity <m2_1e_hxilinx_rshift>.
+Parsing entity <M2_1_HXILINX_rshift>.
+Parsing architecture <M2_1_HXILINX_rshift_V> of entity <m2_1_hxilinx_rshift>.
+Parsing entity <rshift>.
+Parsing architecture <BEHAVIORAL> of entity <rshift>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\mux4x1x16e.vhf" into library work
+Parsing entity <M4_1E_HXILINX_mux4x1x16e>.
+Parsing architecture <M4_1E_HXILINX_mux4x1x16e_V> of entity <m4_1e_hxilinx_mux4x1x16e>.
+Parsing entity <mux4x1x16e>.
+Parsing architecture <BEHAVIORAL> of entity <mux4x1x16e>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\mux2x1x16e.vhf" into library work
+Parsing entity <M2_1E_HXILINX_mux2x1x16e>.
+Parsing architecture <M2_1E_HXILINX_mux2x1x16e_V> of entity <m2_1e_hxilinx_mux2x1x16e>.
+Parsing entity <mux2x1x16e>.
+Parsing architecture <BEHAVIORAL> of entity <mux2x1x16e>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\mux16x1x16tb.vhf" into library work
+Parsing entity <mux4x1x16t_MUSER_mux16x1x16tb>.
+Parsing architecture <BEHAVIORAL> of entity <mux4x1x16t_muser_mux16x1x16tb>.
+Parsing entity <mux16x1x16tb>.
+Parsing architecture <BEHAVIORAL> of entity <mux16x1x16tb>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\mult.vhf" into library work
+Parsing entity <M2_1_HXILINX_mult>.
+Parsing architecture <M2_1_HXILINX_mult_V> of entity <m2_1_hxilinx_mult>.
+Parsing entity <mult>.
+Parsing architecture <BEHAVIORAL> of entity <mult>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\lshift.vhf" into library work
+Parsing entity <NOR12_HXILINX_lshift>.
+Parsing architecture <NOR12_HXILINX_lshift_V> of entity <nor12_hxilinx_lshift>.
+Parsing entity <M2_1E_HXILINX_lshift>.
+Parsing architecture <M2_1E_HXILINX_lshift_V> of entity <m2_1e_hxilinx_lshift>.
+Parsing entity <M2_1_HXILINX_lshift>.
+Parsing architecture <M2_1_HXILINX_lshift_V> of entity <m2_1_hxilinx_lshift>.
+Parsing entity <lshift>.
+Parsing architecture <BEHAVIORAL> of entity <lshift>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\logic.vhf" into library work
+Parsing entity <logic>.
+Parsing architecture <BEHAVIORAL> of entity <logic>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\gnd16.vhf" into library work
+Parsing entity <gnd16>.
+Parsing architecture <BEHAVIORAL> of entity <gnd16>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\spacewire_tx_x2.vhf" into library work
+Parsing entity <FJKCE_HXILINX_spacewire_tx_x2>.
+Parsing architecture <Behavioral> of entity <fjkce_hxilinx_spacewire_tx_x2>.
+Parsing entity <CB4CE_HXILINX_spacewire_tx_x2>.
+Parsing architecture <Behavioral> of entity <cb4ce_hxilinx_spacewire_tx_x2>.
+Parsing entity <M2_1_HXILINX_spacewire_tx_x2>.
+Parsing architecture <M2_1_HXILINX_spacewire_tx_x2_V> of entity <m2_1_hxilinx_spacewire_tx_x2>.
+Parsing entity <spacewire_tx_x2>.
+Parsing architecture <BEHAVIORAL> of entity <spacewire_tx_x2>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\rom_wrapper.vhf" into library work
+Parsing entity <rom_wrapper>.
+Parsing architecture <BEHAVIORAL> of entity <rom_wrapper>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\regs.vhf" into library work
+Parsing entity <FD16CE_HXILINX_regs>.
+Parsing architecture <Behavioral> of entity <fd16ce_hxilinx_regs>.
+Parsing entity <D4_16E_HXILINX_regs>.
+Parsing architecture <D4_16E_HXILINX_regs_V> of entity <d4_16e_hxilinx_regs>.
+Parsing entity <mux4x1x16t_MUSER_regs>.
+Parsing architecture <BEHAVIORAL> of entity <mux4x1x16t_muser_regs>.
+Parsing entity <mux16x1x16tb_MUSER_regs>.
+Parsing architecture <BEHAVIORAL> of entity <mux16x1x16tb_muser_regs>.
+Parsing entity <gnd16_MUSER_regs>.
+Parsing architecture <BEHAVIORAL> of entity <gnd16_muser_regs>.
+Parsing entity <regs>.
+Parsing architecture <BEHAVIORAL> of entity <regs>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\ram_wrapper.vhf" into library work
+Parsing entity <ram_wrapper>.
+Parsing architecture <BEHAVIORAL> of entity <ram_wrapper>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\oregs.vhf" into library work
+Parsing entity <FD16CE_HXILINX_oregs>.
+Parsing architecture <Behavioral> of entity <fd16ce_hxilinx_oregs>.
+Parsing entity <D4_16E_HXILINX_oregs>.
+Parsing architecture <D4_16E_HXILINX_oregs_V> of entity <d4_16e_hxilinx_oregs>.
+Parsing entity <oregs>.
+Parsing architecture <BEHAVIORAL> of entity <oregs>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\inp_stab.vhf" into library work
+Parsing entity <FD16CE_HXILINX_inp_stab>.
+Parsing architecture <Behavioral> of entity <fd16ce_hxilinx_inp_stab>.
+Parsing entity <mux4x1x16t_MUSER_inp_stab>.
+Parsing architecture <BEHAVIORAL> of entity <mux4x1x16t_muser_inp_stab>.
+Parsing entity <mux16x1x16tb_MUSER_inp_stab>.
+Parsing architecture <BEHAVIORAL> of entity <mux16x1x16tb_muser_inp_stab>.
+Parsing entity <inp_stab>.
+Parsing architecture <BEHAVIORAL> of entity <inp_stab>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\idu.vhf" into library work
+Parsing entity <M4_1E_HXILINX_idu>.
+Parsing architecture <M4_1E_HXILINX_idu_V> of entity <m4_1e_hxilinx_idu>.
+Parsing entity <mux4x1x16e_MUSER_idu>.
+Parsing architecture <BEHAVIORAL> of entity <mux4x1x16e_muser_idu>.
+Parsing entity <idu>.
+Parsing architecture <BEHAVIORAL> of entity <idu>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\gfx_inst_encoder.vhf" into library work
+Parsing entity <gfx_inst_encoder>.
+Parsing architecture <BEHAVIORAL> of entity <gfx_inst_encoder>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\flgchk.vhf" into library work
+Parsing entity <D4_16E_HXILINX_flgchk>.
+Parsing architecture <D4_16E_HXILINX_flgchk_V> of entity <d4_16e_hxilinx_flgchk>.
+Parsing entity <OR16_HXILINX_flgchk>.
+Parsing architecture <OR16_HXILINX_flgchk_V> of entity <or16_hxilinx_flgchk>.
+Parsing entity <flgchk>.
+Parsing architecture <BEHAVIORAL> of entity <flgchk>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\fd32ce.vhf" into library work
+Parsing entity <FD16CE_HXILINX_fd32ce>.
+Parsing architecture <Behavioral> of entity <fd16ce_hxilinx_fd32ce>.
+Parsing entity <fd32ce>.
+Parsing architecture <BEHAVIORAL> of entity <fd32ce>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\cu.vhf" into library work
+Parsing entity <cu>.
+Parsing architecture <BEHAVIORAL> of entity <cu>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\alu.vhf" into library work
+Parsing entity <NOR12_HXILINX_alu>.
+Parsing architecture <NOR12_HXILINX_alu_V> of entity <nor12_hxilinx_alu>.
+Parsing entity <NOR16_HXILINX_alu>.
+Parsing architecture <NOR16_HXILINX_alu_V> of entity <nor16_hxilinx_alu>.
+Parsing entity <M2_1E_HXILINX_alu>.
+Parsing architecture <M2_1E_HXILINX_alu_V> of entity <m2_1e_hxilinx_alu>.
+Parsing entity <COMPM16_HXILINX_alu>.
+Parsing architecture <COMPM16_HXILINX_alu_V> of entity <compm16_hxilinx_alu>.
+Parsing entity <M2_1_HXILINX_alu>.
+Parsing architecture <M2_1_HXILINX_alu_V> of entity <m2_1_hxilinx_alu>.
+Parsing entity <ADSU16_HXILINX_alu>.
+Parsing architecture <ADSU16_HXILINX_alu_V> of entity <adsu16_hxilinx_alu>.
+Parsing entity <XNOR8_HXILINX_alu>.
+Parsing architecture <XNOR8_HXILINX_alu_V> of entity <xnor8_hxilinx_alu>.
+Parsing entity <COMP16_HXILINX_alu>.
+Parsing architecture <COMP16_HXILINX_alu_V> of entity <comp16_hxilinx_alu>.
+Parsing entity <mux4x1x16t_MUSER_alu>.
+Parsing architecture <BEHAVIORAL> of entity <mux4x1x16t_muser_alu>.
+Parsing entity <mux2x1x16e_MUSER_alu>.
+Parsing architecture <BEHAVIORAL> of entity <mux2x1x16e_muser_alu>.
+Parsing entity <logic_MUSER_alu>.
+Parsing architecture <BEHAVIORAL> of entity <logic_muser_alu>.
+Parsing entity <mult_MUSER_alu>.
+Parsing architecture <BEHAVIORAL> of entity <mult_muser_alu>.
+Parsing entity <rshift_MUSER_alu>.
+Parsing architecture <BEHAVIORAL> of entity <rshift_muser_alu>.
+Parsing entity <lshift_MUSER_alu>.
+Parsing architecture <BEHAVIORAL> of entity <lshift_muser_alu>.
+Parsing entity <alu>.
+Parsing architecture <BEHAVIORAL> of entity <alu>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\spacewire_rx_x1.vhf" into library work
+Parsing entity <FD8CE_HXILINX_spacewire_rx_x1>.
+Parsing architecture <Behavioral> of entity <fd8ce_hxilinx_spacewire_rx_x1>.
+Parsing entity <SR8CE_HXILINX_spacewire_rx_x1>.
+Parsing architecture <Behavioral> of entity <sr8ce_hxilinx_spacewire_rx_x1>.
+Parsing entity <spacewire_rx_x1>.
+Parsing architecture <BEHAVIORAL> of entity <spacewire_rx_x1>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\resize8x4l.vhf" into library work
+Parsing entity <resize8x4l>.
+Parsing architecture <BEHAVIORAL> of entity <resize8x4l>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\resize8x16x0l.vhf" into library work
+Parsing entity <resize8x16x0l>.
+Parsing architecture <BEHAVIORAL> of entity <resize8x16x0l>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\resize16x8l.vhf" into library work
+Parsing entity <resize16x8l>.
+Parsing architecture <BEHAVIORAL> of entity <resize16x8l>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\pll_wrapper.vhf" into library work
+Parsing entity <pll_wrapper>.
+Parsing architecture <BEHAVIORAL> of entity <pll_wrapper>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\cpu.vhf" into library work
+Parsing entity <FD16CE_HXILINX_cpu>.
+Parsing architecture <Behavioral> of entity <fd16ce_hxilinx_cpu>.
+Parsing entity <FJKCE_HXILINX_cpu>.
+Parsing architecture <Behavioral> of entity <fjkce_hxilinx_cpu>.
+Parsing entity <NOR12_HXILINX_cpu>.
+Parsing architecture <NOR12_HXILINX_cpu_V> of entity <nor12_hxilinx_cpu>.
+Parsing entity <CB4CE_HXILINX_cpu>.
+Parsing architecture <Behavioral> of entity <cb4ce_hxilinx_cpu>.
+Parsing entity <NOR16_HXILINX_cpu>.
+Parsing architecture <NOR16_HXILINX_cpu_V> of entity <nor16_hxilinx_cpu>.
+Parsing entity <M2_1E_HXILINX_cpu>.
+Parsing architecture <M2_1E_HXILINX_cpu_V> of entity <m2_1e_hxilinx_cpu>.
+Parsing entity <D4_16E_HXILINX_cpu>.
+Parsing architecture <D4_16E_HXILINX_cpu_V> of entity <d4_16e_hxilinx_cpu>.
+Parsing entity <COMPM16_HXILINX_cpu>.
+Parsing architecture <COMPM16_HXILINX_cpu_V> of entity <compm16_hxilinx_cpu>.
+Parsing entity <OR16_HXILINX_cpu>.
+Parsing architecture <OR16_HXILINX_cpu_V> of entity <or16_hxilinx_cpu>.
+Parsing entity <CB16CLED_HXILINX_cpu>.
+Parsing architecture <Behavioral> of entity <cb16cled_hxilinx_cpu>.
+Parsing entity <M4_1E_HXILINX_cpu>.
+Parsing architecture <M4_1E_HXILINX_cpu_V> of entity <m4_1e_hxilinx_cpu>.
+Parsing entity <M2_1_HXILINX_cpu>.
+Parsing architecture <M2_1_HXILINX_cpu_V> of entity <m2_1_hxilinx_cpu>.
+Parsing entity <ADSU16_HXILINX_cpu>.
+Parsing architecture <ADSU16_HXILINX_cpu_V> of entity <adsu16_hxilinx_cpu>.
+Parsing entity <XNOR8_HXILINX_cpu>.
+Parsing architecture <XNOR8_HXILINX_cpu_V> of entity <xnor8_hxilinx_cpu>.
+Parsing entity <COMP16_HXILINX_cpu>.
+Parsing architecture <COMP16_HXILINX_cpu_V> of entity <comp16_hxilinx_cpu>.
+Parsing entity <CB2CE_HXILINX_cpu>.
+Parsing architecture <Behavioral> of entity <cb2ce_hxilinx_cpu>.
+Parsing entity <spacewire_tx_x2_MUSER_cpu>.
+Parsing architecture <BEHAVIORAL> of entity <spacewire_tx_x2_muser_cpu>.
+Parsing entity <gfx_inst_encoder_MUSER_cpu>.
+Parsing architecture <BEHAVIORAL> of entity <gfx_inst_encoder_muser_cpu>.
+Parsing entity <fd32ce_MUSER_cpu>.
+Parsing architecture <BEHAVIORAL> of entity <fd32ce_muser_cpu>.
+Parsing entity <cu_MUSER_cpu>.
+Parsing architecture <BEHAVIORAL> of entity <cu_muser_cpu>.
+Parsing entity <oregs_MUSER_cpu>.
+Parsing architecture <BEHAVIORAL> of entity <oregs_muser_cpu>.
+Parsing entity <flgchk_MUSER_cpu>.
+Parsing architecture <BEHAVIORAL> of entity <flgchk_muser_cpu>.
+Parsing entity <mux4x1x16t_MUSER_cpu>.
+Parsing architecture <BEHAVIORAL> of entity <mux4x1x16t_muser_cpu>.
+Parsing entity <mux2x1x16e_MUSER_cpu>.
+Parsing architecture <BEHAVIORAL> of entity <mux2x1x16e_muser_cpu>.
+Parsing entity <logic_MUSER_cpu>.
+Parsing architecture <BEHAVIORAL> of entity <logic_muser_cpu>.
+Parsing entity <mult_MUSER_cpu>.
+Parsing architecture <BEHAVIORAL> of entity <mult_muser_cpu>.
+Parsing entity <rshift_MUSER_cpu>.
+Parsing architecture <BEHAVIORAL> of entity <rshift_muser_cpu>.
+Parsing entity <lshift_MUSER_cpu>.
+Parsing architecture <BEHAVIORAL> of entity <lshift_muser_cpu>.
+Parsing entity <alu_MUSER_cpu>.
+Parsing architecture <BEHAVIORAL> of entity <alu_muser_cpu>.
+Parsing entity <ram_wrapper_MUSER_cpu>.
+Parsing architecture <BEHAVIORAL> of entity <ram_wrapper_muser_cpu>.
+Parsing entity <rom_wrapper_MUSER_cpu>.
+Parsing architecture <BEHAVIORAL> of entity <rom_wrapper_muser_cpu>.
+Parsing entity <mux16x1x16tb_MUSER_cpu>.
+Parsing architecture <BEHAVIORAL> of entity <mux16x1x16tb_muser_cpu>.
+Parsing entity <inp_stab_MUSER_cpu>.
+Parsing architecture <BEHAVIORAL> of entity <inp_stab_muser_cpu>.
+Parsing entity <gnd16_MUSER_cpu>.
+Parsing architecture <BEHAVIORAL> of entity <gnd16_muser_cpu>.
+Parsing entity <mux4x1x16e_MUSER_cpu>.
+Parsing architecture <BEHAVIORAL> of entity <mux4x1x16e_muser_cpu>.
+Parsing entity <idu_MUSER_cpu>.
+Parsing architecture <BEHAVIORAL> of entity <idu_muser_cpu>.
+Parsing entity <regs_MUSER_cpu>.
+Parsing architecture <BEHAVIORAL> of entity <regs_muser_cpu>.
+Parsing entity <cpu>.
+Parsing architecture <BEHAVIORAL> of entity <cpu>.
+Parsing VHDL file "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" into library work
+Parsing entity <FD16CE_HXILINX_main>.
+Parsing architecture <Behavioral> of entity <fd16ce_hxilinx_main>.
+Parsing entity <FJKCE_HXILINX_main>.
+Parsing architecture <Behavioral> of entity <fjkce_hxilinx_main>.
+Parsing entity <FD8CE_HXILINX_main>.
+Parsing architecture <Behavioral> of entity <fd8ce_hxilinx_main>.
+Parsing entity <NOR12_HXILINX_main>.
+Parsing architecture <NOR12_HXILINX_main_V> of entity <nor12_hxilinx_main>.
+Parsing entity <CB4CE_HXILINX_main>.
+Parsing architecture <Behavioral> of entity <cb4ce_hxilinx_main>.
+Parsing entity <NOR16_HXILINX_main>.
+Parsing architecture <NOR16_HXILINX_main_V> of entity <nor16_hxilinx_main>.
+Parsing entity <M2_1E_HXILINX_main>.
+Parsing architecture <M2_1E_HXILINX_main_V> of entity <m2_1e_hxilinx_main>.
+Parsing entity <D4_16E_HXILINX_main>.
+Parsing architecture <D4_16E_HXILINX_main_V> of entity <d4_16e_hxilinx_main>.
+Parsing entity <COMPM16_HXILINX_main>.
+Parsing architecture <COMPM16_HXILINX_main_V> of entity <compm16_hxilinx_main>.
+Parsing entity <OR16_HXILINX_main>.
+Parsing architecture <OR16_HXILINX_main_V> of entity <or16_hxilinx_main>.
+Parsing entity <CB16CLED_HXILINX_main>.
+Parsing architecture <Behavioral> of entity <cb16cled_hxilinx_main>.
+Parsing entity <CB16CE_HXILINX_main>.
+Parsing architecture <Behavioral> of entity <cb16ce_hxilinx_main>.
+Parsing entity <M4_1E_HXILINX_main>.
+Parsing architecture <M4_1E_HXILINX_main_V> of entity <m4_1e_hxilinx_main>.
+Parsing entity <SR8CE_HXILINX_main>.
+Parsing architecture <Behavioral> of entity <sr8ce_hxilinx_main>.
+Parsing entity <M2_1_HXILINX_main>.
+Parsing architecture <M2_1_HXILINX_main_V> of entity <m2_1_hxilinx_main>.
+Parsing entity <ADSU16_HXILINX_main>.
+Parsing architecture <ADSU16_HXILINX_main_V> of entity <adsu16_hxilinx_main>.
+Parsing entity <XNOR8_HXILINX_main>.
+Parsing architecture <XNOR8_HXILINX_main_V> of entity <xnor8_hxilinx_main>.
+Parsing entity <COMP16_HXILINX_main>.
+Parsing architecture <COMP16_HXILINX_main_V> of entity <comp16_hxilinx_main>.
+Parsing entity <CB2CE_HXILINX_main>.
+Parsing architecture <Behavioral> of entity <cb2ce_hxilinx_main>.
+Parsing entity <spacewire_tx_x2_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <spacewire_tx_x2_muser_main>.
+Parsing entity <gfx_inst_encoder_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <gfx_inst_encoder_muser_main>.
+Parsing entity <fd32ce_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <fd32ce_muser_main>.
+Parsing entity <cu_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <cu_muser_main>.
+Parsing entity <oregs_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <oregs_muser_main>.
+Parsing entity <flgchk_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <flgchk_muser_main>.
+Parsing entity <mux4x1x16t_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <mux4x1x16t_muser_main>.
+Parsing entity <mux2x1x16e_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <mux2x1x16e_muser_main>.
+Parsing entity <logic_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <logic_muser_main>.
+Parsing entity <mult_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <mult_muser_main>.
+Parsing entity <rshift_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <rshift_muser_main>.
+Parsing entity <lshift_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <lshift_muser_main>.
+Parsing entity <alu_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <alu_muser_main>.
+Parsing entity <ram_wrapper_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <ram_wrapper_muser_main>.
+Parsing entity <rom_wrapper_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <rom_wrapper_muser_main>.
+Parsing entity <mux16x1x16tb_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <mux16x1x16tb_muser_main>.
+Parsing entity <inp_stab_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <inp_stab_muser_main>.
+Parsing entity <gnd16_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <gnd16_muser_main>.
+Parsing entity <mux4x1x16e_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <mux4x1x16e_muser_main>.
+Parsing entity <idu_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <idu_muser_main>.
+Parsing entity <regs_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <regs_muser_main>.
+Parsing entity <cpu_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <cpu_muser_main>.
+Parsing entity <spacewire_rx_x1_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <spacewire_rx_x1_muser_main>.
+Parsing entity <resize8x16x0l_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <resize8x16x0l_muser_main>.
+Parsing entity <resize8x4l_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <resize8x4l_muser_main>.
+Parsing entity <resize16x8l_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <resize16x8l_muser_main>.
+Parsing entity <pll_wrapper_MUSER_main>.
+Parsing architecture <BEHAVIORAL> of entity <pll_wrapper_muser_main>.
+Parsing entity <main>.
+Parsing architecture <BEHAVIORAL> of entity <main>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <pll_wrapper_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <sys_tx_clk_pll> (architecture <xilinx>) from library <work>.
+
+Elaborating entity <resize8x16x0l_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <gnd16_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <resize16x8l_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <resize8x4l_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <spacewire_rx_x1_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <SR8CE_HXILINX_main> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <FD8CE_HXILINX_main> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <cpu_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <alu_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <ADSU16_HXILINX_main> (architecture <ADSU16_HXILINX_main_V>) from library <work>.
+
+Elaborating entity <mux2x1x16e_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <M2_1E_HXILINX_main> (architecture <M2_1E_HXILINX_main_V>) from library <work>.
+INFO:HDLCompiler:679 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" Line 281. Case statement is complete. others clause is never selected
+
+Elaborating entity <mux4x1x16t_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <lshift_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <M2_1_HXILINX_main> (architecture <M2_1_HXILINX_main_V>) from library <work>.
+INFO:HDLCompiler:679 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" Line 621. Case statement is complete. others clause is never selected
+
+Elaborating entity <NOR12_HXILINX_main> (architecture <NOR12_HXILINX_main_V>) from library <work>.
+
+Elaborating entity <logic_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <mult_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <rshift_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <COMPM16_HXILINX_main> (architecture <COMPM16_HXILINX_main_V>) from library <work>.
+
+Elaborating entity <COMP16_HXILINX_main> (architecture <COMP16_HXILINX_main_V>) from library <work>.
+
+Elaborating entity <NOR16_HXILINX_main> (architecture <NOR16_HXILINX_main_V>) from library <work>.
+
+Elaborating entity <XNOR8_HXILINX_main> (architecture <XNOR8_HXILINX_main_V>) from library <work>.
+
+Elaborating entity <cu_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <flgchk_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <D4_16E_HXILINX_main> (architecture <D4_16E_HXILINX_main_V>) from library <work>.
+INFO:HDLCompiler:679 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" Line 346. Case statement is complete. others clause is never selected
+
+Elaborating entity <OR16_HXILINX_main> (architecture <OR16_HXILINX_main_V>) from library <work>.
+
+Elaborating entity <FD16CE_HXILINX_main> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <ram_wrapper_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <ram> (architecture <ram_a>) from library <work>.
+
+Elaborating entity <fd32ce_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <gfx_inst_encoder_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <spacewire_tx_x2_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <FJKCE_HXILINX_main> (architecture <Behavioral>) with generics from library <work>.
+
+Elaborating entity <CB4CE_HXILINX_main> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <inp_stab_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <mux16x1x16tb_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <idu_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <mux4x1x16e_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <M4_1E_HXILINX_main> (architecture <M4_1E_HXILINX_main_V>) from library <work>.
+INFO:HDLCompiler:679 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" Line 557. Case statement is complete. others clause is never selected
+
+Elaborating entity <rom_wrapper_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <rom> (architecture <rom_a>) from library <work>.
+
+Elaborating entity <oregs_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <CB16CLED_HXILINX_main> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <regs_MUSER_main> (architecture <BEHAVIORAL>) from library <work>.
+
+Elaborating entity <CB2CE_HXILINX_main> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <CB16CE_HXILINX_main> (architecture <Behavioral>) from library <work>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Set property "IOSTANDARD = DEFAULT" for instance <XLXI_32>.
+    Set property "IOSTANDARD = DEFAULT" for instance <XLXI_33>.
+    Set property "IOSTANDARD = DEFAULT" for instance <XLXI_34>.
+    Set property "IOSTANDARD = DEFAULT" for instance <XLXI_35>.
+    Set property "HU_SET = XLXI_110_848" for instance <XLXI_110>.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 9696: Output port <FLGS> of the instance <XLXI_108> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 9696: Output port <FLG_IDX> of the instance <XLXI_108> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 9696: Output port <O4> of the instance <XLXI_108> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 9696: Output port <O5> of the instance <XLXI_108> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 9696: Output port <O6> of the instance <XLXI_108> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 9696: Output port <O7> of the instance <XLXI_108> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 9696: Output port <O8> of the instance <XLXI_108> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 9696: Output port <O9> of the instance <XLXI_108> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 9696: Output port <O10> of the instance <XLXI_108> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 9696: Output port <O11> of the instance <XLXI_108> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 9696: Output port <O12> of the instance <XLXI_108> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 9696: Output port <O13> of the instance <XLXI_108> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 9696: Output port <O14> of the instance <XLXI_108> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 9696: Output port <O15> of the instance <XLXI_108> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 9738: Output port <CEO> of the instance <XLXI_110> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 9738: Output port <TC> of the instance <XLXI_110> is unconnected or connected to loadless signal.
+    Summary:
+	no macro.
+Unit <main> synthesized.
+
+Synthesizing Unit <pll_wrapper_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Summary:
+	no macro.
+Unit <pll_wrapper_MUSER_main> synthesized.
+
+Synthesizing Unit <sys_tx_clk_pll>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\ipcore_dir\sys_tx_clk_pll.vhd".
+    Summary:
+	no macro.
+Unit <sys_tx_clk_pll> synthesized.
+
+Synthesizing Unit <resize8x16x0l_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Summary:
+	no macro.
+Unit <resize8x16x0l_MUSER_main> synthesized.
+
+Synthesizing Unit <gnd16_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Summary:
+	no macro.
+Unit <gnd16_MUSER_main> synthesized.
+
+Synthesizing Unit <resize16x8l_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+WARNING:Xst:647 - Input <I<15:8>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <resize16x8l_MUSER_main> synthesized.
+
+Synthesizing Unit <resize8x4l_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+WARNING:Xst:647 - Input <I<7:4>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <resize8x4l_MUSER_main> synthesized.
+
+Synthesizing Unit <spacewire_rx_x1_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Set property "INIT = 6FF6" for instance <XLXI_103>.
+    Set property "HU_SET = XLXI_104_846" for instance <XLXI_104>.
+    Set property "HU_SET = XLXI_114_847" for instance <XLXI_114>.
+    Summary:
+	no macro.
+Unit <spacewire_rx_x1_MUSER_main> synthesized.
+
+Synthesizing Unit <SR8CE_HXILINX_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Found 8-bit register for signal <q_tmp>.
+    Summary:
+	inferred   8 D-type flip-flop(s).
+Unit <SR8CE_HXILINX_main> synthesized.
+
+Synthesizing Unit <FD8CE_HXILINX_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Found 8-bit register for signal <Q>.
+    Summary:
+	inferred   8 D-type flip-flop(s).
+Unit <FD8CE_HXILINX_main> synthesized.
+
+Synthesizing Unit <cpu_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Set property "HU_SET = FLAG_REGISTER_842" for instance <Flag_Register>.
+    Set property "HU_SET = PROGRAM_COUNTER_838" for instance <Program_Counter>.
+    Set property "HU_SET = STAGE_COUNTER_839" for instance <Stage_Counter>.
+    Set property "HU_SET = STALL_COUNTER_840" for instance <Stall_Counter>.
+    Set property "HU_SET = STL_CNT_ZERO_CMP_841" for instance <STL_CNT_ZERO_CMP>.
+    Set property "HU_SET = XLXI_281_843" for instance <XLXI_281>.
+    Set property "HU_SET = XLXI_282_844" for instance <XLXI_282>.
+    Set property "HU_SET = XLXI_283_845" for instance <XLXI_283>.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 8716: Output port <CEO> of the instance <Program_Counter> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 8716: Output port <TC> of the instance <Program_Counter> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 8755: Output port <CEO> of the instance <Stage_Counter> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 8755: Output port <TC> of the instance <Stage_Counter> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 8764: Output port <CEO> of the instance <Stall_Counter> is unconnected or connected to loadless signal.
+    Summary:
+	no macro.
+Unit <cpu_MUSER_main> synthesized.
+
+Synthesizing Unit <alu_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Set property "HU_SET = ADDER_SUBTRACTER_767" for instance <Adder_Subtracter>.
+    Set property "HU_SET = SIGNED_COMPARATOR_769" for instance <Signed_Comparator>.
+    Set property "HU_SET = UNSIGNED_COMPARATOR_768" for instance <Unsigned_Comparator>.
+    Set property "HU_SET = XLXI_67_770" for instance <XLXI_67>.
+    Set property "HU_SET = XLXI_68_771" for instance <XLXI_68>.
+    Set property "HU_SET = XLXI_72_772" for instance <XLXI_72>.
+    Set property "HU_SET = XLXI_73_773" for instance <XLXI_73>.
+    Summary:
+	no macro.
+Unit <alu_MUSER_main> synthesized.
+
+Synthesizing Unit <ADSU16_HXILINX_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Found 17-bit subtractor for signal <GND_20_o_GND_20_o_sub_3_OUT> created at line 654.
+    Found 17-bit adder for signal <n0040> created at line 652.
+    Found 17-bit adder for signal <BUS_0001_GND_20_o_add_1_OUT> created at line 652.
+    Found 17-bit subtractor for signal <GND_20_o_GND_20_o_sub_4_OUT<16:0>> created at line 654.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred   4 Multiplexer(s).
+Unit <ADSU16_HXILINX_main> synthesized.
+
+Synthesizing Unit <mux2x1x16e_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Set property "HU_SET = XLXI_1_618" for instance <XLXI_1>.
+    Set property "HU_SET = XLXI_2_619" for instance <XLXI_2>.
+    Set property "HU_SET = XLXI_3_620" for instance <XLXI_3>.
+    Set property "HU_SET = XLXI_4_621" for instance <XLXI_4>.
+    Set property "HU_SET = XLXI_5_622" for instance <XLXI_5>.
+    Set property "HU_SET = XLXI_6_623" for instance <XLXI_6>.
+    Set property "HU_SET = XLXI_7_624" for instance <XLXI_7>.
+    Set property "HU_SET = XLXI_8_625" for instance <XLXI_8>.
+    Set property "HU_SET = XLXI_9_626" for instance <XLXI_9>.
+    Set property "HU_SET = XLXI_10_627" for instance <XLXI_10>.
+    Set property "HU_SET = XLXI_11_628" for instance <XLXI_11>.
+    Set property "HU_SET = XLXI_12_629" for instance <XLXI_12>.
+    Set property "HU_SET = XLXI_13_630" for instance <XLXI_13>.
+    Set property "HU_SET = XLXI_14_631" for instance <XLXI_14>.
+    Set property "HU_SET = XLXI_15_632" for instance <XLXI_15>.
+    Set property "HU_SET = XLXI_16_633" for instance <XLXI_16>.
+    Summary:
+	no macro.
+Unit <mux2x1x16e_MUSER_main> synthesized.
+
+Synthesizing Unit <M2_1E_HXILINX_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Summary:
+	inferred   2 Multiplexer(s).
+Unit <M2_1E_HXILINX_main> synthesized.
+
+Synthesizing Unit <mux4x1x16t_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Set property "INIT = F7D5B391E6C4A280" for instance <XLXI_1>.
+    Set property "INIT = F7D5B391E6C4A280" for instance <XLXI_33>.
+    Set property "INIT = F7D5B391E6C4A280" for instance <XLXI_34>.
+    Set property "INIT = F7D5B391E6C4A280" for instance <XLXI_35>.
+    Set property "INIT = F7D5B391E6C4A280" for instance <XLXI_36>.
+    Set property "INIT = F7D5B391E6C4A280" for instance <XLXI_37>.
+    Set property "INIT = F7D5B391E6C4A280" for instance <XLXI_38>.
+    Set property "INIT = F7D5B391E6C4A280" for instance <XLXI_39>.
+    Set property "INIT = F7D5B391E6C4A280" for instance <XLXI_40>.
+    Set property "INIT = F7D5B391E6C4A280" for instance <XLXI_41>.
+    Set property "INIT = F7D5B391E6C4A280" for instance <XLXI_42>.
+    Set property "INIT = F7D5B391E6C4A280" for instance <XLXI_43>.
+    Set property "INIT = F7D5B391E6C4A280" for instance <XLXI_44>.
+    Set property "INIT = F7D5B391E6C4A280" for instance <XLXI_45>.
+    Set property "INIT = F7D5B391E6C4A280" for instance <XLXI_46>.
+    Set property "INIT = F7D5B391E6C4A280" for instance <XLXI_47>.
+    Summary:
+	no macro.
+Unit <mux4x1x16t_MUSER_main> synthesized.
+
+Synthesizing Unit <lshift_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Set property "HU_SET = XLXI_1_702" for instance <XLXI_1>.
+    Set property "HU_SET = XLXI_2_703" for instance <XLXI_2>.
+    Set property "HU_SET = XLXI_3_704" for instance <XLXI_3>.
+    Set property "HU_SET = XLXI_4_705" for instance <XLXI_4>.
+    Set property "HU_SET = XLXI_5_706" for instance <XLXI_5>.
+    Set property "HU_SET = XLXI_6_707" for instance <XLXI_6>.
+    Set property "HU_SET = XLXI_7_708" for instance <XLXI_7>.
+    Set property "HU_SET = XLXI_8_709" for instance <XLXI_8>.
+    Set property "HU_SET = XLXI_9_710" for instance <XLXI_9>.
+    Set property "HU_SET = XLXI_10_711" for instance <XLXI_10>.
+    Set property "HU_SET = XLXI_11_712" for instance <XLXI_11>.
+    Set property "HU_SET = XLXI_12_713" for instance <XLXI_12>.
+    Set property "HU_SET = XLXI_13_714" for instance <XLXI_13>.
+    Set property "HU_SET = XLXI_14_715" for instance <XLXI_14>.
+    Set property "HU_SET = XLXI_15_716" for instance <XLXI_15>.
+    Set property "HU_SET = XLXI_16_717" for instance <XLXI_16>.
+    Set property "HU_SET = XLXI_17_718" for instance <XLXI_17>.
+    Set property "HU_SET = XLXI_18_719" for instance <XLXI_18>.
+    Set property "HU_SET = XLXI_19_720" for instance <XLXI_19>.
+    Set property "HU_SET = XLXI_20_721" for instance <XLXI_20>.
+    Set property "HU_SET = XLXI_21_722" for instance <XLXI_21>.
+    Set property "HU_SET = XLXI_22_723" for instance <XLXI_22>.
+    Set property "HU_SET = XLXI_23_724" for instance <XLXI_23>.
+    Set property "HU_SET = XLXI_24_725" for instance <XLXI_24>.
+    Set property "HU_SET = XLXI_25_726" for instance <XLXI_25>.
+    Set property "HU_SET = XLXI_26_727" for instance <XLXI_26>.
+    Set property "HU_SET = XLXI_27_728" for instance <XLXI_27>.
+    Set property "HU_SET = XLXI_28_729" for instance <XLXI_28>.
+    Set property "HU_SET = XLXI_29_730" for instance <XLXI_29>.
+    Set property "HU_SET = XLXI_30_731" for instance <XLXI_30>.
+    Set property "HU_SET = XLXI_31_732" for instance <XLXI_31>.
+    Set property "HU_SET = XLXI_32_733" for instance <XLXI_32>.
+    Set property "HU_SET = XLXI_65_734" for instance <XLXI_65>.
+    Set property "HU_SET = XLXI_66_735" for instance <XLXI_66>.
+    Set property "HU_SET = XLXI_67_736" for instance <XLXI_67>.
+    Set property "HU_SET = XLXI_68_737" for instance <XLXI_68>.
+    Set property "HU_SET = XLXI_69_738" for instance <XLXI_69>.
+    Set property "HU_SET = XLXI_70_739" for instance <XLXI_70>.
+    Set property "HU_SET = XLXI_71_740" for instance <XLXI_71>.
+    Set property "HU_SET = XLXI_72_741" for instance <XLXI_72>.
+    Set property "HU_SET = XLXI_73_742" for instance <XLXI_73>.
+    Set property "HU_SET = XLXI_74_743" for instance <XLXI_74>.
+    Set property "HU_SET = XLXI_75_744" for instance <XLXI_75>.
+    Set property "HU_SET = XLXI_76_745" for instance <XLXI_76>.
+    Set property "HU_SET = XLXI_77_746" for instance <XLXI_77>.
+    Set property "HU_SET = XLXI_78_747" for instance <XLXI_78>.
+    Set property "HU_SET = XLXI_79_748" for instance <XLXI_79>.
+    Set property "HU_SET = XLXI_80_749" for instance <XLXI_80>.
+    Set property "HU_SET = XLXI_230_750" for instance <XLXI_230>.
+    Set property "HU_SET = XLXI_232_751" for instance <XLXI_232>.
+    Set property "HU_SET = XLXI_233_752" for instance <XLXI_233>.
+    Set property "HU_SET = XLXI_234_753" for instance <XLXI_234>.
+    Set property "HU_SET = XLXI_235_754" for instance <XLXI_235>.
+    Set property "HU_SET = XLXI_236_755" for instance <XLXI_236>.
+    Set property "HU_SET = XLXI_237_756" for instance <XLXI_237>.
+    Set property "HU_SET = XLXI_238_757" for instance <XLXI_238>.
+    Set property "HU_SET = XLXI_239_758" for instance <XLXI_239>.
+    Set property "HU_SET = XLXI_240_759" for instance <XLXI_240>.
+    Set property "HU_SET = XLXI_241_760" for instance <XLXI_241>.
+    Set property "HU_SET = XLXI_242_761" for instance <XLXI_242>.
+    Set property "HU_SET = XLXI_243_762" for instance <XLXI_243>.
+    Set property "HU_SET = XLXI_244_763" for instance <XLXI_244>.
+    Set property "HU_SET = XLXI_245_764" for instance <XLXI_245>.
+    Set property "HU_SET = XLXI_246_765" for instance <XLXI_246>.
+    Set property "HU_SET = XLXI_247_766" for instance <XLXI_247>.
+    Summary:
+	no macro.
+Unit <lshift_MUSER_main> synthesized.
+
+Synthesizing Unit <M2_1_HXILINX_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <M2_1_HXILINX_main> synthesized.
+
+Synthesizing Unit <NOR12_HXILINX_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Summary:
+	no macro.
+Unit <NOR12_HXILINX_main> synthesized.
+
+Synthesizing Unit <logic_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Set property "INIT = 9176E85A" for instance <XLXI_1>.
+    Set property "INIT = 9176E85A" for instance <XLXI_19>.
+    Set property "INIT = 9176E85A" for instance <XLXI_20>.
+    Set property "INIT = 9176E85A" for instance <XLXI_21>.
+    Set property "INIT = 9176E85A" for instance <XLXI_22>.
+    Set property "INIT = 9176E85A" for instance <XLXI_23>.
+    Set property "INIT = 9176E85A" for instance <XLXI_24>.
+    Set property "INIT = 9176E85A" for instance <XLXI_25>.
+    Set property "INIT = 9176E85A" for instance <XLXI_26>.
+    Set property "INIT = 9176E85A" for instance <XLXI_27>.
+    Set property "INIT = 9176E85A" for instance <XLXI_28>.
+    Set property "INIT = 9176E85A" for instance <XLXI_29>.
+    Set property "INIT = 9176E85A" for instance <XLXI_30>.
+    Set property "INIT = 9176E85A" for instance <XLXI_31>.
+    Set property "INIT = 9176E85A" for instance <XLXI_33>.
+    Set property "INIT = 9176E85A" for instance <XLXI_34>.
+    Summary:
+	no macro.
+Unit <logic_MUSER_main> synthesized.
+
+Synthesizing Unit <mult_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Set property "AREG = 1" for instance <XLXI_1>.
+    Set property "BREG = 1" for instance <XLXI_1>.
+    Set property "PREG = 1" for instance <XLXI_1>.
+    Set property "B_INPUT = DIRECT" for instance <XLXI_1>.
+    Set property "HU_SET = XLXI_206_634" for instance <XLXI_206>.
+    Set property "HU_SET = XLXI_209_635" for instance <XLXI_209>.
+    Set property "HU_SET = XLXI_273_636" for instance <XLXI_273>.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 3666: Output port <BCOUT> of the instance <XLXI_1> is unconnected or connected to loadless signal.
+    Summary:
+	no macro.
+Unit <mult_MUSER_main> synthesized.
+
+Synthesizing Unit <rshift_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Set property "HU_SET = XLXI_1_637" for instance <XLXI_1>.
+    Set property "HU_SET = XLXI_2_638" for instance <XLXI_2>.
+    Set property "HU_SET = XLXI_3_639" for instance <XLXI_3>.
+    Set property "HU_SET = XLXI_4_640" for instance <XLXI_4>.
+    Set property "HU_SET = XLXI_5_641" for instance <XLXI_5>.
+    Set property "HU_SET = XLXI_6_642" for instance <XLXI_6>.
+    Set property "HU_SET = XLXI_7_643" for instance <XLXI_7>.
+    Set property "HU_SET = XLXI_8_644" for instance <XLXI_8>.
+    Set property "HU_SET = XLXI_9_645" for instance <XLXI_9>.
+    Set property "HU_SET = XLXI_10_646" for instance <XLXI_10>.
+    Set property "HU_SET = XLXI_11_647" for instance <XLXI_11>.
+    Set property "HU_SET = XLXI_12_648" for instance <XLXI_12>.
+    Set property "HU_SET = XLXI_13_649" for instance <XLXI_13>.
+    Set property "HU_SET = XLXI_14_650" for instance <XLXI_14>.
+    Set property "HU_SET = XLXI_15_651" for instance <XLXI_15>.
+    Set property "HU_SET = XLXI_16_652" for instance <XLXI_16>.
+    Set property "HU_SET = XLXI_17_653" for instance <XLXI_17>.
+    Set property "HU_SET = XLXI_18_654" for instance <XLXI_18>.
+    Set property "HU_SET = XLXI_19_655" for instance <XLXI_19>.
+    Set property "HU_SET = XLXI_20_656" for instance <XLXI_20>.
+    Set property "HU_SET = XLXI_21_657" for instance <XLXI_21>.
+    Set property "HU_SET = XLXI_22_658" for instance <XLXI_22>.
+    Set property "HU_SET = XLXI_23_659" for instance <XLXI_23>.
+    Set property "HU_SET = XLXI_24_660" for instance <XLXI_24>.
+    Set property "HU_SET = XLXI_25_661" for instance <XLXI_25>.
+    Set property "HU_SET = XLXI_26_662" for instance <XLXI_26>.
+    Set property "HU_SET = XLXI_27_663" for instance <XLXI_27>.
+    Set property "HU_SET = XLXI_28_664" for instance <XLXI_28>.
+    Set property "HU_SET = XLXI_29_665" for instance <XLXI_29>.
+    Set property "HU_SET = XLXI_30_666" for instance <XLXI_30>.
+    Set property "HU_SET = XLXI_31_667" for instance <XLXI_31>.
+    Set property "HU_SET = XLXI_32_668" for instance <XLXI_32>.
+    Set property "HU_SET = XLXI_65_669" for instance <XLXI_65>.
+    Set property "HU_SET = XLXI_66_670" for instance <XLXI_66>.
+    Set property "HU_SET = XLXI_67_671" for instance <XLXI_67>.
+    Set property "HU_SET = XLXI_68_672" for instance <XLXI_68>.
+    Set property "HU_SET = XLXI_69_673" for instance <XLXI_69>.
+    Set property "HU_SET = XLXI_70_674" for instance <XLXI_70>.
+    Set property "HU_SET = XLXI_71_675" for instance <XLXI_71>.
+    Set property "HU_SET = XLXI_72_676" for instance <XLXI_72>.
+    Set property "HU_SET = XLXI_73_677" for instance <XLXI_73>.
+    Set property "HU_SET = XLXI_74_678" for instance <XLXI_74>.
+    Set property "HU_SET = XLXI_75_679" for instance <XLXI_75>.
+    Set property "HU_SET = XLXI_76_680" for instance <XLXI_76>.
+    Set property "HU_SET = XLXI_77_681" for instance <XLXI_77>.
+    Set property "HU_SET = XLXI_78_682" for instance <XLXI_78>.
+    Set property "HU_SET = XLXI_79_683" for instance <XLXI_79>.
+    Set property "HU_SET = XLXI_80_684" for instance <XLXI_80>.
+    Set property "HU_SET = XLXI_230_685" for instance <XLXI_230>.
+    Set property "HU_SET = XLXI_232_686" for instance <XLXI_232>.
+    Set property "HU_SET = XLXI_233_687" for instance <XLXI_233>.
+    Set property "HU_SET = XLXI_234_688" for instance <XLXI_234>.
+    Set property "HU_SET = XLXI_235_689" for instance <XLXI_235>.
+    Set property "HU_SET = XLXI_236_690" for instance <XLXI_236>.
+    Set property "HU_SET = XLXI_237_691" for instance <XLXI_237>.
+    Set property "HU_SET = XLXI_238_692" for instance <XLXI_238>.
+    Set property "HU_SET = XLXI_239_693" for instance <XLXI_239>.
+    Set property "HU_SET = XLXI_240_694" for instance <XLXI_240>.
+    Set property "HU_SET = XLXI_241_695" for instance <XLXI_241>.
+    Set property "HU_SET = XLXI_242_696" for instance <XLXI_242>.
+    Set property "HU_SET = XLXI_243_697" for instance <XLXI_243>.
+    Set property "HU_SET = XLXI_244_698" for instance <XLXI_244>.
+    Set property "HU_SET = XLXI_245_699" for instance <XLXI_245>.
+    Set property "HU_SET = XLXI_246_700" for instance <XLXI_246>.
+    Set property "HU_SET = XLXI_247_701" for instance <XLXI_247>.
+    Summary:
+	no macro.
+Unit <rshift_MUSER_main> synthesized.
+
+Synthesizing Unit <COMPM16_HXILINX_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Found 16-bit comparator greater for signal <GT> created at line 388
+    Found 16-bit comparator greater for signal <LT> created at line 389
+    Summary:
+	inferred   2 Comparator(s).
+Unit <COMPM16_HXILINX_main> synthesized.
+
+Synthesizing Unit <COMP16_HXILINX_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Found 16-bit comparator equal for signal <EQ> created at line 711
+    Summary:
+	inferred   1 Comparator(s).
+Unit <COMP16_HXILINX_main> synthesized.
+
+Synthesizing Unit <NOR16_HXILINX_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Summary:
+	no macro.
+Unit <NOR16_HXILINX_main> synthesized.
+
+Synthesizing Unit <XNOR8_HXILINX_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Summary:
+Unit <XNOR8_HXILINX_main> synthesized.
+
+Synthesizing Unit <cu_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Set property "INIT = 0040000000000000" for instance <C_IMM_REG_LUT>.
+    Set property "INIT = 0030000000000000" for instance <GFX_INST_LUT>.
+    Set property "INIT = 0000000000000004" for instance <HLT_INST_LUT>.
+    Set property "INIT = 0008000000000000" for instance <OUT_INST_LUT>.
+    Set property "INIT = 0001000000FF0000" for instance <REG_DATA_SEL_LUT_0>.
+    Set property "INIT = 0004000000FF0000" for instance <REG_DATA_SEL_LUT_1>.
+    Set property "INIT = 0005000000FF00F0" for instance <REG_FILE_WE_LUT>.
+    Set property "INIT = 0000000000000002" for instance <STL_INST_LUT>.
+    Set property "INIT = 0002000000000000" for instance <STR_INST_LUT>.
+    Summary:
+	no macro.
+Unit <cu_MUSER_main> synthesized.
+
+Synthesizing Unit <flgchk_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Set property "HU_SET = XLXI_1_616" for instance <XLXI_1>.
+    Set property "HU_SET = XLXI_38_617" for instance <XLXI_38>.
+    Summary:
+	no macro.
+Unit <flgchk_MUSER_main> synthesized.
+
+Synthesizing Unit <D4_16E_HXILINX_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <D4_16E_HXILINX_main> synthesized.
+
+Synthesizing Unit <OR16_HXILINX_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Summary:
+	no macro.
+Unit <OR16_HXILINX_main> synthesized.
+
+Synthesizing Unit <FD16CE_HXILINX_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Found 16-bit register for signal <Q>.
+    Summary:
+	inferred  16 D-type flip-flop(s).
+Unit <FD16CE_HXILINX_main> synthesized.
+
+Synthesizing Unit <ram_wrapper_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+WARNING:Xst:647 - Input <ADDR<15:13>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <ram_wrapper_MUSER_main> synthesized.
+
+Synthesizing Unit <fd32ce_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Set property "HU_SET = XLXI_1_597" for instance <XLXI_1>.
+    Set property "HU_SET = XLXI_2_598" for instance <XLXI_2>.
+    Summary:
+	no macro.
+Unit <fd32ce_MUSER_main> synthesized.
+
+Synthesizing Unit <gfx_inst_encoder_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+WARNING:Xst:647 - Input <A<15:8>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <B<15:8>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <C<15:4>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <ID<7:4>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <gfx_inst_encoder_MUSER_main> synthesized.
+
+Synthesizing Unit <spacewire_tx_x2_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Set property "HU_SET = XLXI_2_565" for instance <XLXI_2>.
+    Set property "HU_SET = XLXI_4_566" for instance <XLXI_4>.
+    Set property "HU_SET = XLXI_6_567" for instance <XLXI_6>.
+    Set property "HU_SET = XLXI_8_568" for instance <XLXI_8>.
+    Set property "HU_SET = XLXI_10_569" for instance <XLXI_10>.
+    Set property "HU_SET = XLXI_12_570" for instance <XLXI_12>.
+    Set property "HU_SET = XLXI_14_571" for instance <XLXI_14>.
+    Set property "HU_SET = XLXI_16_572" for instance <XLXI_16>.
+    Set property "HU_SET = XLXI_18_573" for instance <XLXI_18>.
+    Set property "HU_SET = XLXI_20_574" for instance <XLXI_20>.
+    Set property "HU_SET = XLXI_22_575" for instance <XLXI_22>.
+    Set property "HU_SET = XLXI_24_576" for instance <XLXI_24>.
+    Set property "HU_SET = XLXI_26_577" for instance <XLXI_26>.
+    Set property "HU_SET = XLXI_28_578" for instance <XLXI_28>.
+    Set property "HU_SET = XLXI_30_579" for instance <XLXI_30>.
+    Set property "HU_SET = XLXI_67_581" for instance <XLXI_67>.
+    Set property "HU_SET = XLXI_69_582" for instance <XLXI_69>.
+    Set property "HU_SET = XLXI_71_583" for instance <XLXI_71>.
+    Set property "HU_SET = XLXI_73_584" for instance <XLXI_73>.
+    Set property "HU_SET = XLXI_75_585" for instance <XLXI_75>.
+    Set property "HU_SET = XLXI_77_586" for instance <XLXI_77>.
+    Set property "HU_SET = XLXI_79_587" for instance <XLXI_79>.
+    Set property "HU_SET = XLXI_81_588" for instance <XLXI_81>.
+    Set property "HU_SET = XLXI_83_589" for instance <XLXI_83>.
+    Set property "HU_SET = XLXI_85_590" for instance <XLXI_85>.
+    Set property "HU_SET = XLXI_87_591" for instance <XLXI_87>.
+    Set property "HU_SET = XLXI_89_592" for instance <XLXI_89>.
+    Set property "HU_SET = XLXI_91_593" for instance <XLXI_91>.
+    Set property "HU_SET = XLXI_93_594" for instance <XLXI_93>.
+    Set property "HU_SET = XLXI_95_595" for instance <XLXI_95>.
+    Set property "HU_SET = XLXI_97_596" for instance <XLXI_97>.
+    Set property "HU_SET = XLXI_107_580" for instance <XLXI_107>.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 1423: Output port <CEO> of the instance <XLXI_107> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 1423: Output port <Q0> of the instance <XLXI_107> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 1423: Output port <Q1> of the instance <XLXI_107> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 1423: Output port <Q2> of the instance <XLXI_107> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 1423: Output port <Q3> of the instance <XLXI_107> is unconnected or connected to loadless signal.
+    Summary:
+	no macro.
+Unit <spacewire_tx_x2_MUSER_main> synthesized.
+
+Synthesizing Unit <FJKCE_HXILINX_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+        INIT = '0'
+    Found 1-bit register for signal <q_tmp>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
+Unit <FJKCE_HXILINX_main> synthesized.
+
+Synthesizing Unit <CB4CE_HXILINX_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Found 4-bit register for signal <COUNT>.
+    Found 4-bit adder for signal <COUNT[3]_GND_45_o_add_0_OUT> created at line 206.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   4 D-type flip-flop(s).
+Unit <CB4CE_HXILINX_main> synthesized.
+
+Synthesizing Unit <inp_stab_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Set property "HU_SET = XLXI_2_774" for instance <XLXI_2>.
+    Set property "HU_SET = XLXI_5_775" for instance <XLXI_5>.
+    Set property "HU_SET = XLXI_14_776" for instance <XLXI_14>.
+    Set property "HU_SET = XLXI_17_777" for instance <XLXI_17>.
+    Set property "HU_SET = XLXI_20_778" for instance <XLXI_20>.
+    Set property "HU_SET = XLXI_23_779" for instance <XLXI_23>.
+    Set property "HU_SET = XLXI_26_780" for instance <XLXI_26>.
+    Set property "HU_SET = XLXI_29_781" for instance <XLXI_29>.
+    Set property "HU_SET = XLXI_32_782" for instance <XLXI_32>.
+    Set property "HU_SET = XLXI_35_783" for instance <XLXI_35>.
+    Set property "HU_SET = XLXI_38_784" for instance <XLXI_38>.
+    Set property "HU_SET = XLXI_41_785" for instance <XLXI_41>.
+    Set property "HU_SET = XLXI_44_786" for instance <XLXI_44>.
+    Set property "HU_SET = XLXI_47_787" for instance <XLXI_47>.
+    Set property "HU_SET = XLXI_50_788" for instance <XLXI_50>.
+    Set property "HU_SET = XLXI_53_789" for instance <XLXI_53>.
+    Set property "HU_SET = XLXI_58_790" for instance <XLXI_58>.
+    Set property "HU_SET = XLXI_61_791" for instance <XLXI_61>.
+    Set property "HU_SET = XLXI_66_792" for instance <XLXI_66>.
+    Set property "HU_SET = XLXI_69_793" for instance <XLXI_69>.
+    Set property "HU_SET = XLXI_72_794" for instance <XLXI_72>.
+    Set property "HU_SET = XLXI_75_795" for instance <XLXI_75>.
+    Set property "HU_SET = XLXI_78_796" for instance <XLXI_78>.
+    Set property "HU_SET = XLXI_81_797" for instance <XLXI_81>.
+    Set property "HU_SET = XLXI_84_798" for instance <XLXI_84>.
+    Set property "HU_SET = XLXI_90_799" for instance <XLXI_90>.
+    Set property "HU_SET = XLXI_93_800" for instance <XLXI_93>.
+    Set property "HU_SET = XLXI_96_801" for instance <XLXI_96>.
+    Set property "HU_SET = XLXI_99_802" for instance <XLXI_99>.
+    Set property "HU_SET = XLXI_102_803" for instance <XLXI_102>.
+    Set property "HU_SET = XLXI_105_804" for instance <XLXI_105>.
+    Set property "HU_SET = XLXI_108_805" for instance <XLXI_108>.
+    Summary:
+	no macro.
+Unit <inp_stab_MUSER_main> synthesized.
+
+Synthesizing Unit <mux16x1x16tb_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Summary:
+	no macro.
+Unit <mux16x1x16tb_MUSER_main> synthesized.
+
+Synthesizing Unit <idu_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Set property "INIT = 0600" for instance <XLXI_4>.
+    Set property "INIT = 0D00" for instance <XLXI_5>.
+    Set property "INIT = 0FF0" for instance <XLXI_6>.
+    Set property "INIT = 0600" for instance <XLXI_470>.
+    Set property "INIT = 0B00" for instance <XLXI_471>.
+    Set property "INIT = 0F00" for instance <XLXI_472>.
+    Summary:
+	no macro.
+Unit <idu_MUSER_main> synthesized.
+
+Synthesizing Unit <mux4x1x16e_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Set property "HU_SET = XLXI_1_806" for instance <XLXI_1>.
+    Set property "HU_SET = XLXI_2_807" for instance <XLXI_2>.
+    Set property "HU_SET = XLXI_3_808" for instance <XLXI_3>.
+    Set property "HU_SET = XLXI_4_809" for instance <XLXI_4>.
+    Set property "HU_SET = XLXI_5_810" for instance <XLXI_5>.
+    Set property "HU_SET = XLXI_6_811" for instance <XLXI_6>.
+    Set property "HU_SET = XLXI_7_812" for instance <XLXI_7>.
+    Set property "HU_SET = XLXI_8_813" for instance <XLXI_8>.
+    Set property "HU_SET = XLXI_9_814" for instance <XLXI_9>.
+    Set property "HU_SET = XLXI_10_815" for instance <XLXI_10>.
+    Set property "HU_SET = XLXI_11_816" for instance <XLXI_11>.
+    Set property "HU_SET = XLXI_12_817" for instance <XLXI_12>.
+    Set property "HU_SET = XLXI_13_818" for instance <XLXI_13>.
+    Set property "HU_SET = XLXI_14_819" for instance <XLXI_14>.
+    Set property "HU_SET = XLXI_15_820" for instance <XLXI_15>.
+    Set property "HU_SET = XLXI_16_821" for instance <XLXI_16>.
+    Summary:
+	no macro.
+Unit <mux4x1x16e_MUSER_main> synthesized.
+
+Synthesizing Unit <M4_1E_HXILINX_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Found 1-bit 4-to-1 multiplexer for signal <S1_D3_Mux_0_o> created at line 552.
+    Summary:
+	inferred   2 Multiplexer(s).
+Unit <M4_1E_HXILINX_main> synthesized.
+
+Synthesizing Unit <rom_wrapper_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+WARNING:Xst:647 - Input <ADDR<15:14>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <rom_wrapper_MUSER_main> synthesized.
+
+Synthesizing Unit <oregs_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Set property "HU_SET = XLXI_3_599" for instance <XLXI_3>.
+    Set property "HU_SET = XLXI_4_600" for instance <XLXI_4>.
+    Set property "HU_SET = XLXI_6_601" for instance <XLXI_6>.
+    Set property "HU_SET = XLXI_8_602" for instance <XLXI_8>.
+    Set property "HU_SET = XLXI_10_603" for instance <XLXI_10>.
+    Set property "HU_SET = XLXI_12_604" for instance <XLXI_12>.
+    Set property "HU_SET = XLXI_14_605" for instance <XLXI_14>.
+    Set property "HU_SET = XLXI_16_606" for instance <XLXI_16>.
+    Set property "HU_SET = XLXI_18_607" for instance <XLXI_18>.
+    Set property "HU_SET = XLXI_20_608" for instance <XLXI_20>.
+    Set property "HU_SET = XLXI_22_609" for instance <XLXI_22>.
+    Set property "HU_SET = XLXI_24_610" for instance <XLXI_24>.
+    Set property "HU_SET = XLXI_26_611" for instance <XLXI_26>.
+    Set property "HU_SET = XLXI_28_612" for instance <XLXI_28>.
+    Set property "HU_SET = XLXI_30_613" for instance <XLXI_30>.
+    Set property "HU_SET = XLXI_32_614" for instance <XLXI_32>.
+    Set property "HU_SET = XLXI_322_615" for instance <XLXI_322>.
+    Summary:
+	no macro.
+Unit <oregs_MUSER_main> synthesized.
+
+Synthesizing Unit <CB16CLED_HXILINX_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Found 16-bit register for signal <COUNT>.
+    Found 16-bit adder for signal <COUNT[15]_GND_54_o_add_0_OUT> created at line 463.
+    Found 16-bit subtractor for signal <GND_54_o_GND_54_o_sub_2_OUT<15:0>> created at line 465.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  16 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
+Unit <CB16CLED_HXILINX_main> synthesized.
+
+Synthesizing Unit <regs_MUSER_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Set property "HU_SET = WRITE_ADDRESS_DECODER_822" for instance <Write_Address_Decoder>.
+    Set property "HU_SET = XLXI_4_823" for instance <XLXI_4>.
+    Set property "HU_SET = XLXI_6_824" for instance <XLXI_6>.
+    Set property "HU_SET = XLXI_8_825" for instance <XLXI_8>.
+    Set property "HU_SET = XLXI_10_826" for instance <XLXI_10>.
+    Set property "HU_SET = XLXI_12_827" for instance <XLXI_12>.
+    Set property "HU_SET = XLXI_14_828" for instance <XLXI_14>.
+    Set property "HU_SET = XLXI_16_829" for instance <XLXI_16>.
+    Set property "HU_SET = XLXI_18_830" for instance <XLXI_18>.
+    Set property "HU_SET = XLXI_20_831" for instance <XLXI_20>.
+    Set property "HU_SET = XLXI_22_832" for instance <XLXI_22>.
+    Set property "HU_SET = XLXI_24_833" for instance <XLXI_24>.
+    Set property "HU_SET = XLXI_26_834" for instance <XLXI_26>.
+    Set property "HU_SET = XLXI_28_835" for instance <XLXI_28>.
+    Set property "HU_SET = XLXI_30_836" for instance <XLXI_30>.
+    Set property "HU_SET = XLXI_32_837" for instance <XLXI_32>.
+INFO:Xst:3210 - "D:\Personal\Projects\ILF-16\ILF-16\main.vhf" line 7889: Output port <D0> of the instance <Write_Address_Decoder> is unconnected or connected to loadless signal.
+    Summary:
+	no macro.
+Unit <regs_MUSER_main> synthesized.
+
+Synthesizing Unit <CB2CE_HXILINX_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Found 2-bit register for signal <COUNT>.
+    Found 2-bit adder for signal <COUNT[1]_GND_56_o_add_0_OUT> created at line 747.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   2 D-type flip-flop(s).
+Unit <CB2CE_HXILINX_main> synthesized.
+
+Synthesizing Unit <CB16CE_HXILINX_main>.
+    Related source file is "D:\Personal\Projects\ILF-16\ILF-16\main.vhf".
+    Found 16-bit register for signal <COUNT>.
+    Found 16-bit adder for signal <COUNT[15]_GND_57_o_add_0_OUT> created at line 512.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  16 D-type flip-flop(s).
+Unit <CB16CE_HXILINX_main> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 7
+ 16-bit adder                                          : 1
+ 16-bit addsub                                         : 2
+ 17-bit addsub                                         : 2
+ 2-bit adder                                           : 1
+ 4-bit adder                                           : 1
+# Registers                                            : 77
+ 1-bit register                                        : 1
+ 16-bit register                                       : 72
+ 2-bit register                                        : 1
+ 4-bit register                                        : 1
+ 8-bit register                                        : 2
+# Comparators                                          : 6
+ 16-bit comparator equal                               : 2
+ 16-bit comparator greater                             : 4
+# Multiplexers                                         : 462
+ 1-bit 2-to-1 multiplexer                              : 423
+ 1-bit 4-to-1 multiplexer                              : 32
+ 16-bit 2-to-1 multiplexer                             : 5
+ 17-bit 2-to-1 multiplexer                             : 2
+# Xors                                                 : 2
+ 1-bit xor8                                            : 2
+
+=========================================================================
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Reading core <ipcore_dir/ram.ngc>.
+Reading core <ipcore_dir/rom.ngc>.
+Loading core <ram> for timing and area information for instance <XLXI_1>.
+Loading core <rom> for timing and area information for instance <XLXI_1>.
+WARNING:Xst:1290 - Hierarchical block <XLXI_10> is unconnected in block <Output_Registers>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_12> is unconnected in block <Output_Registers>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_14> is unconnected in block <Output_Registers>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_16> is unconnected in block <Output_Registers>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_18> is unconnected in block <Output_Registers>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_20> is unconnected in block <Output_Registers>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_22> is unconnected in block <Output_Registers>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_24> is unconnected in block <Output_Registers>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_26> is unconnected in block <Output_Registers>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_28> is unconnected in block <Output_Registers>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_30> is unconnected in block <Output_Registers>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_32> is unconnected in block <Output_Registers>.
+   It will be removed from the design.
+WARNING:Xst:2677 - Node <Q_8> of sequential type is unconnected in block <XLXI_4>.
+WARNING:Xst:2677 - Node <Q_9> of sequential type is unconnected in block <XLXI_4>.
+WARNING:Xst:2677 - Node <Q_10> of sequential type is unconnected in block <XLXI_4>.
+WARNING:Xst:2677 - Node <Q_11> of sequential type is unconnected in block <XLXI_4>.
+WARNING:Xst:2677 - Node <Q_12> of sequential type is unconnected in block <XLXI_4>.
+WARNING:Xst:2677 - Node <Q_13> of sequential type is unconnected in block <XLXI_4>.
+WARNING:Xst:2677 - Node <Q_14> of sequential type is unconnected in block <XLXI_4>.
+WARNING:Xst:2677 - Node <Q_15> of sequential type is unconnected in block <XLXI_4>.
+WARNING:Xst:2677 - Node <Q_8> of sequential type is unconnected in block <XLXI_6>.
+WARNING:Xst:2677 - Node <Q_9> of sequential type is unconnected in block <XLXI_6>.
+WARNING:Xst:2677 - Node <Q_10> of sequential type is unconnected in block <XLXI_6>.
+WARNING:Xst:2677 - Node <Q_11> of sequential type is unconnected in block <XLXI_6>.
+WARNING:Xst:2677 - Node <Q_12> of sequential type is unconnected in block <XLXI_6>.
+WARNING:Xst:2677 - Node <Q_13> of sequential type is unconnected in block <XLXI_6>.
+WARNING:Xst:2677 - Node <Q_14> of sequential type is unconnected in block <XLXI_6>.
+WARNING:Xst:2677 - Node <Q_15> of sequential type is unconnected in block <XLXI_6>.
+WARNING:Xst:2677 - Node <Q_8> of sequential type is unconnected in block <XLXI_8>.
+WARNING:Xst:2677 - Node <Q_9> of sequential type is unconnected in block <XLXI_8>.
+WARNING:Xst:2677 - Node <Q_10> of sequential type is unconnected in block <XLXI_8>.
+WARNING:Xst:2677 - Node <Q_11> of sequential type is unconnected in block <XLXI_8>.
+WARNING:Xst:2677 - Node <Q_12> of sequential type is unconnected in block <XLXI_8>.
+WARNING:Xst:2677 - Node <Q_13> of sequential type is unconnected in block <XLXI_8>.
+WARNING:Xst:2677 - Node <Q_14> of sequential type is unconnected in block <XLXI_8>.
+WARNING:Xst:2677 - Node <Q_15> of sequential type is unconnected in block <XLXI_8>.
+WARNING:Xst:2677 - Node <Q_8> of sequential type is unconnected in block <XLXI_322>.
+WARNING:Xst:2677 - Node <Q_9> of sequential type is unconnected in block <XLXI_322>.
+WARNING:Xst:2677 - Node <Q_10> of sequential type is unconnected in block <XLXI_322>.
+WARNING:Xst:2677 - Node <Q_11> of sequential type is unconnected in block <XLXI_322>.
+WARNING:Xst:2677 - Node <Q_12> of sequential type is unconnected in block <XLXI_322>.
+WARNING:Xst:2677 - Node <Q_13> of sequential type is unconnected in block <XLXI_322>.
+WARNING:Xst:2677 - Node <Q_14> of sequential type is unconnected in block <XLXI_322>.
+WARNING:Xst:2677 - Node <Q_15> of sequential type is unconnected in block <XLXI_322>.
+
+Synthesizing (advanced) Unit <CB16CE_HXILINX_main>.
+The following registers are absorbed into counter <COUNT>: 1 register on signal <COUNT>.
+Unit <CB16CE_HXILINX_main> synthesized (advanced).
+
+Synthesizing (advanced) Unit <CB16CLED_HXILINX_main>.
+The following registers are absorbed into counter <COUNT>: 1 register on signal <COUNT>.
+Unit <CB16CLED_HXILINX_main> synthesized (advanced).
+
+Synthesizing (advanced) Unit <CB2CE_HXILINX_main>.
+The following registers are absorbed into counter <COUNT>: 1 register on signal <COUNT>.
+Unit <CB2CE_HXILINX_main> synthesized (advanced).
+
+Synthesizing (advanced) Unit <CB4CE_HXILINX_main>.
+The following registers are absorbed into counter <COUNT>: 1 register on signal <COUNT>.
+Unit <CB4CE_HXILINX_main> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 17-bit addsub                                         : 2
+# Counters                                             : 5
+ 16-bit up counter                                     : 1
+ 16-bit updown counter                                 : 2
+ 2-bit up counter                                      : 1
+ 4-bit up counter                                      : 1
+# Registers                                            : 1174
+ Flip-Flops                                            : 1174
+# Comparators                                          : 6
+ 16-bit comparator equal                               : 2
+ 16-bit comparator greater                             : 4
+# Multiplexers                                         : 329
+ 1-bit 2-to-1 multiplexer                              : 292
+ 1-bit 4-to-1 multiplexer                              : 32
+ 16-bit 2-to-1 multiplexer                             : 3
+ 17-bit 2-to-1 multiplexer                             : 2
+# Xors                                                 : 2
+ 1-bit xor8                                            : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:1901 - Instance XLXI_1 in unit XLXI_1 of type MULT18X18SIO has been replaced by DSP48A1
+INFO:Xst:1901 - Instance XLXI_2/XLXI_1/pll_base_inst in unit XLXI_2/XLXI_1/pll_base_inst of type PLL_BASE has been replaced by PLL_ADV
+
+Optimizing unit <main> ...
+
+Optimizing unit <resize8x16x0l_MUSER_main> ...
+
+Optimizing unit <spacewire_rx_x1_MUSER_main> ...
+
+Optimizing unit <SR8CE_HXILINX_main> ...
+
+Optimizing unit <FD8CE_HXILINX_main> ...
+
+Optimizing unit <cpu_MUSER_main> ...
+
+Optimizing unit <inp_stab_MUSER_main> ...
+
+Optimizing unit <FD16CE_HXILINX_main> ...
+
+Optimizing unit <mux4x1x16t_MUSER_main> ...
+
+Optimizing unit <ram_wrapper_MUSER_main> ...
+
+Optimizing unit <fd32ce_MUSER_main> ...
+
+Optimizing unit <rom_wrapper_MUSER_main> ...
+
+Optimizing unit <oregs_MUSER_main> ...
+
+Optimizing unit <regs_MUSER_main> ...
+
+Optimizing unit <spacewire_tx_x2_MUSER_main> ...
+
+Optimizing unit <flgchk_MUSER_main> ...
+
+Optimizing unit <idu_MUSER_main> ...
+
+Optimizing unit <mux4x1x16e_MUSER_main> ...
+
+Optimizing unit <mux2x1x16e_MUSER_main> ...
+
+Optimizing unit <COMP16_HXILINX_main> ...
+
+Optimizing unit <alu_MUSER_main> ...
+
+Optimizing unit <logic_MUSER_main> ...
+
+Optimizing unit <mult_MUSER_main> ...
+
+Optimizing unit <gfx_inst_encoder_MUSER_main> ...
+
+Optimizing unit <cu_MUSER_main> ...
+
+Optimizing unit <resize16x8l_MUSER_main> ...
+
+Optimizing unit <D4_16E_HXILINX_main> ...
+
+Optimizing unit <CB16CLED_HXILINX_main> ...
+
+Optimizing unit <CB2CE_HXILINX_main> ...
+
+Optimizing unit <FJKCE_HXILINX_main> ...
+
+Optimizing unit <CB4CE_HXILINX_main> ...
+
+Optimizing unit <M2_1_HXILINX_main> ...
+
+Optimizing unit <OR16_HXILINX_main> ...
+
+Optimizing unit <M4_1E_HXILINX_main> ...
+
+Optimizing unit <M2_1E_HXILINX_main> ...
+
+Optimizing unit <ADSU16_HXILINX_main> ...
+
+Optimizing unit <NOR12_HXILINX_main> ...
+
+Optimizing unit <COMPM16_HXILINX_main> ...
+
+Optimizing unit <NOR16_HXILINX_main> ...
+
+Optimizing unit <XNOR8_HXILINX_main> ...
+
+Optimizing unit <CB16CE_HXILINX_main> ...
+WARNING:Xst:1426 - The value init of the FF/Latch Q_15 hinder the constant cleaning in the block XLXI_108/Flag_Register.
+   You should achieve better results by setting this init to 1.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_38>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_38>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_7> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_38>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_6> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_38>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_5> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_38>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_4> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_38>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_3> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_38>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_2> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_38>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_1> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_38>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_0> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_38>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_41>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_41>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_41>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_41>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_41>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_41>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_41>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_41>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_7> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_41>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_6> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_41>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_5> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_41>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_4> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_41>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_3> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_41>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_2> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_41>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_1> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_32>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_0> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_32>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_35>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_35>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_35>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_35>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_35>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_35>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_35>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_35>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_7> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_35>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_6> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_35>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_5> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_35>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_4> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_35>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_3> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_35>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_2> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_35>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_1> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_35>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_0> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_35>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_38>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_38>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_38>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_38>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_38>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_38>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_47>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_47>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_7> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_47>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_6> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_47>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_5> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_47>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_4> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_47>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_3> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_47>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_2> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_47>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_1> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_47>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_0> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_47>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_50>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_50>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_50>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_50>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_50>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_50>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_50>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_50>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_7> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_50>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_6> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_50>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_5> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_50>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_4> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_50>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_3> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_50>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_2> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_50>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_1> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_41>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_0> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_41>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_44>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_44>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_44>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_44>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_44>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_44>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_44>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_44>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_7> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_44>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_6> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_44>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_5> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_44>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_4> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_44>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_3> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_44>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_2> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_44>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_1> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_44>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_0> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_44>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_47>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_47>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_47>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_47>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_47>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_47>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_14>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_14>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_14>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_17>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_17>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_17>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_17>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_17>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_17>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_17>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_17>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_20>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_20>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_20>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_20>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_20>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_20>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_20>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_20>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_23>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_23>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_23>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_23>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_23>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Flag_Register>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Flag_Register>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Flag_Register>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_5>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_5>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_5>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_5>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_5>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_5>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_5>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_5>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_14>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_14>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_14>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_14>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_14>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_7> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_6> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_5> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_4> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_3> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_2> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_1> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_0> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_32>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_32>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_32>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_32>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_32>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_32>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_32>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_32>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_7> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_32>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_6> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_32>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_5> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_32>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_4> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_32>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_3> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_32>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_2> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_32>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_23>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_23>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_23>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_26>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_26>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_26>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_26>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_26>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_26>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_26>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_26>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_7> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_26>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_6> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_26>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_5> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_26>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_4> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_26>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_3> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_26>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_2> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_26>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_1> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_26>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_0> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_26>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_93>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_7> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_93>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_6> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_93>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_5> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_93>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_4> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_93>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_3> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_93>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_2> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_93>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_1> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_93>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_0> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_93>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_96>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_96>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_96>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_96>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_96>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_96>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_96>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_96>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_7> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_96>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_6> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_96>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_5> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_96>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_4> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_96>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_3> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_96>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_2> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_96>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_1> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_96>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_0> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_84>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_90>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_90>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_90>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_90>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_90>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_90>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_90>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_90>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_7> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_90>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_6> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_90>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_5> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_90>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_4> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_90>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_3> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_90>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_2> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_90>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_1> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_90>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_0> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_90>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_93>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_93>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_93>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_93>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_93>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_93>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_93>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_7> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_102>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_6> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_102>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_5> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_102>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_4> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_102>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_3> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_102>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_2> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_102>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_1> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_102>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_0> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_102>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_105>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_105>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_105>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_105>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_105>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_105>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_105>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_105>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_7> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_105>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_6> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_105>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_5> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_105>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_4> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_105>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_3> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_105>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_2> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_105>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_1> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_105>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_0> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_105>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_0> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_96>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_99>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_99>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_99>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_99>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_99>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_99>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_99>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_99>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_7> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_99>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_6> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_99>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_5> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_99>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_4> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_99>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_3> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_99>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_2> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_99>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_1> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_99>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_0> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_99>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_102>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_102>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_102>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_102>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_102>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_102>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_102>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_102>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_66>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_66>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_69>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_69>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_69>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_69>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_69>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_69>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_69>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_69>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_72>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_72>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_72>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_72>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_72>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_72>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_72>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_72>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_75>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_75>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_75>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_75>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_75>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_75>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_1> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_50>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_0> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_50>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_58>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_58>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_58>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_58>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_58>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_58>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_58>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_58>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_61>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_61>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_61>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_61>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_61>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_61>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_61>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_61>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_66>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_66>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_66>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_66>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_66>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_66>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_81>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_7> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_81>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_6> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_81>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_5> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_81>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_4> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_81>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_3> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_81>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_2> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_81>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_1> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_81>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_0> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_81>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_84>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_84>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_84>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_84>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_84>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_84>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_84>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_84>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_7> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_84>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_6> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_84>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_5> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_84>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_4> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_84>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_3> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_84>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_2> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_84>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_1> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_84>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_75>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_75>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_78>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_78>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_78>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_78>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_78>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_78>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_78>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_8> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_78>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_7> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_78>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_6> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_78>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_5> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_78>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_4> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_78>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_3> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_78>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_2> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_78>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_1> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_78>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_0> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_78>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_15> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_81>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_14> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_81>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_13> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_81>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_12> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_81>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_11> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_81>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_10> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_81>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Q_9> has a constant value of 0 in block <XLXI_108/Input_Stablilizer_Selector/XLXI_81>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <Q_8> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_4>.
+WARNING:Xst:2677 - Node <Q_9> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_4>.
+WARNING:Xst:2677 - Node <Q_10> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_4>.
+WARNING:Xst:2677 - Node <Q_11> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_4>.
+WARNING:Xst:2677 - Node <Q_12> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_4>.
+WARNING:Xst:2677 - Node <Q_13> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_4>.
+WARNING:Xst:2677 - Node <Q_14> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_4>.
+WARNING:Xst:2677 - Node <Q_15> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_4>.
+WARNING:Xst:2677 - Node <Q_8> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_6>.
+WARNING:Xst:2677 - Node <Q_9> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_6>.
+WARNING:Xst:2677 - Node <Q_10> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_6>.
+WARNING:Xst:2677 - Node <Q_11> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_6>.
+WARNING:Xst:2677 - Node <Q_12> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_6>.
+WARNING:Xst:2677 - Node <Q_13> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_6>.
+WARNING:Xst:2677 - Node <Q_14> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_6>.
+WARNING:Xst:2677 - Node <Q_15> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_6>.
+WARNING:Xst:2677 - Node <Q_8> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_8>.
+WARNING:Xst:2677 - Node <Q_9> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_8>.
+WARNING:Xst:2677 - Node <Q_10> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_8>.
+WARNING:Xst:2677 - Node <Q_11> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_8>.
+WARNING:Xst:2677 - Node <Q_12> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_8>.
+WARNING:Xst:2677 - Node <Q_13> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_8>.
+WARNING:Xst:2677 - Node <Q_14> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_8>.
+WARNING:Xst:2677 - Node <Q_15> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_8>.
+WARNING:Xst:1290 - Hierarchical block <XLXI_108/Output_Registers/XLXI_10> is unconnected in block <main>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_108/Output_Registers/XLXI_12> is unconnected in block <main>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_108/Output_Registers/XLXI_14> is unconnected in block <main>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_108/Output_Registers/XLXI_16> is unconnected in block <main>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_108/Output_Registers/XLXI_18> is unconnected in block <main>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_108/Output_Registers/XLXI_20> is unconnected in block <main>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_108/Output_Registers/XLXI_22> is unconnected in block <main>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_108/Output_Registers/XLXI_24> is unconnected in block <main>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_108/Output_Registers/XLXI_26> is unconnected in block <main>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_108/Output_Registers/XLXI_28> is unconnected in block <main>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_108/Output_Registers/XLXI_30> is unconnected in block <main>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_108/Output_Registers/XLXI_32> is unconnected in block <main>.
+   It will be removed from the design.
+WARNING:Xst:2677 - Node <Q_8> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_322>.
+WARNING:Xst:2677 - Node <Q_9> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_322>.
+WARNING:Xst:2677 - Node <Q_10> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_322>.
+WARNING:Xst:2677 - Node <Q_11> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_322>.
+WARNING:Xst:2677 - Node <Q_12> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_322>.
+WARNING:Xst:2677 - Node <Q_13> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_322>.
+WARNING:Xst:2677 - Node <Q_14> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_322>.
+WARNING:Xst:2677 - Node <Q_15> of sequential type is unconnected in block <XLXI_108/Output_Registers/XLXI_322>.
+WARNING:Xst:2677 - Node <COUNT_14> of sequential type is unconnected in block <XLXI_108/Program_Counter>.
+WARNING:Xst:2677 - Node <COUNT_15> of sequential type is unconnected in block <XLXI_108/Program_Counter>.
+WARNING:Xst:1290 - Hierarchical block <XLXI_108/Input_Stablilizer_Selector/XLXI_50> is unconnected in block <main>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_108/Input_Stablilizer_Selector/XLXI_47> is unconnected in block <main>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_108/Input_Stablilizer_Selector/XLXI_44> is unconnected in block <main>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_108/Input_Stablilizer_Selector/XLXI_41> is unconnected in block <main>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_108/Input_Stablilizer_Selector/XLXI_38> is unconnected in block <main>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_108/Input_Stablilizer_Selector/XLXI_35> is unconnected in block <main>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_108/Input_Stablilizer_Selector/XLXI_32> is unconnected in block <main>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_108/Input_Stablilizer_Selector/XLXI_29> is unconnected in block <main>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <XLXI_108/Input_Stablilizer_Selector/XLXI_26> is unconnected in block <main>.
+   It will be removed from the design.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block main, actual ratio is 19.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 615
+ Flip-Flops                                            : 615
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : main.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 1776
+#      AND2                        : 49
+#      AND2B1                      : 1
+#      AND3                        : 3
+#      AND3B1                      : 1
+#      AND3B2                      : 1
+#      AND4                        : 7
+#      AND4B2                      : 1
+#      AND4B3                      : 1
+#      AND5                        : 1
+#      BUF                         : 414
+#      GND                         : 24
+#      INV                         : 19
+#      LUT1                        : 14
+#      LUT2                        : 44
+#      LUT3                        : 289
+#      LUT4                        : 171
+#      LUT5                        : 28
+#      LUT6                        : 469
+#      MULT_AND                    : 28
+#      MUXCY                       : 115
+#      OR2                         : 1
+#      OR2B1                       : 1
+#      VCC                         : 9
+#      XNOR2                       : 1
+#      XOR2                        : 4
+#      XORCY                       : 80
+# FlipFlops/Latches                : 621
+#      FD                          : 11
+#      FDC                         : 32
+#      FDCE                        : 565
+#      FDE                         : 13
+# RAMS                             : 36
+#      RAMB16BWER                  : 27
+#      RAMB8BWER                   : 9
+# Clock Buffers                    : 3
+#      BUFG                        : 3
+# IO Buffers                       : 78
+#      IBUF                        : 45
+#      IBUFG                       : 1
+#      OBUF                        : 28
+#      OBUFDS                      : 4
+# Logical                          : 1
+#      NOR2                        : 1
+# DSPs                             : 1
+#      DSP48A1                     : 1
+# Others                           : 1
+#      PLL_ADV                     : 1
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9tqg144-2 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             621  out of  11440     5%  
+ Number of Slice LUTs:                 1034  out of   5720    18%  
+    Number used as Logic:              1034  out of   5720    18%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:   1655
+   Number with an unused Flip Flop:    1034  out of   1655    62%  
+   Number with an unused LUT:           621  out of   1655    37%  
+   Number of fully used LUT-FF pairs:     0  out of   1655     0%  
+   Number of unique control sets:        59
+
+IO Utilization: 
+ Number of IOs:                          82
+ Number of bonded IOBs:                  82  out of    102    80%  
+
+Specific Feature Utilization:
+ Number of Block RAM/FIFO:               32  out of     32   100%  
+    Number using Block RAM only:         32
+ Number of BUFG/BUFGCTRLs:                3  out of     16    18%  
+ Number of DSP48A1s:                      1  out of     16     6%  
+ Number of PLL_ADVs:                      1  out of      2    50%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+--------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+Clock Signal                          | Clock buffer(FF name)                                                                                                                                        | Load  |
+--------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+XLXI_2/XLXI_1/pll_base_inst/CLKOUT0   | BUFG                                                                                                                                                         | 612   |
+XLXI_2/XLXI_1/pll_base_inst/CLKOUT1   | BUFG                                                                                                                                                         | 45    |
+XLXN_233                              | NONE(XLXI_108/Arithmetic_Logic_Unit/Multiplier/XLXI_1/XLXI_1)                                                                                                | 1     |
+XLXI_108/General_Purpose_RAM/XLXI_1/N1| NONE(XLXI_108/General_Purpose_RAM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram)| 8     |
+XLXI_108/Instruction_ROM/XLXI_1/N1    | NONE(XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram)   | 28    |
+--------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 21.064ns (Maximum Frequency: 47.474MHz)
+   Minimum input arrival time before clock: 8.037ns
+   Maximum output required time after clock: 6.900ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'XLXI_2/XLXI_1/pll_base_inst/CLKOUT0'
+  Clock period: 21.064ns (frequency: 47.474MHz)
+  Total number of paths / destination ports: 1519540 / 1460
+-------------------------------------------------------------------------
+Delay:               21.064ns (Levels of Logic = 24)
+  Source:            XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe_3 (FF)
+  Destination:       XLXI_108/Flag_Register/Q_7 (FF)
+  Source Clock:      XLXI_2/XLXI_1/pll_base_inst/CLKOUT0 rising
+  Destination Clock: XLXI_2/XLXI_1/pll_base_inst/CLKOUT0 rising
+
+  Data Path: XLXI_108/Instruction_ROM/XLXI_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe_3 to XLXI_108/Flag_Register/Q_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q             59   0.525   1.999  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe_3 (U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe<3>)
+     LUT4:I2->O           27   0.250   1.891  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux1011 (U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux101)
+     LUT6:I0->O            1   0.254   0.681  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux173 (douta<24>)
+     end scope: 'XLXI_108/Instruction_ROM/XLXI_1:douta<24>'
+     BUF:I->O              3   0.710   0.765  XLXI_108/Instruction_Decode_Unit/XLXI_47 (XLXI_108/ID<0>)
+     BUF:I->O             24   0.710   1.379  XLXI_108/Control_Unit/XLXI_149 (XLXI_108/ALU_OP<0>)
+     INV:I->O             37   0.710   1.603  XLXI_108/Arithmetic_Logic_Unit/XLXI_2 (XLXI_108/Arithmetic_Logic_Unit/XLXN_13)
+     begin scope: 'XLXI_108/Arithmetic_Logic_Unit/Adder_Subtracter:ADD'
+     INV:I->O              2   0.255   0.725  ADD_inv2_INV_0 (ADD_inv)
+     MUXCY:CI->O           1   0.023   0.000  Mmux_adsu_p.adsu_tmp_A_rs_cy<0> (Mmux_adsu_p.adsu_tmp_A_rs_cy<0>)
+     MUXCY:CI->O           1   0.023   0.000  Mmux_adsu_p.adsu_tmp_A_rs_cy<1> (Mmux_adsu_p.adsu_tmp_A_rs_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  Mmux_adsu_p.adsu_tmp_A_rs_cy<2> (Mmux_adsu_p.adsu_tmp_A_rs_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  Mmux_adsu_p.adsu_tmp_A_rs_cy<3> (Mmux_adsu_p.adsu_tmp_A_rs_cy<3>)
+     MUXCY:CI->O           1   0.023   0.000  Mmux_adsu_p.adsu_tmp_A_rs_cy<4> (Mmux_adsu_p.adsu_tmp_A_rs_cy<4>)
+     XORCY:CI->O           1   0.206   0.682  Mmux_adsu_p.adsu_tmp_A_rs_xor<5> (Mmux_adsu_p.adsu_tmp_rs_A<5>)
+     LUT3:I2->O            1   0.254   0.000  Mmux_adsu_p.adsu_tmp_rs_lut<5> (Mmux_adsu_p.adsu_tmp_rs_lut<5>)
+     MUXCY:S->O            1   0.215   0.000  Mmux_adsu_p.adsu_tmp_rs_cy<5> (Mmux_adsu_p.adsu_tmp_rs_cy<5>)
+     XORCY:CI->O           1   0.206   0.682  Mmux_adsu_p.adsu_tmp_rs_xor<6> (S<6>)
+     end scope: 'XLXI_108/Arithmetic_Logic_Unit/Adder_Subtracter:S<6>'
+     LUT6:I5->O            1   0.709   0.682  XLXI_108/Arithmetic_Logic_Unit/Arithmetic_Mode_Selector/XLXI_38 (XLXI_108/Arithmetic_Logic_Unit/XLXN_54<6>)
+     begin scope: 'XLXI_108/Arithmetic_Logic_Unit/Arithmetic_Logic_Selector/XLXI_7:D0'
+     LUT3:I2->O            3   0.254   1.221  Mmux_O11 (O)
+     end scope: 'XLXI_108/Arithmetic_Logic_Unit/Arithmetic_Logic_Selector/XLXI_7:O'
+     begin scope: 'XLXI_108/Arithmetic_Logic_Unit/XLXI_68:I6'
+     LUT6:I0->O            1   0.254   0.682  O1 (O1)
+     LUT6:I5->O            2   0.254   1.181  O3 (O)
+     end scope: 'XLXI_108/Arithmetic_Logic_Unit/XLXI_68:O'
+     NOR2:I0->O            1   0.254   0.681  XLXI_108/Arithmetic_Logic_Unit/XLXI_69 (XLXI_108/XLXN_1<7>)
+     begin scope: 'XLXI_108/Flag_Register:D<7>'
+     FDCE:D                    0.074          Q_7
+    ----------------------------------------
+    Total                     21.064ns (6.210ns logic, 14.854ns route)
+                                       (29.5% logic, 70.5% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'XLXI_2/XLXI_1/pll_base_inst/CLKOUT1'
+  Clock period: 6.284ns (frequency: 159.131MHz)
+  Total number of paths / destination ports: 129 / 84
+-------------------------------------------------------------------------
+Delay:               6.284ns (Levels of Logic = 3)
+  Source:            XLXI_108/GFX_Instruction_Transmitter/XLXI_97/q_tmp (FF)
+  Destination:       XLXI_108/GFX_Instruction_Transmitter/XLXI_96 (FF)
+  Source Clock:      XLXI_2/XLXI_1/pll_base_inst/CLKOUT1 rising
+  Destination Clock: XLXI_2/XLXI_1/pll_base_inst/CLKOUT1 rising
+
+  Data Path: XLXI_108/GFX_Instruction_Transmitter/XLXI_97/q_tmp to XLXI_108/GFX_Instruction_Transmitter/XLXI_96
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             2   0.525   1.156  q_tmp (q_tmp)
+     end scope: 'XLXI_108/GFX_Instruction_Transmitter/XLXI_97:Q'
+     AND2:I1->O           39   0.279   2.092  XLXI_108/GFX_Instruction_Transmitter/XLXI_266 (XLXI_108/GFX_Instruction_Transmitter/TXE)
+     AND2B1:I0->O         32   0.254   1.519  XLXI_108/GFX_Instruction_Transmitter/XLXI_119 (XLXI_108/GFX_Instruction_Transmitter/CLRNTXE)
+     FDC:CLR                   0.459          XLXI_108/GFX_Instruction_Transmitter/XLXI_96
+    ----------------------------------------
+    Total                      6.284ns (1.517ns logic, 4.767ns route)
+                                       (24.1% logic, 75.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'XLXI_2/XLXI_1/pll_base_inst/CLKOUT0'
+  Total number of paths / destination ports: 965 / 513
+-------------------------------------------------------------------------
+Offset:              8.037ns (Levels of Logic = 22)
+  Source:            BTN3 (PAD)
+  Destination:       XLXI_108/Stall_Counter/COUNT_15 (FF)
+  Destination Clock: XLXI_2/XLXI_1/pll_base_inst/CLKOUT0 rising
+
+  Data Path: BTN3 to XLXI_108/Stall_Counter/COUNT_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.328   1.137  BTN3_IBUF (BTN3_IBUF)
+     AND4B2:I0->O         12   0.254   1.345  XLXI_108/XLXI_262 (XLXI_108/RUN)
+     AND4:I2->O            2   0.433   0.725  XLXI_108/Control_Unit/XLXI_148 (XLXI_108/STL_CNT_L)
+     begin scope: 'XLXI_108/Stall_Counter:L'
+     INV:I->O             17   0.255   1.485  Mcount_COUNT1_INV_0 (L_inv)
+     LUT4:I0->O            1   0.254   0.000  Mcount_COUNT_lut<0> (Mcount_COUNT_lut<0>)
+     MUXCY:S->O            1   0.215   0.000  Mcount_COUNT_cy<0> (Mcount_COUNT_cy<0>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_COUNT_cy<1> (Mcount_COUNT_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_COUNT_cy<2> (Mcount_COUNT_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_COUNT_cy<3> (Mcount_COUNT_cy<3>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_COUNT_cy<4> (Mcount_COUNT_cy<4>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_COUNT_cy<5> (Mcount_COUNT_cy<5>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_COUNT_cy<6> (Mcount_COUNT_cy<6>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_COUNT_cy<7> (Mcount_COUNT_cy<7>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_COUNT_cy<8> (Mcount_COUNT_cy<8>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_COUNT_cy<9> (Mcount_COUNT_cy<9>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_COUNT_cy<10> (Mcount_COUNT_cy<10>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_COUNT_cy<11> (Mcount_COUNT_cy<11>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_COUNT_cy<12> (Mcount_COUNT_cy<12>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_COUNT_cy<13> (Mcount_COUNT_cy<13>)
+     MUXCY:CI->O           0   0.023   0.000  Mcount_COUNT_cy<14> (Mcount_COUNT_cy<14>)
+     XORCY:CI->O           1   0.206   0.000  Mcount_COUNT_xor<15> (Mcount_COUNT16)
+     FDCE:D                    0.074          COUNT_15
+    ----------------------------------------
+    Total                      8.037ns (3.345ns logic, 4.692ns route)
+                                       (41.6% logic, 58.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'XLXI_2/XLXI_1/pll_base_inst/CLKOUT0'
+  Total number of paths / destination ports: 28 / 28
+-------------------------------------------------------------------------
+Offset:              6.900ns (Levels of Logic = 4)
+  Source:            XLXI_108/Output_Registers/XLXI_8/Q_3 (FF)
+  Destination:       SSD_COM<3> (PAD)
+  Source Clock:      XLXI_2/XLXI_1/pll_base_inst/CLKOUT0 rising
+
+  Data Path: XLXI_108/Output_Registers/XLXI_8/Q_3 to SSD_COM<3>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             1   0.525   0.681  Q_3 (Q_3)
+     end scope: 'XLXI_108/Output_Registers/XLXI_8:Q<3>'
+     BUF:I->O              1   0.710   0.681  XLXI_44/XLXI_4 (XLXN_91<3>)
+     BUF:I->O              1   0.710   0.681  XLXI_45/XLXI_4 (SSD_COM_3_OBUF)
+     OBUF:I->O                 2.912          SSD_COM_3_OBUF (SSD_COM<3>)
+    ----------------------------------------
+    Total                      6.900ns (4.857ns logic, 2.043ns route)
+                                       (70.4% logic, 29.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'XLXI_2/XLXI_1/pll_base_inst/CLKOUT1'
+  Total number of paths / destination ports: 8 / 8
+-------------------------------------------------------------------------
+Offset:              4.118ns (Levels of Logic = 1)
+  Source:            XLXI_108/GFX_Instruction_Transmitter/XLXI_105 (FF)
+  Destination:       K5_1 (PAD)
+  Source Clock:      XLXI_2/XLXI_1/pll_base_inst/CLKOUT1 rising
+
+  Data Path: XLXI_108/GFX_Instruction_Transmitter/XLXI_105 to K5_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               1   0.525   0.681  XLXI_108/GFX_Instruction_Transmitter/XLXI_105 (XLXN_228)
+     OBUFDS:I->O               2.912          XLXI_32 (K5_1)
+    ----------------------------------------
+    Total                      4.118ns (3.437ns logic, 0.681ns route)
+                                       (83.5% logic, 16.5% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock XLXI_2/XLXI_1/pll_base_inst/CLKOUT0
+-----------------------------------+---------+---------+---------+---------+
+                                   | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                       |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-----------------------------------+---------+---------+---------+---------+
+XLXI_2/XLXI_1/pll_base_inst/CLKOUT0|   21.064|         |         |         |
+XLXN_233                           |    9.836|         |         |         |
+-----------------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock XLXI_2/XLXI_1/pll_base_inst/CLKOUT1
+-----------------------------------+---------+---------+---------+---------+
+                                   | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                       |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-----------------------------------+---------+---------+---------+---------+
+XLXI_2/XLXI_1/pll_base_inst/CLKOUT0|    2.926|         |         |         |
+XLXI_2/XLXI_1/pll_base_inst/CLKOUT1|    6.284|         |         |         |
+-----------------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock XLXN_233
+-----------------------------------+---------+---------+---------+---------+
+                                   | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                       |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-----------------------------------+---------+---------+---------+---------+
+XLXI_2/XLXI_1/pll_base_inst/CLKOUT0|   11.916|         |         |         |
+-----------------------------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 12.00 secs
+Total CPU time to Xst completion: 11.93 secs
+ 
+--> 
+
+Total memory usage is 4552612 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  495 (   0 filtered)
+Number of infos    :   32 (   0 filtered)
+

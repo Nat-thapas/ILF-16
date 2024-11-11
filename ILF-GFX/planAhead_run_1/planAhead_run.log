@@ -1,0 +1,114 @@
+
+****** PlanAhead v14.7
+  **** Build 321239 by xbuild on Fri Sep 27 19:31:35 MDT 2013
+    ** Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
+
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Device 21-36] Loading parts and site information from D:/Programs/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [D:/Programs/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [D:/Programs/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source D:/Personal/Projects/ILF-16/ILF-GFX/pa.fromHdl.tcl
+# create_project -name ILF-GFX -dir "D:/Personal/Projects/ILF-16/ILF-GFX/planAhead_run_1" -part xc6slx9tqg144-2
+# set_param project.pinAheadLayout yes
+# set srcset [get_property srcset [current_run -impl]]
+# set_property target_constrs_file "main.ucf" [current_fileset -constrset]
+Adding file 'D:/Personal/Projects/ILF-16/ILF-GFX/main.ucf' to fileset 'constrs_1'
+# set hdlfile [add_files [list {ipcore_dir/h_counter.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {ipcore_dir/v_counter.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {ipcore_dir/vgaclk_pll.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {ipcore_dir/sdp_vram.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {ipcore_dir/sys_rx_clk_pll.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {fd32ce.vhf}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {bus_splicer.vhf}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {bus_reverser.vhf}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {v_counter_wrapper.vhf}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {vgaclk_pll_wrapper.vhf}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {sys_rx_pll_wrapper.vhf}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {spacewire_rx_x2.vhf}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {sdp_vram_wrapper.vhf}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {h_counter_wrapper.vhf}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {decoder.vhf}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {buf4be.vhf}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {main.vhf}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set_property top main $srcset
+# add_files [list {main.ucf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/h_counter.ncf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/rx_buffer_fifo.ncf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/sdp_vram.ncf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/tdp_vram.ncf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/vram.ncf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/v_counter.ncf}] -fileset [get_property constrset [current_run]]
+# open_rtl_design -part xc6slx9tqg144-2
+Using Verific elaboration
+Parsing VHDL file "D:/Programs/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Parsing VHDL file "D:/Programs/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Parsing VHDL file "D:/Personal/Projects/ILF-16/ILF-GFX/ipcore_dir/v_counter.vhd" into library work
+Parsing VHDL file "D:/Personal/Projects/ILF-16/ILF-GFX/ipcore_dir/vgaclk_pll.vhd" into library work
+Parsing VHDL file "D:/Personal/Projects/ILF-16/ILF-GFX/ipcore_dir/sys_rx_clk_pll.vhd" into library work
+Parsing VHDL file "D:/Personal/Projects/ILF-16/ILF-GFX/ipcore_dir/sdp_vram.vhd" into library work
+Parsing VHDL file "D:/Personal/Projects/ILF-16/ILF-GFX/ipcore_dir/h_counter.vhd" into library work
+Parsing VHDL file "D:/Personal/Projects/ILF-16/ILF-GFX/main.vhf" into library work
+CRITICAL WARNING: [EDIF 20-96] Could not resolve non-primitive black box cell 'h_counter' instantiated as 'XLXI_1' [D:/Personal/Projects/ILF-16/ILF-GFX/main.vhf:404]
+Resolution: File names need to match cell names: an EDIF definition will be found in h_counter.edf; an HDL definition may be placed in any Verilog/VHDL file.
+CRITICAL WARNING: [EDIF 20-96] Could not resolve non-primitive black box cell 'v_counter' instantiated as 'XLXI_1' [D:/Personal/Projects/ILF-16/ILF-GFX/main.vhf:373]
+Resolution: File names need to match cell names: an EDIF definition will be found in v_counter.edf; an HDL definition may be placed in any Verilog/VHDL file.
+CRITICAL WARNING: [EDIF 20-96] Could not resolve non-primitive black box cell 'sdp_vram' instantiated as 'XLXI_1' [D:/Personal/Projects/ILF-16/ILF-GFX/main.vhf:340]
+Resolution: File names need to match cell names: an EDIF definition will be found in sdp_vram.edf; an HDL definition may be placed in any Verilog/VHDL file.
+Loading clock regions from D:/Programs/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockRegion.xml
+Loading clock buffers from D:/Programs/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockBuffers.xml
+Loading package pin functions from D:/Programs/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/PinFunctions.xml...
+Loading package from D:/Programs/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/tqg144/Package.xml
+Loading io standards from D:/Programs/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/IOStandards.xml
+Loading device configuration modes from D:/Programs/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/ConfigModes.xml
+Loading list of drcs for the architecture : D:/Programs/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/drc.xml
+Parsing UCF File [D:/Personal/Projects/ILF-16/ILF-GFX/main.ucf]
+Finished Parsing UCF File [D:/Personal/Projects/ILF-16/ILF-GFX/main.ucf]
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Phase 0 | Netlist Checksum: c7c786e8
+open_rtl_design: Time (s): elapsed = 00:00:05 . Memory (MB): peak = 591.137 ; gain = 103.867
+update_compile_order -fileset sim_1
+set_property out_term UNTUNED_50 [get_ports [list K1_1]]
+set_property out_term UNTUNED_50 [get_ports [list K1_3]]
+save_constraints
+exit
+ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
+INFO: [Common 17-206] Exiting PlanAhead at Mon Nov 11 02:16:46 2024...
+INFO: [Common 17-83] Releasing license: PlanAhead

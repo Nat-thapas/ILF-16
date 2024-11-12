@@ -72,7 +72,7 @@ The ILF-16 supports a total of 256 instructions. Currently, the following is ava
 | Binary Identifier | Hex Identifier | Name     | Have Dest | Arguments | Full name                     | Description                                  |
 |------------------:|---------------:|----------|-----------|-----------|-------------------------------|----------------------------------------------|
 | 00000000          | 00             | NOP      | False     | 0         | No operation                  | Do nothing (takes 4 cycles)                  |
-| 00000100          | 04             | STL      | False     | 1         | Stall                         | Do nothing for A cycles                      |
+| 00000100          | 04             | STL      | False     | 1         | Stall                         | Do nothing for A clock cycles (not CPU cycle) |
 | 00001000          | 08             | HLT      | False     | 0         | Halt                          | Stop the CPU until restart                   |
 | 00010000          | 10             | ADD      | True      | 2         | Add                           | $D = A + B                                   |
 | 00010001          | 11             | SUB      | True      | 2         | Subtract                      | $D = A - B                                   |

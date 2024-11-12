@@ -48,8 +48,8 @@ Example of instructions and their descriptions:
 - BGT ~+2      : Branch to instruction at address 2 greater than the current instruction if the greater than flag is set
 - NOT $2 $1    : Invert the bits in $1 (register 1) and store the result in $2 (register 2)
 - More example of instruction usage can be found in bad-apple.asm and vga-demo.asm
-Instruction Macros
-- Apart from the instructions specified in the [Instuction Identifiers](#instruction-identifiers) section, there are 5 included instruction macro that can be used:
+Macros and pseudo instructions
+- Apart from the instructions specified in the [Instuction Identifiers](#instruction-identifiers) section, there are 5 included psuedo instructions that can be used:
     1. PSH A : Push the value A on to the stack. A can be immediate value or a register
     2. POP R : Pop the value from the stack and store it to register R
     3. CAL   : Call a subroutine (branch to a label, when RET instruction is encounter, jump back to the next instruction after CAL)

@@ -1,7 +1,17 @@
 # ILF-16
 ILF-16 is a 16-bit cpu that runs on Spartan-6 FPGA.
 The ILF-16 have 16 registers indexed with a 4-bit register identifier where R0 is the zero (readonly) register and R1-R15 are general purpose registers.
+If assembly macros is used, R14 and R15 becomes temporary register and stack pointer register respectively.
 
+## Specification And Details
+ILF-16 is a load-store, harvard architecture 16 bits CPU. The CPU runs on a reduced instruction set with a flag register.
+- 52 KiB (13,312 words) of instruction ROM.
+- 16 KiB (8,192 words) of general purpose RAM (addressable 1 word at a time).
+- 48 MHz clock
+- 4 clocks per instruction (this is true for all instructions, including LOD STR and branch instructions, there is no pipelining or any other kind of performance optimization)
+- 16x 16-bit general purpose input ports
+- 16x 16-bit general purpose output ports
+- 480 Mbps Spacewire transmitter dedicated for communication with ILF-GFX
 
 ## ISA
 
@@ -25,9 +35,34 @@ The instruction layout for the second (lower) 16 bits is dependent on the type o
     - AAAAAAAAAAAABBBB : A is a 12-bit immediate value, B is a register
     - 0000AAAA0000BBBB : A, B is a register
 
+### Instruction Format For Assembling
+The format for assembly written for ILF-16 is: <INST> <DEST> <ARG_A> <ARG_B>
+- INST is the instruction name.
+- DEST is the destination identifier. This is not always used as the destination, see [Instuction Identifiers](#instruction-identifiers) for more details. Leave blank if not used.
+- ARG_A is the A argument. Leave blank if not used
+- ARG_B is the B argument. Leave blank if not used
+Example of instructions and their descriptions:
+- ADD $1 $2 5  : Add $2 (the value in register 2) and 5 (the literal number 5) together and store the result in $1 (register 1)
+- NOP          : Do nothing
+- BRN .label   : Branch to label
+- BGT ~+2      : Branch to instruction at address 2 greater than the current instruction if the greater than flag is set
+- NOT $2 $1    : Invert the bits in $1 (register 1) and store the result in $2 (register 2)
+- More example of instruction usage can be found in bad-apple.asm and vga-demo.asm
+Instruction Macros
+- Apart from the instructions specified in the [Instuction Identifiers](#instruction-identifiers) section, there are 5 included instruction macro that can be used:
+    1. PSH A : Push the value A on to the stack. A can be immediate value or a register
+    2. POP R : Pop the value from the stack and store it to register R
+    3. CAL   : Call a subroutine (branch to a label, when RET instruction is encounter, jump back to the next instruction after CAL)
+    4. RET   : Return from a subroutine (branch back to the instruction after the CAL instruction that called this subroutine)
+    5. DW I  : Define word, put the immediate value I into the next available memory space. DW instruction put data into memory sequentially, starting at #0. Any label defined for this instruction will point to the RAM location of the stored data. To define multiple words, use DW A B C D . . . (eg. DW 0x5 0x9 0x15 0xF8)
+Special Directives
+- @define A B : define A to be B, for example:
+    - @define x_position R1 : define x_position to equal R1, anytime x_position is used as an argument in an instruction, it will automatically be converted to R1 by the assembler
+- .name : define a label at that location, lable name can include any alphabets, numbers and not that special characters (_-!@/? etc.). Spaces is not allowed since it will make the argument have no termination, more special characters are not allowed cause I don't know how many of them are there and such can't account for them in testing.
+
 ### Instruction Identifiers
-The ILF-16 supports a total of 256 instructions. Currently, the following is available/planned:
-- D  : Destination identifier
+The ILF-16 supports a total of 256 instructions. Currently, the following is available:
+- D  : Destination identifier (this is not always used as the destination)
 - A  : First argument (can be either an immediate value or the value in the register at this identifier)
 - B  : Second argument (can be either an immediate value or the value in the register at this identifier)
 - $X : Value of the register number X
@@ -124,25 +159,18 @@ The ILF-16 supports a total of 256 instructions. Currently, the following is ava
 | 11000100          | C4             | STR      | True      | 1         | Store                         | #A = $D                                      |
 | 11001000          | C8             | IN       | True      | 1         | Input                         | $D = %A                                      |
 | 11001100          | CC             | OUT      | True      | 1         | Output                        | %A = $D                                      |
-| 11010000          | D0             | GFXCLR   | False     | 0         | GFX clear                     | Set the entire current frame buffer to color 0 |
-| 11010001          | D1             | GFXSP    | True      | 2         | GFX set pixel                 | Set pixel at (A, B) to color $D              |
-| 11010010          | D2             | GFXSC    | True      | 2         | GFX set cursor                | GFX cursor will be set to (A, B) with draw property $D |
-| 11010011          | D3             | GFXDL    | True      | 2         | GFX draw line                 | Draw a line from cursor to (A, B) with cursor property as width and color $D |
-| 11010100          | D4             | GFXDS    | True      | 2         | GFX draw square               | Draw a square starting at cursor with width A and height B with cursor property as line width, if cursor property is 0xFF then fill the square |
-| 11010111          | D7             | GFXFC    | False     | 0         | GFX flip and clear            | Flip the frame buffer and clear the one that will be drawn to |
-| 11011000          | D8             | SFXSFI   | True      | 1         | SFX set frequency (IMM D)     | Set channel D frequency to A Hz              |
-| 11011001          | D9             | SFXSAI   | True      | 1         | SFX set amplitude (IMM D)     | Set channel D amplitude (volume) to A / 0xFFFF |
-| 11011010          | DA             | SFXPI    | True      | 1         | SFX play (IMM D)              | Set channel D to play for A ms. If A = 0xFFFF, play until stop |
-| 11011011          | DB             | SFXSTI   | True      | 0         | SFX stop (IMM D)              | Stop playing sound on channel D              |
-| 11011100          | DC             | SFXSF    | True      | 1         | SFX set frequency             | Set channel $D frequency to A Hz             |
-| 11011101          | DD             | SFXSA    | True      | 1         | SFX set amplitude             | Set channel $D amplitude (volume) to A / 0xFFFF |
-| 11011110          | DE             | SFXP     | True      | 1         | SFX play                      | Set channel $D to play for A ms. If A = 0xFFFF, play until stop |
-| 11011111          | DF             | SFXST    | True      | 0         | SFX stop                      | Stop playing sound on channel $D             |
+| 11010000          | D0             | GFXSP    | True      | 2         | GFX set pixel                 | Set pixel at (x: A, y: B) to color $D        |
 
 Notes: 
 - Reserved instructions are side effect instructions from how the CPU decode instructions, these may or may not work and have undefined behavior.
 - All instructions from 0x10 to 0x1F (ALU instructions) will set all the ALU flags according to the arguments provided, the TEST instruction simply set the ALU inputs, load the resulting flag into the flag register and do nothing with the ALU output (by sending it to R0, which is read-only).
-- Set instructions set the destination register to A if the condition is true, otherwise set the register to B. If only one argument is provided B is replaced with 0.
+- Set instructions set the destination register to A if the condition is true, otherwise set the register to B. If only one argument is provided B will be set to 0.
+
+## Buttons
+The ILF-16 by default have 3 buttons that have functions:
+- Button 1 clears the Spacewire input (from ILF-EXTIO, if attached) buffer.
+- Button 2 start the operation, ILF-16 will not do anything before this button is pressed. Pressing it again have no effect.
+- Button 3 temporarily stalls the ILF-16, ILF-16 will stop in its current state when this button is held. Releasing the button will resume the operation. Holding this button before starting have no effect.
 
 ## Internals
 
@@ -198,6 +226,15 @@ ILF-GFX is a "graphic processor" that is designed to be used with ILF-16, in its
 
 ## Communication
 The ILF-16 and ILF-GFX communicate with each other via 2 lanes of 240 Mbps Spacewire link (totaling 480 Mbps). The communication does not use the full Spacewire protocol but only the physical layer of it, since the ILF-GFX is connected on a dedicated port and will be the only device to connect to that port, any higher layer of the protocol is unnecessary.
+The data link have no redundancy, no error checking, no synchronization. As such the link will break with only a single bit of error on either lane. In case of an error, the ILF-GFX will not display the expected output, there are 2 ways to fix this.
+1. Temporarily stall the ILF-16 outside of any draw loop by holding push button 3, then clear the buffer of the ILF-GFX by pressing button 1, then resume the ILF-16.
+2. Reset both the ILF-16 and the ILF-GFX
+
+## Buttons
+The ILF-GFX have 1 button function. Button 1, when pressed, will clear the receive buffer of the Spacewire receiver.
+
+## Startup Sequence
+The recommended start sequence for ILF-16 attached to an ILF-GFX is to first reset the ILF-GFX board when the ILF-16 have powered up (but not started) then start the ILF-GFX by pressing button 2, then start the ILF-16 by pressing button 2.
 
 ## Output
 The ILF-GFX have 2 bits per color output. External DAC must be connected to this. The sync output can be used directly if the monitor supports 3.3v sync signals.
@@ -226,4 +263,14 @@ The default palette of ILF-GFX is the palette used on the [PICO-8](https://pico-
 
 
 # ILF-EXTIO
-ILF-EXTIO is an IO extension for the ILF-16. In its current state, only the on-board buttons are used.
+ILF-EXTIO is an unfinished and untested IO extension for the ILF-16. In its current state, only the on-board buttons are used.
+No more information about the ILF-EXTIO is available at this time.
+
+# Assembler
+
+The current version of the assembler is quite hastily thrown together, expect bugs during real usage. The warning and error system is not well implemented, do not rely on the assembler to catch your mistake, even something as bad and simple as wrong argument type usage will NOT be detected. There are plans to improve this in the future, including partial support for transpilation from [URCL](https://github.com/ModPunchtree/URCL)
+
+## Usage
+To use the assembler, simply call the assembler with the path to assembly file as the argument, the assembler will that assemble the code into 2 files:
+1. <name>.rom.coe : this is the memory coefficient file for the instruction ROM. Load this file into rom.xco
+2. <name>.ram.coe : this is the memory coefficient file for the general purpose RAM. This file will not contain memory data if no DW instruction is used. Load this file into ram.xco if neccessary.

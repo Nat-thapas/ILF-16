@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-LAPBOTTOM::  Mon Nov 11 23:36:52 2024
+LAPBOTTOM::  Tue Nov 12 10:06:15 2024
 
 par -w -intstyle ise -ol high -xe c -mt 4 main_map.ncd main.ncd main.pcf 
 
@@ -157,17 +157,17 @@ Phase  5  : 0 unrouted; (Setup:355, Hold:1182, Component Switching Limit:0)     
 
 Phase  6  : 0 unrouted; (Setup:264, Hold:1182, Component Switching Limit:0)     REAL time: 4 secs 
 
-Phase  7  : 0 unrouted; (Setup:0, Hold:1182, Component Switching Limit:0)     REAL time: 4 secs 
+Phase  7  : 0 unrouted; (Setup:0, Hold:1182, Component Switching Limit:0)     REAL time: 5 secs 
 
-Phase  8  : 0 unrouted; (Setup:0, Hold:1182, Component Switching Limit:0)     REAL time: 4 secs 
+Phase  8  : 0 unrouted; (Setup:0, Hold:1182, Component Switching Limit:0)     REAL time: 5 secs 
 
-Phase  9  : 0 unrouted; (Setup:0, Hold:1182, Component Switching Limit:0)     REAL time: 4 secs 
+Phase  9  : 0 unrouted; (Setup:0, Hold:1182, Component Switching Limit:0)     REAL time: 5 secs 
 
-Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 4 secs 
+Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 5 secs 
 
 Phase 11  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 5 secs 
 Total REAL time to Router completion: 5 secs 
-Total CPU time to Router completion (all processors): 5 secs 
+Total CPU time to Router completion (all processors): 4 secs 
 
 Generating "PAR" statistics.
 
@@ -256,7 +256,7 @@ All signals are completely routed.
 WARNING:Par:283 - There are 21 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
 Total REAL time to PAR completion: 5 secs 
-Total CPU time to PAR completion (all processors): 5 secs 
+Total CPU time to PAR completion (all processors): 4 secs 
 
 Peak Memory Usage:  4501 MB
 

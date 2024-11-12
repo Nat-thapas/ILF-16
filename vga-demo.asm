@@ -3,7 +3,7 @@
 @define color $8
 @define square_color $9
 
-LDI $9 15
+LDI square_color 15
 
 .frame
     LDI y_pos 0

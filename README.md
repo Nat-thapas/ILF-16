@@ -41,6 +41,7 @@ The format for assembly written for ILF-16 is: <INST> <DEST> <ARG_A> <ARG_B>
 - DEST is the destination identifier. This is not always used as the destination, see [Instuction Identifiers](#instruction-identifiers) for more details. Leave blank if not used.
 - ARG_A is the A argument. Leave blank if not used
 - ARG_B is the B argument. Leave blank if not used
+
 Example of instructions and their descriptions:
 - ADD $1 $2 5  : Add $2 (the value in register 2) and 5 (the literal number 5) together and store the result in $1 (register 1)
 - NOP          : Do nothing
@@ -48,6 +49,7 @@ Example of instructions and their descriptions:
 - BGT ~+2      : Branch to instruction at address 2 greater than the current instruction if the greater than flag is set
 - NOT $2 $1    : Invert the bits in $1 (register 1) and store the result in $2 (register 2)
 - More example of instruction usage can be found in bad-apple.asm and vga-demo.asm
+
 Macros and pseudo instructions
 - Apart from the instructions specified in the [Instuction Identifiers](#instruction-identifiers) section, there are 5 included psuedo instructions that can be used:
     1. PSH A : Push the value A on to the stack. A can be immediate value or a register
@@ -55,6 +57,7 @@ Macros and pseudo instructions
     3. CAL   : Call a subroutine (branch to a label, when RET instruction is encounter, jump back to the next instruction after CAL)
     4. RET   : Return from a subroutine (branch back to the instruction after the CAL instruction that called this subroutine)
     5. DW I  : Define word, put the immediate value I into the next available memory space. DW instruction put data into memory sequentially, starting at #0. Any label defined for this instruction will point to the RAM location of the stored data. To define multiple words, use DW A B C D . . . (eg. DW 0x5 0x9 0x15 0xF8)
+
 Special Directives
 - @define A B : define A to be B, for example:
     - @define x_position R1 : define x_position to equal R1, anytime x_position is used as an argument in an instruction, it will automatically be converted to R1 by the assembler

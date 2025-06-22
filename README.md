@@ -82,7 +82,7 @@ The ILF-16 supports a total of 256 instructions. Currently, the following is ava
 | 00010101          | 15             | SMUL     | True      | 2         | Signed multiply               | $D = A * B (signed, result is lower 16 bits) |
 | 00010110          | 16             | UMUL     | True      | 2         | Upper multiply                | $D = A * B (unsigned, result is upper 16 bits) |
 | 00010111          | 17             | SUMUL    | True      | 2         | Signed Upper multiply         | $D = A * B (signed, result is upper 16 bits) |
-| 00011000          | 18             | PASS     | True      | 1         | Passthrough                   | $D = A                                       |
+| 00011000          | 18             | TEST     | True      | 1         | Test (set flags)              | $D = A (set flags according to A, recommended that D = 0) |
 | 00011001          | 19             | NOT      | True      | 1         | Not                           | $D = ~A                                      |
 | 00011010          | 1A             | AND      | True      | 2         | And                           | $D = A & B                                   |
 | 00011011          | 1B             | OR       | True      | 2         | Or                            | $D = A | B                                   |

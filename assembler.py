@@ -2,7 +2,7 @@ import re
 import os
 import sys
 
-SPECIFICATIONS_FILE_PATH = "specifications.md"
+SPECIFICATIONS_FILE_PATH = "README.md"
 
 labels_generated = 0  # pylint: disable=invalid-name
 
@@ -321,6 +321,11 @@ def main() -> None:
     with open(SPECIFICATIONS_FILE_PATH, "r", encoding="utf-8") as specifications_file:
         specifications = specifications_file.read()
         instructions_data = get_instructions_data(specifications)
+        for inst, data in instructions_data.items():
+            if not data.have_destination and (
+                data.min_arguments == 1 or data.max_arguments == 1
+            ):
+                print(inst, end="|")
     if len(sys.argv) == 2:
         assembly_path = sys.argv[1]
     else:

@@ -1,0 +1,42 @@
+# ILF-16 Emulator
+
+Browser emulator and debugger for the ILF-16 CPU and ILF-GFX display. Assembles `.asm`
+source directly (same pipeline as `../assembler.py`) or loads `.rom.coe` / `.ram.coe` images.
+
+## Usage
+
+```sh
+pnpm install
+pnpm dev        # development server
+pnpm build      # static site in ./build (works from any sub-path)
+pnpm preview    # serve the production build
+pnpm test       # unit tests (assembler output is checked against the committed .coe files)
+pnpm check      # type check
+```
+
+- **Run / Pause** (F8), **Step** (F10), **Reset**. Click the editor gutter to set breakpoints.
+- **Speed**: *Real time* emulates the 48 MHz clock (12 MIPS, `STL` stalls for its true duration);
+  *Unlimited* runs as fast as the machine allows and `STL` takes no time.
+- Each of the 16 input ports can be switches, push buttons, a game controller, an analog stick or
+  an integer field. Each of the 16 output ports can be LEDs, a 4×4 LED matrix or an integer.
+- The display palette is editable (defaults to the ILF-GFX palette).
+
+## I/O bit layouts
+
+| Widget          | Layout                                                                                         |
+|-----------------|------------------------------------------------------------------------------------------------|
+| Game controller | bits 0–3 / 4–7 / 8–11: up, down, left, right of d-pad 1 / 2 / 3; bits 12–15: buttons A, B, X, Y |
+| Analog stick    | low byte: signed X, −127…+127 (right positive); high byte: signed Y, −127…+127 (up positive)                    |
+| 4×4 LED matrix  | bit 0 top-left, left to right, top to bottom                                                    |
+
+## Hardware details the emulator follows
+
+Taken from the schematics (`ILF-16/*.sch`, via the generated netlists) where they differ from or
+add to the top-level README:
+
+- `STL`, `HLT`, `LOD`, `STR`, `IN`, `OUT`, `GFXSP` decode on the top 6 opcode bits only; any other
+  undocumented opcode is a NOP.
+- Immediates are zero-extended. With one argument B is 0.
+- Flags are latched only by opcodes `0x10`–`0x1F`. Carry is the carry of A+B for even ALU ops and
+  the borrow of A−B for odd ones, whatever the operation.
+- Shifts by 16 or more give 0. RAM addresses wrap at 8192 words.

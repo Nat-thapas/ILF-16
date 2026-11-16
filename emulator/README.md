@@ -11,7 +11,7 @@ pnpm install
 pnpm dev        # development server
 pnpm build      # static site in ./build (works from any sub-path)
 pnpm preview    # serve the production build
-pnpm test       # unit tests (assembler output is checked against the committed .coe files)
+pnpm test       # unit tests (assembler output is checked against reference .coe files)
 pnpm check      # type check
 ```
 
@@ -19,7 +19,7 @@ pnpm check      # type check
   browser may ask once to allow multiple downloads.
 - The name box next to the save buttons is the `<name>` used for saved files. Opening a file or
   an example fills it in, and it can be changed at any time.
-- **Examples**: `vga-demo`, `bad-apple`, `mandelbrot` (fixed point maths with the multiplier),
+- **Examples** (from `../examples`): `vga-demo`, `bad-apple`, `mandelbrot` (fixed point maths with the multiplier),
   `game-of-life` (hold any bit of input 0 to reseed) and `snake` (set input 0 to *Game controller*,
   steer with d-pad 1, run in real time).
 - **Run / Pause** (F8), **Step** (F10), **Reset**. Click the editor gutter to set breakpoints.

@@ -6,7 +6,10 @@ import { Cpu } from './cpu';
 import { disassemble } from './disasm';
 
 const root = resolve(import.meta.dirname, '../../../..');
-const read = (name: string) => readFileSync(resolve(root, name), 'utf-8');
+/** Read an example program from the repository's examples folder. */
+const read = (name: string) => readFileSync(resolve(root, 'examples', name), 'utf-8');
+/** Read a .coe file written by the Python assembler, kept as a reference for the output format. */
+const fixture = (name: string) => readFileSync(resolve(import.meta.dirname, 'fixtures', name), 'utf-8');
 
 function asm(source: string): Program {
 	const result = assemble(source);
@@ -26,15 +29,12 @@ describe('assembler matches assembler-deprecated.py output', () => {
 	for (const name of ['vga-demo', 'bad-apple']) {
 		it(name, () => {
 			const program = asm(read(`${name}.asm`));
-			// The committed bad-apple.rom.coe encodes GFXSP as 0xD1 (older opcode); the hardware
-			// treats 0xD0-0xD7 identically, so compare with that opcode normalised.
-			const normalise = (w: number) => (w >>> 27 === 0xd0 >>> 3 ? (w & 0x00ffffff) | 0xd0000000 : w) >>> 0;
-			expect(Array.from(program.rom)).toEqual(parseCoe(read(`${name}.rom.coe`)).map(normalise));
-			expect(Array.from(program.ram)).toEqual(parseCoe(read(`${name}.ram.coe`)));
+			expect(Array.from(program.rom)).toEqual(parseCoe(fixture(`${name}.rom.coe`)));
+			expect(Array.from(program.ram)).toEqual(parseCoe(fixture(`${name}.ram.coe`)));
 			// The exported .coe text is identical to what assembler-deprecated.py wrote (bar line endings).
-			const text = (file: string) => read(file).replace(/\r\n/g, '\n');
+			const text = (file: string) => fixture(file).replace(/\r\n/g, '\n');
 			expect(toCoe(program.ram, 4)).toBe(text(`${name}.ram.coe`));
-			expect(toCoe(parseCoe(read(`${name}.rom.coe`)), 8)).toBe(text(`${name}.rom.coe`));
+			expect(toCoe(program.rom, 8)).toBe(text(`${name}.rom.coe`));
 		});
 	}
 });

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import vgaDemo from '../../../vga-demo.asm?raw';
-	import badApple from '../../../bad-apple.asm?raw';
-	import gameOfLife from '../../../game-of-life.asm?raw';
-	import mandelbrot from '../../../mandelbrot.asm?raw';
-	import snake from '../../../snake.asm?raw';
+	import vgaDemo from '../../../examples/vga-demo.asm?raw';
+	import badApple from '../../../examples/bad-apple.asm?raw';
+	import gameOfLife from '../../../examples/game-of-life.asm?raw';
+	import mandelbrot from '../../../examples/mandelbrot.asm?raw';
+	import snake from '../../../examples/snake.asm?raw';
 	import Debugger from '#lib/components/Debugger.svelte';
 	import Display from '#lib/components/Display.svelte';
 	import Editor from '#lib/components/Editor.svelte';

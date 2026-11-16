@@ -54,6 +54,13 @@ describe('assembler', () => {
 		expect(result.program!.rom[1]).toBe(0x11910642);
 		expect(result.diagnostics).toEqual([]);
 	});
+	it('warns about labels used with the wrong kind of memory, and repeated defines', () => {
+		const messages = (source: string) => assemble(source).diagnostics.map((d) => d.message);
+		expect(messages('.data\nDW 1\nBRN .data')[0]).toContain('data (DW) label');
+		expect(messages('.code\nNOP\nLOD $1 .code')[0]).toContain('code label');
+		expect(messages('@define a $1\n@define a $2\nNOP')[0]).toContain('already defined');
+		expect(messages('.data\nDW 1\n.code\nLOD $1 .data\nBRN .code')).toEqual([]);
+	});
 	it('maps addresses to source lines', () => {
 		const program = asm('NOP\nCAL .f\nHLT\n.f\nRET');
 		// addr 0 = generated LDI, 1 = NOP, 2-5 = CAL, 6 = HLT, 7-9 = RET
@@ -194,5 +201,97 @@ describe('cpu', () => {
 		// first pixels of the first frame: colour increments per pixel
 		expect(Array.from(cpu.vram.slice(0, 5))).toEqual([0, 1, 2, 3, 4]);
 		expect(cpu.vram[1 * 256]).toBe(1);
+	});
+});
+
+describe('examples', () => {
+	const load = (name: string) => {
+		const result = assemble(read(name));
+		expect(result.diagnostics).toEqual([]);
+		const cpu = new Cpu();
+		cpu.load(result.program!);
+		return { cpu, program: result.program! };
+	};
+
+	it('mandelbrot draws the set', () => {
+		const { cpu } = load('mandelbrot.asm');
+		expect(cpu.run(Infinity, 100_000_000, Infinity)).toBe('halted');
+		const at = (re: number, im: number) =>
+			cpu.vram[Math.round((im + 1.5) / (3 / 256)) * 256 + Math.round((re + 2.25) / (3 / 256))];
+		// inside: main cardioid, period-2 bulb
+		expect(at(0, 0)).toBe(0);
+		expect(at(-1, 0)).toBe(0);
+		expect(at(-0.1, 0.7)).toBe(0);
+		// outside
+		expect(at(-2.2, 1.4)).not.toBe(0);
+		expect(at(0.5, 0.5)).not.toBe(0);
+		expect(at(-0.75, 0.5)).not.toBe(0);
+		expect(cpu.outputs[0]).toBe(255);
+	});
+
+	it('game of life follows the rules on a wrapping grid', () => {
+		const { cpu, program } = load('game-of-life.asm');
+		cpu.breakpoints[program.romLabels.get('.generation')!] = 1;
+		const grid = () =>
+			Array.from({ length: 64 * 64 }, (_, i) => cpu.ram[((i >> 6) + 1) * 66 + (i & 63) + 1]);
+		expect(cpu.run(Infinity, 10_000_000, Infinity)).toBe('breakpoint');
+		let expected = grid();
+		const alive = expected.reduce((a, b) => a + b, 0);
+		expect(alive).toBeGreaterThan(700);
+		expect(alive).toBeLessThan(1400);
+		for (let gen = 0; gen < 4; gen++) {
+			expected = expected.map((cell, i) => {
+				const x = i & 63;
+				const y = i >> 6;
+				let count = 0;
+				for (let dy = -1; dy <= 1; dy++)
+					for (let dx = -1; dx <= 1; dx++)
+						if (dx || dy) count += expected[(((y + dy) & 63) << 6) | ((x + dx) & 63)];
+				return count === 3 || (count === 2 && cell) ? 1 : 0;
+			});
+			expect(cpu.run(Infinity, 10_000_000, Infinity, true)).toBe('breakpoint');
+			expect(grid()).toEqual(expected);
+			// every cell is drawn as a 3x3 square
+			expect(Array.from(expected, (_, i) => (cpu.vram[(i >> 6) * 4 * 256 + (i & 63) * 4 + 257] ? 1 : 0))).toEqual(expected);
+		}
+		expect(cpu.outputs[0]).toBe(3);
+	});
+
+	it('snake can be steered to the food and crashes into the wall', () => {
+		const { cpu, program } = load('snake.asm');
+		cpu.breakpoints[program.romLabels.get('.tick')!] = 1;
+		expect(cpu.run(Infinity, 10_000_000, Infinity)).toBe('breakpoint');
+		const UP = 1, DOWN = 2, LEFT = 4, RIGHT = 8;
+		let head = 528;
+		let dir = RIGHT;
+		for (let moves = 0; moves < 400 && cpu.outputs[0] < 3; moves++) {
+			const board = Array.from(cpu.ram.slice(0, 1024));
+			expect(board[head]).toBe(1);
+			const food = board.indexOf(2);
+			expect(food).toBeGreaterThanOrEqual(0);
+			const dx = (food & 31) - (head & 31);
+			const dy = (food >> 5) - (head >> 5);
+			// go vertically first, then horizontally; never ask for a reversal
+			let want = dy < 0 ? UP : dy > 0 ? DOWN : dx < 0 ? LEFT : RIGHT;
+			if ((want | dir) === 3 || (want | dir) === 12) want = dx < 0 ? LEFT : dx > 0 ? RIGHT : dir;
+			if ((want | dir) === 3 || (want | dir) === 12) want = want & 3 ? RIGHT : DOWN;
+			cpu.inputs[0] = want;
+			expect(cpu.run(Infinity, 10_000_000, Infinity, true)).toBe('breakpoint');
+			dir = want;
+			head += { [UP]: -32, [DOWN]: 32, [LEFT]: -1, [RIGHT]: 1 }[dir]!;
+		}
+		expect(cpu.outputs[0]).toBe(3);
+		// 3 cells at the start plus 3 eaten, and one piece of food
+		const board = Array.from(cpu.ram.slice(0, 1024));
+		expect(board.filter((c) => c === 1).length).toBe(6);
+		expect(board.filter((c) => c === 2).length).toBe(1);
+
+		// run into the top wall: the game waits there for a key, without moving the head
+		cpu.inputs[0] = dir === DOWN ? LEFT : UP;
+		cpu.run(Infinity, 3_000_000, Infinity, true);
+		cpu.inputs[0] = UP;
+		cpu.breakpoints.fill(0);
+		cpu.breakpoints[program.romLabels.get('.wait_release')!] = 1;
+		expect(cpu.run(Infinity, 30_000_000, Infinity)).toBe('breakpoint');
 	});
 });

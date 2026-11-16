@@ -2,6 +2,9 @@
 	import { onMount } from 'svelte';
 	import vgaDemo from '../../../vga-demo.asm?raw';
 	import badApple from '../../../bad-apple.asm?raw';
+	import gameOfLife from '../../../game-of-life.asm?raw';
+	import mandelbrot from '../../../mandelbrot.asm?raw';
+	import snake from '../../../snake.asm?raw';
 	import Debugger from '#lib/components/Debugger.svelte';
 	import Display from '#lib/components/Display.svelte';
 	import Editor from '#lib/components/Editor.svelte';
@@ -13,7 +16,10 @@
 
 	const EXAMPLES: Record<string, string> = {
 		'vga-demo.asm': vgaDemo,
-		'bad-apple.asm': badApple
+		'bad-apple.asm': badApple,
+		'mandelbrot.asm': mandelbrot,
+		'game-of-life.asm': gameOfLife,
+		'snake.asm': snake
 	};
 	const SOURCE_KEY = 'ilf16.source.v1';
 	const NAME_KEY = 'ilf16.name.v1';
@@ -36,9 +42,33 @@
 
 	let source = loadSavedSource();
 	/** File name (without extension) of the source, used to name saved files. */
-	let sourceName = loadSavedName();
+	let sourceName = $state(loadSavedName());
 	/** Same for the loaded .coe image, when there is one. */
-	let imageName = '';
+	let imageName = $state('');
+
+	function saveName(name: string) {
+		try {
+			localStorage.setItem(NAME_KEY, name);
+		} catch {
+			// Ignore: the name just won't persist.
+		}
+	}
+
+	/** The name shown in the toolbar: opening a file or example sets it, and it can be edited. */
+	const fileName = {
+		get value() {
+			return rawImage ? imageName : sourceName;
+		},
+		set value(name: string) {
+			if (rawImage) imageName = name;
+			else {
+				sourceName = name;
+				saveName(name);
+			}
+		}
+	};
+	/** Name to save under: the field's text without characters that file names cannot have. */
+	const saveAs = () => fileName.value.replace(/[\\/:*?"<>|]/g, '').trim() || 'program';
 	const initialDoc = source;
 	let editor: Editor;
 	let fileInput: HTMLInputElement;
@@ -110,11 +140,7 @@
 	function showSource(text: string, name = sourceName) {
 		rawImage = '';
 		sourceName = name;
-		try {
-			localStorage.setItem(NAME_KEY, name);
-		} catch {
-			// Ignore: the name just won't persist.
-		}
+		saveName(name);
 		editor.setDoc(text);
 		assembleSource();
 	}
@@ -163,7 +189,7 @@
 	}
 
 	function saveSource() {
-		download(`${sourceName}.asm`, source);
+		download(`${saveAs()}.asm`, source);
 	}
 
 	/** Save the assembled program as <name>.rom.coe and <name>.ram.coe, like assembler-deprecated.py did. */
@@ -171,7 +197,7 @@
 		if (stale && !rawImage && !assembleSource()) return;
 		const program = emulator.program;
 		if (!program) return;
-		const name = rawImage ? imageName : sourceName;
+		const name = saveAs();
 		download(`${name}.rom.coe`, toCoe(program.rom, 8));
 		download(`${name}.ram.coe`, toCoe(program.ram, 4));
 		message = `Saved ${name}.rom.coe (${program.rom.length} instructions) and ${name}.ram.coe (${program.ram.length} words)`;
@@ -232,6 +258,15 @@
 			multiple
 			hidden
 			onchange={(e) => openFiles(e.currentTarget.files)}
+		/>
+		<input
+			class="file-name mono"
+			type="text"
+			aria-label="File name"
+			title="Name used for saved files (without extension). Opening a file or an example replaces it."
+			placeholder="program"
+			spellcheck="false"
+			bind:value={fileName.value}
 		/>
 		<button onclick={saveSource} disabled={!!rawImage}>Save .asm</button>
 		<button
@@ -338,6 +373,9 @@
 	}
 	.title {
 		margin-right: 8px;
+	}
+	.file-name {
+		width: 130px;
 	}
 	.sep {
 		width: 1px;

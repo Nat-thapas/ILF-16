@@ -94,6 +94,8 @@ function assembleInner(source: string, warn: (line: number, message: string) => 
 		if (text.startsWith('@define') || text.startsWith('#define')) {
 			const parts = text.split(/\s+/);
 			if (parts.length < 3) throw new AsmError(lineNo, 'Expected: @define NAME VALUE');
+			if (defines.has(parts[1]))
+				warn(lineNo, `"${parts[1]}" is already defined; this definition replaces it everywhere`);
 			defines.set(parts[1], parts.slice(2).join(' '));
 			continue;
 		}
@@ -243,6 +245,13 @@ function assembleInner(source: string, warn: (line: number, message: string) => 
 				warn(line, `Destination "${op[1]}" is always treated as a register number`);
 			args = op.slice(2);
 		}
+		// A label of the wrong kind is almost always a mistake: jumping into data, or loading code.
+		const labelOf = (arg: string | undefined) => arg?.replace(/^[r$m#p%]+/, '') ?? '';
+		if (info.opcode >= 0x20 && info.opcode <= 0x3f && ramLabels.has(labelOf(args[0])))
+			warn(line, `${upper} jumps to ${labelOf(args[0])}, which is a data (DW) label, not code`);
+		if ((name === 'lod' || name === 'str') && romLabels.has(labelOf(args[0])))
+			warn(line, `${upper} uses ${labelOf(args[0])}, which is a code label, not a data (DW) label`);
+
 		const aReg = isReg(args[0]);
 		const bReg = isReg(args[1]);
 

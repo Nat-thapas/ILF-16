@@ -15,8 +15,13 @@ pnpm test       # unit tests (assembler output is checked against the committed 
 pnpm check      # type check
 ```
 
-- **Save .coe** assembles the source and downloads `<name>.rom.coe` and `<name>.ram.coe`, named
-  after the opened file or example. The browser may ask once to allow multiple downloads.
+- **Save .coe** assembles the source and downloads `<name>.rom.coe` and `<name>.ram.coe`. The
+  browser may ask once to allow multiple downloads.
+- The name box next to the save buttons is the `<name>` used for saved files. Opening a file or
+  an example fills it in, and it can be changed at any time.
+- **Examples**: `vga-demo`, `bad-apple`, `mandelbrot` (fixed point maths with the multiplier),
+  `game-of-life` (hold any bit of input 0 to reseed) and `snake` (set input 0 to *Game controller*,
+  steer with d-pad 1, run in real time).
 - **Run / Pause** (F8), **Step** (F10), **Reset**. Click the editor gutter to set breakpoints.
 - **Speed**: *Real time* emulates the 48 MHz clock (12 MIPS, `STL` stalls for its true duration);
   *Unlimited* runs as fast as the machine allows and `STL` takes no time.

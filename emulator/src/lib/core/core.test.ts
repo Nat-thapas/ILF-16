@@ -326,6 +326,114 @@ describe('examples', () => {
 		expect(isPrime(131069)).toBe(false);
 	});
 
+	it('raycaster builds its tables, draws the view and stops at walls', () => {
+		const { cpu, program } = load('raycaster.asm');
+		const ram = (name: string) => cpu.ram[program.ramLabels.get(name)!];
+		cpu.breakpoints[program.romLabels.get('.frame')!] = 1;
+		expect(cpu.run(Infinity, 1e9, Infinity)).toBe('breakpoint');
+		// recip[n] = largest value with value * n < 131072 (at most 32767), height[n] likewise for 16384
+		for (const n of [1, 4, 5, 100, 256, 639])
+			expect(cpu.ram[1024 + n]).toBe(Math.min(32767, Math.ceil(131072 / n) - 1));
+		for (const n of [1, 64, 128, 129, 1000, 2047])
+			expect(cpu.ram[2048 + n]).toBe(Math.min(128, Math.ceil(16384 / n) - 1));
+
+		// first frame: looking east from (4.5, 8.5) down a corridor to the outer wall 10.5 squares away
+		expect(cpu.run(Infinity, 1e9, Infinity, true)).toBe('breakpoint');
+		const column = (x: number) => Array.from({ length: 256 }, (_, y) => cpu.vram[y * 256 + x]);
+		const middle = column(128);
+		expect(middle.filter((colour) => colour === 8).length).toBe(24); // 2 * 16384 / (10.5 * 128)
+		expect(middle.indexOf(8)).toBe(116);
+		expect(middle.slice(0, 116).every((colour) => colour === 1)).toBe(true);
+		expect(middle.slice(140).every((colour) => colour === 5)).toBe(true);
+		expect(column(129)).toEqual(middle);
+		// every column is sky, then one wall colour, then floor
+		for (let x = 0; x < 256; x += 2) {
+			const runs = column(x).filter((colour, y, all) => y === 0 || colour !== all[y - 1]);
+			expect(runs.length).toBeLessThanOrEqual(3);
+			expect(runs.at(-1) === 5 || runs.length === 1).toBe(true);
+		}
+
+		// walking forwards moves east and stops short of the wall at x = 15
+		cpu.inputs[0] = 1;
+		for (let frame = 0; frame < 10; frame++) cpu.run(Infinity, 1e9, Infinity, true);
+		expect(ram('.pos_x')).toBe(0x480 + 10 * 20);
+		expect(ram('.pos_y')).toBe(0x880);
+		for (let frame = 0; frame < 200; frame++) cpu.run(Infinity, 1e9, Infinity, true);
+		expect(ram('.pos_x')).toBeGreaterThan(14.5 * 256);
+		expect(ram('.pos_x')).toBeLessThan(14.8 * 256);
+		expect(column(128).filter((colour) => colour === 8).length).toBe(256); // the wall fills the view
+		// turning right
+		cpu.inputs[0] = 8;
+		cpu.run(Infinity, 1e9, Infinity, true);
+		expect(ram('.angle')).toBe(768);
+	});
+
+	it('blocks drops pieces, clears full rows and ends when the well is full', () => {
+		const { cpu, program } = load('blocks.asm');
+		const ram = (name: string) => cpu.ram[program.ramLabels.get(name)!];
+		const frame = program.romLabels.get('.frame')!;
+		const square = (x: number, y: number) => cpu.ram[2048 + y * 32 + x];
+		cpu.breakpoints[frame] = 1;
+		cpu.breakpoints[program.romLabels.get('.wait_release')!] = 1;
+		expect(cpu.run(Infinity, 1e9, Infinity)).toBe('breakpoint');
+		// the wall around the well
+		for (let y = 4; y < 28; y++) expect([square(2, y), square(3, y), square(14, y), square(15, y)]).toEqual([5, 0, 0, 5]);
+		for (let x = 2; x < 16; x++) expect(square(x, 28)).toBe(5);
+
+		// fill the bottom row by hand, then let the first piece drop onto it
+		for (let x = 3; x < 15; x++) cpu.ram[2048 + 27 * 32 + x] = 7;
+		cpu.inputs[0] = 2;
+		let frames = 0;
+		while (ram('.score') === 0 && frames++ < 200) cpu.run(Infinity, 1e9, Infinity, true);
+		expect(ram('.rows')).toBe(1);
+		expect(ram('.score')).toBe(11); // 1 for the piece, 10 for the row
+		expect([cpu.outputs[0], cpu.outputs[1]]).toEqual([11, 1]);
+		// the piece is all that is left, now resting on the bottom
+		let squares = 0;
+		for (let y = 4; y < 28; y++) for (let x = 3; x < 15; x++) if (square(x, y)) squares++;
+		expect(squares).toBeGreaterThanOrEqual(2);
+		expect(squares).toBeLessThanOrEqual(5);
+		expect(Array.from({ length: 12 }, (_, x) => square(x + 3, 27)).some(Boolean)).toBe(true);
+		// what is on the screen matches the board (below the new piece coming in at the top)
+		for (let y = 8; y < 28; y++)
+			for (let x = 3; x < 15; x++) expect(cpu.vram[(y * 8 + 4) * 256 + x * 8 + 4]).toBe(square(x, y));
+
+		// moving: left takes the piece one square left
+		cpu.inputs[0] = 0;
+		cpu.run(Infinity, 1e9, Infinity, true);
+		const pos = cpu.regs[12];
+		cpu.inputs[0] = 4;
+		cpu.run(Infinity, 1e9, Infinity, true);
+		expect(cpu.regs[12] === pos - 1 || cpu.regs[12] === pos + 31).toBe(true);
+
+		// keep dropping pieces in the middle until they reach the top
+		cpu.inputs[0] = 2;
+		frames = 0;
+		while (cpu.pc === frame && frames++ < 5000) cpu.run(Infinity, 1e9, Infinity, true);
+		expect(cpu.pc).toBe(program.romLabels.get('.wait_release'));
+		expect(ram('.score')).toBeGreaterThan(8);
+	});
+
+	it('fire burns at the bottom of the screen and goes out when asked', () => {
+		const { cpu, program } = load('fire.asm');
+		cpu.breakpoints[program.romLabels.get('.frame')!] = 1;
+		expect(cpu.run(Infinity, 1e9, Infinity)).toBe('breakpoint');
+		const lit = (y: number) => Array.from({ length: 256 }, (_, x) => cpu.vram[y * 256 + x]).filter(Boolean).length;
+		for (let frame = 0; frame < 80; frame++) cpu.run(Infinity, 1e9, Infinity, true);
+		expect(lit(254)).toBeGreaterThan(240);
+		expect(lit(200)).toBeGreaterThan(100);
+		expect(lit(76)).toBe(0);
+		expect(lit(40)).toBe(0);
+		// heat only ever falls with height
+		const heat = (row: number) => cpu.ram.slice(1024 + row * 128, 1152 + row * 128).reduce((a, b) => a + b, 0);
+		expect(heat(45)).toBeGreaterThan(heat(35));
+		expect(heat(35)).toBeGreaterThan(heat(25));
+		// any input bit stops the fuel, and the fire dies down
+		cpu.inputs[0] = 1;
+		for (let frame = 0; frame < 80; frame++) cpu.run(Infinity, 1e9, Infinity, true);
+		expect(cpu.vram.some(Boolean)).toBe(false);
+	});
+
 	it('game of life follows the rules on a wrapping grid', () => {
 		const { cpu, program } = load('game-of-life.asm');
 		cpu.breakpoints[program.romLabels.get('.generation')!] = 1;

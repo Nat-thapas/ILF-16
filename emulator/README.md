@@ -22,8 +22,11 @@ pnpm check      # type check
 - **Examples** (from `../examples`): `vga-demo`, `bad-apple`, `mandelbrot` (fixed point maths with
   the multiplier), `mandelbrot-zoom` (the same, animated), `game-of-life` (hold any bit of input 0
   to reseed), `snake` (set input 0 to *Game controller*, steer with d-pad 1, run in real time),
-  `cube` (3D wireframe; set input 0 to *Analog stick* to turn it yourself) and `numbers` (Fibonacci
-  and prime numbers printed in decimal and hexadecimal; hold any bit of input 0 to skip the pauses).
+  `cube` (3D wireframe; set input 0 to *Analog stick* to turn it yourself), `numbers` (Fibonacci
+  and prime numbers printed in decimal and hexadecimal; hold any bit of input 0 to skip the pauses),
+  `raycaster` (first-person maze; set input 0 to *Game controller*, walk and turn with d-pad 1),
+  `blocks` (falling-block puzzle; same controls, run in real time) and `fire` (flame effect; hold
+  any bit of input 0 to put it out).
 - **Run / Pause** (F8), **Step** (F10), **Reset**. Click the editor gutter to set breakpoints.
 - **Speed**: *Real time* emulates the 48 MHz clock (12 MIPS, `STL` stalls for its true duration);
   *Unlimited* runs as fast as the machine allows and `STL` takes no time.

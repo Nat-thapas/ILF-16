@@ -1,7 +1,8 @@
 # ILF-16 Emulator
 
-Browser emulator and debugger for the ILF-16 CPU and ILF-GFX display. Assembles `.asm`
-source directly (same pipeline as `../assembler.py`) or loads `.rom.coe` / `.ram.coe` images.
+Browser emulator, debugger and assembler for the ILF-16 CPU and ILF-GFX display. It assembles
+`.asm` source directly, saves the `.rom.coe` / `.ram.coe` memory files for the FPGA (replacing
+`../assembler-deprecated.py`), and can also load existing `.coe` images.
 
 ## Usage
 
@@ -14,6 +15,8 @@ pnpm test       # unit tests (assembler output is checked against the committed 
 pnpm check      # type check
 ```
 
+- **Save .coe** assembles the source and downloads `<name>.rom.coe` and `<name>.ram.coe`, named
+  after the opened file or example. The browser may ask once to allow multiple downloads.
 - **Run / Pause** (F8), **Step** (F10), **Reset**. Click the editor gutter to set breakpoints.
 - **Speed**: *Real time* emulates the 48 MHz clock (12 MIPS, `STL` stalls for its true duration);
   *Unlimited* runs as fast as the machine allows and `STL` takes no time.

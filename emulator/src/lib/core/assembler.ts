@@ -1,4 +1,4 @@
-// TypeScript port of assembler.py. The pipeline (and its quirks) is kept the same so the
+// TypeScript port of assembler-deprecated.py. The pipeline (and its quirks) is kept the same so the
 // output matches what the real assembler produces, with proper diagnostics added on top.
 
 import { INSTRUCTIONS_BY_NAME, RAM_SIZE, ROM_SIZE } from './isa';
@@ -318,6 +318,17 @@ export function parseCoe(text: string): number[] {
 		words.push(value);
 	}
 	return words;
+}
+
+/**
+ * Format a memory image as a Xilinx .coe file, in the same layout as the Python assembler:
+ * one hexadecimal word per line. `digits` is 8 for the ROM and 4 for the RAM. An empty image
+ * gives just the two header lines.
+ */
+export function toCoe(words: ArrayLike<number>, digits: number): string {
+	const values = Array.from(words, (word) => (word >>> 0).toString(16).padStart(digits, '0'));
+	const header = 'memory_initialization_radix=16;\nmemory_initialization_vector=\n';
+	return values.length ? header + values.join(',\n') + ';\n' : header;
 }
 
 /**

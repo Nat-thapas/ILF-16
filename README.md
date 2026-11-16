@@ -1,10 +1,13 @@
 # ILF-16
-ILF-16 is a 16-bit cpu that runs on Spartan-6 FPGA.
-The ILF-16 have 16 registers indexed with a 4-bit register identifier where R0 is the zero (readonly) register and R1-R15 are general purpose registers.
+
+ILF-16 is a 16-bit cpu that runs on Spartan-6 FPGA.  
+The ILF-16 have 16 registers indexed with a 4-bit register identifier where R0 is the zero (readonly) register and R1-R15 are general purpose registers.  
 If assembly macros is used, R14 and R15 becomes temporary register and stack pointer register respectively.
 
 ## Specification And Details
+
 ILF-16 is a load-store, harvard architecture 16 bits CPU. The CPU runs on a reduced instruction set with a flag register.
+
 - 52 kiB (13,312 words) of instruction ROM.
 - 16 kiB (8,192 words) of general purpose RAM (addressable 1 word at a time).
 - 48 MHz clock
@@ -16,7 +19,9 @@ ILF-16 is a load-store, harvard architecture 16 bits CPU. The CPU runs on a redu
 ## ISA
 
 ### Instructions Layout
+
 ILF-16 uses fixed length instruction where an instruction is 2 words (32 bits) long. The instruction layout for the first (upper) 16 bits is IIIIIIIIAAXYDDDD where:
+
 - I is the 8-bit instuction identifier.
 - A is the argument count, can be 0, 1 or 2. 3 arguments is not supported.
 - X is the type of the first argument, 0 = immediate, 1 = value at that register. If this argument is not used this is ignored.
@@ -24,6 +29,7 @@ ILF-16 uses fixed length instruction where an instruction is 2 words (32 bits) l
 - D is the destination identifier for the operation.
 
 The instruction layout for the second (lower) 16 bits is dependent on the type of the 2 arguments and can either be:
+
 - 0 argument
     - This 16 bits of the instruction is ignored
 - 1 argument
@@ -36,13 +42,16 @@ The instruction layout for the second (lower) 16 bits is dependent on the type o
     - 0000AAAA0000BBBB : A, B is a register
 
 ### Instruction Format For Assembling
-The format for assembly written for ILF-16 is: <INST> <DEST> <ARG_A> <ARG_B>
+
+The format for assembly written for ILF-16 is: \<INST\> \<DEST\> \<ARG_A\> \<ARG_B\>
+
 - INST is the instruction name.
 - DEST is the destination identifier. This is not always used as the destination, see [Instuction Identifiers](#instruction-identifiers) for more details. Leave blank if not used.
 - ARG_A is the A argument. Leave blank if not used
 - ARG_B is the B argument. Leave blank if not used
 
 Example of instructions and their descriptions:
+
 - ADD $1 $2 5  : Add $2 (the value in register 2) and 5 (the literal number 5) together and store the result in $1 (register 1)
 - NOP          : Do nothing
 - BRN .label   : Branch to label
@@ -51,6 +60,7 @@ Example of instructions and their descriptions:
 - More example of instruction usage can be found in bad-apple.asm and vga-demo.asm
 
 Macros and pseudo instructions
+
 - Apart from the instructions specified in the [Instuction Identifiers](#instruction-identifiers) section, there are 5 included psuedo instructions that can be used:
     1. PSH A : Push the value A on to the stack. A can be immediate value or a register
     2. POP R : Pop the value from the stack and store it to register R
@@ -59,12 +69,15 @@ Macros and pseudo instructions
     5. DW I  : Define word, put the immediate value I into the next available memory space. DW instruction put data into memory sequentially, starting at #0. Any label defined for this instruction will point to the RAM location of the stored data. To define multiple words, use DW A B C D . . . (eg. DW 0x5 0x9 0x15 0xF8)
 
 Special Directives
+
 - @define A B : define A to be B, for example:
     - @define x_position R1 : define x_position to equal R1, anytime x_position is used as an argument in an instruction, it will automatically be converted to R1 by the assembler
 - .name : define a label at that location, lable name can include any alphabets, numbers and not that special characters (_-!@/? etc.). Spaces is not allowed since it will make the argument have no termination, more special characters are not allowed cause I don't know how many of them are there and such can't account for them in testing.
 
 ### Instruction Identifiers
+
 The ILF-16 supports a total of 256 instructions. Currently, the following is available:
+
 - D  : Destination identifier (this is not always used as the destination)
 - A  : First argument (can be either an immediate value or the value in the register at this identifier)
 - B  : Second argument (can be either an immediate value or the value in the register at this identifier)
@@ -79,8 +92,8 @@ The ILF-16 supports a total of 256 instructions. Currently, the following is ava
 | 00001000          | 08             | HLT      | False     | 0         | Halt                          | Stop the CPU until restart                   |
 | 00010000          | 10             | ADD      | True      | 2         | Add                           | $D = A + B                                   |
 | 00010001          | 11             | SUB      | True      | 2         | Subtract                      | $D = A - B                                   |
-| 00010010          | 12             | RSHIFT   | True      | 2         | Right shift                   | $D = A >> B                                  |
-| 00010011          | 13             | LSHIFT   | True      | 2         | Left shift                    | $D = A << B                                  |
+| 00010010          | 12             | RSHIFT   | True      | 2         | Right shift                   | $D = A \>\> B                                  |
+| 00010011          | 13             | LSHIFT   | True      | 2         | Left shift                    | $D = A \<\< B                                  |
 | 00010100          | 14             | MUL      | True      | 2         | Multiply                      | $D = A * B (unsigned, result is lower 16 bits) |
 | 00010101          | 15             | SMUL     | True      | 2         | Signed multiply               | $D = A * B (signed, result is lower 16 bits) |
 | 00010110          | 16             | UMUL     | True      | 2         | Upper multiply                | $D = A * B (unsigned, result is upper 16 bits) |
@@ -164,13 +177,16 @@ The ILF-16 supports a total of 256 instructions. Currently, the following is ava
 | 11001100          | CC             | OUT      | True      | 1         | Output                        | %A = $D                                      |
 | 11010000          | D0             | GFXSP    | True      | 2         | GFX set pixel                 | Set pixel at (x: A, y: B) to color $D        |
 
-Notes: 
+Notes:
+
 - Reserved instructions are side effect instructions from how the CPU decode instructions, these may or may not do anything and have undefined behavior.
 - All instructions from 0x10 to 0x1F (ALU instructions) will set all the ALU flags according to the arguments provided, the TEST instruction simply set the ALU inputs, load the resulting flag into the flag register and do nothing with the ALU output (by sending it to R0, which is read-only).
 - Set instructions set the destination register to A if the condition is true, otherwise set the register to B. If only one argument is provided B will be set to 0.
 
 ## Buttons
+
 The ILF-16 by default have 3 buttons that have the following functions:
+
 - Button 1 clears the Spacewire input (from ILF-EXTIO, if attached) buffer.
 - Button 2 start the operation, ILF-16 will not do anything before this button is pressed. Pressing it again have no effect.
 - Button 3 temporarily stalls the ILF-16, ILF-16 will stop in its current state when this button is held. Releasing the button will resume the operation. Holding this button before starting have no effect.
@@ -178,7 +194,9 @@ The ILF-16 by default have 3 buttons that have the following functions:
 ## Internals
 
 ### ALU
+
 The ALU or arithmatic logic unit is a purely combinational component with no register or accumulator.
+
 1. Inputs:
     - OP: 4-bits operation selector
     - A : 16-bit operand
@@ -190,8 +208,8 @@ The ALU or arithmatic logic unit is a purely combinational component with no reg
     The ALU takes in a 4-bit op code, which tells the ALU with operation to perform.
     - 0000 : ADD    (O = A + B)
     - 0001 : SUB    (O = A - B)
-    - 0010 : RSHIFT (O = A >> B) Unsigned bitwise right shift, non-cyclic, the shifted out bit is lost
-    - 0011 : LSHIFT (O = A << B) Unsigned bitwise left shift, non-cyclic, the shifted out bit is lost
+    - 0010 : RSHIFT (O = A \>\> B) Unsigned bitwise right shift, non-cyclic, the shifted out bit is lost
+    - 0011 : LSHIFT (O = A \<\< B) Unsigned bitwise left shift, non-cyclic, the shifted out bit is lost
     - 0100 : MUL    (O = A * B) Unsigned multiply, result is the lower 16 bits
     - 0101 : SMUL   (O = A * B) Signed multiply, result is the lower 16 bits
     - 0110 : UMUL   (O = A * B) Unsigned multiply, result is the upper 16 bits
@@ -206,14 +224,14 @@ The ALU or arithmatic logic unit is a purely combinational component with no reg
     - 1111 : XNOR   (O = ~(A ^ B))
 4. Flags:
     The ALU have 1 16-bit output flag. From LSB to MSB they are the following.
-    - 00 : GT   : A > B   Greater than (unsinged)
-    - 01 : LT   : A < B   Less than (unsinged)
-    - 02 : SGT  : A > B   Signed Greater than
-    - 03 : SLT  : A < B   Signed Less than
+    - 00 : GT   : A \> B   Greater than (unsinged)
+    - 01 : LT   : A \< B  Less than (unsinged)
+    - 02 : SGT  : A \> B  Signed Greater than
+    - 03 : SLT  : A \< B  Signed Less than
     - 04 : EQ   : A = B   Equal
     - 05 : Z    : O = 0   Zero(O)
-    - 06 : S    : O < 0   Sign(O)
-    - 07 : POS  : O > 0   Positive(O)
+    - 06 : S    : O \< 0  Sign(O)
+    - 07 : POS  : O \> 0  Positive(O)
     - 08 : P    :         Parity(O) Even = 1, Odd = 0
     - 09 : BP   :         BitwiseParity(O) Even = 1, Odd = 0
     - 10 : C    :         Carry / Borrow, this flag is undefined when operation is not add or subtract
@@ -225,26 +243,34 @@ The ALU or arithmatic logic unit is a purely combinational component with no reg
 
 
 # ILF-GFX
+
 ILF-GFX is a "graphic processor" that is designed to be used with ILF-16, in its current state, it's basically an external dual port RAM with vga driver attached to it, no other function is supported except set pixel.
 
 ## Communication
+
 The ILF-16 and ILF-GFX communicate with each other via 2 lanes of 240 Mbps Spacewire link (totaling 480 Mbps). The communication does not use the full Spacewire protocol but only the physical layer of it, since the ILF-GFX is connected on a dedicated port and will be the only device to connect to that port, any higher layer of the protocol is unnecessary.
 The data link have no redundancy, no error checking, no synchronization. As such the link will break with only a single bit of error on either lane. In case of an error, the ILF-GFX will not display the expected output, there are 2 ways to fix this.
+
 1. Temporarily stall the ILF-16 outside of any draw loop by holding push button 3, then clear the buffer of the ILF-GFX by pressing button 1, then resume the ILF-16.
 2. Reset both the ILF-16 and the ILF-GFX
 
 ## Buttons
+
 The ILF-GFX by default have 2 buttons that have the following functions:
+
 - Button 1 clears the Spacewire input (from ILF-16) buffer.
 - Button 2 start the operation, ILF-GFX will not do anything before this button is pressed. Pressing it again have no effect.
 
 ## Startup Sequence
+
 The recommended start sequence for ILF-16 attached to an ILF-GFX is to first reset the ILF-GFX board when the ILF-16 have powered up (but not started) then start the ILF-GFX by pressing button 2, then start the ILF-16 by pressing button 2.
 
 ## Output
+
 The ILF-GFX have 2 bits per color output. External DAC must be connected to this. The sync output can be used directly if the monitor supports 3.3v sync signals.
 
 ## Color palette
+
 The default palette of ILF-GFX is the palette used on the [PICO-8](https://pico-8.fandom.com/wiki/Palette) mapped to RGB222 on a best-effort basis:
 
 | Color Index | Color Name  | R  | G  | B  | Equivalent RGB888 |
@@ -268,15 +294,24 @@ The default palette of ILF-GFX is the palette used on the [PICO-8](https://pico-
 
 
 # ILF-EXTIO
+
 ILF-EXTIO is an unfinished and untested IO extension for the ILF-16. In its current state, only the on-board buttons are used.
 No more information about the ILF-EXTIO is available at this time.
 
 # Assembler
 
-The current version of the assembler is quite hastily thrown together, expect bugs during real usage. The warning and error system is not well implemented, do not rely on the assembler to catch your mistake, even something as bad and simple as wrong argument type usage will NOT be detected. There are plans to improve this in the future, including partial support for transpilation from [URCL](https://github.com/ModPunchtree/URCL)
+The recommended assembler is the one built into the [emulator](./emulator/). It reports errors and warnings with line numbers, and lets you run and debug the program before loading it onto the FPGA.
+
+The original Python assembler ([assembler-deprecated.py](./assembler-deprecated.py)) is deprecated and kept only for reference. It was hastily thrown together and does almost no error checking: even something as simple as a wrong argument type will NOT be detected, so do not rely on it to catch your mistakes.
 
 ## Usage
-To use the assembler, simply call the assembler with the path to assembly file as the argument, the assembler will that assemble the code into 2 files:
-1. <name>.rom.coe : this is the memory coefficient file for the instruction ROM. Load this file into rom.xco
-2. <name>.ram.coe : this is the memory coefficient file for the general purpose RAM. This file will not contain memory data if no DW instruction is used. Load this file into ram.xco if neccessary.
+
+To assemble with the emulator, open it (see the [emulator README](./emulator/README.md) for how to run it), paste your code into the editor or load it with the `Open…` button, then click the `Save .coe` button. If the code has errors they are listed below the editor and nothing is saved.
+
+To assemble with the deprecated Python assembler, run it with the path to the assembly file as the argument.
+
+Both assemblers output the same 2 files:
+
+1. \<name\>.rom.coe : this is the memory coefficient file for the instruction ROM. Load this file into rom.xco.
+2. \<name\>.ram.coe : this is the memory coefficient file for the general purpose RAM. This file will not contain memory data if no DW instruction is used. Load this file into ram.xco if necessary.
 

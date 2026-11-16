@@ -6,7 +6,7 @@
 	import Display from '#lib/components/Display.svelte';
 	import Editor from '#lib/components/Editor.svelte';
 	import IoPanel from '#lib/components/IoPanel.svelte';
-	import { parseCoe, programFromImages } from '#lib/core/assembler.ts';
+	import { parseCoe, programFromImages, toCoe } from '#lib/core/assembler.ts';
 	import { disassembleListing } from '#lib/core/disasm.ts';
 	import { emulator } from '#lib/emulator.svelte.ts';
 	import { settings } from '#lib/settings.svelte.ts';
@@ -16,6 +16,7 @@
 		'bad-apple.asm': badApple
 	};
 	const SOURCE_KEY = 'ilf16.source.v1';
+	const NAME_KEY = 'ilf16.name.v1';
 
 	function loadSavedSource(): string {
 		try {
@@ -25,7 +26,19 @@
 		}
 	}
 
+	function loadSavedName(): string {
+		try {
+			return localStorage.getItem(NAME_KEY) ?? 'vga-demo';
+		} catch {
+			return 'vga-demo';
+		}
+	}
+
 	let source = loadSavedSource();
+	/** File name (without extension) of the source, used to name saved files. */
+	let sourceName = loadSavedName();
+	/** Same for the loaded .coe image, when there is one. */
+	let imageName = '';
 	const initialDoc = source;
 	let editor: Editor;
 	let fileInput: HTMLInputElement;
@@ -91,15 +104,23 @@
 		else emulator.reset();
 	}
 
+	const baseName = (fileName: string) => fileName.replace(/\.(asm|txt|(rom\.|ram\.)?coe)$/i, '') || 'program';
+
 	/** Put assembly source in the editor (leaving disassembly view if needed) and assemble it. */
-	function showSource(text: string) {
+	function showSource(text: string, name = sourceName) {
 		rawImage = '';
+		sourceName = name;
+		try {
+			localStorage.setItem(NAME_KEY, name);
+		} catch {
+			// Ignore: the name just won't persist.
+		}
 		editor.setDoc(text);
 		assembleSource();
 	}
 
 	function loadExample(name: string) {
-		if (EXAMPLES[name]) showSource(EXAMPLES[name]);
+		if (EXAMPLES[name]) showSource(EXAMPLES[name], baseName(name));
 	}
 
 	async function openFiles(files: FileList | null) {
@@ -116,13 +137,14 @@
 					ram ? parseCoe(await ram.text()) : []
 				);
 				rawImage = rom.name + (ram ? ' + ' + ram.name : '');
+				imageName = baseName(rom.name);
 				editor.setDoc(disassembleListing(program.rom));
 				emulator.diagnostics = [];
 				emulator.loadProgram(program);
 				stale = false;
 				message = `Loaded ${rom.name}${ram ? ' + ' + ram.name : ' (no RAM image)'}: ${program.rom.length} instructions`;
 			} else {
-				showSource(await list[0].text());
+				showSource(await list[0].text(), baseName(list[0].name));
 			}
 		} catch (e) {
 			message = '';
@@ -131,13 +153,28 @@
 		fileInput.value = '';
 	}
 
-	function saveSource() {
-		const url = URL.createObjectURL(new Blob([source], { type: 'text/plain' }));
+	function download(fileName: string, text: string) {
+		const url = URL.createObjectURL(new Blob([text], { type: 'text/plain' }));
 		const link = document.createElement('a');
 		link.href = url;
-		link.download = 'program.asm';
+		link.download = fileName;
 		link.click();
 		URL.revokeObjectURL(url);
+	}
+
+	function saveSource() {
+		download(`${sourceName}.asm`, source);
+	}
+
+	/** Save the assembled program as <name>.rom.coe and <name>.ram.coe, like assembler-deprecated.py did. */
+	function saveCoe() {
+		if (stale && !rawImage && !assembleSource()) return;
+		const program = emulator.program;
+		if (!program) return;
+		const name = rawImage ? imageName : sourceName;
+		download(`${name}.rom.coe`, toCoe(program.rom, 8));
+		download(`${name}.ram.coe`, toCoe(program.ram, 4));
+		message = `Saved ${name}.rom.coe (${program.rom.length} instructions) and ${name}.ram.coe (${program.ram.length} words)`;
 	}
 
 	// Highlight the next instruction whenever the CPU is stopped on valid, current source.
@@ -197,6 +234,12 @@
 			onchange={(e) => openFiles(e.currentTarget.files)}
 		/>
 		<button onclick={saveSource} disabled={!!rawImage}>Save .asm</button>
+		<button
+			onclick={saveCoe}
+			title="Assemble and save the .rom.coe and .ram.coe memory files for the FPGA block memories"
+		>
+			Save .coe
+		</button>
 
 		<span class="sep"></span>
 

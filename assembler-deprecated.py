@@ -318,6 +318,7 @@ def get_absolute_path(path: str) -> str:
 
 
 def main() -> None:
+    print("WARNING: This assembler is deprecated, please use the assembler included in the emulator instead")
     with open(SPECIFICATIONS_FILE_PATH, "r", encoding="utf-8") as specifications_file:
         specifications = specifications_file.read()
         instructions_data = get_instructions_data(specifications)

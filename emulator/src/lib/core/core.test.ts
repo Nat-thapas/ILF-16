@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { assemble, parseCoe, type Program } from './assembler';
+import { assemble, parseCoe, toCoe, type Program } from './assembler';
 import { Cpu } from './cpu';
 import { disassemble } from './disasm';
 
@@ -22,7 +22,7 @@ function runProgram(source: string, maxInstructions = 100000): Cpu {
 	return cpu;
 }
 
-describe('assembler matches assembler.py output', () => {
+describe('assembler matches assembler-deprecated.py output', () => {
 	for (const name of ['vga-demo', 'bad-apple']) {
 		it(name, () => {
 			const program = asm(read(`${name}.asm`));
@@ -31,6 +31,10 @@ describe('assembler matches assembler.py output', () => {
 			const normalise = (w: number) => (w >>> 27 === 0xd0 >>> 3 ? (w & 0x00ffffff) | 0xd0000000 : w) >>> 0;
 			expect(Array.from(program.rom)).toEqual(parseCoe(read(`${name}.rom.coe`)).map(normalise));
 			expect(Array.from(program.ram)).toEqual(parseCoe(read(`${name}.ram.coe`)));
+			// The exported .coe text is identical to what assembler-deprecated.py wrote (bar line endings).
+			const text = (file: string) => read(file).replace(/\r\n/g, '\n');
+			expect(toCoe(program.ram, 4)).toBe(text(`${name}.ram.coe`));
+			expect(toCoe(parseCoe(read(`${name}.rom.coe`)), 8)).toBe(text(`${name}.rom.coe`));
 		});
 	}
 });

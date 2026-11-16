@@ -43,6 +43,10 @@ export class Cpu {
 	clocks = 0;
 	instructions = 0;
 	vramDirty = true;
+	/** Times the instruction at each ROM address has run since reset (for the heat map). */
+	readonly execCount = new Float64Array(ROM_ADDR_SPACE);
+	/** Extra clocks each ROM address has spent stalled by STL since reset. */
+	readonly stallClocks = new Float64Array(ROM_ADDR_SPACE);
 
 	program: Program | null = null;
 
@@ -139,6 +143,8 @@ export class Cpu {
 		this.halted = false;
 		this.clocks = 0;
 		this.instructions = 0;
+		this.execCount.fill(0);
+		this.stallClocks.fill(0);
 		// Before start the flag register free-runs on the ALU output for the first instruction
 		// with both argument buffers cleared.
 		const firstOp = this.program && this.program.rom.length ? (this.program.rom[0] >>> 24) & 15 : 0;
@@ -215,7 +221,7 @@ export class Cpu {
 	): StopReason {
 		if (this.halted) return 'halted';
 		const { regs, ram, inputs, outputs, vram, breakpoints } = this;
-		const { kind, sub, dest, aReg, bReg, aVal, bVal } = this;
+		const { kind, sub, dest, aReg, bReg, aVal, bVal, execCount, stallClocks } = this;
 		let pc = this.pc;
 		let clocks = this.clocks;
 		let executed = 0;
@@ -242,6 +248,7 @@ export class Cpu {
 			const b = bReg[addr] !== 0 ? regs[bVal[addr]] : bVal[addr];
 			const d = dest[addr];
 			executed++;
+			execCount[addr]++;
 			clocks += CLOCKS_PER_INSTRUCTION;
 			pc = (pc + 1) & 0xffff;
 
@@ -284,6 +291,7 @@ export class Cpu {
 					break;
 				case K_STL:
 					clocks += a;
+					stallClocks[addr] += a;
 					break;
 				case K_HLT:
 					this.halted = true;

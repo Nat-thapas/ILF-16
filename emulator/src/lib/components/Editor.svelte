@@ -9,12 +9,16 @@
 	import { tags } from '@lezer/highlight';
 	import { INSTRUCTIONS_BY_NAME, PSEUDO_INSTRUCTIONS } from '#lib/core/isa.ts';
 	import type { Diagnostic } from '#lib/core/assembler.ts';
+	import { CLOCK_HZ } from '#lib/core/isa.ts';
+	import type { LineProfile } from '#lib/core/profile.ts';
 
 	interface Props {
 		initialDoc: string;
 		/** 1-based line to highlight as the next instruction, 0 for none. */
 		currentLine: number;
 		diagnostics: Diagnostic[];
+		/** Execution counts per line to show as a heat map, or null for none. */
+		heat?: LineProfile | null;
 		/** Show the document as a non-editable listing (breakpoints still work). */
 		readOnly?: boolean;
 		onDocChange: (doc: string) => void;
@@ -24,6 +28,7 @@
 		initialDoc,
 		currentLine,
 		diagnostics,
+		heat = null,
 		readOnly = false,
 		onDocChange,
 		onBreakpointsChange
@@ -120,6 +125,81 @@
 		provide: (field) => EditorView.decorations.from(field)
 	});
 
+	// --- heat map ---------------------------------------------------------------------------
+	// Lines are shaded by how often they ran (square root scale, so that lines well below the
+	// hottest one still show), with their share of all executed instructions in a gutter.
+	const HEAT_LEVELS = 24;
+	const heatDecos = Array.from({ length: HEAT_LEVELS + 1 }, (_, level) =>
+		Decoration.line({
+			attributes: {
+				style: `background-color: rgba(255, 82, 48, ${(0.05 + 0.5 * (level / HEAT_LEVELS)).toFixed(3)})`
+			}
+		})
+	);
+
+	class HeatMarker extends GutterMarker {
+		readonly text: string;
+		readonly title: string;
+		constructor(text: string, title: string) {
+			super();
+			this.text = text;
+			this.title = title;
+		}
+		eq(other: HeatMarker) {
+			return other.text === this.text && other.title === this.title;
+		}
+		toDOM() {
+			const el = document.createElement('div');
+			el.textContent = this.text;
+			el.title = this.title;
+			return el;
+		}
+	}
+	const heatSpacer = new HeatMarker('100.0%', '');
+
+	const setHeat = StateEffect.define<LineProfile | null>();
+	const noHeat = { lines: Decoration.none, markers: RangeSet.empty as RangeSet<GutterMarker> };
+	const heatField = StateField.define({
+		create: () => noHeat,
+		update(value, tr) {
+			if (tr.docChanged) value = { lines: value.lines.map(tr.changes), markers: value.markers.map(tr.changes) };
+			for (const effect of tr.effects) {
+				if (!effect.is(setHeat)) continue;
+				const profile = effect.value;
+				if (!profile || profile.total === 0) {
+					value = noHeat;
+					continue;
+				}
+				const doc = tr.state.doc;
+				const lines = [];
+				const markers = [];
+				const last = Math.min(doc.lines, profile.counts.length - 1);
+				for (let n = 1; n <= last; n++) {
+					const count = profile.counts[n];
+					if (count === 0) continue;
+					const from = doc.line(n).from;
+					const level = Math.round(Math.sqrt(count / profile.max) * HEAT_LEVELS);
+					lines.push(heatDecos[level].range(from));
+					const share = (count / profile.total) * 100;
+					let title = `Ran ${count.toLocaleString('en-US')} times: ${share.toPrecision(3)}% of all instructions`;
+					if (profile.stall[n] > 0) {
+						title += `, and waited ${(profile.stall[n] / CLOCK_HZ).toPrecision(3)} s in STL`;
+					}
+					markers.push(new HeatMarker(share < 0.05 ? '<0.1%' : share.toFixed(1) + '%', title).range(from));
+				}
+				value = { lines: Decoration.set(lines), markers: RangeSet.of(markers) };
+			}
+			return value;
+		},
+		provide: (field) => EditorView.decorations.from(field, (value) => value.lines)
+	});
+	const heatGutter = gutter({
+		class: 'cm-heat-gutter',
+		markers: (v) => v.state.field(heatField).markers,
+		initialSpacer: () => heatSpacer
+	});
+	const heatGutterCompartment = new Compartment();
+
 	// --- syntax highlighting ---------------------------------------------------------------
 	const language = StreamLanguage.define<{ first: boolean }>({
 		startState: () => ({ first: true }),
@@ -184,6 +264,8 @@
 				borderRadius: '50%',
 				backgroundColor: 'var(--red)'
 			},
+			'.cm-heat-gutter': { color: '#ff9d7a', fontSize: '11px' },
+			'.cm-heat-gutter .cm-gutterElement': { padding: '0 4px 0 6px', textAlign: 'right' },
 			'.cm-pc-line': { backgroundColor: 'rgba(242,193,78,0.22) !important' },
 			'.cm-tooltip': { backgroundColor: 'var(--panel-2)', border: '1px solid var(--border)' }
 		},
@@ -203,6 +285,8 @@
 					EditorState.tabSize.of(4),
 					language,
 					syntaxHighlighting(highlight),
+					heatField,
+					heatGutterCompartment.of([]),
 					currentLineField,
 					theme,
 					EditorView.updateListener.of((update) => {
@@ -243,6 +327,18 @@
 		const effects: StateEffect<unknown>[] = [setCurrentLine.of(line)];
 		if (line >= 1 && line <= view.state.doc.lines) {
 			effects.push(EditorView.scrollIntoView(view.state.doc.line(line).from, { y: 'nearest', yMargin: 60 }));
+		}
+		view.dispatch({ effects });
+	});
+
+	let heatGutterShown = false;
+	$effect(() => {
+		const profile = heat;
+		if (!view) return;
+		const effects: StateEffect<unknown>[] = [setHeat.of(profile)];
+		if (heatGutterShown !== !!profile) {
+			heatGutterShown = !!profile;
+			effects.push(heatGutterCompartment.reconfigure(profile ? heatGutter : []));
 		}
 		view.dispatch({ effects });
 	});

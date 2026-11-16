@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { assemble, parseCoe, toCoe, type Program } from './assembler';
 import { Cpu } from './cpu';
 import { disassemble } from './disasm';
+import { profileLines } from './profile';
 
 const root = resolve(import.meta.dirname, '../../../..');
 /** Read an example program from the repository's examples folder. */
@@ -498,5 +499,34 @@ describe('examples', () => {
 		cpu.breakpoints.fill(0);
 		cpu.breakpoints[program.romLabels.get('.wait_release')!] = 1;
 		expect(cpu.run(Infinity, 30_000_000, Infinity)).toBe('breakpoint');
+	});
+});
+
+describe('profile', () => {
+	it('counts executions and STL time per source line', () => {
+		const source = [
+			'LDI $1 5', // line 1
+			'.loop', // line 2
+			'    PSH $1', // line 3: three instructions
+			'    POP $2', // line 4: two instructions
+			'    STL 100', // line 5
+			'    SUB $1 $1 1', // line 6
+			'    BNZ .loop', // line 7
+			'HLT', // line 8
+			'NOP' // line 9: never reached
+		].join('\n');
+		const program = asm(source);
+		const cpu = new Cpu();
+		cpu.load(program);
+		expect(cpu.run(Infinity, 1000, Infinity)).toBe('halted');
+		const profile = profileLines(cpu, program);
+		expect(Array.from(profile.counts)).toEqual([0, 1, 0, 15, 10, 5, 5, 5, 1, 0]);
+		expect(profile.stall[5]).toBe(500);
+		expect(profile.max).toBe(15);
+		// everything but the stack pointer set-up the assembler adds
+		expect(profile.total).toBe(cpu.instructions - 1);
+
+		cpu.reset();
+		expect(profileLines(cpu, program).total).toBe(0);
 	});
 });

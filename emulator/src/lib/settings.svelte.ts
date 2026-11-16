@@ -18,6 +18,8 @@ export interface Settings {
 	keys: string[];
 	speed: SpeedMode;
 	displayScale: number;
+	/** Shade source lines by how often they run. */
+	heatmap: boolean;
 }
 
 /** ILF-GFX default palette (PICO-8 mapped to RGB222), from the README. */
@@ -86,7 +88,8 @@ function defaults(): Settings {
 		outputs: Array.from({ length: 16 }, () => ({ kind: 'leds', signed: false, base: 10 })),
 		keys: [...DEFAULT_KEYS],
 		speed: 'realtime',
-		displayScale: 2
+		displayScale: 2,
+		heatmap: false
 	};
 }
 
@@ -105,6 +108,7 @@ function load(): Settings {
 		if (okArray(saved.keys)) base.keys = saved.keys as string[];
 		if (saved.speed === 'realtime' || saved.speed === 'unlimited') base.speed = saved.speed;
 		if (typeof saved.displayScale === 'number') base.displayScale = saved.displayScale;
+		if (typeof saved.heatmap === 'boolean') base.heatmap = saved.heatmap;
 	} catch {
 		// Storage unavailable or corrupt: fall back to defaults.
 	}

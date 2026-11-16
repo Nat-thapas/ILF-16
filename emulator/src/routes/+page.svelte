@@ -17,6 +17,7 @@
 	import IoPanel from '#lib/components/IoPanel.svelte';
 	import { parseCoe, programFromImages, toCoe } from '#lib/core/assembler.ts';
 	import { disassembleListing } from '#lib/core/disasm.ts';
+	import { profileLines, type LineProfile } from '#lib/core/profile.ts';
 	import { emulator } from '#lib/emulator.svelte.ts';
 	import { settings } from '#lib/settings.svelte.ts';
 
@@ -223,6 +224,22 @@
 		return emulator.program.lineOfAddr[emulator.cpu.pc] ?? 0;
 	});
 
+	// Heat map: how often each line has run since reset. Refreshed a few times a second while
+	// running, and hidden while the source no longer matches the assembled program.
+	let heat = $state.raw<LineProfile | null>(null);
+	let heatTime = 0;
+	$effect(() => {
+		void emulator.frame;
+		if (!settings.heatmap || stale || !emulator.program) {
+			heat = null;
+			return;
+		}
+		const now = performance.now();
+		if (emulator.status === 'running' && now - heatTime < 250) return;
+		heatTime = now;
+		heat = profileLines(emulator.cpu, emulator.program);
+	});
+
 	const STATUS_TEXT = {
 		empty: 'No program',
 		ready: 'Ready',
@@ -311,6 +328,13 @@
 			</select>
 		</label>
 
+		<label
+			title="Shade each line by how often it has run since the last reset, with its share of all executed instructions in the margin. Hover over a number for the exact count."
+		>
+			<input type="checkbox" bind:checked={settings.heatmap} />
+			Heat map
+		</label>
+
 		<span class="status {emulator.status}">{STATUS_TEXT[emulator.status]}</span>
 		{#if emulator.status === 'running'}
 			<span class="mono dim">
@@ -339,6 +363,7 @@
 					bind:this={editor}
 					{initialDoc}
 					{currentLine}
+					{heat}
 					diagnostics={emulator.diagnostics}
 					{onDocChange}
 					onBreakpointsChange={(lines) => emulator.setBreakLines(lines)}

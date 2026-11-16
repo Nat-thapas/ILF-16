@@ -28,6 +28,10 @@ pnpm check      # type check
   `blocks` (falling-block puzzle; same controls, run in real time) and `fire` (flame effect; hold
   any bit of input 0 to put it out).
 - **Run / Pause** (F8), **Step** (F10), **Reset**. Click the editor gutter to set breakpoints.
+- **Heat map** shades each line by how often it has run since the last reset and shows its share
+  of all executed instructions next to the line number (hover for the exact count, and for `STL`
+  lines the time spent waiting). Every instruction takes the same time, so the share is also the
+  share of CPU time, not counting `STL` waits.
 - **Speed**: *Real time* emulates the 48 MHz clock (12 MIPS, `STL` stalls for its true duration);
   *Unlimited* runs as fast as the machine allows and `STL` takes no time.
 - Each of the 16 input ports can be switches, push buttons, a game controller, an analog stick or

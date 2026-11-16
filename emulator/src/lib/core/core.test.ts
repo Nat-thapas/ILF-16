@@ -229,6 +229,103 @@ describe('examples', () => {
 		expect(cpu.outputs[0]).toBe(255);
 	});
 
+	it('mandelbrot-zoom zooms in 2x2 blocks and starts again', () => {
+		const { cpu, program } = load('mandelbrot-zoom.asm');
+		cpu.breakpoints[program.romLabels.get('.frame')!] = 1;
+		expect(cpu.run(Infinity, 1e9, Infinity)).toBe('breakpoint');
+		expect(cpu.run(Infinity, 1e9, Infinity, true)).toBe('breakpoint');
+		// first frame: the whole set at half resolution, centred on the target point
+		const at = (re: number, im: number) =>
+			cpu.vram[2 * Math.round((im - 3917 / 4096) / (96 / 4096) + 64) * 256 + 2 * Math.round((re + 414 / 4096) / (96 / 4096) + 64)];
+		expect(at(0, 0)).toBe(0);
+		expect(at(-1, 0)).toBe(0);
+		expect(at(0.5, 0.5)).not.toBe(0);
+		// every block is 2x2 pixels of one colour
+		expect(cpu.vram.every((colour, i) => colour === cpu.vram[i & ~257])).toBe(true);
+		expect(cpu.outputs[0]).toBe(1);
+		// the step ($12) shrinks by 1/16 per frame...
+		expect(cpu.regs[12]).toBe(23040);
+		expect(cpu.run(Infinity, 1e9, Infinity, true)).toBe('breakpoint');
+		expect(cpu.regs[12]).toBe(21600);
+		// ...and goes back to 96.0 once it would drop below 1.0
+		cpu.regs[12] = 270;
+		expect(cpu.run(Infinity, 1e9, Infinity, true)).toBe('breakpoint');
+		expect(cpu.regs[12]).toBe(0x6000);
+		expect(cpu.outputs[0]).toBe(3); // frames drawn so far
+	});
+
+	it('cube draws 12 connected edges and erases the previous frame', () => {
+		const { cpu, program } = load('cube.asm');
+		cpu.breakpoints[program.romLabels.get('.frame')!] = 1;
+		expect(cpu.run(Infinity, 1e9, Infinity)).toBe('breakpoint');
+		const points = () => {
+			const at = program.ramLabels.get('.new_points')!;
+			return Array.from({ length: 8 }, (_, i) => [cpu.ram[at + i * 2], cpu.ram[at + i * 2 + 1]]);
+		};
+		const angle = () => cpu.ram[program.ramLabels.get('.angle_a')!];
+		for (let frame = 1; frame <= 40; frame++) {
+			expect(cpu.run(Infinity, 1e9, Infinity, true)).toBe('breakpoint');
+			const corners = points();
+			for (const [x, y] of corners) {
+				expect(x).toBeLessThan(256);
+				expect(y).toBeLessThan(256);
+				expect(cpu.vram[y * 256 + x]).not.toBe(0);
+			}
+			// a 104 pixel cube in perspective: every edge is somewhere between 40 and 200 pixels,
+			// and nothing is left behind from earlier frames
+			const lit = cpu.vram.reduce((n, colour) => n + (colour ? 1 : 0), 0);
+			expect(lit).toBeGreaterThan(600);
+			expect(lit).toBeLessThan(1500);
+			// opposite corners (numbers 0 and 7) are on opposite sides of the screen centre
+			expect((corners[0][0] - 128) * (corners[7][0] - 128)).toBeLessThanOrEqual(0);
+			expect((corners[0][1] - 128) * (corners[7][1] - 128)).toBeLessThanOrEqual(0);
+		}
+		expect(angle()).toBe(40 * 300);
+		// the analog stick takes over: fully left turns the other way, 127 * 8 per frame
+		cpu.inputs[0] = 0x0081;
+		cpu.run(Infinity, 1e9, Infinity, true);
+		expect(angle()).toBe(40 * 300 - 127 * 8);
+	});
+
+	it('numbers prints the Fibonacci numbers and then the primes', () => {
+		const { cpu, program } = load('numbers.asm');
+		cpu.inputs[0] = 1; // skip the pauses
+		cpu.breakpoints[program.romLabels.get('.print_line')!] = 1;
+		expect(cpu.run(Infinity, 1e9, Infinity)).toBe('breakpoint');
+		const printed: number[][] = [];
+		for (let line = 0; line < 48 + 300; line++) {
+			expect(cpu.run(Infinity, 1e9, Infinity, true)).toBe('breakpoint');
+			printed.push([cpu.outputs[2], cpu.outputs[1] * 65536 + cpu.outputs[0]]);
+		}
+		const fibonacci = [0, 1];
+		while (fibonacci.length < 48) fibonacci.push(fibonacci.at(-1)! + fibonacci.at(-2)!);
+		expect(fibonacci[47]).toBe(2971215073);
+		expect(printed.slice(0, 48)).toEqual(fibonacci.map((value, n) => [n, value]));
+		const primes: number[] = [];
+		for (let n = 2; primes.length < 300; n++) if (primes.every((p) => n % p)) primes.push(n);
+		expect(printed.slice(48)).toEqual(primes.map((value, n) => [n + 1, value]));
+
+		// the text on screen: the last line printed reads "  300       1987 000007C3"
+		const font = Array.from(cpu.ram.slice(0, 37));
+		const row = cpu.ram[program.ramLabels.get('.row')!] - 1;
+		const read = (col: number) => {
+			let bits = 0;
+			for (let i = 0; i < 15; i++)
+				bits = (bits << 1) | (cpu.vram[(row * 12 + 2 * Math.floor(i / 3)) * 256 + col * 8 + 2 + 2 * (i % 3)] ? 1 : 0);
+			return '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ '[font.indexOf((bits << 1) | 1)];
+		};
+		expect(Array.from({ length: 25 }, (_, i) => read(3 + i)).join('')).toBe('  300       1987 000007C3');
+
+		// the sieve itself: every odd number below 131072, of which 12250 are prime
+		const sieve = cpu.ram.slice(2048, 2048 + 4096);
+		const isPrime = (n: number) => !((sieve[n >> 5] >> ((n >> 1) & 15)) & 1);
+		let count = 0;
+		for (let n = 3; n < 131072; n += 2) if (isPrime(n)) count++;
+		expect(count).toBe(12250);
+		expect(isPrime(131071)).toBe(true);
+		expect(isPrime(131069)).toBe(false);
+	});
+
 	it('game of life follows the rules on a wrapping grid', () => {
 		const { cpu, program } = load('game-of-life.asm');
 		cpu.breakpoints[program.romLabels.get('.generation')!] = 1;

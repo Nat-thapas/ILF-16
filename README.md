@@ -57,7 +57,7 @@ Example of instructions and their descriptions:
 - BRN .label   : Branch to label
 - BGT ~+2      : Branch to instruction at address 2 greater than the current instruction if the greater than flag is set
 - NOT $2 $1    : Invert the bits in $1 (register 1) and store the result in $2 (register 2)
-- More examples of instruction usage can be found in the example programs in the [examples](./examples/) folder: [vga-demo.asm](./examples/vga-demo.asm), [bad-apple.asm](./examples/bad-apple.asm), [mandelbrot.asm](./examples/mandelbrot.asm), [game-of-life.asm](./examples/game-of-life.asm) and [snake.asm](./examples/snake.asm). They can all be opened from the `Examples…` menu of the emulator.
+- More examples of instruction usage can be found in the example programs in the [examples](./examples/) folder: [vga-demo.asm](./examples/vga-demo.asm), [bad-apple.asm](./examples/bad-apple.asm), [mandelbrot.asm](./examples/mandelbrot.asm), [mandelbrot-zoom.asm](./examples/mandelbrot-zoom.asm), [game-of-life.asm](./examples/game-of-life.asm), [snake.asm](./examples/snake.asm), [cube.asm](./examples/cube.asm) and [numbers.asm](./examples/numbers.asm). They can all be opened from the `Examples…` menu of the emulator.
 
 Macros and pseudo instructions
 

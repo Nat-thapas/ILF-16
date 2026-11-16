@@ -2,8 +2,11 @@
 	import { onMount } from 'svelte';
 	import vgaDemo from '../../../examples/vga-demo.asm?raw';
 	import badApple from '../../../examples/bad-apple.asm?raw';
+	import cube from '../../../examples/cube.asm?raw';
 	import gameOfLife from '../../../examples/game-of-life.asm?raw';
 	import mandelbrot from '../../../examples/mandelbrot.asm?raw';
+	import mandelbrotZoom from '../../../examples/mandelbrot-zoom.asm?raw';
+	import numbers from '../../../examples/numbers.asm?raw';
 	import snake from '../../../examples/snake.asm?raw';
 	import Debugger from '#lib/components/Debugger.svelte';
 	import Display from '#lib/components/Display.svelte';
@@ -18,8 +21,11 @@
 		'vga-demo.asm': vgaDemo,
 		'bad-apple.asm': badApple,
 		'mandelbrot.asm': mandelbrot,
+		'mandelbrot-zoom.asm': mandelbrotZoom,
 		'game-of-life.asm': gameOfLife,
-		'snake.asm': snake
+		'snake.asm': snake,
+		'cube.asm': cube,
+		'numbers.asm': numbers
 	};
 	const SOURCE_KEY = 'ilf16.source.v1';
 	const NAME_KEY = 'ilf16.name.v1';

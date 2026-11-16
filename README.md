@@ -5,8 +5,8 @@ If assembly macros is used, R14 and R15 becomes temporary register and stack poi
 
 ## Specification And Details
 ILF-16 is a load-store, harvard architecture 16 bits CPU. The CPU runs on a reduced instruction set with a flag register.
-- 52 KiB (13,312 words) of instruction ROM.
-- 16 KiB (8,192 words) of general purpose RAM (addressable 1 word at a time).
+- 52 kiB (13,312 words) of instruction ROM.
+- 16 kiB (8,192 words) of general purpose RAM (addressable 1 word at a time).
 - 48 MHz clock
 - 4 clocks per instruction (this is true for all instructions, including LOD STR and branch instructions, there is no pipelining or any other kind of performance optimization)
 - 16x 16-bit general purpose input ports
@@ -165,12 +165,12 @@ The ILF-16 supports a total of 256 instructions. Currently, the following is ava
 | 11010000          | D0             | GFXSP    | True      | 2         | GFX set pixel                 | Set pixel at (x: A, y: B) to color $D        |
 
 Notes: 
-- Reserved instructions are side effect instructions from how the CPU decode instructions, these may or may not work and have undefined behavior.
+- Reserved instructions are side effect instructions from how the CPU decode instructions, these may or may not do anything and have undefined behavior.
 - All instructions from 0x10 to 0x1F (ALU instructions) will set all the ALU flags according to the arguments provided, the TEST instruction simply set the ALU inputs, load the resulting flag into the flag register and do nothing with the ALU output (by sending it to R0, which is read-only).
 - Set instructions set the destination register to A if the condition is true, otherwise set the register to B. If only one argument is provided B will be set to 0.
 
 ## Buttons
-The ILF-16 by default have 3 buttons that have functions:
+The ILF-16 by default have 3 buttons that have the following functions:
 - Button 1 clears the Spacewire input (from ILF-EXTIO, if attached) buffer.
 - Button 2 start the operation, ILF-16 will not do anything before this button is pressed. Pressing it again have no effect.
 - Button 3 temporarily stalls the ILF-16, ILF-16 will stop in its current state when this button is held. Releasing the button will resume the operation. Holding this button before starting have no effect.
@@ -234,7 +234,9 @@ The data link have no redundancy, no error checking, no synchronization. As such
 2. Reset both the ILF-16 and the ILF-GFX
 
 ## Buttons
-The ILF-GFX have 1 button function. Button 1, when pressed, will clear the receive buffer of the Spacewire receiver.
+The ILF-GFX by default have 2 buttons that have the following functions:
+- Button 1 clears the Spacewire input (from ILF-16) buffer.
+- Button 2 start the operation, ILF-GFX will not do anything before this button is pressed. Pressing it again have no effect.
 
 ## Startup Sequence
 The recommended start sequence for ILF-16 attached to an ILF-GFX is to first reset the ILF-GFX board when the ILF-16 have powered up (but not started) then start the ILF-GFX by pressing button 2, then start the ILF-16 by pressing button 2.
@@ -277,3 +279,4 @@ The current version of the assembler is quite hastily thrown together, expect bu
 To use the assembler, simply call the assembler with the path to assembly file as the argument, the assembler will that assemble the code into 2 files:
 1. <name>.rom.coe : this is the memory coefficient file for the instruction ROM. Load this file into rom.xco
 2. <name>.ram.coe : this is the memory coefficient file for the general purpose RAM. This file will not contain memory data if no DW instruction is used. Load this file into ram.xco if neccessary.
+

@@ -214,7 +214,7 @@ def operation_to_bin(
                 raise ValueError(
                     f"Argument values {first_argument_int} and {second_argument_int} are too large for 12-bit and 4-bit binary"
                 )
-            arguments = ((first_argument_int & 0xFFF) << 8) | (
+            arguments = ((first_argument_int & 0xFFF) << 4) | (
                 second_argument_int & 0xF
             )
         else:

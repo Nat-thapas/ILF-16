@@ -196,8 +196,8 @@ The ALU or arithmatic logic unit is a purely combinational component with no reg
     - 0101 : SMUL   (O = A * B) Signed multiply, result is the lower 16 bits
     - 0110 : UMUL   (O = A * B) Unsigned multiply, result is the upper 16 bits
     - 0111 : SUMUL  (O = A * B) Signed multiply, result is the upper 16 bits
-    - 1000 : NOT A  (O = ~A)
-    - 1001 : NOT B  (O = ~B)
+    - 1000 : A      (O = A)
+    - 1001 : NOT A  (O = ~A)
     - 1010 : AND    (O = A & B)
     - 1011 : OR     (O = A | B)
     - 1100 : XOR    (O = A ^ B)

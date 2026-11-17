@@ -4,6 +4,10 @@ ILF-16 is a 16-bit cpu that runs on Spartan-6 FPGA.
 The ILF-16 have 16 registers indexed with a 4-bit register identifier where R0 is the zero (readonly) register and R1-R15 are general purpose registers.  
 If assembly macros is used, R14 and R15 becomes temporary register and stack pointer register respectively.
 
+## Emulator
+
+The emulator (along with a simplified C compiler and an assembler) is available at [https://ilf-16.natthapas.dev](https://ilf-16.natthapas.dev). For more information about the emulator see [README.md](./emulator/README.md)
+
 ## Specification And Details
 
 ILF-16 is a load-store, harvard architecture 16 bits CPU. The CPU runs on a reduced instruction set with a flag register.

@@ -26,6 +26,8 @@
 	import Display from '#lib/components/Display.svelte';
 	import Editor from '#lib/components/Editor.svelte';
 	import IoPanel from '#lib/components/IoPanel.svelte';
+	import pauseIcon from '#lib/assets/pause.svg';
+	import playIcon from '#lib/assets/play.svg';
 	import { assemble, parseCoe, programFromImages, toCoe } from '#lib/core/assembler.ts';
 	import { disassembleListing } from '#lib/core/disasm.ts';
 	import { profileLines, type LineProfile } from '#lib/core/profile.ts';
@@ -64,17 +66,17 @@
 
 	function loadSavedSource(): string {
 		try {
-			return localStorage.getItem(SOURCE_KEY) ?? vgaDemo;
+			return localStorage.getItem(SOURCE_KEY) ?? cube;
 		} catch {
-			return vgaDemo;
+			return cube;
 		}
 	}
 
 	function loadSavedName(): string {
 		try {
-			return localStorage.getItem(NAME_KEY) ?? 'vga-demo';
+			return localStorage.getItem(NAME_KEY) ?? 'cube';
 		} catch {
-			return 'vga-demo';
+			return 'cube';
 		}
 	}
 
@@ -424,8 +426,12 @@
 				View assembly
 			</button>
 		{/if}
-		<button class="primary" onclick={runOrPause} title="Run / pause (F8)">
-			{emulator.status === 'running' ? '⏸ Pause' : '▶ Run'}
+		<button class="primary icon" onclick={runOrPause} title="Run / pause (F8)">
+			{#if emulator.status === 'running'}
+				<img src={pauseIcon} alt="Pause icon" class="icon">Pause
+			{:else}
+				<img src={playIcon} alt="Play icon" class="icon">Run
+			{/if}
 		</button>
 		<button
 			onclick={step}
@@ -567,6 +573,16 @@
 		color: #08111f;
 		font-weight: 600;
 		min-width: 86px;
+	}
+	button.icon {
+		display: flex;
+		gap: 4px;
+		justify-content: center;
+		align-items: center;
+	}
+	img.icon {
+		width: 16px;
+		height: 16px;
 	}
 	.status {
 		padding: 2px 8px;

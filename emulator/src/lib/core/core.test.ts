@@ -27,7 +27,7 @@ function runProgram(source: string, maxInstructions = 100000): Cpu {
 }
 
 describe('assembler matches assembler-deprecated.py output', () => {
-	for (const name of ['vga-demo', 'bad-apple']) {
+	for (const name of ['colors', 'bad-apple']) {
 		it(name, () => {
 			const program = asm(read(`${name}.asm`));
 			expect(Array.from(program.rom)).toEqual(parseCoe(fixture(`${name}.rom.coe`)));
@@ -192,16 +192,13 @@ describe('cpu', () => {
 		expect(cpu.run(Infinity, 100, Infinity, true)).toBe('halted');
 	});
 
-	it('vga-demo draws a full frame with the four reference squares', () => {
+	it('colors draws a full frame', () => {
 		const cpu = new Cpu();
-		cpu.load(asm(read('vga-demo.asm')));
+		cpu.load(asm(read('colors.asm')));
 		cpu.run(Infinity, 700000, Infinity);
-		// squares where both x and y have bits 0x60 set
-		expect(cpu.vram[0x60 * 256 + 0x60]).toBe(15);
-		expect(cpu.vram[0xe0 * 256 + 0x7f]).toBe(15);
 		// first pixels of the first frame: colour increments per pixel
-		expect(Array.from(cpu.vram.slice(0, 5))).toEqual([0, 1, 2, 3, 4]);
-		expect(cpu.vram[1 * 256]).toBe(1);
+		expect(Array.from(cpu.vram.slice(0, 5))).toEqual([1, 2, 3, 4, 5]);
+		expect(cpu.vram[1 * 256]).toBe(2);
 	});
 });
 

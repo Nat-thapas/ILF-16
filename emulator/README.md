@@ -22,7 +22,7 @@ pnpm check      # type check
   an example fills it in, and it can be changed at any time.
 - The language box next to it says whether the source is assembly or C. Opening a `.c` file or
   a C example switches it.
-- **Examples** (from `../examples`, each one in assembly and in C): `vga-demo`, `bad-apple`, `mandelbrot` (fixed point maths with
+- **Examples** (from `../examples`, each one in assembly and in C): `colors`, `bad-apple`, `mandelbrot` (fixed point maths with
   the multiplier), `mandelbrot-zoom` (the same, animated), `game-of-life` (hold any bit of input 0
   to reseed), `snake` (set input 0 to *Game controller*, steer with d-pad 1, run in real time),
   `cube` (3D wireframe; set input 0 to *Analog stick* to turn it yourself), `numbers` (Fibonacci

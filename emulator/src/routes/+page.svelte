@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import vgaDemo from '../../../examples/vga-demo.asm?raw';
+	import colors from '../../../examples/colors.asm?raw';
 	import badApple from '../../../examples/bad-apple.asm?raw';
 	import blocks from '../../../examples/blocks.asm?raw';
 	import cube from '../../../examples/cube.asm?raw';
@@ -21,7 +21,7 @@
 	import numbersC from '../../../examples/numbers.c?raw';
 	import raycasterC from '../../../examples/raycaster.c?raw';
 	import snakeC from '../../../examples/snake.c?raw';
-	import vgaDemoC from '../../../examples/vga-demo.c?raw';
+	import colorsC from '../../../examples/colors.c?raw';
 	import Debugger from '#lib/components/Debugger.svelte';
 	import Display from '#lib/components/Display.svelte';
 	import Editor from '#lib/components/Editor.svelte';
@@ -35,7 +35,7 @@
 	import { settings } from '#lib/settings.svelte.ts';
 
 	const EXAMPLES: Record<string, string> = {
-		'vga-demo.asm': vgaDemo,
+		'colors.asm': colors,
 		'bad-apple.asm': badApple,
 		'mandelbrot.asm': mandelbrot,
 		'mandelbrot-zoom.asm': mandelbrotZoom,
@@ -48,7 +48,7 @@
 		'fire.asm': fire
 	};
 	const C_EXAMPLES: Record<string, string> = {
-		'vga-demo.c': vgaDemoC,
+		'colors.c': colorsC,
 		'bad-apple.c': badAppleC,
 		'mandelbrot.c': mandelbrotC,
 		'mandelbrot-zoom.c': mandelbrotZoomC,

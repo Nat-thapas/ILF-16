@@ -13,6 +13,7 @@
 
 import { CompileError } from './lexer';
 import { isScalar, sizeOf, typeName, type Func, type Node, type Stmt, type Type, type Unit, type Var } from './ast';
+import { declaration, type DebugVariable } from './debug';
 import { foldCmp } from './parser';
 import { RAM_SIZE } from '../isa';
 
@@ -1661,10 +1662,19 @@ const RUNTIME_SDIV = `
 /** Globals without initial values larger than this are not written out as DW. */
 const SMALL_DATA = 16;
 
+/** Where the variables are, for the debugger. Functions are known by their label for now. */
+export interface GeneratedDebug {
+	globals: DebugVariable[];
+	functions: { name: string; label: string; locals: DebugVariable[] }[];
+	/** Labels of the routines that come after the last function. */
+	runtime: string[];
+}
+
 export interface Generated {
 	asm: string;
 	/** For each line of `asm` (index 0 is line 1), the C line it came from, or 0. */
 	lineMap: number[];
+	debug: GeneratedDebug;
 }
 
 export function generate(unit: Unit, source: string, warn: (line: number, message: string) => void): Generated {
@@ -1760,5 +1770,23 @@ export function generate(unit: Unit, source: string, warn: (line: number, messag
 	if (cg.usesSdiv) for (const line of RUNTIME_SDIV.split('\n')) put(line);
 	if (cg.usesUdiv || cg.usesSdiv) for (const line of RUNTIME_UDIV.split('\n')) put(line);
 
-	return { asm: out.join('\n') + '\n', lineMap };
+	const variable = (v: Var, addr: number): DebugVariable => ({
+		name: v.name,
+		type: v.type,
+		text: declaration(v.type, v.name),
+		reg: v.global ? -1 : v.reg,
+		addr
+	});
+	const debug: GeneratedDebug = {
+		// string literals have no name
+		globals: unit.globals.filter((v) => v.name).map((v) => variable(v, v.addr)),
+		functions: code.map(({ f }) => ({
+			name: f.name,
+			label: '.' + f.label,
+			// a variable that is never used has no place at all
+			locals: f.locals.filter((v) => v.reg >= 0 || v.addrTaken || v.weight > 0).map((v) => variable(v, v.stackOff))
+		})),
+		runtime: ['.__sdivmod', '.__udivmod']
+	};
+	return { asm: out.join('\n') + '\n', lineMap, debug };
 }

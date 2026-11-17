@@ -222,6 +222,8 @@
 		if (!asm) return;
 		const result = assemble(asm);
 		if (!result.program) return;
+		// the same code at the same addresses, so the variables are where they were
+		result.program.debug = emulator.program?.debug;
 		rawImage = `${saveAs()}.c`;
 		generated = true;
 		imageName = sourceName;

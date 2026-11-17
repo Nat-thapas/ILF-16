@@ -2,6 +2,7 @@
 // output matches what the real assembler produces, with proper diagnostics added on top.
 
 import { INSTRUCTIONS_BY_NAME, RAM_SIZE, ROM_SIZE } from './isa';
+import type { DebugInfo } from './cc/debug';
 
 export interface Diagnostic {
 	severity: 'error' | 'warning';
@@ -25,6 +26,8 @@ export interface Program {
 	lineStep?: boolean;
 	/** The assembly this program was compiled to, when it was not written as assembly. */
 	asm?: string;
+	/** Where the variables of a compiled program are, for the debugger. */
+	debug?: DebugInfo;
 }
 
 export interface AssembleResult {

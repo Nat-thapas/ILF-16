@@ -16,7 +16,8 @@ export interface FuncType {
 }
 export type Type =
 	| { kind: 'void' }
-	| { kind: 'int'; unsigned: boolean }
+	/** `char` is a word like any other; it is only told apart to show values as characters. */
+	| { kind: 'int'; unsigned: boolean; char?: boolean }
 	| { kind: 'ptr'; to: Type }
 	/** `len` is -1 while the length is not known yet. */
 	| { kind: 'array'; of: Type; len: number }
@@ -36,10 +37,12 @@ export interface Param {
 export const VOID: Type = { kind: 'void' };
 export const INT: Type = { kind: 'int', unsigned: false };
 export const UINT: Type = { kind: 'int', unsigned: true };
+export const CHAR: Type = { kind: 'int', unsigned: false, char: true };
+export const UCHAR: Type = { kind: 'int', unsigned: true, char: true };
 export const ptrTo = (to: Type): Type => ({ kind: 'ptr', to });
 
 export const isPtr = (t: Type): t is { kind: 'ptr'; to: Type } => t.kind === 'ptr';
-export const isInt = (t: Type): t is { kind: 'int'; unsigned: boolean } => t.kind === 'int';
+export const isInt = (t: Type): t is { kind: 'int'; unsigned: boolean; char?: boolean } => t.kind === 'int';
 export const isScalar = (t: Type) => t.kind === 'int' || t.kind === 'ptr';
 /** Values of this type compare and shift as unsigned numbers. */
 export const isUnsigned = (t: Type) => t.kind === 'ptr' || (t.kind === 'int' && t.unsigned);
@@ -68,6 +71,7 @@ export function typeName(t: Type): string {
 		case 'void':
 			return 'void';
 		case 'int':
+			if (t.char) return t.unsigned ? 'unsigned char' : 'char';
 			return t.unsigned ? 'unsigned' : 'int';
 		case 'ptr':
 			return typeName(t.to) + '*';

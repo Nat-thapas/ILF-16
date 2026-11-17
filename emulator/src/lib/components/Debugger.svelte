@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { formatScalar, formatValue, functionAt, type DebugVariable } from '#lib/core/cc/debug.ts';
 	import { disassemble } from '#lib/core/disasm.ts';
 	import { CLOCK_HZ, FLAG_NAMES, RAM_SIZE } from '#lib/core/isa.ts';
 	import { emulator } from '#lib/emulator.svelte.ts';
@@ -6,7 +7,7 @@
 
 	const cpu = emulator.cpu;
 
-	let tab = $state<'rom' | 'ram'>('rom');
+	let chosenTab = $state<'rom' | 'ram' | 'vars'>('rom');
 	let followPc = $state(true);
 	let romBase = $state(0);
 	let ramBaseText = $state('0');
@@ -27,6 +28,8 @@
 	});
 
 	const program = $derived(emulator.program);
+	// Variables are only known for compiled programs.
+	const tab = $derived(chosenTab === 'vars' && !program?.debug ? 'rom' : chosenTab);
 	const pcLine = $derived(program?.lineOfAddr[snapshot.pc] ?? 0);
 
 	const romStart = $derived(
@@ -64,6 +67,40 @@
 			rows.push({ addr, words: Array.from(cpu.ram.subarray(addr, addr + RAM_COLS)) });
 		}
 		return rows;
+	});
+
+	interface VariableRow {
+		text: string;
+		where: string;
+		value: string;
+		hex: string;
+	}
+	/** The variables of the function the CPU is in, and the globals, with their values. */
+	const variables = $derived.by(() => {
+		void emulator.frame;
+		const debug = program?.debug;
+		if (!debug || tab !== 'vars') return null;
+		const word = (addr: number) => cpu.ram[addr & (RAM_SIZE - 1)];
+		const scalar = (v: DebugVariable) => v.type.kind === 'int' || v.type.kind === 'ptr';
+		const row = (v: DebugVariable, base: number): VariableRow => {
+			if (v.reg >= 0) {
+				const value = cpu.regs[v.reg];
+				return { text: v.text, where: `$${v.reg}`, value: formatScalar(v.type, value, word), hex: hex(value) };
+			}
+			const addr = (base + v.addr) & (RAM_SIZE - 1);
+			return {
+				text: v.text,
+				where: `#${addr}`,
+				value: formatValue(v.type, word, addr),
+				hex: scalar(v) ? hex(word(addr)) : ''
+			};
+		};
+		const fn = functionAt(debug, snapshot.pc);
+		return {
+			name: fn?.name ?? '',
+			locals: fn ? fn.locals.map((v) => row(v, cpu.regs[15])) : [],
+			globals: debug.globals.map((v) => row(v, 0))
+		};
 	});
 
 	function moveRam(delta: number) {
@@ -106,10 +143,21 @@
 	</div>
 
 	<div class="tabs">
-		<button class:active={tab === 'rom'} onclick={() => (tab = 'rom')}>Instructions</button>
-		<button class:active={tab === 'ram'} onclick={() => (tab = 'ram')}>RAM</button>
+		<button class:active={tab === 'rom'} onclick={() => (chosenTab = 'rom')}>Instructions</button>
+		<button class:active={tab === 'ram'} onclick={() => (chosenTab = 'ram')}>RAM</button>
+		{#if program?.debug}
+			<button
+				class:active={tab === 'vars'}
+				onclick={() => (chosenTab = 'vars')}
+				title="The variables of the C program, by name"
+			>
+				Variables
+			</button>
+		{/if}
 		<span class="spacer"></span>
-		{#if tab === 'rom'}
+		{#if tab === 'vars'}
+			<span class="dim">{variables?.name ? `in ${variables.name}()` : ''}</span>
+		{:else if tab === 'rom'}
 			<label><input type="checkbox" bind:checked={followPc} /> follow PC</label>
 			{#if !followPc}
 				<input class="addr" type="number" min="0" max="13311" bind:value={romBase} />
@@ -122,7 +170,33 @@
 		{/if}
 	</div>
 
-	{#if tab === 'rom'}
+	{#if tab === 'vars' && variables}
+		{#snippet rows(list: VariableRow[])}
+			{#each list as v, i (i)}
+				<tr>
+					<td>{v.text}</td>
+					<td class="dim">{v.where}</td>
+					<td class="value" title={v.value}>{v.value}</td>
+					<td class="dim">{v.hex}</td>
+				</tr>
+			{/each}
+		{/snippet}
+		<div class="variables">
+			<table class="mono listing">
+				<tbody>
+					{#if variables.locals.length}
+						<tr><th colspan="4">Local to {variables.name}()</th></tr>
+						{@render rows(variables.locals)}
+					{/if}
+					<tr><th colspan="4">Global</th></tr>
+					{@render rows(variables.globals)}
+					{#if !variables.globals.length}
+						<tr><td class="dim" colspan="4">none</td></tr>
+					{/if}
+				</tbody>
+			</table>
+		</div>
+	{:else if tab === 'rom'}
 		<table class="mono listing">
 			<tbody>
 				{#each romRows as row (row.addr)}
@@ -230,5 +304,20 @@
 	}
 	.zero {
 		color: var(--muted);
+	}
+	.variables {
+		max-height: 300px;
+		overflow: auto;
+	}
+	.variables th {
+		text-align: left;
+		font-weight: 600;
+		color: var(--muted);
+		padding-top: 4px;
+	}
+	.variables .value {
+		max-width: 340px;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 </style>

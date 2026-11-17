@@ -36,6 +36,11 @@ pnpm check      # type check
 - **View assembly** (C only) shows the assembly the compiler generated, with the C lines as
   comments. While it is on show, breakpoints, stepping and the heat map work on the
   instructions, and `Save .asm` saves it.
+- **Variables** (C only, a tab next to Instructions and RAM in the CPU panel) lists the
+  variables of the function the CPU is in and the globals, by name, with where each one lives
+  (a register or a RAM address) and its value. Arrays and structs are written out, and `char`
+  arrays and pointers show their text. A local is only right once its function has started
+  running, and a variable the program never uses is left out.
 - **Heat map** shades each line by how often it has run since the last reset and shows its share
   of all executed instructions next to the line number (hover for the exact count, and for `STL`
   lines the time spent waiting). Every instruction takes the same time, so the share is also the

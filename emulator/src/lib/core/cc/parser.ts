@@ -3,7 +3,9 @@
 import { CompileError, type Token } from './lexer';
 import {
 	BUILTINS,
+	CHAR,
 	INT,
+	UCHAR,
 	UINT,
 	VOID,
 	isInt,
@@ -319,7 +321,7 @@ class Parser {
 		const key = chars.join(',');
 		let v = this.strings.get(key);
 		if (!v) {
-			v = this.newGlobal('', { kind: 'array', of: INT, len: chars.length + 1 }, this.line, 'str');
+			v = this.newGlobal('', { kind: 'array', of: CHAR, len: chars.length + 1 }, this.line, 'str');
 			v.init = [...chars, 0];
 			this.strings.set(key, v);
 		}
@@ -761,7 +763,7 @@ class Parser {
 		if (t.kind === 'str') {
 			const chars: number[] = [];
 			while (this.tok.kind === 'str') chars.push(...this.next().chars);
-			return this.node('var', { kind: 'array', of: INT, len: chars.length + 1 }, { v: this.stringVar(chars) });
+			return this.node('var', { kind: 'array', of: CHAR, len: chars.length + 1 }, { v: this.stringVar(chars) });
 		}
 		if (t.kind === 'id' && !KEYWORDS.has(t.text)) {
 			this.next();
@@ -791,6 +793,7 @@ class Parser {
 		let base: Type | null = null;
 		let unsigned = false;
 		let sawInt = false;
+		let sawChar = false;
 		let sawSign = false;
 		let any = false;
 		for (;;) {
@@ -802,7 +805,10 @@ class Parser {
 			else if (['const', 'volatile', 'extern', 'register', 'inline', 'auto'].includes(w)) {
 				// accepted and ignored
 			} else if (w === 'void') base = VOID;
-			else if (w === 'char' || w === 'short' || w === 'int' || w === '_Bool') sawInt = true;
+			else if (w === 'char' || w === 'short' || w === 'int' || w === '_Bool') {
+				sawInt = true;
+				if (w === 'char') sawChar = true;
+			}
 			else if (w === 'signed' || w === 'unsigned') {
 				sawSign = true;
 				unsigned = w === 'unsigned';
@@ -830,7 +836,8 @@ class Parser {
 		}
 		if (!any) this.error(`Expected a type but found ${this.describe()}`);
 		if (base && (sawInt || sawSign)) this.error('These type names cannot be combined');
-		return { type: base ?? (unsigned ? UINT : INT), typedef, isStatic };
+		const plain = sawChar ? (unsigned ? UCHAR : CHAR) : unsigned ? UINT : INT;
+		return { type: base ?? plain, typedef, isStatic };
 	}
 
 	private structSpec(): StructType {

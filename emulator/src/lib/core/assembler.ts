@@ -21,6 +21,10 @@ export interface Program {
 	romLabels: Map<string, number>;
 	/** User labels pointing into RAM (DW). */
 	ramLabels: Map<string, number>;
+	/** Several instructions make up one source line (compiled C): stepping goes line by line. */
+	lineStep?: boolean;
+	/** The assembly this program was compiled to, when it was not written as assembly. */
+	asm?: string;
 }
 
 export interface AssembleResult {
@@ -185,6 +189,8 @@ function assembleInner(source: string, warn: (line: number, message: string) => 
 
 	// --- DW -------------------------------------------------------------------------------------
 	const ramData: number[] = [];
+	/** DW values that are labels: filled in once every label has its place. */
+	const dwLabels: { index: number; label: string; line: number }[] = [];
 	for (const item of dwItems) {
 		for (const label of item.labels) {
 			if (labelLocations.has(label))
@@ -195,6 +201,11 @@ function assembleInner(source: string, warn: (line: number, message: string) => 
 		if (item.op.length < 2) throw new AsmError(item.line, 'DW expects at least one value');
 		for (let arg of item.op.slice(1)) {
 			arg = defines.get(arg) ?? arg;
+			if (arg.startsWith('.')) {
+				dwLabels.push({ index: ramData.length, label: arg, line: item.line });
+				ramData.push(0);
+				continue;
+			}
 			const value = parseIntLiteral(arg, item.line);
 			if (value > 0xffff || value < -0x8000)
 				throw new AsmError(item.line, `Value ${arg} does not fit in a 16-bit word`);
@@ -203,6 +214,11 @@ function assembleInner(source: string, warn: (line: number, message: string) => 
 	}
 	if (ramData.length > RAM_SIZE)
 		throw new AsmError(0, `DW data is ${ramData.length} words, RAM holds ${RAM_SIZE}`);
+	for (const { index, label, line } of dwLabels) {
+		const location = labelLocations.get(label);
+		if (location === undefined) throw new AsmError(line, `Label ${label} is not defined`);
+		ramData[index] = location;
+	}
 
 	// --- encode ---------------------------------------------------------------------------------
 	const argToInt = (arg: string, line: number): number => {

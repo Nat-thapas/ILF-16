@@ -11,14 +11,25 @@
 	import numbers from '../../../examples/numbers.asm?raw';
 	import raycaster from '../../../examples/raycaster.asm?raw';
 	import snake from '../../../examples/snake.asm?raw';
+	import badAppleC from '../../../examples/bad-apple.c?raw';
+	import blocksC from '../../../examples/blocks.c?raw';
+	import cubeC from '../../../examples/cube.c?raw';
+	import fireC from '../../../examples/fire.c?raw';
+	import gameOfLifeC from '../../../examples/game-of-life.c?raw';
+	import mandelbrotC from '../../../examples/mandelbrot.c?raw';
+	import mandelbrotZoomC from '../../../examples/mandelbrot-zoom.c?raw';
+	import numbersC from '../../../examples/numbers.c?raw';
+	import raycasterC from '../../../examples/raycaster.c?raw';
+	import snakeC from '../../../examples/snake.c?raw';
+	import vgaDemoC from '../../../examples/vga-demo.c?raw';
 	import Debugger from '#lib/components/Debugger.svelte';
 	import Display from '#lib/components/Display.svelte';
 	import Editor from '#lib/components/Editor.svelte';
 	import IoPanel from '#lib/components/IoPanel.svelte';
-	import { parseCoe, programFromImages, toCoe } from '#lib/core/assembler.ts';
+	import { assemble, parseCoe, programFromImages, toCoe } from '#lib/core/assembler.ts';
 	import { disassembleListing } from '#lib/core/disasm.ts';
 	import { profileLines, type LineProfile } from '#lib/core/profile.ts';
-	import { emulator } from '#lib/emulator.svelte.ts';
+	import { emulator, type Language } from '#lib/emulator.svelte.ts';
 	import { settings } from '#lib/settings.svelte.ts';
 
 	const EXAMPLES: Record<string, string> = {
@@ -34,8 +45,22 @@
 		'blocks.asm': blocks,
 		'fire.asm': fire
 	};
+	const C_EXAMPLES: Record<string, string> = {
+		'vga-demo.c': vgaDemoC,
+		'bad-apple.c': badAppleC,
+		'mandelbrot.c': mandelbrotC,
+		'mandelbrot-zoom.c': mandelbrotZoomC,
+		'game-of-life.c': gameOfLifeC,
+		'snake.c': snakeC,
+		'cube.c': cubeC,
+		'numbers.c': numbersC,
+		'raycaster.c': raycasterC,
+		'blocks.c': blocksC,
+		'fire.c': fireC
+	};
 	const SOURCE_KEY = 'ilf16.source.v1';
 	const NAME_KEY = 'ilf16.name.v1';
+	const LANGUAGE_KEY = 'ilf16.language.v1';
 
 	function loadSavedSource(): string {
 		try {
@@ -53,7 +78,18 @@
 		}
 	}
 
+	function loadSavedLanguage(): Language {
+		try {
+			return localStorage.getItem(LANGUAGE_KEY) === 'c' ? 'c' : 'asm';
+		} catch {
+			return 'asm';
+		}
+	}
+
 	let source = loadSavedSource();
+	/** Language of the source: assembly, or C that is compiled to assembly first. */
+	let language = $state<Language>(loadSavedLanguage());
+	const extension = $derived(language === 'c' ? 'c' : 'asm');
 	/** File name (without extension) of the source, used to name saved files. */
 	let sourceName = $state(loadSavedName());
 	/** Same for the loaded .coe image, when there is one. */
@@ -64,6 +100,16 @@
 			localStorage.setItem(NAME_KEY, name);
 		} catch {
 			// Ignore: the name just won't persist.
+		}
+	}
+
+	function setLanguage(next: Language) {
+		language = next;
+		stale = true;
+		try {
+			localStorage.setItem(LANGUAGE_KEY, next);
+		} catch {
+			// Ignore: the language just won't persist.
 		}
 	}
 
@@ -89,10 +135,13 @@
 	/** Source edited since it was last assembled. */
 	let stale = $state(true);
 	/**
-	 * Name of the loaded .coe image, or '' when running the editor's source. While an image is
-	 * loaded the editor shows its read-only disassembly and `source` keeps the user's program.
+	 * What the editor shows instead of the source, or '' when it shows the source: the name of a
+	 * loaded .coe image (as its disassembly), or of the C program whose generated assembly is
+	 * on show. Either is read-only, and `source` keeps the user's program meanwhile.
 	 */
 	let rawImage = $state('');
+	/** The listing on show is assembly generated from the C source (not a .coe image). */
+	let generated = $state(false);
 	let message = $state('');
 	let saveTimer = 0;
 
@@ -111,13 +160,13 @@
 	}
 
 	function assembleSource(): boolean {
-		const ok = emulator.assembleAndLoad(source);
+		const ok = emulator.build(source, language);
 		if (ok) {
 			stale = false;
 			const p = emulator.program!;
 			const warnings = emulator.diagnostics.length;
 			message =
-				`Assembled: ${p.rom.length} instructions, ${p.ram.length} RAM words` +
+				`${language === 'c' ? 'Compiled' : 'Assembled'}: ${p.rom.length} instructions, ${p.ram.length} RAM words` +
 				(warnings ? `, ${warnings} warning(s)` : '');
 		} else {
 			message = '';
@@ -147,19 +196,40 @@
 		else emulator.reset();
 	}
 
-	const baseName = (fileName: string) => fileName.replace(/\.(asm|txt|(rom\.|ram\.)?coe)$/i, '') || 'program';
+	const baseName = (fileName: string) => fileName.replace(/\.(asm|c|txt|(rom\.|ram\.)?coe)$/i, '') || 'program';
+	const languageOf = (fileName: string): Language => (/\.c$/i.test(fileName) ? 'c' : 'asm');
 
-	/** Put assembly source in the editor (leaving disassembly view if needed) and assemble it. */
-	function showSource(text: string, name = sourceName) {
+	/** Put source in the editor (leaving a listing if one is on show) and assemble or compile it. */
+	function showSource(text: string, name = sourceName, lang = language) {
 		rawImage = '';
+		generated = false;
 		sourceName = name;
 		saveName(name);
+		setLanguage(lang);
 		editor.setDoc(text);
 		assembleSource();
 	}
 
 	function loadExample(name: string) {
-		if (EXAMPLES[name]) showSource(EXAMPLES[name], baseName(name));
+		const text = EXAMPLES[name] ?? C_EXAMPLES[name];
+		if (text) showSource(text, baseName(name), languageOf(name));
+	}
+
+	/** Show the assembly the C compiler generated, read-only, and run that. */
+	function viewAssembly() {
+		if (stale && !assembleSource()) return;
+		const asm = emulator.program?.asm;
+		if (!asm) return;
+		const result = assemble(asm);
+		if (!result.program) return;
+		rawImage = `${saveAs()}.c`;
+		generated = true;
+		imageName = sourceName;
+		editor.setDoc(asm);
+		emulator.diagnostics = result.diagnostics;
+		emulator.loadProgram(result.program);
+		stale = false;
+		message = `Assembly generated from ${rawImage}: ${result.program.rom.length} instructions`;
 	}
 
 	async function openFiles(files: FileList | null) {
@@ -176,6 +246,7 @@
 					ram ? parseCoe(await ram.text()) : []
 				);
 				rawImage = rom.name + (ram ? ' + ' + ram.name : '');
+				generated = false;
 				imageName = baseName(rom.name);
 				editor.setDoc(disassembleListing(program.rom));
 				emulator.diagnostics = [];
@@ -183,7 +254,7 @@
 				stale = false;
 				message = `Loaded ${rom.name}${ram ? ' + ' + ram.name : ' (no RAM image)'}: ${program.rom.length} instructions`;
 			} else {
-				showSource(await list[0].text(), baseName(list[0].name));
+				showSource(await list[0].text(), baseName(list[0].name), languageOf(list[0].name));
 			}
 		} catch (e) {
 			message = '';
@@ -202,7 +273,9 @@
 	}
 
 	function saveSource() {
-		download(`${saveAs()}.asm`, source);
+		// With the generated assembly on show, that is what gets saved.
+		if (generated) download(`${saveAs()}.asm`, editor.getDoc());
+		else download(`${saveAs()}.${extension}`, source);
 	}
 
 	/** Save the assembled program as <name>.rom.coe and <name>.ram.coe, like assembler-deprecated.py did. */
@@ -273,17 +346,24 @@
 			}}
 		>
 			<option value="">Examples…</option>
-			{#each Object.keys(EXAMPLES) as name (name)}
-				<option value={name}>{name}</option>
-			{/each}
+			<optgroup label="Assembly">
+				{#each Object.keys(EXAMPLES) as name (name)}
+					<option value={name}>{name}</option>
+				{/each}
+			</optgroup>
+			<optgroup label="C">
+				{#each Object.keys(C_EXAMPLES) as name (name)}
+					<option value={name}>{name}</option>
+				{/each}
+			</optgroup>
 		</select>
-		<button onclick={() => fileInput.click()} title="Open an .asm file, or .rom.coe (+ .ram.coe) images">
+		<button onclick={() => fileInput.click()} title="Open an .asm or .c file, or .rom.coe (+ .ram.coe) images">
 			Open…
 		</button>
 		<input
 			bind:this={fileInput}
 			type="file"
-			accept=".asm,.txt,.coe"
+			accept=".asm,.c,.txt,.coe"
 			multiple
 			hidden
 			onchange={(e) => openFiles(e.currentTarget.files)}
@@ -297,7 +377,19 @@
 			spellcheck="false"
 			bind:value={fileName.value}
 		/>
-		<button onclick={saveSource} disabled={!!rawImage}>Save .asm</button>
+		<select
+			aria-label="Language"
+			title="Language of the source. C is compiled to assembly first."
+			value={language}
+			disabled={!!rawImage}
+			onchange={(e) => setLanguage(e.currentTarget.value as Language)}
+		>
+			<option value="asm">Assembly</option>
+			<option value="c">C</option>
+		</select>
+		<button onclick={saveSource} disabled={!!rawImage && !generated}>
+			Save .{generated ? 'asm' : extension}
+		</button>
 		<button
 			onclick={saveCoe}
 			title="Assemble and save the .rom.coe and .ram.coe memory files for the FPGA block memories"
@@ -307,13 +399,26 @@
 
 		<span class="sep"></span>
 
-		<button onclick={assembleSource} disabled={!!rawImage} title="Assemble the source and reset the CPU">
-			Assemble
+		<button
+			onclick={assembleSource}
+			disabled={!!rawImage}
+			title="{language === 'c' ? 'Compile' : 'Assemble'} the source and reset the CPU"
+		>
+			{language === 'c' ? 'Compile' : 'Assemble'}
 		</button>
+		{#if language === 'c' && !rawImage}
+			<button onclick={viewAssembly} title="Show the assembly generated from the C source">
+				View assembly
+			</button>
+		{/if}
 		<button class="primary" onclick={runOrPause} title="Run / pause (F8)">
 			{emulator.status === 'running' ? '⏸ Pause' : '▶ Run'}
 		</button>
-		<button onclick={step} disabled={emulator.status === 'running'} title="Execute one instruction (F10)">
+		<button
+			onclick={step}
+			disabled={emulator.status === 'running'}
+			title={language === 'c' && !rawImage ? 'Run to the next line of the source (F10)' : 'Execute one instruction (F10)'}
+		>
 			Step
 		</button>
 		<button onclick={reset} title="Reset the CPU, RAM, outputs and display">Reset</button>
@@ -342,7 +447,7 @@
 			</span>
 		{/if}
 		{#if !rawImage && stale && emulator.program}
-			<span class="dim">source changed — will re-assemble on run</span>
+			<span class="dim">source changed — will {language === 'c' ? 're-compile' : 're-assemble'} on run</span>
 		{/if}
 	</div>
 
@@ -351,8 +456,13 @@
 			{#if rawImage}
 				<div class="image-banner">
 					<span>
-						<b>Disassembly of {rawImage}</b> (read-only). This image is what is running;
-						your source is kept and not in use.
+						{#if generated}
+							<b>Assembly generated from {rawImage}</b> (read-only). Breakpoints, stepping and
+							the heat map now work on these instructions.
+						{:else}
+							<b>Disassembly of {rawImage}</b> (read-only). This image is what is running;
+							your source is kept and not in use.
+						{/if}
 					</span>
 					<button onclick={() => showSource(source)}>Back to source</button>
 				</div>
@@ -360,6 +470,7 @@
 			<div class="editor-wrap">
 				<Editor
 					readOnly={!!rawImage}
+					language={rawImage ? 'asm' : language}
 					bind:this={editor}
 					{initialDoc}
 					{currentLine}

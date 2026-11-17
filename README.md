@@ -66,7 +66,7 @@ Macros and pseudo instructions
     2. POP R : Pop the value from the stack and store it to register R
     3. CAL   : Call a subroutine (branch to a label, when RET instruction is encounter, jump back to the next instruction after CAL)
     4. RET   : Return from a subroutine (branch back to the instruction after the CAL instruction that called this subroutine)
-    5. DW I  : Define word, put the immediate value I into the next available memory space. DW instruction put data into memory sequentially, starting at #0. Any label defined for this instruction will point to the RAM location of the stored data. To define multiple words, use DW A B C D . . . (eg. DW 0x5 0x9 0x15 0xF8)
+    5. DW I  : Define word, put the immediate value I into the next available memory space. DW instruction put data into memory sequentially, starting at #0. Any label defined for this instruction will point to the RAM location of the stored data. To define multiple words, use DW A B C D . . . (eg. DW 0x5 0x9 0x15 0xF8). In the emulator's assembler a value can also be a label, which stores that label's address.
 
 Special Directives
 
@@ -301,6 +301,8 @@ No more information about the ILF-EXTIO is available at this time.
 # Assembler
 
 The recommended assembler is the one built into the [emulator](./emulator/). It reports errors and warnings with line numbers, and lets you run and debug the program before loading it onto the FPGA.
+
+The emulator also has a C compiler: programs can be written in a subset of C instead of assembly, and saved as `.coe` files in the same way. Every example in the [examples](./examples/) folder is there in both languages. See the [emulator README](./emulator/README.md#c) for what the compiler supports.
 
 The original Python assembler ([assembler-deprecated.py](./assembler-deprecated.py)) is deprecated and kept only for reference. It was hastily thrown together and does almost no error checking: even something as simple as a wrong argument type will NOT be detected, so do not rely on it to catch your mistakes.
 

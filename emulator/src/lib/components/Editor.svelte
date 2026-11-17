@@ -9,6 +9,7 @@
 	import { tags } from '@lezer/highlight';
 	import { INSTRUCTIONS_BY_NAME, PSEUDO_INSTRUCTIONS } from '#lib/core/isa.ts';
 	import type { Diagnostic } from '#lib/core/assembler.ts';
+	import { BUILTINS } from '#lib/core/cc/ast.ts';
 	import { CLOCK_HZ } from '#lib/core/isa.ts';
 	import type { LineProfile } from '#lib/core/profile.ts';
 
@@ -21,6 +22,8 @@
 		heat?: LineProfile | null;
 		/** Show the document as a non-editable listing (breakpoints still work). */
 		readOnly?: boolean;
+		/** Language of the document, for syntax highlighting. */
+		language?: 'asm' | 'c';
 		onDocChange: (doc: string) => void;
 		onBreakpointsChange: (lines: number[]) => void;
 	}
@@ -30,6 +33,7 @@
 		diagnostics,
 		heat = null,
 		readOnly = false,
+		language = 'asm',
 		onDocChange,
 		onBreakpointsChange
 	}: Props = $props();
@@ -201,7 +205,7 @@
 	const heatGutterCompartment = new Compartment();
 
 	// --- syntax highlighting ---------------------------------------------------------------
-	const language = StreamLanguage.define<{ first: boolean }>({
+	const asmLanguage = StreamLanguage.define<{ first: boolean }>({
 		startState: () => ({ first: true }),
 		token(stream, state) {
 			if (stream.sol()) state.first = true;
@@ -227,9 +231,53 @@
 		}
 	});
 
+	const C_KEYWORDS = new Set(
+		'if else while do for return break continue switch case default goto sizeof typedef struct enum static const extern register volatile inline'.split(
+			' '
+		)
+	);
+	const C_TYPES = new Set(['void', 'char', 'short', 'int', 'unsigned', 'signed']);
+	const cLanguage = StreamLanguage.define<{ comment: boolean }>({
+		startState: () => ({ comment: false }),
+		token(stream, state) {
+			if (state.comment) {
+				if (stream.skipTo('*/')) {
+					stream.match('*/');
+					state.comment = false;
+				} else stream.skipToEnd();
+				return 'comment';
+			}
+			if (stream.eatSpace()) return null;
+			if (stream.match('//')) {
+				stream.skipToEnd();
+				return 'comment';
+			}
+			if (stream.match('/*')) {
+				state.comment = true;
+				return 'comment';
+			}
+			if (stream.match(/^#\s*[A-Za-z]*/)) return 'meta';
+			if (stream.match(/^"(?:[^"\\]|\\.)*"?/) || stream.match(/^'(?:[^'\\]|\\.)*'?/)) return 'string';
+			if (stream.match(/^(0[xX][0-9a-fA-F]+|0[bB][01]+|\d+)[uUlL]*/)) return 'number';
+			if (stream.match(/^[A-Za-z_]\w*/)) {
+				const word = stream.current();
+				if (C_KEYWORDS.has(word)) return 'keyword';
+				if (C_TYPES.has(word)) return 'typeName';
+				if (word in BUILTINS) return 'atom';
+				return null;
+			}
+			stream.next();
+			return null;
+		}
+	});
+	const languageCompartment = new Compartment();
+	const languageExtension = (name: 'asm' | 'c') => (name === 'c' ? cLanguage : asmLanguage);
+
 	const highlight = HighlightStyle.define([
 		{ tag: tags.comment, color: '#6b7689', fontStyle: 'italic' },
 		{ tag: tags.keyword, color: '#7cb7ff' },
+		{ tag: tags.typeName, color: '#7ee0a3' },
+		{ tag: tags.string, color: '#e6c07b' },
 		{ tag: tags.labelName, color: '#f2c14e' },
 		{ tag: tags.meta, color: '#c792ea' },
 		{ tag: tags.variableName, color: '#7ee0a3' },
@@ -283,7 +331,7 @@
 					readOnlyCompartment.of(readOnlyExtension(false)),
 					keymap.of([indentWithTab]),
 					EditorState.tabSize.of(4),
-					language,
+					languageCompartment.of(languageExtension(language)),
 					syntaxHighlighting(highlight),
 					heatField,
 					heatGutterCompartment.of([]),
@@ -306,6 +354,11 @@
 		return () => view?.destroy();
 	});
 
+	/** The text in the editor. */
+	export function getDoc(): string {
+		return view?.state.doc.toString() ?? '';
+	}
+
 	/** Replace the whole document (also clears breakpoints). */
 	export function setDoc(doc: string) {
 		if (!view) return;
@@ -319,6 +372,11 @@
 	$effect(() => {
 		const on = readOnly;
 		view?.dispatch({ effects: readOnlyCompartment.reconfigure(readOnlyExtension(on)) });
+	});
+
+	$effect(() => {
+		const name = language;
+		view?.dispatch({ effects: languageCompartment.reconfigure(languageExtension(name)) });
 	});
 
 	$effect(() => {

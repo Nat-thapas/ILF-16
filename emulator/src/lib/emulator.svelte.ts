@@ -1,9 +1,14 @@
 import { assemble, type Diagnostic, type Program } from './core/assembler';
+import { buildC } from './core/cc/index';
 import { Cpu } from './core/cpu';
 import { CLOCK_HZ } from './core/isa';
 import { settings } from './settings.svelte';
 
 export type Status = 'empty' | 'ready' | 'running' | 'paused' | 'halted';
+export type Language = 'asm' | 'c';
+
+/** Most instructions one press of Step runs while looking for the next source line. */
+const MAX_LINE_STEP = 2_000_000;
 
 /** Longest slice of emulated time made up in one animation frame (real-time mode). */
 const MAX_CATCH_UP_MS = 100;
@@ -34,9 +39,9 @@ class Emulator {
 	private statClocks = 0;
 	private statInstructions = 0;
 
-	/** Assemble source and load it. Returns true on success. */
-	assembleAndLoad(source: string): boolean {
-		const result = assemble(source);
+	/** Assemble (or compile) source and load it. Returns true on success. */
+	build(source: string, language: Language): boolean {
+		const result = language === 'c' ? buildC(source) : assemble(source);
 		this.diagnostics = result.diagnostics;
 		if (!result.program) return false;
 		this.loadProgram(result.program);
@@ -67,7 +72,14 @@ class Emulator {
 		for (const line of this.breakLines) {
 			// A breakpoint on a line without code applies to the next line that has some.
 			const target = codeLines.find((l) => l >= line);
-			if (target !== undefined) this.cpu.breakpoints[program.addrOfLine.get(target)!] = 1;
+			if (target === undefined) continue;
+			// Stop wherever execution enters the line: compiled code can have several such
+			// places for one line (a loop is entered at the top, and again from its end).
+			const lines = program.lineOfAddr;
+			for (let addr = 0; addr < lines.length; addr++) {
+				if (lines[addr] === target && (addr === 0 || lines[addr - 1] !== target))
+					this.cpu.breakpoints[addr] = 1;
+			}
 		}
 	}
 
@@ -102,7 +114,20 @@ class Emulator {
 
 	step(): void {
 		if (!this.canRun) return;
-		const reason = this.cpu.step();
+		const cpu = this.cpu;
+		// Compiled code has several instructions per source line: carry on until another line
+		// is reached. Code without a line (the division routine) is run through.
+		const lines = this.program?.lineStep ? this.program.lineOfAddr : null;
+		const start = lines ? (lines[cpu.pc] ?? 0) : 0;
+		let reason = cpu.step();
+		if (lines) {
+			for (let n = 1; n < MAX_LINE_STEP && reason !== 'halted'; n++) {
+				const line = lines[cpu.pc] ?? 0;
+				if (line !== 0 && line !== start) break;
+				if (cpu.breakpoints[cpu.pc]) break;
+				reason = cpu.step();
+			}
+		}
 		this.status = reason === 'halted' ? 'halted' : 'paused';
 		this.frame++;
 	}

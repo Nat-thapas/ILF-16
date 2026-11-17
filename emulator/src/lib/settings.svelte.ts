@@ -20,6 +20,8 @@ export interface Settings {
 	displayScale: number;
 	/** Shade source lines by how often they run. */
 	heatmap: boolean;
+	/** Share of the window's width the editor takes in the side-by-side layout, 0 to 1. */
+	editorWidth: number;
 }
 
 /** ILF-GFX default palette (PICO-8 mapped to RGB222), from the README. */
@@ -89,7 +91,8 @@ function defaults(): Settings {
 		keys: [...DEFAULT_KEYS],
 		speed: 'realtime',
 		displayScale: 2,
-		heatmap: false
+		heatmap: false,
+		editorWidth: 0.4
 	};
 }
 
@@ -109,6 +112,8 @@ function load(): Settings {
 		if (saved.speed === 'realtime' || saved.speed === 'unlimited') base.speed = saved.speed;
 		if (typeof saved.displayScale === 'number') base.displayScale = saved.displayScale;
 		if (typeof saved.heatmap === 'boolean') base.heatmap = saved.heatmap;
+		if (typeof saved.editorWidth === 'number' && saved.editorWidth > 0 && saved.editorWidth < 1)
+			base.editorWidth = saved.editorWidth;
 	} catch {
 		// Storage unavailable or corrupt: fall back to defaults.
 	}

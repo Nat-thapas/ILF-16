@@ -313,6 +313,17 @@
 		heat = profileLines(emulator.cpu, emulator.program);
 	});
 
+	// The bar between the editor and the rest can be dragged to resize the editor.
+	let main: HTMLDivElement;
+	let resizing = $state(false);
+	function resizeEditor(event: PointerEvent) {
+		if (!resizing) return;
+		const box = main.getBoundingClientRect();
+		// keep room for both sides
+		const width = Math.max(240, Math.min(event.clientX - box.left, box.width - 360));
+		settings.editorWidth = width / box.width;
+	}
+
 	const STATUS_TEXT = {
 		empty: 'No program',
 		ready: 'Ready',
@@ -451,7 +462,7 @@
 		{/if}
 	</div>
 
-	<div class="main">
+	<div class="main" bind:this={main} style:--editor-width="{settings.editorWidth * 100}%">
 		<div class="left">
 			{#if rawImage}
 				<div class="image-banner">
@@ -493,6 +504,24 @@
 				{/if}
 			</div>
 		</div>
+
+		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+		<div
+			class="splitter"
+			class:active={resizing}
+			role="separator"
+			aria-orientation="vertical"
+			title="Drag to resize the editor. Double-click for the usual width."
+			onpointerdown={(e) => {
+				resizing = true;
+				e.currentTarget.setPointerCapture(e.pointerId);
+				e.preventDefault();
+			}}
+			onpointermove={resizeEditor}
+			onpointerup={() => (resizing = false)}
+			onpointercancel={() => (resizing = false)}
+			ondblclick={() => (settings.editorWidth = 0.4)}
+		></div>
 
 		<div class="right">
 			<div class="top">
@@ -559,14 +588,22 @@
 		flex: 1;
 		min-height: 0;
 		display: grid;
-		grid-template-columns: minmax(320px, 2fr) minmax(0, 3fr);
+		grid-template-columns: var(--editor-width, 40%) 5px minmax(0, 1fr);
 	}
 	.left {
 		display: flex;
 		flex-direction: column;
 		min-height: 0;
 		min-width: 0;
-		border-right: 1px solid var(--border);
+	}
+	.splitter {
+		background: var(--border);
+		cursor: col-resize;
+		touch-action: none;
+	}
+	.splitter:hover,
+	.splitter.active {
+		background: var(--accent);
 	}
 	.image-banner {
 		display: flex;
@@ -619,6 +656,9 @@
 			grid-template-columns: 1fr;
 			grid-template-rows: 50vh auto;
 			overflow: auto;
+		}
+		.splitter {
+			display: none;
 		}
 		.right {
 			overflow: visible;

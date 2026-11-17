@@ -4,7 +4,7 @@
 	import { Compartment, EditorState, RangeSet, StateEffect, StateField } from '@codemirror/state';
 	import { Decoration, EditorView, GutterMarker, gutter, keymap } from '@codemirror/view';
 	import { indentWithTab } from '@codemirror/commands';
-	import { HighlightStyle, StreamLanguage, syntaxHighlighting } from '@codemirror/language';
+	import { HighlightStyle, StreamLanguage, indentUnit, syntaxHighlighting } from '@codemirror/language';
 	import { setDiagnostics, type Diagnostic as CmDiagnostic } from '@codemirror/lint';
 	import { tags } from '@lezer/highlight';
 	import { INSTRUCTIONS_BY_NAME, PSEUDO_INSTRUCTIONS } from '#lib/core/isa.ts';
@@ -207,6 +207,7 @@
 	// --- syntax highlighting ---------------------------------------------------------------
 	const asmLanguage = StreamLanguage.define<{ first: boolean }>({
 		startState: () => ({ first: true }),
+		languageData: { commentTokens: { line: ';' } },
 		token(stream, state) {
 			if (stream.sol()) state.first = true;
 			if (stream.eatSpace()) return null;
@@ -237,8 +238,19 @@
 		)
 	);
 	const C_TYPES = new Set(['void', 'char', 'short', 'int', 'unsigned', 'signed']);
-	const cLanguage = StreamLanguage.define<{ comment: boolean }>({
-		startState: () => ({ comment: false }),
+	const cLanguage = StreamLanguage.define<{ comment: boolean; depth: number }>({
+		// `depth` counts the brackets that are open, which is how far a new line is indented
+		startState: () => ({ comment: false, depth: 0 }),
+		languageData: {
+			commentTokens: { line: '//', block: { open: '/*', close: '*/' } },
+			// typing a closing bracket at the start of a line moves it back out
+			indentOnInput: /^\s*[})\]]$/
+		},
+		indent(state, textAfter, context) {
+			if (state.comment) return null;
+			const closing = /^\s*[})\]]/.test(textAfter) ? 1 : 0;
+			return Math.max(0, state.depth - closing) * context.unit;
+		},
 		token(stream, state) {
 			if (state.comment) {
 				if (stream.skipTo('*/')) {
@@ -266,7 +278,9 @@
 				if (word in BUILTINS) return 'atom';
 				return null;
 			}
-			stream.next();
+			const ch = stream.next();
+			if (ch === '{' || ch === '(' || ch === '[') state.depth++;
+			else if (ch === '}' || ch === ')' || ch === ']') state.depth = Math.max(0, state.depth - 1);
 			return null;
 		}
 	});
@@ -331,6 +345,7 @@
 					readOnlyCompartment.of(readOnlyExtension(false)),
 					keymap.of([indentWithTab]),
 					EditorState.tabSize.of(4),
+					indentUnit.of('    '),
 					languageCompartment.of(languageExtension(language)),
 					syntaxHighlighting(highlight),
 					heatField,
